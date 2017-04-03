@@ -21,7 +21,7 @@ tags:
 1、首先下载有个描述文件：[Github地址] [2]
 下载不下来的，再提供一个[网盘地址] [3] 密码：dvfx
 
-2、打开 chrome的 扩展程序 界面，复制 扩展的 ID。
+2、打开 chrome的 <font color="red">扩展程序 </font>界面，复制扩展的ID。
 ![mac3](study-mac/mac3.png)
 
 3、用文本编辑器打开下载好的com.google.Chrome.mobileconfig找到如图所示位置：
