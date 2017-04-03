@@ -1,12 +1,11 @@
 ---
-title: mac折腾手记（二）
+title: mac折腾手记（二）--- 将非官方扩展程序加入chrome的白名单
 date: 2017-04-01 23:20:00
 categories: mac笔记
 tags:
     - 桂林电子科技大学
     - mstar
 ---
-## 将非官方扩展程序加入chrome的白名单 ##
 
 > 在chrome中正常使用并非来自 Chrome 网上应用店的扩展,会出现下面的情况：
 
