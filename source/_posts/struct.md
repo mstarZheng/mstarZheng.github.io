@@ -318,7 +318,7 @@ struct {
 * 结构体变量名.成员名
 * (*指针变量名).成员名
 * 指针变量名->成员名
-*
+
 ```C
 #include <stdio.h>
 
@@ -352,7 +352,7 @@ struct {
 
      return 0;
  }
-
+```
 输出结果： ![struct2](struct/struct2.png)
 
 
