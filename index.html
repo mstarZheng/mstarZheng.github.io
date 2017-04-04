@@ -257,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/03/baiduyun/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/04/OC-class/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mstar">
@@ -279,8 +279,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/03/baiduyun/" itemprop="url">
-                  mac折腾手记（三）--- 百度云盘限制破解
+                <a class="post-title-link" href="/2017/04/04/OC-class/" itemprop="url">
+                  OC的类
                 </a>
               
             
@@ -296,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-03T19:47:29+08:00">
-                2017-04-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-04T09:52:21+08:00">
+                2017-04-04
               </time>
             
 
@@ -319,8 +319,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mac笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">mac笔记</span>
+                  <a href="/categories/Objective-C学习整理/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C学习整理</span>
                   </a>
                 </span>
 
@@ -356,35 +356,104 @@
       
         
           
-            <h2 id="Mac-百度云加速下载，突破限速，大文件无压力（小白使用无压力）"><a href="#Mac-百度云加速下载，突破限速，大文件无压力（小白使用无压力）" class="headerlink" title="Mac 百度云加速下载，突破限速，大文件无压力（小白使用无压力）"></a>Mac 百度云加速下载，突破限速，大文件无压力（小白使用无压力）</h2><p><hr><br>相信使用mac的同学们在使用百度云下载本站软件时肯定碰到过很多问题吧，尤其是大文件。最主要的是Mac端的同步盘太难用了，而且好像已经被官方抛弃了一样，很久都没有更新了。直接浏览器下载吧～限速不说，碰到大文件了还会断开，真是让人又气有无奈。</p>
-<p>话不多说，有了这个新方法，虽然可以完全抛弃windows版的百度云了，但是要是照顾一下Windows用户的。这里分享一个windows上的百度云管家<a href="https://pan.baidu.com/s/1hsl4fMO" target="_blank" rel="external"> <font color="red">提速破解版</font> </a> 密码: 2nru。</p>
-<p>接下来直奔Mac的主题。傻瓜安装法（更适合小白同学）</p>
-<blockquote>
-<p>1、先下载<a href="https://github.com/yangshun1029/aria2gui/releases" target="_blank" rel="external">Aria2GUI dmg</a>，解压并安装。</p>
-</blockquote>
+            <p><hr></p>
+<h2 id="一、语法简介"><a href="#一、语法简介" class="headerlink" title="一、语法简介"></a>一、语法简介</h2><h3 id="1-类"><a href="#1-类" class="headerlink" title="1.类"></a>1.类</h3><p>在OC中，一般用2个文件来描述一个类：</p>
 <ul>
-<li><font color="red">下载好后安装：每次下载东西的时候都需要打开这个Aria2GUI客户端</font>
+<li><font color="red">.h</font>：类的<font color="red">声明</font>文件，用于声明成员变量、方法。类的声明使用关键字<font color="red">@interface和@end。</font>
 
 </li>
 </ul>
+<p>注意：.h中的方法只是做一个声明，并不对方法进行实现。也就是说，只是说明一下方法名、方法的返回值类型、方法接收的参数类型而已，并不会编写方法内部的代码。</p>
+<ul>
+<li><font color="red">.m</font>：类的<font color="red">实现</font>文件，用于实现.h中声明的方法。类的实现使用关键字<font color="red">@implementation和@end</font>。</li>
+</ul>
+<h3 id="2-方法"><a href="#2-方法" class="headerlink" title="2.方法"></a>2.方法</h3><p>1&gt; 方法的声明和实现，都必须以 <font color="red">+ 或者 <font color="red">- 开头</font></font></p>
+<ul>
+<li><font color="red"> <strong> + </strong></font>表示<font color="red">类</font>方法(<font color="red">静态</font>方法)</li>
+<li><font color="red"><strong> - </strong></font>表示<font color="red">对象</font>方法(<font color="red">动态</font>方法)</li>
+</ul>
+<p>2&gt; 在.h中声明的所有方法作用域都是public类型，不能更改</p>
+<h3 id="3-成员变量"><a href="#3-成员变量" class="headerlink" title="3.成员变量"></a>3.成员变量</h3><p>成员变量的常用作用域有3种：</p>
+<ul>
+<li>@<font color="red">public</font> 全局都可以访问</li>
+<li>@<font color="red">protected</font> 只能在类内部和子类中访问</li>
+<li>@<font color="red">private</font> 只能在类内部访问</li>
+</ul>
+<p><hr></p>
+<h2 id="二、创建对象"><a href="#二、创建对象" class="headerlink" title="二、创建对象"></a>二、创建对象</h2><p>由于OC程序的入口点是main函数，所以在main.m文件中演示Student类的使用。<br>先上完整代码</p>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"Student.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</div><div class="line">&#123;</div><div class="line">   <span class="keyword">@autoreleasepool</span> &#123;</div><div class="line">        Student *stu = [[Student alloc] init];</div><div class="line"></div><div class="line">         [stu release];</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="1-包含Student-h"><a href="#1-包含Student-h" class="headerlink" title="1.包含Student.h"></a>1.包含Student.h</h3><p>因为要用到Student这个类，所以在第2行包含了它的头文件</p>
 <blockquote>
-<p>2、<a href="https://github.com/acgotaku/BaiduExporter/releases" target="_blank" rel="external">网盘助手</a></p>
+<p>#import “Student.h”</p>
+</blockquote>
+<h3 id="2-创建对象"><a href="#2-创建对象" class="headerlink" title="2.创建对象"></a>2.创建对象</h3><p>1&gt; 在Java中是使用关键字new来创建对象，比如new Student()，其实这句代码做了2件事：</p>
+<ul>
+<li>给对象分配存储空间</li>
+<li>调用Student的构造方法进行初始化</li>
+</ul>
+<p>2&gt; 在OC中创建对象也需要按顺序做上面所述的2件事</p>
+<p>1)调用Student类的静态方法alloc分配存储空间</p>
+<blockquote>
+<p>Student *stu = [Student <font color="blue">alloc<font>];</font></font></p>
 </blockquote>
 <ul>
-<li><font color="red">插件目前只有chrome版本在一直维护，所以，只适用于chrome浏览器，按照以下方法，安装完了以后，在百度云的下载界面会多出来一个 “导出下载”的按钮，点击这个里面的”ARIA2 RPC”，下载任务会自动在Aria2GUI客户端中开始</font>
+<li>OC是方法调用是用中括号[ ]，方法调用者写在括号左侧，方法名写在括号右侧，中间留点空格。因此上面是调用了Student类的静态方法alloc。</li>
+<li>上面调用的alloc方法会返回分配好内存的Student对象，在等号左边用了一个指向Student类型的<font color="blue">指针变量</font>stu来接收这个对象，注意stu左边的<font color="red"><em></em></font>号。所有OC对象都是用指针变量来接收的，如果你不了解指针，你记住下面这点就行了：利用类名定义一个变量时，类名后面一定要带个<font color="red"></font>号。</li>
+<li>alloc方法是这样声明的：</li>
+</ul>
+<blockquote>
+<p>+(<font color="blue">id<font>)alloc;</font></font></p>
+</blockquote>
+<p>可以看到，它的返回值类型是id，这个id代表任何指针类型，你可以暂时理解为：id可以代表<font color="red">任何OC对象</font>，类似于NSObject *。</p>
+<p>2)调用Student对象的构造方法init进行初始化</p>
+<p>前面调用alloc方法返回的Student对象stu是不能正常使用的，因为仅仅是分配了内存，并没有进行初始化，接下来调用对象的init方法进行初始化</p>
+<blockquote>
+<p>stu = [stu <font color="blue">init<font>];</font></font></p>
+</blockquote>
+<p>看清楚了，由于init是动态方法，所以这里使用stu变量来调用，并不是使用类名来调用。init会返回已经初始化完毕的对象，再次赋值给了stu变量。这时候的Student对象stu才能正常使用。</p>
+<p>3)其实，我们最常见的做法是将alloc和init连起来使用：</p>
+<blockquote>
+<p>Student *stu = [[Student <font color="blue">alloc] init<font>];</font></font></p>
+</blockquote>
+<p>相信有面向对象开发经验的你一眼就能看懂了，在main.m完整代码的第7行。</p>
+<p><hr></p>
+<h2 id="三、代码解析"><a href="#三、代码解析" class="headerlink" title="三、代码解析"></a>三、代码解析</h2><h3 id="1、如何编写类的声明"><a href="#1、如何编写类的声明" class="headerlink" title="1、如何编写类的声明"></a>1、如何编写类的声明</h3><p><img src="/2017/04/04/OC-class/oc_class1.png" alt="oc_class1"></p>
+<ul>
+<li><p>以<font color="red">@interface </font>开头，以<font color="red">@end</font>结尾，然后再用<font color="red">class name</font>对应的地方写上事物名称，也就是类名即可<br><font color="red">注意</font>：类名的首字符必须大写<br>声明一个类的目的就是为了告诉系统，我们这个类中有哪些属性和行为</p>
+</li>
+<li><p>OC类声明中属性只能写在<font color="red">@interface</font> 和<font color="red">@end</font>之间的<font color="red">{}</font>中,</p>
+<font color="red">注意</font>：编写oc类属性的时候，建议将所有属性的名称前面加上<font color="red"><strong> _ </strong></font>
 
 </li>
 </ul>
-<p>目前百度云插件已停止打包，使用最新版本方法如下：</p>
-<p>下载<a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="external">百度云插件源代码</a> 并解压，如图</p>
-<p><img src="/2017/04/03/baiduyun/baidu1.png" alt="baidu1"></p>
-<p>直接将下载好的文件夹中的<font color="red"> chrome.crx </font>文件拖动到浏览器的 <font color="red">扩展程序</font>界面进行安装。</p>
-<p><font color="red">安装完毕后请参考</font>：</p>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Iphone</span> :<span class="title">NSObject</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//注意：默认情况下，OC对象中属性是不能直接访问的</span></div><div class="line">    <span class="keyword">@public</span></div><div class="line">    <span class="comment">//只要让类中的属性公开，以后就可以直接通过一个指向结构体的指针来操作对象中的属性</span></div><div class="line"></div><div class="line">    <span class="keyword">float</span> _model;</div><div class="line">    <span class="keyword">int</span> _cpu;</div><div class="line">    <span class="keyword">double</span> _size;</div><div class="line">    <span class="keyword">int</span> _color;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
 <ul>
-<li><a href="https://mstarzheng.github.io/2017/04/02/study-mac/" target="_blank" rel="external">mac折腾手记（二）— 将非官方扩展程序加入chrome的白名单</a> <font color="red">解决扩展程序失效停用的问题</font><br><br><br>以上步骤都顺利完成，会在你的网页版的百度云盘中多出一个<font color="red">导出下载</font>，如图所示：</li>
+<li><p>第7~10默认作用域是<font color="red">@protected</font>，即可以在IPhone类内部和子类中访问</p>
+</li>
+<li><p>类的成员变量必须写在大括号{ }里面</p>
+<h3 id="2、如何编写类的实现"><a href="#2、如何编写类的实现" class="headerlink" title="2、如何编写类的实现"></a>2、如何编写类的实现</h3><p>以<font color="red">@implementation</font>开头，以<font color="red">@end</font>结尾，然后在class对应的地方写上声明时声明的类的名称，必须和声明的类名一模一样</p>
+</li>
 </ul>
-<p><img src="/2017/04/03/baiduyun/baidu2.png" alt="baidu2"></p>
-<p>接下就开始尽情的使用你的装X神器吧！！！</p>
+<p><img src="/2017/04/04/OC-class/oc_class2.png" alt="oc_class2"></p>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Iphone</span></span></div><div class="line"><span class="comment">//类的实现,类名必须跟声明时的类名一样</span></div><div class="line">- (<span class="keyword">int</span>)_cpu &#123;</div><div class="line">   <span class="comment">// 直接返回成员变量_cpu</span></div><div class="line">     <span class="keyword">return</span> _cpu;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<h3 id="3、如何通过一个类来创建对象"><a href="#3、如何通过一个类来创建对象" class="headerlink" title="3、如何通过一个类来创建对象"></a>3、如何通过一个类来创建对象</h3><p>在oc中想要通过一个类来创建一个对象必须给类发送有个消息（好比c语言中调用方法一样）。而OC中是如何发送消息？</p>
+<ul>
+<li>在oc中只要想要发送消息就先写上 <font color="red">[类名称/对象名称 方法名称]</font>；</li>
+<li>发送什么消息（调用什么方法）可以创建一个对象 <font color="red">new</font></li>
+</ul>
+<p>只要通过有个类调用类的<font color="red">new</font>方法，也就是给类发送一个叫做<font color="red">new</font>的消息后，系统内部就会做3件事情：</p>
+<ul>
+<li>为IPhone类创建出来的对象分配存储空间</li>
+<li>初始化IPhone类创建出来的对象中的属性</li>
+<li>返回IPhone类创建出来的对象对应的地址</li>
+</ul>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Iphone *p =  [Iphone new];</div><div class="line">p-&gt;_color = <span class="number">0</span>;</div><div class="line">p-&gt;_cpu = <span class="number">64</span>;</div><div class="line"><span class="keyword">return</span> <span class="number">0</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li>通过一个IPhone类型的<font color="red">指针</font>接收了IPhone对象的<font color="red">地址</font></li>
+<li>如果使用给一个指针保存了某一个对象的地址，那么我们就称这个指针位之为某个类型的对应的对象</li>
+<li>利用IPhone类型的指针保存了IPhone对象的地址，那么我们就称IPhone类型的指针p之为IPhone的对象</li>
+</ul>
+<font color="red"><strong> OC中的类其实本质就是一个结构体，所以p这个指针其实指向了一个结构体 </strong></font>
 
           
         
@@ -428,7 +497,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/02/study-mac/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/04/struct/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mstar">
@@ -450,8 +519,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/02/study-mac/" itemprop="url">
-                  mac折腾手记（二）
+                <a class="post-title-link" href="/2017/04/04/struct/" itemprop="url">
+                  结构体
                 </a>
               
             
@@ -467,8 +536,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-02T23:20:00+08:00">
-                2017-04-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-04T09:12:48+08:00">
+                2017-04-04
               </time>
             
 
@@ -490,8 +559,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mac笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">mac笔记</span>
+                  <a href="/categories/Objective-C学习整理/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C学习整理</span>
                   </a>
                 </span>
 
@@ -527,24 +596,83 @@
       
         
           
-            <h2 id="将非官方扩展程序加入chrome的白名单"><a href="#将非官方扩展程序加入chrome的白名单" class="headerlink" title="将非官方扩展程序加入chrome的白名单"></a>将非官方扩展程序加入chrome的白名单</h2><hr>
-
-<blockquote>
-<p>在chrome中正常使用并非来自 Chrome 网上应用店的扩展,会出现下面的情况：</p>
+            <p><center>本文源出于—<a href="http://www.cnblogs.com/mjios/archive/2013/03/24/2977910.html" target="_blank" rel="external"><strong>小码哥</strong></a></center></p>
+<p><hr></p>
+<h2 id="一、什么是结构体"><a href="#一、什么是结构体" class="headerlink" title="一、什么是结构体"></a>一、什么是结构体</h2><ul>
+<li>当一个整体由多个数据构成时，我们可以用数组来表示这个整体，但是数组有个特点：内部的每一个元素都必须是相同类型的数据。</li>
+<li>在实际应用中，我们通常需要由不同类型的数据来构成一个整体，比如学生这个整体可以由姓名、年龄、身高等数据构成，这些数据都具有不同的类型，姓名可以是字符串类型，年龄可以是整型，身高可以是浮点型。</li>
+<li>为此，C语言专门提供了一种构造类型来解决上述问题，这就是结构体，它允许内部的元素是不同类型的。</li>
+</ul>
+<h2 id="二、结构体的定义"><a href="#二、结构体的定义" class="headerlink" title="二、结构体的定义"></a>二、结构体的定义</h2><h3 id="1-定义形式"><a href="#1-定义形式" class="headerlink" title="1.定义形式"></a>1.定义形式</h3><p> 结构体内部的元素，也就是组成成分，我们一般称为”成员”。</p>
+<p>结构体的一般定义形式为：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span>　结构体名&#123;</div><div class="line"></div><div class="line">    类型名<span class="number">1</span>　成员名<span class="number">1</span>;</div><div class="line"></div><div class="line">    类型名<span class="number">2</span>　成员名<span class="number">2</span>;</div><div class="line"></div><div class="line">    ……</div><div class="line"></div><div class="line">    类型名n　成员名n;　　　</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p><font color="blue">struct</font>是关键字，是结构体类型的标志。</p>
+<h3 id="2-举例"><a href="#2-举例" class="headerlink" title="2.举例"></a>2.举例</h3><p>比如，我们定义一个学生<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> Student &#123;</div><div class="line">    <span class="keyword">char</span> *name; <span class="comment">// 姓名</span></div><div class="line">    <span class="keyword">int</span> age; <span class="comment">// 年龄</span></div><div class="line">    <span class="keyword">float</span> height; <span class="comment">// 身高</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>上面定义了一个叫做Student的结构体，共有name、age、height3个成员。呵呵，看到这里是否有点面向对象的味道呢，其实这跟面向对象完全是两码事，只能说感觉有点像。</p>
+<h2 id="三、结构体变量的定义"><a href="#三、结构体变量的定义" class="headerlink" title="三、结构体变量的定义"></a>三、结构体变量的定义</h2><p>前面只是定义了名字为Student的结构体类型，并非定义了一个结构体变量，就像int一样，只是一种类型。</p>
+<p>接下来定义一个结构体变量，方式有好多种。</p>
+<h3 id="1-先定义结构体类型，再定义变量"><a href="#1-先定义结构体类型，再定义变量" class="headerlink" title="1.先定义结构体类型，再定义变量"></a>1.先定义结构体类型，再定义变量</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">struct</span> Student &#123;</div><div class="line">    <span class="keyword">char</span> *name;</div><div class="line">    <span class="keyword">int</span> age;</div><div class="line"> &#125;;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Student stu;</div></pre></td></tr></table></figure>
+<p>第6行定义了一个结构体变量，变量名为stu。struct和Student是连着使用的。</p>
+<h3 id="2-定义结构体类型的同时定义变量"><a href="#2-定义结构体类型的同时定义变量" class="headerlink" title="2.定义结构体类型的同时定义变量"></a>2.定义结构体类型的同时定义变量</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> Student &#123;</div><div class="line">    <span class="keyword">char</span> *name;</div><div class="line">    <span class="keyword">int</span> age;</div><div class="line">&#125; stu;</div></pre></td></tr></table></figure>
+<p>结构体变量名为stu</p>
+<h3 id="3-直接定义结构体类型变量，省略类型名"><a href="#3-直接定义结构体类型变量，省略类型名" class="headerlink" title="3.直接定义结构体类型变量，省略类型名"></a>3.直接定义结构体类型变量，省略类型名</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> &#123;</div><div class="line">    <span class="keyword">char</span> *name;</div><div class="line">    <span class="keyword">int</span> age;</div><div class="line">&#125; stu;</div></pre></td></tr></table></figure>
+<p>结构体变量名为stu</p>
+<h2 id="四、结构体的注意点"><a href="#四、结构体的注意点" class="headerlink" title="四、结构体的注意点"></a>四、结构体的注意点</h2><h3 id="1-不允许对结构体本身递归定义"><a href="#1-不允许对结构体本身递归定义" class="headerlink" title="1.不允许对结构体本身递归定义"></a>1.不允许对结构体本身递归定义</h3><p>如下做法是<font color="red">错误</font>的，注意第3行<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> Student &#123;</div><div class="line">    <span class="keyword">int</span> age;</div><div class="line">    <span class="keyword">struct</span> Student stu;</div><div class="line"> &#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="2-结构体内可以包含别的结构体"><a href="#2-结构体内可以包含别的结构体" class="headerlink" title="2.结构体内可以包含别的结构体"></a>2.结构体内可以包含别的结构体</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> Date &#123;</div><div class="line">      <span class="keyword">int</span> year;</div><div class="line">      <span class="keyword">int</span> month;</div><div class="line">      <span class="keyword">int</span> day;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Student &#123;</div><div class="line">     <span class="keyword">char</span> *name;</div><div class="line">     <span class="keyword">struct</span> Date birthday;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>注意第9行</p>
+<h3 id="3-定义结构体类型，只是说明了该类型的组成情况，并没有给它分配存储空间，就像系统不为int类型本身分配空间一样。只有当定义属于结构体类型的变量时，系统才会分配存储空间给该变量"><a href="#3-定义结构体类型，只是说明了该类型的组成情况，并没有给它分配存储空间，就像系统不为int类型本身分配空间一样。只有当定义属于结构体类型的变量时，系统才会分配存储空间给该变量" class="headerlink" title=" 3.定义结构体类型，只是说明了该类型的组成情况，并没有给它分配存储空间，就像系统不为int类型本身分配空间一样。只有当定义属于结构体类型的变量时，系统才会分配存储空间给该变量 "></a><strong> 3.定义结构体类型，只是说明了该类型的组成情况，并没有给它分配存储空间，就像系统不为int类型本身分配空间一样。只有当定义属于结构体类型的变量时，系统才会分配存储空间给该变量 </strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> Student &#123;</div><div class="line">    <span class="keyword">char</span> *name;</div><div class="line">    <span class="keyword">int</span> age;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Student stu;</div></pre></td></tr></table></figure>
+<p>第1~4行并没有分配存储空间，当执行到第6行时，系统才会分配存储空间给stu变量。</p>
+<h3 id="4-结构体变量占用的内存空间是其成员所占内存之和，而且各成员在内存中按定义的顺序依次排列"><a href="#4-结构体变量占用的内存空间是其成员所占内存之和，而且各成员在内存中按定义的顺序依次排列" class="headerlink" title=" 4.结构体变量占用的内存空间是其成员所占内存之和，而且各成员在内存中按定义的顺序依次排列 "></a><strong> 4.结构体变量占用的内存空间是其成员所占内存之和，而且各成员在内存中按定义的顺序依次排列 </strong></h3><p>比如下面的Student结构体：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> Student &#123;</div><div class="line">    <span class="keyword">char</span> *name; <span class="comment">// 姓名</span></div><div class="line">    <span class="keyword">int</span> age; <span class="comment">// 年龄</span></div><div class="line">    <span class="keyword">float</span> height; <span class="comment">// 身高</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>在16位编译器环境下，一个Student变量共占用内存：2 + 2 + 4 = 8字节。</p>
+<h2 id="五、结构体的初始化"><a href="#五、结构体的初始化" class="headerlink" title="五、结构体的初始化"></a>五、结构体的初始化</h2><p>将各成员的初值，按顺序地放在一对大括号{}中，并用逗号分隔，一一对应赋值。</p>
+<p>比如初始化Student结构体变量stu</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">struct</span> Student &#123;</div><div class="line">    <span class="keyword">char</span> *name;</div><div class="line">    <span class="keyword">int</span> age;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Student stu = &#123;<span class="string">"MJ"</span>, <span class="number">27</span>&#125;;</div></pre></td></tr></table></figure>
+<p>只能在定义变量的同时进行初始化赋值，初始化赋值和变量的定义不能分开，下面的做法是<font color="red">错误</font>的：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> Student stu;</div><div class="line">stu = &#123;<span class="string">"MJ"</span>, <span class="number">27</span>&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="六、结构体的使用"><a href="#六、结构体的使用" class="headerlink" title="六、结构体的使用"></a>六、结构体的使用</h2><h3 id="1-一般对结构体变量的操作是以成员为单位进行的，引用的一般形式为：结构体变量名-成员名"><a href="#1-一般对结构体变量的操作是以成员为单位进行的，引用的一般形式为：结构体变量名-成员名" class="headerlink" title=" 1.一般对结构体变量的操作是以成员为单位进行的，引用的一般形式为：结构体变量名.成员名 "></a><strong> 1.一般对结构体变量的操作是以成员为单位进行的，引用的一般形式为：结构体变量名.成员名 </strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> Student &#123;</div><div class="line">    <span class="keyword">char</span> *name;</div><div class="line">    <span class="keyword">int</span> age;</div><div class="line"> &#125;;</div><div class="line"></div><div class="line"> <span class="keyword">struct</span> Student stu;</div><div class="line"></div><div class="line"><span class="comment">// 访问stu的age成员</span></div><div class="line">stu.age = <span class="number">27</span>;</div></pre></td></tr></table></figure>
+<p>第9行对结构体的age成员进行了赋值。”.”称为成员运算符，它在所有运算符中优先级最高</p>
+<h3 id="2-如果某个成员也是结构体变量，可以连续使用成员运算符”-”访问最低一级成员"><a href="#2-如果某个成员也是结构体变量，可以连续使用成员运算符”-”访问最低一级成员" class="headerlink" title=" 2.如果某个成员也是结构体变量，可以连续使用成员运算符”.”访问最低一级成员 "></a><strong> 2.如果某个成员也是结构体变量，可以连续使用成员运算符”.”访问最低一级成员 </strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> Date &#123;</div><div class="line">        <span class="keyword">int</span> year;</div><div class="line">        <span class="keyword">int</span> month;</div><div class="line">        <span class="keyword">int</span> day;</div><div class="line"> &#125;;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Student &#123;</div><div class="line">        <span class="keyword">char</span> *name;</div><div class="line">        <span class="keyword">struct</span> Date birthday;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Student stu;</div><div class="line"></div><div class="line">stu.birthday.year = <span class="number">1986</span>;</div><div class="line">stu.birthday.month = <span class="number">9</span>;</div><div class="line">stu.birthday.day = <span class="number">10</span>;</div></pre></td></tr></table></figure>
+<p>注意第14行以后的代码</p>
+<h3 id="3-相同类型的结构体变量之间可以进行整体赋值"><a href="#3-相同类型的结构体变量之间可以进行整体赋值" class="headerlink" title=" 3.相同类型的结构体变量之间可以进行整体赋值 "></a><strong> 3.相同类型的结构体变量之间可以进行整体赋值 </strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> Student &#123;</div><div class="line">     <span class="keyword">char</span> *name;</div><div class="line">     <span class="keyword">int</span> age;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"> <span class="keyword">struct</span> Student stu1 = &#123;<span class="string">"MJ"</span>, <span class="number">27</span>&#125;;</div><div class="line"></div><div class="line"> <span class="comment">// 将stu1直接赋值给stu2</span></div><div class="line"> <span class="keyword">struct</span> Student stu2 = stu1;</div><div class="line"></div><div class="line"> <span class="built_in">printf</span>(<span class="string">"age is %d"</span>, stu2.age);</div></pre></td></tr></table></figure>
+<p>注意第9行。输出结果为：#### age is 27 ####</p>
+<h2 id="七、结构体数组"><a href="#七、结构体数组" class="headerlink" title="七、结构体数组"></a>七、结构体数组</h2><h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h3><p>跟结构体变量一样，结构体数组也有3种定义方式<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> Student &#123;</div><div class="line">    <span class="keyword">char</span> *name;</div><div class="line">    <span class="keyword">int</span> age;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">struct</span> Student stu[<span class="number">5</span>]; <span class="comment">//定义1</span></div><div class="line">```C</div><div class="line"></div><div class="line">```C</div><div class="line"><span class="keyword">struct</span> Student &#123;</div><div class="line">    <span class="keyword">char</span> *name;</div><div class="line">    <span class="keyword">int</span> age;</div><div class="line">&#125; stu[<span class="number">5</span>]; <span class="comment">//定义2</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">struct &#123;</div><div class="line">    char *name;</div><div class="line">    int age;</div><div class="line">&#125; stu[5]; //定义3</div></pre></td></tr></table></figure>
+<p>上面3种方式，都是定义了一个变量名为stu的结构体数组，数组元素个数是5</p>
+<h3 id="2-初始化"><a href="#2-初始化" class="headerlink" title="2.初始化"></a>2.初始化</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> &#123;</div><div class="line">    <span class="keyword">char</span> *name;</div><div class="line">    <span class="keyword">int</span> age;</div><div class="line">&#125; stu[<span class="number">2</span>] = &#123; &#123;<span class="string">"MJ"</span>, <span class="number">27</span>&#125;, &#123;<span class="string">"JJ"</span>, <span class="number">30</span>&#125; &#125;;</div></pre></td></tr></table></figure>
+<p>也可以用数组下标访问每一个结构体元素，跟普通数组的用法是一样的</p>
+<h2 id="八、结构体作为函数参数"><a href="#八、结构体作为函数参数" class="headerlink" title="八、结构体作为函数参数"></a>八、结构体作为函数参数</h2><p>将结构体变量作为函数参数进行传递时，其实传递的是全部成员的值，也就是将实参中成员的值一一赋值给对应的形参成员。因此，形参的改变不会影响到实参。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"> <span class="comment">// 定义一个结构体</span></div><div class="line"> <span class="keyword">struct</span> Student &#123;</div><div class="line">    <span class="keyword">int</span> age;</div><div class="line"> &#125;;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">struct</span> Student stu)</span> </span>&#123;</div><div class="line">     <span class="built_in">printf</span>(<span class="string">"修改前的形参：%d \n"</span>, stu.age);</div><div class="line">     <span class="comment">// 修改实参中的age</span></div><div class="line">     stu.age = <span class="number">10</span>;</div><div class="line"></div><div class="line">     <span class="built_in">printf</span>(<span class="string">"修改后的形参：%d \n"</span>, stu.age);</div><div class="line">&#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</div><div class="line"></div><div class="line">     <span class="keyword">struct</span> Student stu = &#123;<span class="number">30</span>&#125;;</div><div class="line">     <span class="built_in">printf</span>(<span class="string">"修改前的实参：%d \n"</span>, stu.age);</div><div class="line"></div><div class="line">    <span class="comment">// 调用test函数</span></div><div class="line">     test(stu);</div><div class="line"></div><div class="line"></div><div class="line">     <span class="built_in">printf</span>(<span class="string">"修改后的实参：%d \n"</span>, stu.age);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>首先在第4行定义了一个结构体类型Student</p>
+</li>
+<li><p>在第18行定义了一个结构体变量stu，并在第22行将其作为实参传入到test函数</p>
+</li>
+</ul>
+<p>输出结果为：<img src="/2017/04/04/struct/struct1.png" alt="struct1"><br>形参是改变了，但是实参一直没有变过</p>
+<h2 id="九、指向结构体的指针"><a href="#九、指向结构体的指针" class="headerlink" title="九、指向结构体的指针"></a>九、指向结构体的指针</h2><blockquote>
+<p>每个结构体变量都有自己的存储空间和地址，因此指针也可以指向结构体变量</p>
+<p>结构体指针变量的定义形式：struct 结构体名称 *指针变量名</p>
+<p>有了指向结构体的指针，那么就有3种访问结构体成员的方式</p>
 </blockquote>
-<p><img src="/2017/04/02/study-mac/mac2.png" alt="mac2"></p>
-<p>小编在网上也找到了一些 <a href="https://hencolle.com/2016/10/16/baidu_exporter/" target="_blank" rel="external">英文文档</a>来解决这类问题。</p>
-<blockquote>
-<font color="red">注意：该方法只适用于 通过 crx 文件安装的扩展（将crx文件拖入chrome扩展程序界面）</font>
-
-</blockquote>
-<p>而还有一些类似小编一样英文不好的同学，该怎么办呢？没事你们的福利来了，跟着我一步步来走吧。。。</p>
-<p>1、首先下载有个描述文件：<a href="https://gist.github.com/Explorare/be3dd598289252698cd37bca04abd0fe#file-com-google-chrome-mobileconfig" target="_blank" rel="external">Github地址</a><br>下载不下来的，再提供一个<a href="https://pan.baidu.com/s/1eRPT11g" target="_blank" rel="external">网盘地址</a> 密码：dvfx</p>
-<p>2、打开 chrome的 <font color="red">扩展程序 </font>界面，复制扩展的ID。<br><img src="/2017/04/02/study-mac/mac3.png" alt="mac3"></p>
-<p>3、用文本编辑器打开下载好的com.google.Chrome.mobileconfig找到如图所示位置：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">plist</span> <span class="attr">version</span>=<span class="string">"1.0"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadContent<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">array</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadContent<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">key</span>&gt;</span>com.google.Chrome<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">key</span>&gt;</span>Forced<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">array</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">                            <span class="tag">&lt;<span class="name">key</span>&gt;</span>mcx_preference_settings<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">                            <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">                                <span class="tag">&lt;<span class="name">key</span>&gt;</span>ExtensionInstallWhitelist<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">                                <span class="tag">&lt;<span class="name">array</span>&gt;</span></div><div class="line">                                    <span class="tag">&lt;<span class="name">string</span>&gt;</span>value01<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">                                    <span class="tag">&lt;<span class="name">string</span>&gt;</span>value02<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">                                    <span class="tag">&lt;<span class="name">string</span>&gt;</span>value03<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">                                <span class="tag">&lt;/<span class="name">array</span>&gt;</span></div><div class="line">                            <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;/<span class="name">array</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadEnabled<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">true</span>/&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadIdentifier<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>MCXToProfile.7e2bec75-299e-44ff-b405-628007abffff.alacarte.customsettings.bdac4880-d25f-4cdd-8472-05473f005e7e<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadType<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>com.apple.ManagedClient.preferences<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadUUID<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>bdac4880-d25f-4cdd-8472-05473f005e7e<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadVersion<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">integer</span>&gt;</span>1<span class="tag">&lt;/<span class="name">integer</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">array</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadDescription<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>Included custom settings:</div><div class="line">com.google.Chrome</div><div class="line"><span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadDisplayName<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>MCXToProfile: com.google.Chrome<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadIdentifier<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>com.google.Chrome<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadOrganization<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span><span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadRemovalDisallowed<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">true</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadScope<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>System<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadType<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>Configuration<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadUUID<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>7e2bec75-299e-44ff-b405-628007abffff<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadVersion<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">integer</span>&gt;</span>1<span class="tag">&lt;/<span class="name">integer</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">plist</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>这里的 19-21行 <string></string> 中分别对应单个扩展的ID，如果只需要一个的话，可以吧多余的两个删掉，将其中的一个标签中的值替换为第二步复制过来的 ID。编辑完后保存。如图：</p>
-<p><img src="/2017/04/02/study-mac/mac1.png" alt="mac1"></p>
-<p>4、双击打开第三步编辑好的描述文件，按照弹出的提示点击 继续-安装（输入电脑密码），安装结束后重启浏览器，就可以勾选这个扩展了，并且以后重启浏览器也不会有停用的提示了！</p>
+<ul>
+<li>结构体变量名.成员名</li>
+<li>(*指针变量名).成员名</li>
+<li><p>指针变量名-&gt;成员名<br>*<br>```C<br>#include <stdio.h></stdio.h></p>
+<p>int main(int argc, const char * argv[]) {<br>   // 定义一个结构体类型<br>   struct Student {</p>
+<pre><code>char *name;
+int age;
+</code></pre><p>   };</p>
+<p>   // 定义一个结构体变量<br>   struct Student stu = {“MJ”, 27};</p>
+<p>   // 定义一个指向结构体的指针变量<br>   struct Student *p;</p>
+<p>   // 指向结构体变量stu<br>   p = &stu;</p>
+<p>   /*</p>
+<pre><code>这时候可以用3种方式访问结构体的成员
+</code></pre><p>   */<br>  // 方式1：结构体变量名.成员名<br>   printf(“name=%s, age = %d \n”, stu.name, stu.age);</p>
+<p>   // 方式2：(<em>指针变量名).成员名<br>   printf(“name=%s, age = %d \n”, (</em>p).name, (*p).age);</p>
+<p>   // 方式3：指针变量名-&gt;成员名<br>   printf(“name=%s, age = %d \n”, p-&gt;name, p-&gt;age);</p>
+<p>   return 0;<br>}</p>
+</li>
+</ul>
+<p>输出结果： <img src="/2017/04/04/struct/struct2.png" alt="struct2"></p>
+<p><hr><br><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）mstarzheng@foxmail.com</em></strong></p>
 
           
         
@@ -583,7 +711,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -628,7 +756,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

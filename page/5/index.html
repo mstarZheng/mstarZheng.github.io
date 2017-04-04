@@ -257,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/16/前端面试之--HTML/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/摆脱项目命名困难的尴尬局面/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mstar">
@@ -279,8 +279,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/16/前端面试之--HTML/" itemprop="url">
-                  前端面试集结号---HTML
+                <a class="post-title-link" href="/2017/03/22/摆脱项目命名困难的尴尬局面/" itemprop="url">
+                  摆脱项目命名困难的尴尬局面
                 </a>
               
             
@@ -296,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-16T14:27:02+08:00">
-                2017-03-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T21:29:26+08:00">
+                2017-03-22
               </time>
             
 
@@ -319,8 +319,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端面试总结/" itemprop="url" rel="index">
-                    <span itemprop="name">前端面试总结</span>
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
                   </a>
                 </span>
 
@@ -356,55 +356,147 @@
       
         
           
-            <h2 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h2><blockquote>
-<p>web标准、web语义、浏览器内核、兼容性、html5…</p>
-</blockquote>
-<p><hr></p>
-<h1 id="常见面试问题-amp-答案"><a href="#常见面试问题-amp-答案" class="headerlink" title=" 常见面试问题&amp;答案 "></a><strong> 常见面试问题&amp;答案 </strong></h1><p><hr><br><strong>1、Doctype作用？严格模式与混杂模式如何区分？它们有何意义?</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE&gt;声明位于HTML文档中的第一行，处于&lt;html&gt;标签之前，用于告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。</div><div class="line">标准模式的排版和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示，模拟老式浏览器的行为以防止站点无法工作。</div><div class="line">如果HTML文档包含形式完整的DOCTYPE，那么他一般以标准模式呈现。对于HTML4.01文档，包含严格DTD的DOCTYPE常常导致页面已标准模式呈现。DOCTYPE不存在或者格式不正确会导致文档已混杂模式呈现。</div></pre></td></tr></table></figure>
-<p><strong>2、请描述一个网页从开始请求道最终显示的完整过程</strong></p>
+            <p><center>本文源出于—掘金<a href="https://juejin.im/post/58d0e5caa22b9d00643e8b51" target="_blank" rel="external"><strong>西安小哥</strong></a></center></p>
+<h2 id="1、文件夹命名"><a href="#1、文件夹命名" class="headerlink" title="1、文件夹命名"></a><strong>1、文件夹命名</strong></h2><ul>
+<li>1、最好用一个单词描述</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>常用项目命名</th>
+<th>oml、element、master、project、test、vue、iview</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>二级目录</strong></td>
+<td>build、static、config、src、example、base、commeon、issues、assert</td>
+</tr>
+<tr>
+<td><strong>三级目录</strong></td>
+<td>libs、models、plugins、skins、images、css、js</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>2、如果一个单词描述不了，名词加动词</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">color-pick、button-groups、date-picker、option-group、jquery-select、jquery-swiper</div></pre></td></tr></table></figure>
+</li>
+<li><p>3、中间用-或者_连接为了方便归类、一目了然</p>
 <blockquote>
-<p>一个网页从请求到最终显示的完整过程一般可以分为如下7个步骤：</p>
+<p>node_models、async-demo、array-union、array-differ、babel-each</p>
+<hr>
+
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">在浏览器中输入网址；</div><div class="line">发送至DNS服务器并获得域名对应的WEB服务器IP地址；</div><div class="line">与WEB服务器建立TCP连接；</div><div class="line">浏览器向WEB服务器的IP地址发送相应的HTTP请求；</div><div class="line">WEB服务器响应请求并返回指定URL的数据，或错误信息，如果设定重定向，则重定向到新的URL地址；</div><div class="line">浏览器下载数据后解析HTML源文件，解析的过程中实现对页面的排版，解析完成后在浏览器中显示基础页面；</div><div class="line">分析页面中的超链接并显示在当前页面，重复以上过程直至无超链接需要发送，完成全部数据显示。</div></pre></td></tr></table></figure>
-<p><strong>3、HTML5 为什么只需要写 &lt;!DOCTYPE HTML&gt;</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">HTML5不基于SGML，因此不需要对DTD进行引用，但是需要DOCTYPE来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；</div><div class="line">HTML4<span class="number">.01</span>基于SGML，所以需要对DTD进行引用，才能让浏览器知道该文档所使用的文档类型。</div></pre></td></tr></table></figure></p>
-<p><strong>4、行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">  ***行内元素***：</div><div class="line">a - 锚点，em - 强调，strong - 粗体强调，span - 定义文本内区块，i - 斜体,img - 图片,b - 粗体，label - 表格标签，select - 项目选择，textarea - 多行文本输入框，sub - 下标，</div><div class="line">sup - 上标，q - 短引用；</div><div class="line"></div><div class="line">  ***块元素***：</div><div class="line">div - 常用块级，dl - 定义列表，dt，dd，ul- 非排序列表，li，ol-排序表单，p-段落，h1，h2，h3，h4，h5-标题，table-表格，fieldset - form控制组，form - 表单，</div><div class="line"></div><div class="line">  ***空元素***：</div><div class="line">br-换行，hr-水平分割线；</div></pre></td></tr></table></figure></p>
-<p><strong>5、介绍一下你对浏览器内核的理解</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">浏览器最重要或者说核心的部分是“Rendering Engine”，可大概译为“渲染引擎”，不过我们一般习惯将之称为“浏览器内核”。负责对网页语法的解释（如标准通用标记语言下的一个应用HTML、JavaScript）并渲染（显示）网页。 所以，通常所谓的浏览器内核也就是浏览器所采用的渲染引擎，渲染引擎决定了浏览器如何显示网页的内容以及页面的格式信息。不同的浏览器内核对网页编写语法的解释也有不同，因此同一网页在不同的内核的浏览器里的渲染（显示）效果也可能不同，这也是网页编写者需要在不同内核的浏览器中测试网页显示效果的原因。</div></pre></td></tr></table></figure></p>
-<p><strong>6、常见的浏览器内核有哪些</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Trident内核：IE,MaxThon,TT,The World,<span class="number">360</span>,搜狗浏览器等。[又称MSHTML]</div><div class="line">Gecko内核：Netscape6及以上版本，FF,MozillaSuite/SeaMonkey等。</div><div class="line">Presto内核：Opera7及以上。      [Opera内核原为：Presto，现为：Blink;]</div><div class="line">Webkit内核：Safari,Chrome等。   [ Chrome的：Blink（WebKit的分支）]</div><div class="line">EdgeHTML内核：Microsoft Edge。  [此内核其实是从MSHTML fork而来，删掉了几乎所有的IE私有特性]</div></pre></td></tr></table></figure></p>
-<p><strong>7、html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 </strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">***新增了以下的几大类元素***</div><div class="line">内容元素，article、footer、header、nav、section。</div><div class="line">表单控件，calendar、date、time、email、url、search。</div><div class="line">控件元素，webworker, websockt, Geolocation。</div><div class="line"></div><div class="line">***移出的元素有下列这些****</div><div class="line">显现层元素：basefont，big，center，font, s，strike，tt，u。</div><div class="line">性能较差元素：frame，frameset，noframes。</div><div class="line">HTML5已形成了最终的标准，概括来讲，它主要是关于图像，位置，存储，多任务等功能的增加。</div><div class="line">新增的元素有绘画 canvas ，用于媒介回放的 video 和 audio 元素，本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失，而sessionStorage的数据在浏览器关闭后自动删除，此外，还新增了以下的几大类元素。</div><div class="line">内容元素，article、footer、header、nav、section。</div><div class="line">表单控件，calendar、date、time、email、url、search。</div><div class="line">控件元素，webworker, websockt, Geolocation。</div><div class="line"></div><div class="line">***移出的元素有下列这些***</div><div class="line">显现层元素：basefont，big，center，font, s，strike，tt，u。</div><div class="line">性能较差元素：frame，frameset，noframes。</div><div class="line"></div><div class="line">***新的技术***</div><div class="line">canvas,svg,webworker, websocket, Geolocation......</div></pre></td></tr></table></figure></p>
-<p><strong>8、简述一下你对HTML语义化的理解</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">HTML语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析；</div><div class="line">即使在没有样式CSS的情况下也能以一种文档格式显示，并且是容易阅读的；</div><div class="line">搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，有利于SEO；</div><div class="line">使阅读源代码的人更容易将网站分块，便于阅读、维护和理解。</div></pre></td></tr></table></figure></p>
-<p><strong>9、HTML5的离线存储怎么使用？能否解释一下工作原理</strong></p>
+</li>
+</ul>
+<h2 id="2、文件命名"><a href="#2、文件命名" class="headerlink" title="2、文件命名"></a><strong>2、文件命名</strong></h2><ul>
+<li>1.最好用一个单词描述<br>一下变量名可以加css、js、html、例如index.html、index.js、index.css</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>常用组件命名</th>
+<th>index、message、menu、slider（滑块）、page、progress（进度条）、tooltip（提示）、tree、upload、time、button、checkbox、dialog、cascader（三级联动）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>常用文件命名</td>
+<td>index、shopping（购物）、 share（分享）、integral（积分）、advertisement（广告）、pay（支付）、community（社区）、game、docs、bussiness</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>2.如果一个单词描述不了，名词加动词</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">share-to-friends，share-to-community，weex-pay，alipay-pay，user-integral，game-page，docs-page等等反正就是自我想象。</div></pre></td></tr></table></figure>
+</li>
+<li><p>3.中间用-或者_连接为了方便归类、一目了然<br>在目前做的pc端和移动端，简单的对他们分个类：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">移动广告(mobile-advertisement)</div><div class="line">移动社交(mobile-social)</div><div class="line">移动电子商务(mobile-bussiness)</div><div class="line">手机游戏(mobile-game)</div><div class="line">手机电视(mobile-tv)</div><div class="line">移动电子阅读(mobile-reading)</div><div class="line">手机搜索(mobile-search)</div><div class="line">移动支付(mobile-pay)</div><div class="line">手机内容共享(mobile-share)</div></pre></td></tr></table></figure>
+<p>关于以上的项目都可以用名词+需要的动词命名，达到见词知意</p>
+<hr>
+
+<h2 id="3-html布局命名"><a href="#3-html布局命名" class="headerlink" title="3.html布局命名"></a><strong>3.html布局命名</strong></h2><p><a href="http://www.divcss5.com/jiqiao/j4.shtml" target="_blank" rel="external"><strong>可以参考DIV+CSS规范命名大全</strong></a> 但是我觉得写得并不好，很全面。因为因为往往比较纠结的是每一个大布局中小布局的命名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">外套 wrap:       &gt;&gt; #container</div><div class="line">头部 header:     &gt;&gt; #head, #header，#nav，#sub-nav，#menu， #sub-menu，#branding</div><div class="line">主要内容 main::   &gt;&gt; bussiness-title 、bussiness-logo、bussiness-search、bussiness-search-results</div><div class="line">左侧 main-left:  &gt;&gt; #side-bar, #side-bar-a, #side-bar-b</div><div class="line">右侧 main-right: &gt;&gt; #side-bar, #side-bar-a, #side-bar-b</div><div class="line">内容 content:    &gt;&gt; radio-click、radio-heightlight、radio-active、input-seach-off、input-search-on</div><div class="line">底部 footer:     &gt;&gt; #service, #regsiter,#partner（合作伙伴）,#joinus, #site-info</div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>在用户没有连接英特网时，可以正常访问站点和应用；在用户连接英特网时，更新用户机器上的缓存文件。<br><strong><code>原理</code></strong>：HTML5的离线存储是基于一个新建的 <code>.appcache</code> 文件的缓存机制（并非存储技术），通过这个文件上的解析清单离线存储资源，这些资源就会像cookie一样被存储下来。之后当网络处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。<br>使用方法</p>
+<p>总结</p>
 </blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">在页面头部像下面一样加入一个 manifest 的属性；</div><div class="line">在 cache.manifest 文件里编写离线存储资源；</div><div class="line">   CACHE MANIFEST</div><div class="line">   #v0.11</div><div class="line">   CACHE：</div><div class="line">     js/app.js</div><div class="line">     css/style.css</div><div class="line">   NETWORK:</div><div class="line">     resource/logo.png</div><div class="line">   FALLBACK：</div><div class="line">     / /offline.html</div><div class="line">在离线状态时，操作 window.applicationCache 进行需求实现；</div></pre></td></tr></table></figure>
-<p><strong>10、浏览器是怎么对HTML5的离线储存资源进行管理和加载的</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">在线情况下，浏览器发现html头部有manifest属性，它会请求manifest文件，如果是第一次访问app，那么浏览器就会根据manifest文件的内容下载相应的资源并且进行离线存储。如果已经访问过app并且资源已经离线存储了，那么浏览器就会使用离线的资源加载页面，然后浏览器会对比新的manifest文件与旧的manifest文件，如果文件没有发生改变，就不做任何操作，如果文件改变了，那么就会重新下载文件中的资源并进行离线存储。</div><div class="line">离线情况下，浏览器就直接使用离线存储的资源。</div></pre></td></tr></table></figure></p>
-<p><strong>11、请描述一下 cookies，sessionStorage 和 localStorage 的区别</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Web Storage有两种形式：LocalStorage（本地存储）和sessionStorage（会话存储）。这两种方式都允许开发者使用js设置的键值对进行操作，在在重新加载不同的页面的时候读出它们。这一点与cookie类似。</div><div class="line">&gt;&gt; 与cookie不同的是：Web Storage数据完全存储在客户端，不需要通过浏览器的请求将数据传给服务器，因此x相比cookie来说能够存储更多的数据，大概<span class="number">5</span>M左右。</div><div class="line">&gt;&gt; LocalStorage和sessionStorage功能上是一样的，但是存储持久时间不一样。</div><div class="line">LocalStorage：浏览器关闭了数据仍然可以保存下来，并可用于所有同源（相同的域名、协议和端口）窗口（或标签页）；</div><div class="line">sessionStorage：数据存储在窗口对象中，窗口关闭后对应的窗口对象消失，存储的数据也会丢失。</div><div class="line">注意：sessionStorage 都可以用localStorage 来代替，但需要记住的是，在窗口或者标签页关闭时，使用sessionStorage 存储的数据会丢失。</div><div class="line">&gt;&gt; 使用 local storage和session storage主要通过在js中操作这两个对象来实现，分别为<span class="built_in">window</span>.localStorage和<span class="built_in">window</span>.sessionStorage. 这两个对象均是Storage类的两个实例，自然也具有Storage类的属性和方法。</div></pre></td></tr></table></figure></p>
-<p><strong>12、iframe 有哪些缺点</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">iframe会阻塞主页面的Onload事件；</div><div class="line">搜索引擎的检索程序无法解读这种页面，不利于SEO；</div><div class="line">iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。</div><div class="line">使用iframe之前需要考虑这两个缺点。如果需要使用iframe，最好通过JavaScript动态给iframe添加src属性值，这样可以绕开以上两个问题。</div></pre></td></tr></table></figure></p>
-<p><strong>13、Label的作用是什么？如何使用</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">label标签来定义表单控制间的关系，当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。</div><div class="line">&lt;label <span class="keyword">for</span>=<span class="string">"Name"</span>&gt;<span class="built_in">Number</span>:<span class="xml"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span></div><div class="line">&lt;input type=<span class="string">"text"</span> name=<span class="string">"Name"</span> id=<span class="string">"Name"</span> /&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">label</span>&gt;</span>Date:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"B"</span> /&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p><strong>14、HTML5的form如何关闭自动完成功能</strong></p>
-<blockquote>
-<p>给不想要提示的 form 或下面某个 input 设置为 <code>autocomplete = off</code>。</p>
-</blockquote>
-<p><strong>15、如何实现浏览器内多个标签页之间的通信？（阿里）</strong></p>
-<blockquote>
-<p>调用 localStorage、cookies 等本地存储方式</p>
-</blockquote>
-<p><strong>16、webSocket 如何兼容低浏览器？（阿里）</strong></p>
-<blockquote>
-<p>Adobe Flash Socket<br>ActiveX HTMLFile（IE）<br>基于 multipart 编码发送 XHR<br>基于长轮询的 XHR</p>
-</blockquote>
-<p><strong>17、页面可见性（Page Visibility） API可以有哪些用途</strong></p>
-<blockquote>
-<p>在页面被切换到其他后台进程的时候，自动暂停音乐或视频的播放。</p>
-</blockquote>
-<p><strong>18、如何在页面上实现一个圆形的可点击区域？</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">map + area 或者 svg</div><div class="line">border-radius</div><div class="line">纯js实现，需要求一个点在不在圆上的简单算法、获取鼠标坐标等等</div></pre></td></tr></table></figure></p>
-<p><strong>19、实现 不使用 border 画出 1px 高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div style=<span class="string">"height:1px;overflow:hidden;background:#ccc"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p><strong>20、网页验证码是干什么用的？是为了解决什么安全问题</strong></p>
-<blockquote>
-<p>可以防止：恶意破解密码、刷票、论坛灌水，有效防止某个黑客对某一个特定注册用户用特定程序暴力破解方式进行不断的登陆尝试，实际上用验证码是现在很多网站通行的方式，我们利用比较简易的方式实现了这个功能。这个问题可以由计算机生成并评判，但是必须只有人类才能解答。由于计算机无法解答CAPTCHA的问题，所以回答出问题的用户就可以被认为是人类。</p>
-</blockquote>
-<p><hr><br><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）mstarzheng@foxmail.com</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">一般头部有nav、nav-event、nav-style、nav-item、nav-link。</div><div class="line"></div><div class="line">内容：xx-title、xx-box、xx-warp、xx-item、xx-item-title、xx-item-link、xx-item-image</div><div class="line"></div><div class="line">底部：footer-time、footer-box、footer-item、footer-item-link、footer-address。总之xx-wrap，xx-box，xx-item、xx-link、xx-title、xx-total肯定会满足你80%的需求</div></pre></td></tr></table></figure>
+<hr>
+
+<h2 id="4、js变量命名"><a href="#4、js变量命名" class="headerlink" title="4、js变量命名"></a><strong>4、js变量命名</strong></h2><ul>
+<li><p>1.基础类型和引用数据类型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">* 基础类型</div><div class="line">* 字符串<span class="keyword">var</span> s_count=<span class="string">""</span>,</div><div class="line">* 布尔类型<span class="keyword">var</span> b_status=<span class="literal">false</span>,</div><div class="line">* 数字类型<span class="keyword">var</span> n_total=<span class="number">12</span>。</div><div class="line">* 引用数据类型</div><div class="line">* 数组<span class="keyword">var</span> ar_bar=[],</div><div class="line">* 对象<span class="keyword">var</span> o_bar=&#123;&#125;,</div><div class="line">* 函数<span class="keyword">var</span> f_submit=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;）</div></pre></td></tr></table></figure>
+</li>
+<li><p>2.不要用关键字命名<br>default、class、private</p>
+</li>
+<li><p>3.用可读的同义词代替保留词。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/ bad</div><div class="line"><span class="keyword">var</span> superman = &#123;</div><div class="line">  <span class="attr">class</span>: <span class="string">'alien'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> superman = &#123;</div><div class="line">  <span class="attr">klass</span>: <span class="string">'alien'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> superman = &#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'alien'</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>4.函数用驼峰形式（动词+名词）</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">login(),logout(),expandList(),getTotal(),keySearch(),submitForm(),cancel(),goMore(),searchAll(),searchCurrent().clearContent().uploadImage().searchResult()这些都是常用事件，可以清晰知道每一项的意义。</div></pre></td></tr></table></figure>
+<p><a href="https://github.com/airbnb/javascript/tree/es5-deprecated/es5" target="_blank" rel="external">ES5的语法规范</a></p>
+<ul>
+<li>5.当命名的构造函数和类使用PascalCase。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">user</span>(<span class="params">options</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = options.name;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> bad = <span class="keyword">new</span> user(&#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'nope'</span></div><div class="line">&#125;);</div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">User</span>(<span class="params">options</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = options.name;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> good = <span class="keyword">new</span> User(&#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'yup'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>6.不要使用尾随或前导下划线。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">this</span>.__firstName__ = <span class="string">'Panda'</span>;</div><div class="line"><span class="keyword">this</span>.firstName_ = <span class="string">'Panda'</span>;</div><div class="line"><span class="keyword">this</span>._firstName = <span class="string">'Panda'</span>;</div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">this</span>.firstName = <span class="string">'Panda'</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li>7.前缀jQuery对象变量与$。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> sidebar = $(<span class="string">'.sidebar'</span>);</div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> $sidebar = $(<span class="string">'.sidebar'</span>);</div><div class="line"><span class="comment">// bad</span></div><div class="line">$(<span class="string">'ul'</span>, <span class="string">'.sidebar'</span>).hide();</div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setSidebar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  $(<span class="string">'.sidebar'</span>).hide();</div><div class="line">  <span class="comment">// ...stuff...</span></div><div class="line">  $(<span class="string">'.sidebar'</span>).css(&#123;</div><div class="line">    <span class="string">'background-color'</span>: <span class="string">'pink'</span></div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setSidebar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> $sidebar = $(<span class="string">'.sidebar'</span>);</div><div class="line">  $sidebar.hide();</div><div class="line">  <span class="comment">// ...stuff...</span></div><div class="line">  $sidebar.css(&#123;</div><div class="line">    <span class="string">'background-color'</span>: <span class="string">'pink'</span></div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"><span class="comment">// bad</span></div><div class="line">$(<span class="string">'.sidebar'</span>).find(<span class="string">'ul'</span>).hide();</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">$(<span class="string">'.sidebar ul'</span>).hide();</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">$(<span class="string">'.sidebar &gt; ul'</span>).hide();</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">$sidebar.find(<span class="string">'ul'</span>).hide();</div></pre></td></tr></table></figure>
+<hr>
+
+<h2 id="5-css命名"><a href="#5-css命名" class="headerlink" title="5.css命名"></a><strong>5.css命名</strong></h2><table>
+<thead>
+<tr>
+<th>公共的</th>
+<th>common.css</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>其实和common差不多</td>
+<td>base.css</td>
+</tr>
+<tr>
+<td>动画</td>
+<td>animation.css</td>
+</tr>
+<tr>
+<td>皮肤</td>
+<td>skin.css</td>
+</tr>
+<tr>
+<td>文字</td>
+<td>font.css</td>
+</tr>
+<tr>
+<td>主题</td>
+<td>themes.css</td>
+</tr>
+<tr>
+<td>打印样式</td>
+<td>print.css</td>
+</tr>
+<tr>
+<td>颜色</td>
+<td>color.css</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<h2 id="6-图片命名"><a href="#6-图片命名" class="headerlink" title="6.图片命名"></a><strong>6.图片命名</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">第一部分是图片的逻辑归属分类</div><div class="line">第二部分是图片的表现内容</div><div class="line">第三部分是图片的内容的类型（有些图片还会有第四部分，表示图片表现的状态。）</div><div class="line">tabbar_home_icon, navigationbar_showtime_icon@2x.png，tabbar_categories_icon</div></pre></td></tr></table></figure>
+<hr>
+
+<p><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）mstarzheng@foxmail.com</em></strong></p>
 
           
         
@@ -448,7 +540,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/08/话说汉朝四百年的外戚干政史/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/20/pointer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mstar">
@@ -470,8 +562,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/08/话说汉朝四百年的外戚干政史/" itemprop="url">
-                  话说汉朝四百年的外戚干政史 
+                <a class="post-title-link" href="/2017/03/20/pointer/" itemprop="url">
+                  指针解谜
                 </a>
               
             
@@ -487,8 +579,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-08T13:32:08+08:00">
-                2017-03-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-20T09:48:33+08:00">
+                2017-03-20
               </time>
             
 
@@ -510,8 +602,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/文学的魅力/" itemprop="url" rel="index">
-                    <span itemprop="name">文学的魅力</span>
+                  <a href="/categories/Objective-C学习整理/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C学习整理</span>
                   </a>
                 </span>
 
@@ -547,38 +639,107 @@
       
         
           
-            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
-<p>一段时间以来，韩国总统“闺蜜门”的新闻印刷爆微信朋友圈，爆闹得沸沸扬扬。其实朴瑾惠的秘书有大几百号人，这些都是帮她出谋划策的家臣们。那么为什么她还要问政于闺蜜，而“闺蜜干政”事件又怎么会触怒韩国民众呢？对于一位总统问政于闺蜜被人深扒为政治事件这一定有很深的背景，我们今天就姑且不去探讨。其实在朝鲜古代历史和中国封建社会历朝历代家臣干政的事是经常发生的。那么我们今天去扒一扒有着四百多年历史的汉朝皇帝的那些家臣–<strong>外戚是干政的历史吧</strong>。</p>
+            <p><center>本文源出于—<a href="http://www.cnblogs.com/mjios/archive/2013/03/16/2963645.html" target="_blank" rel="external"><strong>小码哥</strong></a></center></p>
+<p><hr></p>
+<h2 id="一、什么是指针"><a href="#一、什么是指针" class="headerlink" title="一、什么是指针"></a>一、什么是指针</h2><p>1.我们已经知道，“直接引用”是直接通过变量名来读写变量<br>2.C语言还有一种“间接引用”的方式(以变量a为例)：<font color="red"><strong><em> 首先将变量a的地址存放在另一个变量中，比如存放在变量中，比如存放变量b中，然后通过变量b来间接引用变量，间接读写变量a的值 </em></strong> </font>。这就是“间接引用”。</p>
+<p><img src="/2017/03/20/pointer/pointer1.png" alt="pointer1"></p>
+<p>如果程序通过”间接引用”的方式来修改a的值，可以这样做：先根据 变量名b 获取 变量b 的地址ffc2，取出变量b中存储的内容ffc1，也就是变量a的地址，再根据变量a的地址ffc1找到a的存储空间，然后修改里面的数据。</p>
+<p>3.总结一句：用来存放<font color="red">变量地址</font>的变量，就称为”指针变量”。在上面的情况下，变量b就是个”指针变量”，我们可以说指针变量b指向变量a。</p>
+<p><hr></p>
+<h2 id="二、指针定义"><a href="#二、指针定义" class="headerlink" title="二、指针定义"></a>二、指针定义</h2><p>一般形式：<strong> 类名标识符   <font color="red">*</font> 指针变量名；</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *p;</div><div class="line"></div><div class="line"><span class="keyword">float</span> *q;</div></pre></td></tr></table></figure></p>
+<p>“*”是一个说明符，用来说明这个变量是个指针变量，是不能省略的，但它不属于变量名的一部分<br>前面的类型标识符表示指针变量所指向的变量的类型，而且只能指向这种类型的变量</p>
+<p><hr></p>
+<h2 id="三、指针的初始化"><a href="#三、指针的初始化" class="headerlink" title="三、指针的初始化"></a>三、指针的初始化</h2><h3 id="1-先定义后初始化"><a href="#1-先定义后初始化" class="headerlink" title="1.先定义后初始化"></a>1.先定义后初始化</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义int类型的变量a</span></div><div class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="comment">// 定义一个指针变量p</span></div><div class="line"><span class="keyword">int</span> *p;</div><div class="line"></div><div class="line"><span class="comment">// 将变量a的地址赋值给指针变量p，所以指针变量p指向变量a</span></div><div class="line">p = &amp;a;</div></pre></td></tr></table></figure>
+<p>注意第8行，赋值给p的是变量a的地址&amp;a</p>
+<h3 id="2-在定义的同时初始化"><a href="#2-在定义的同时初始化" class="headerlink" title="2.在定义的同时初始化"></a>2.在定义的同时初始化</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义int类型的变量a</span></div><div class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="comment">// 定义一个指针变量p</span></div><div class="line"><span class="comment">// 并将变量a的地址赋值给指针变量p，所以指针变量p指向变量a</span></div><div class="line"><span class="keyword">int</span> *p = &amp;a;</div></pre></td></tr></table></figure>
+<h3 id="3-初始化的注意"><a href="#3-初始化的注意" class="headerlink" title="3.初始化的注意"></a>3.<font color="red">初始化的注意</font></h3><p>指针变量是用来存放变量地址的，不要给它随意赋值一个常数。下面的写法是错误的<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *p;</div><div class="line">p = <span class="number">200</span>; <span class="comment">// 这是错误的</span></div></pre></td></tr></table></figure></p>
+<p><hr></p>
+<h2 id="四、指针运算符"><a href="#四、指针运算符" class="headerlink" title="四、指针运算符"></a>四、指针运算符</h2><h3 id="1-给指针指向的变量赋值"><a href="#1-给指针指向的变量赋值" class="headerlink" title="1.给指针指向的变量赋值"></a>1.给指针指向的变量赋值</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> a = <span class="number">10</span>;</div><div class="line"><span class="built_in">printf</span>(<span class="string">"修改前，a的值：%d\n"</span>, a);</div><div class="line"></div><div class="line"><span class="comment">// 指针变量p指向变量a</span></div><div class="line"><span class="keyword">char</span> *p = &amp;a;</div><div class="line"></div><div class="line"><span class="comment">// 通过指针变量p间接修改变量a的值</span></div><div class="line">*p = <span class="number">9</span>;</div><div class="line"></div><div class="line"><span class="built_in">printf</span>(<span class="string">"修改后，a的值：%d"</span>, a);</div></pre></td></tr></table></figure>
+<p> 当程序刚执行完第5行代码时，内存中大概的分布情况是这样的</p>
+<p><img src="/2017/03/20/pointer/pointer2.png" alt="pointer2"><br>a值是10，p值就是变量a的地址ffc3。</p>
+<p>注意下第5、第8行，都有个”<em>“，它们的含义是不一样的：<br>(1) 第5行的”</em>“只是用来说明p是个指针变量<br>(2) 第8行的”<em>“是一个指针运算符，这里的&lt;font color=”red”</em>p代表根据p值ffc3这个地址访问对应的存储空间，也就是变量a的存储空间，然后将右边的数值9写入到这个存储空间，相当于 a = 9;，于是内存中就变成这样了</p>
+<p><img src="/2017/03/20/pointer/pointer3.png" alt="pointer3"><br>输出结果为：</p>
+<p><img src="/2017/03/20/pointer/pointer4.png" alt="pointer4"><br>可以发现，我们通过变量p间接修改了变量a的值。</p>
+<h3 id="2-取出指针所指向变量的值"><a href="#2-取出指针所指向变量的值" class="headerlink" title="2.取出指针所指向变量的值"></a>2.取出指针所指向变量的值</h3><p>指针运算符除了可以赋值之外，还可以用于取值<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">char</span> a = <span class="number">10</span>;</div><div class="line"></div><div class="line"> <span class="keyword">char</span> *p;</div><div class="line"> p = &amp;a;</div><div class="line"></div><div class="line"><span class="keyword">char</span> value = *p;</div><div class="line"> <span class="built_in">printf</span>(<span class="string">"取出a的值：%d"</span>, value);</div></pre></td></tr></table></figure></p>
+<p>输出结果：<br><img src="/2017/03/20/pointer/pointer.png" alt="pointer"><br>第6行中的*p的意思是：根据p值(即变量a的地址)访问对应的存储空间，并取出存储的内容(即取出变量a的值)，赋值给value</p>
+<h3 id="3-使用注意"><a href="#3-使用注意" class="headerlink" title="3.使用注意"></a>3.使用注意</h3><p>在指针变量没有指向确定地址之前，不要对它所指的内容赋值。下面的写法是错误的<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *p;</div><div class="line">*p = <span class="number">10</span>; <span class="comment">//这是错误的</span></div></pre></td></tr></table></figure></p>
+<p>应该在指针变量指向一个确定的变量后再进行赋值。下面的写法才是正确的</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义2个int型变量</span></div><div class="line"><span class="keyword">int</span> a = <span class="number">6</span>, b;</div><div class="line"></div><div class="line"><span class="comment">// 定义一个指向变量b的指针变量p</span></div><div class="line"><span class="keyword">int</span> *p;</div><div class="line">p = &amp;b;</div><div class="line"></div><div class="line"><span class="comment">// 将a的值赋值给变量b</span></div><div class="line">*p = a;</div></pre></td></tr></table></figure>
+<hr>
+
+<h2 id="五、指针的用途举例"><a href="#五、指针的用途举例" class="headerlink" title="五、指针的用途举例"></a>五、指针的用途举例</h2><h3 id="1-例子1"><a href="#1-例子1" class="headerlink" title="1.例子1"></a>1.例子1</h3><p>前面我们通过指针变量p间接访问了变量a，在有些人看来，觉得指针变量好傻B，直接用变量名a访问变量a不就好了么，干嘛搞这么麻烦。别着急，接下来举个例子，让大家看看指针还能做什么事情。</p>
+<p>现在有个要求：写一个函数swap，接收2个整型参数，功能是互换两个实参的值。</p>
+<p>1&gt; 如果没学过指针，你可能会这样写</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">char</span> v1, <span class="keyword">char</span> v2)</span> </span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"更换前：v1=%d, v2=%d\n"</span>, v1, v2);</div><div class="line"></div><div class="line">   <span class="comment">// 定义一个中间变量</span></div><div class="line">   <span class="keyword">char</span> temp;</div><div class="line"></div><div class="line">   <span class="comment">// 交换v1和v2的值</span></div><div class="line">    temp = v1;</div><div class="line">    v1 = v2;</div><div class="line">    v2 = temp;</div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"更换后：v1=%d, v2=%d\n"</span>, v1, v2);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> a = <span class="number">10</span>, b = <span class="number">9</span>;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"更换前：a=%d, b=%d\n"</span>, a, b);</div><div class="line"></div><div class="line">    swap(a, b);</div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"更换后：a=%d, b=%d"</span>, a, b);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出结果：<br><img src="/2017/03/20/pointer/pointer5.png" alt="pointer5"><br>虽然v1和v2的值被交换了，但是变量a和b的值根本就没有换过来。因为基本数据类型作为函数实参时，只是纯粹地将值传递给形参，形参的改变并不影响实参。<br>我们可以简要分析一下这个过程：</p>
+<blockquote>
+<p>在第20行中，将变量a、b的值分别传递给了swap函数的两个形参v1、v2</p>
 </blockquote>
-<h2 id="一、西汉外戚干政概说"><a href="#一、西汉外戚干政概说" class="headerlink" title="一、西汉外戚干政概说"></a>一、西汉外戚干政概说</h2><blockquote>
-<p>外戚是指皇帝的母亲和妻子家族，作为与皇室有关联的特殊政治力量，历代在中国政治舞台上扮演者特殊的角色。这种角色是由其特殊身份决定的：其与皇权最为接近，但有距离皇权最远。正是因为皇权的存在使得外戚在历代的政治斗争中往往成为皇权的牺牲品。历代王朝在外戚的任用中也是慎之又慎，以防止皇权旁落。防止外戚对于皇权的窥视成为历代王朝政治斗争的主要任务之一，历代王朝为防止外戚篡权基本上采取不让外戚干政的基本政策。但汉朝却是个例外。</p>
-<p>两汉王朝四百多年的历史中外戚作为特殊的政治力量一直活跃在政治舞台之上，并且一度篡权皇权，建立了外戚政权。这可以说在中国历史上是外戚专权的顶峰。纵观汉朝四百多年的历史，外戚作为特殊的政治力量一直处于汉王朝政权的中心位置，成为掌握实权的政治力量。而且大部分时候成为与皇权并驾齐驱的政治力量，这种政治格局一直持续到东汉末年。可以说外戚在汉朝四百年历史中扮演的角色是以后历代王朝中所不能比拟的，这成为汉朝统治的最大特色。</p>
-<p>西汉朝任用外戚作为权利中心决策者始于汉高祖刘邦，据吕思勉先生之说这是因为汉朝去古代不远，是前代时期的遗风。在汉代政治舞台上存在三股政治势力：皇帝、外戚、功臣。这三股势力中皇帝处于中心地位，皇帝为了维持自己的皇权必须要求有政治势力来支持自己的统治。对于功臣这在其获取江山并在保持江山的稳定中起着至关重要的作用，但功臣就亲属关系上必定属于外人，与皇权本身就存在着矛盾。并且功臣在汉朝政治舞台上本身存在着真实实力，这是对皇权的一种威胁。但外戚不同。外戚是皇帝的姻亲，与皇帝有着血缘的关系，正是这种特殊的关系使得汉朝的皇帝在人事权的任用上偏重于外戚。这种任用外戚似乎成了汉朝的惯例，正如《后汉书·皇后纪》记载：汉兴，舅氏之封侯，犹皇子之为王也。可见汉朝对于外戚的重视。</p>
-<p>西汉朝任用外戚主政也始于汉高祖刘邦之时，《史记·高祖本纪》记载：戚姬幸，常从上之关东，日夜啼泣，欲立其子代太子。吕后年长，常留守，希见上，益疏。汉高祖刘邦在外征伐之时，吕后因年长常常留守后方，主持政务。这似乎成了外戚参政的开端。吕后专权开启了外戚专权的先例。吕后掌握汉朝政权后，为了维持自己的统治任用吕氏家族的人掌握汉朝中央的军政大权。吕氏一族掌握汉室政权，开启了外戚专权的开端，但在汉初朝中的政策方针很多出于吕后之手，诛杀韩信、诛杀彭越，都出于吕后之手。吕后在汉初政权的巩固之中却是起了重要的作用。正是由于吕后才使得汉王朝继续着休养生息，有利于发展封建社会的经济。</p>
-<p>文帝之时，由于其是被功臣拥立继位，并且其母家薄氏势力又弱，因此在外戚重用方面主要是其皇后窦姓一族。我们要说文帝之所以能继承皇位在很大关系上也得益于其母家，因其母家势力弱小，因此在汉初经历了吕后之事后大臣鉴于历史教训，拥立了母家实力弱小的代王刘恒。可见此时功臣与外戚势力在政治斗争中的激烈程度，双方都希望能掌控实权。</p>
-<p>汉景帝时期自然重用其母家窦姓一族，在汉景帝一生中其母窦太后起着重要作用，窦姓一族构成了汉朝中央统治力量的核心，但此时外戚势力远远小于皇权，但在大臣的选用策略上是倾向于外戚的。</p>
-<p>汉武帝初期重用的是自己母家一族，其母亲异性弟弟田蚡一度成为丞相，掌控大权。这时形成了外戚与皇权争夺权力的斗争，在汉武帝时期为加强皇权设置了内朝，这就形成了与丞相为首的官僚集团相对持，使得权力最终落入了皇帝手中。在田蚡之后汉武帝甚至将外戚卫青封为大将军，霍去病封也为将军，这与当时汉武帝武功之治是分不开的，可以说卫氏一族在汉武帝时期达到鼎盛，这是汉武帝重用外戚的结果。</p>
-<p>汉昭帝、汉宣帝、汉元帝等也都在重臣的选择上无疑也倾向于外戚，外戚组成了汉朝统治集团的核心力量。正是这种外戚当权的政策使得在汉成帝时期可谓达到了登峰造极之势，正是从汉成帝时期开始，外戚逐步掌握了汉朝中央大权，最终酿王莽篡汉的惨祸。</p>
-<p>汉成帝继位继封外戚王凤为大司马领尚书事，使得外戚兼有内外朝之职事，权力可谓盛。《汉书·元后传》记载：元帝崩，太子立，是为孝成帝。尊皇后为皇太后，以凤为大司马大将军领尚书事，益封五千户。王氏之兴自凤始。又封太后同母弟崇为安成侯，食邑万户。凤庶弟谭等皆赐爵关内侯，食邑。然而这仅仅只是开头，正是汉成帝的作用，使得外戚势力如日中天，达到前汉前所未有的水平。</p>
-<p>汉成帝河平二年，外戚势力更是更是跃升一层，从此外戚势力更加强大，使得外戚成为权力的真正中心。《元后传》记载：成帝河平二年，上悉封舅谭为平阿侯，商成都侯，立红阳侯，根曲阳侯，逢时高平侯。五人同日封，故世谓之「五侯」。自此王氏子弟皆卿、大夫、侍中、诸曹，分据势官满朝廷。至此，外戚势力直逼皇权。汉成帝死后无嗣，定陶王刘欣继位，是为汉哀帝，汉哀帝是一位颇有作为君主，在其即位之初即刻罢归王氏一族，但其有人用自己祖母、母亲一族是为丁、傅家族。但此时外戚势力不能与王氏同日而语。哀帝有个致命的弱点就是宠幸男宠，甚至打算将汉室江山让与这位男宠董贤，在其继位不就也便死去，其死后无嗣，此时正是这个契机让王氏一族又重掌朝政大权，并最终使得汉王朝走向灭亡。</p>
-<p>汉哀帝死后，太皇太后王氏立刻将皇帝的玉玺收入自己的手中，并立刻让王氏子孙组成新的统治中心。《元后传》记载：　明年，哀帝崩，无子，太皇太后以莽为大司马，与共征立中山王奉哀帝后，是为平帝。帝年九岁，当年被疾，太后临朝，委政于莽。从此，开始了王莽的执政道路，正是王莽使得西汉朝最终覆灭。</p>
+<p><img src="/2017/03/20/pointer/pointer6.png" alt="pointer6"></p>
+<blockquote>
+<p>在第8行中，将v1的值赋值给了temp</p>
 </blockquote>
-<h2 id="二、东汉西汉外戚干政概说"><a href="#二、东汉西汉外戚干政概说" class="headerlink" title="二、东汉西汉外戚干政概说"></a>二、东汉西汉外戚干政概说</h2><blockquote>
-<p>东汉王朝初期鉴于前汉王莽的教训，在初期严禁外戚参与中央政权，汉明帝的皇后马皇后因其父是外戚之家不得利于凌云台。这正是对外戚的限制。《后汉书·皇后纪》记载：及帝崩，肃宗即位，尊后曰皇太后。诸贵人当徙居南宫，太后感析别之怀，各赐王赤绶，加安车驷马，白越三千端，杂帛二千匹，黄金十斤。自撰《显宗起居注》，削去兄防参医药事。帝请曰：”黄门舅旦夕供养且一年，既无褒异，又不录勤劳，无乃过乎！”太后曰：”吾不欲令后世闻先帝数亲后宫之家，故不著也。”可见，东汉初统治者对于外戚的防范还是很严的。</p>
-<p>东汉外戚干政开始于汉和帝时期。外戚又进入政治权利之中，这是与后汉此时特殊的政治形态相适应的。自和帝开始汉朝的继位之君大多年幼，这时作为皇帝的母亲–太后做到到历史舞台的前端。汉和帝死后，东汉和熹皇后即邓太后还形成临朝执政16年的局面。根据历史记载，邓太后与班固之妹班昭是闺蜜，在邓太后执政前后，多问政于这位闺蜜。邓太后执政颇有政声，应该与班昭的辅佐分不开。要说起来还真的成就一段闺蜜干政的历史佳话呢。太后执政必然依靠自己的母亲家族，最后就形成了以太后为首的外戚集团。这就形成了外戚集团与皇帝集团在权力上的激烈的斗争。在东汉统治者为了平衡政治力量，在外戚与皇帝的斗争中又出现了一个新的政治势力宦官集团。自和帝开始直到灵帝皇帝、宦官与外戚的斗争交织在一起，甚至形成一种互掐局面。东汉王朝外戚在实力上超过西汉，并且皇帝的废立也由外戚掌握。外戚势力之所以如此强大主要原因在于继位之君年龄弱小，不能亲理朝政，使得朝政大权落入其母后之手，作为妇女其只能依靠自己的母家维持其统治，这就为外戚势力的发展提供了温床。使得外戚的势力在相当长的时期内得到扩张。</p>
-<p>纵观东汉外戚专权的历史，其较西汉势力更是有过之而无不及。由于继位之君年龄的幼小，外戚才能作为特殊血缘关系集团登上政治舞台。在皇帝长成后外戚在政治舞台上已经经营多年，势力远远超过皇权，外朝大臣几乎全为外戚的党羽，皇权往往被架空。皇帝此时在巩固皇权的道路上只有依靠宦官这个集团，最终形成了宦官集团，不过终汉代宦官集团是从属皇帝的，其实力远远在皇权之下，自始至终只是皇权的附属物。</p>
+<p><img src="/2017/03/20/pointer/pointer7.png" alt="pointer7"></p>
+<blockquote>
+<p>在第9行中，将v2的值赋值给了v1</p>
 </blockquote>
-<h2 id="三、两汉外戚干政的历史影响"><a href="#三、两汉外戚干政的历史影响" class="headerlink" title="三、两汉外戚干政的历史影响"></a>三、两汉外戚干政的历史影响</h2><blockquote>
-<p>外戚贯穿于汉朝四百年历史，一直在汉朝政治舞台上扮演重要的角色，但前汉后汉的外戚在任用上却有着质的不同。</p>
-<p>西汉在外戚任用上是皇帝根据当时政治平衡而采取的政策，是任用自己血缘亲来加强皇权，外戚在此时只是加强皇权的工具，直到汉平帝时期为止。东汉则是继位之君大多年幼，皇帝母亲执政，只能依靠外戚，这不是皇帝选择的结果，在外戚势力强大之时皇帝的废立也掌握在外戚手中，使得外戚的势力与皇帝形成对抗，并最终皇帝在宦官集团的帮助下将外戚集团将外戚势力铲除。</p>
-<p>外戚集团作为汉朝历史上的特殊政治集团，在汉朝历史舞台上扮演着重要角色。汉朝重用外戚是此后任何王朝所不能比拟的，这与汉王朝建立之时距离秦代不远，宗法血缘思想依然浓厚。正是宗法血缘思想影响统治者才重用与自己有血缘关系的外戚，但正是外戚也使得前汉、后汉陷入了统治危机中，造成一次次内乱，消弱了自身统治力量。尤其是东汉还出现外戚集团和宦官集团互掐的政治局面。使得政治尤为黑暗，最终促成了汉末农民起义，但总的来说这些的出现是由于外戚集团的促使而成的。外戚集团在汉王朝的巩固上虽然起了重要作用，但最后也成为汉王朝的掘墓者。</p>
+<p><img src="/2017/03/20/pointer/pointer8.png" alt="pointer8"></p>
+<blockquote>
+<p>在第10行中，将temp的值赋值给了v2</p>
 </blockquote>
-<h2 id="四、两汉王朝外戚干政的历史教训"><a href="#四、两汉王朝外戚干政的历史教训" class="headerlink" title="四、两汉王朝外戚干政的历史教训"></a>四、两汉王朝外戚干政的历史教训</h2><blockquote>
-<p>封建君主专制制度是高度集权的，其负面影响有两个就是政治腐败和决策失误。而决策失误又往往和大权旁落相关。大权旁落时往往又是和外戚干政与宦官专权相连。在中国封建两千多的历史长河中，外戚和宦官交替干政不绝于史书。外戚和宦官这两股政治力量的兴衰都是皇权的副产品。外戚干政几乎贯穿于汉王朝四百多年，外戚集团成为政治舞台上不能忽视的力量。汉朝四百年重用外戚是以后历代王朝所不能比拟的，所造成的政治黑暗也是最惨重的。正是汉朝的惨痛教训才使得以后王朝以此为戒，注意控制外戚势力，这或许是外戚在汉朝四百年历史舞台里留给后世的深刻经验教训吧。</p>
+<p><img src="/2017/03/20/pointer/pointer9.png" alt="pointer9"></p>
+<p>就这样，v1和v2的值被交换了，但是a和b的值一直都没有改变</p>
+<p>2&gt; 如果学了指针，就应该这样写<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">char</span> *v1, <span class="keyword">char</span> *v2)</span> </span>&#123;</div><div class="line">    <span class="comment">// 中间变量</span></div><div class="line">    <span class="keyword">char</span> temp;</div><div class="line"></div><div class="line">     <span class="comment">// 取出v1指向的变量的值</span></div><div class="line">     temp = *v1;</div><div class="line"></div><div class="line">     <span class="comment">// 取出v2指向的变量的值，然后赋值给v1指向的变量</span></div><div class="line">     *v1 = *v2;</div><div class="line"></div><div class="line">     <span class="comment">// 赋值给v2指向的变量</span></div><div class="line">     *v2 = temp;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"> &#123;</div><div class="line">    <span class="keyword">char</span> a = <span class="number">10</span>, b = <span class="number">9</span>;</div><div class="line">     <span class="built_in">printf</span>(<span class="string">"更换前：a=%d, b=%d\n"</span>, a, b);</div><div class="line"></div><div class="line">     swap(&amp;a, &amp;b);</div><div class="line"></div><div class="line">     <span class="built_in">printf</span>(<span class="string">"更换后：a=%d, b=%d"</span>, a, b);</div><div class="line">     <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>先看看输出结果：</p>
+<p><img src="/2017/03/20/pointer/pointer0.png" alt="pointer0"><br>变量a和b的值终于换过来了。</p>
+<font color="red">解释一下：(在16位编译器环境下，一个指针变量占用2个字节)</font>
+
+<blockquote>
+<p>先注意第20行，传递是变量的地址。因此swap函数的形参v1指向了变量a，v2指向了变量b</p>
 </blockquote>
-<p><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）mstarzheng@foxmail.com</em></strong></p>
- <!-- 添加背景音乐 -->
-<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=150 src="http://music.163.com/outchain/player?type=2&id=28947001&auto=1&height=66"></iframe> -->
+<p><img src="/2017/03/20/pointer/pointer10.png" alt="pointer10"></p>
+<blockquote>
+<p> 第6行代码是取出v1指向的变量的值，也就是变量a的值：10，然后赋值给变量temp</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer11.png" alt="pointer11"></p>
+<blockquote>
+<p>第9行代码是取出v2指向的变量(变量b)的值，然后赋值给v1指向的变量(变量a)</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer12.png" alt="pointer12"></p>
+<blockquote>
+<p>第12行代码是将temp变量的值赋值给v2指向的变量(变量b)</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer13.png" alt="pointer13"><br>相信你已经感受到指针的强大了，如果没有指针，在一个函数的内部根本改变不了外部的实参。</p>
+<p>2.例子2</p>
+<p>接下来再举一个指针的实用例子。默认情况下，一个函数只能有一个返回值，有了指针，我们可以实现函数有”多返回值”。</p>
+<p>现在有个要求：写一个函数sumAndMinus，可以同时计算2个整型的和与差，函数执行完毕后，返回和与差(注意了，这里要返回2个值)<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 计算2个整型的和与差</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">sumAndMinus</span><span class="params">(<span class="keyword">int</span> v1, <span class="keyword">int</span> v2, <span class="keyword">int</span> *minus)</span> </span>&#123;</div><div class="line">    <span class="comment">// 计算差，并赋值给指针指向的变量</span></div><div class="line">    *minus = v1 - v2;</div><div class="line"></div><div class="line">    <span class="comment">// 计算和，并返回和</span></div><div class="line">    <span class="keyword">return</span> v1 + v2;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// 定义2个int型变量</span></div><div class="line">    <span class="keyword">int</span> a = <span class="number">6</span>, b = <span class="number">2</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 定义2个变量来分别接收和与差</span></div><div class="line">    <span class="keyword">int</span> sum, minus;</div><div class="line"></div><div class="line">    <span class="comment">// 调用函数</span></div><div class="line">    sum = sumAndMinus(a, b, &amp;minus);</div><div class="line"></div><div class="line">    <span class="comment">// 打印和</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d+%d=%d\n"</span>, a, b, sum);</div><div class="line"></div><div class="line">    <span class="comment">// 打印差</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d-%d=%d\n"</span>, a, b, minus);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>输出结果：<br><img src="/2017/03/20/pointer/pointer16.png" alt="pointer16"><br>和与差都由同一个函数计算并返回出来。和是函数的直接返回值，差是通过函数的第3个指针参数间接返回。因此有了指针，我们可以让函数有”无限个”返回值。</p>
+<hr>
+
+<h2 id="六、关于指针的疑问"><a href="#六、关于指针的疑问" class="headerlink" title="六、关于指针的疑问"></a>六、关于指针的疑问</h2><p>刚学完指针，都可能有一大堆的疑惑，这里我列出几个常见的疑惑吧。</p>
+<h3 id="1-一个指针变量占用多少个字节的内存空间？占用的空间是否会跟随所指向变量的类型而改变？"><a href="#1-一个指针变量占用多少个字节的内存空间？占用的空间是否会跟随所指向变量的类型而改变？" class="headerlink" title="1.一个指针变量占用多少个字节的内存空间？占用的空间是否会跟随所指向变量的类型而改变？"></a>1.一个指针变量占用多少个字节的内存空间？占用的空间是否会跟随所指向变量的类型而改变？</h3><p>在同一种编译器环境下，一个指针变量所占用的内存空间是固定的。比如，在16位编译器环境下，任何一个指针变量都只占用2个字节，并不会随所指向变量的类型而改变。</p>
+<p><img src="/2017/03/20/pointer/pointer14.png" alt="pointer14"></p>
+<h3 id="2-既然每个指针变量所占用的内存空间是一样的，而且存储的都是地址，为何指针变量还要分类型？而且只能指向一种类型的变量？比如指向int类型的指针、指向char类型的指针。"><a href="#2-既然每个指针变量所占用的内存空间是一样的，而且存储的都是地址，为何指针变量还要分类型？而且只能指向一种类型的变量？比如指向int类型的指针、指向char类型的指针。" class="headerlink" title="2.既然每个指针变量所占用的内存空间是一样的，而且存储的都是地址，为何指针变量还要分类型？而且只能指向一种类型的变量？比如指向int类型的指针、指向char类型的指针。"></a>2.既然每个指针变量所占用的内存空间是一样的，而且存储的都是地址，为何指针变量还要分类型？而且只能指向一种类型的变量？比如指向int类型的指针、指向char类型的指针。</h3><p>其实，我觉得这个问题跟”数组为什么要分类型”是一样的。</p>
+<blockquote>
+<ul>
+<li>看下面的代码，利用指针p读取变量c的值<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">2</span>;</div><div class="line"><span class="keyword">char</span> c = <span class="number">1</span>;</div><div class="line"></div><div class="line"> <span class="comment">// 定义一个指向char类型的指针</span></div><div class="line"> <span class="keyword">char</span> *p = &amp;c;</div><div class="line"></div><div class="line"> <span class="comment">// 取出</span></div><div class="line"> <span class="built_in">printf</span>(<span class="string">"%d"</span>, *p);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>这个输出结果应该难不倒大家：<strong> 1 </strong>，是可以成功读取的。</p>
+<ul>
+<li>如果我改一下第5行的代码，用一个本应该指向int类型变量的指针p，指向char类型的变量c</li>
+</ul>
+<blockquote>
+<p>int *p = &c;</p>
+</blockquote>
+<p>我们再来看一下输出：<strong> 513 </strong>，c的原值是1，现在取出来却是513，怎么回事呢？这个要根据内存来分析</p>
+<p>根据变量的定义顺序，这些变量在内存中大致如下图排布：</p>
+<p>其中，指针变量p和int类型变量i各占2个字节，char类型的c占一个字节，p指向c，因此p值就是c的地址</p>
+<p><img src="/2017/03/20/pointer/pointer15.png" alt="pointer15"><br>1&gt; 最初的时候，我们用char <em>p指向变量c。当利用</em>p来获取变量c的值时，由于指针p知道变量c是char类型的，所以会从ffc3这个地址开始读取1个字节的数据：0000 0001，转为10进制就是1</p>
+<p>2&gt; 后来，我们用int <em>p指向变量c。当利用</em>p获取变量c的值时，由于指针p认为变量c是int类型的，所以会从ffc3这个地址开始读取2个字节的数据：0000 0010 0000 0001，转为10进制就是513</p>
+<p>可见，给指针分类是多么重要的一件事，而且一种指针最好只指向一种类型的变量，那是最安全的。</p>
+<p><hr><br><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）mstarzheng@foxmail.com</em></strong></p>
 
           
         
@@ -617,7 +778,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -662,7 +823,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
