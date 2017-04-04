@@ -257,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/03/baiduyun/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/29/context/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mstar">
@@ -279,8 +279,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/03/baiduyun/" itemprop="url">
-                  mac折腾手记（三）--- 百度云盘限制破解
+                <a class="post-title-link" href="/2017/03/29/context/" itemprop="url">
+                  执行上下文详细图解
                 </a>
               
             
@@ -296,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-03T19:47:29+08:00">
-                2017-04-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-29T20:50:19+08:00">
+                2017-03-29
               </time>
             
 
@@ -319,8 +319,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mac笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">mac笔记</span>
+                  <a href="/categories/前端面试总结/" itemprop="url" rel="index">
+                    <span itemprop="name">前端面试总结</span>
                   </a>
                 </span>
 
@@ -356,35 +356,63 @@
       
         
           
-            <h2 id="Mac-百度云加速下载，突破限速，大文件无压力（小白使用无压力）"><a href="#Mac-百度云加速下载，突破限速，大文件无压力（小白使用无压力）" class="headerlink" title="Mac 百度云加速下载，突破限速，大文件无压力（小白使用无压力）"></a>Mac 百度云加速下载，突破限速，大文件无压力（小白使用无压力）</h2><p><hr><br>相信使用mac的同学们在使用百度云下载本站软件时肯定碰到过很多问题吧，尤其是大文件。最主要的是Mac端的同步盘太难用了，而且好像已经被官方抛弃了一样，很久都没有更新了。直接浏览器下载吧～限速不说，碰到大文件了还会断开，真是让人又气有无奈。</p>
-<p>话不多说，有了这个新方法，虽然可以完全抛弃windows版的百度云了，但是要是照顾一下Windows用户的。这里分享一个windows上的百度云管家<a href="https://pan.baidu.com/s/1hsl4fMO" target="_blank" rel="external"> <font color="red">提速破解版</font> </a> 密码: 2nru。</p>
-<p>接下来直奔Mac的主题。傻瓜安装法（更适合小白同学）</p>
+            <p><center>本文源出于—简书<a href="http://www.jianshu.com/p/a6d37c77e8db" target="_blank" rel="external"><strong>波同学</strong></a></center></p>
+<p><hr><br><img src="/2017/03/29/context/context1.png" alt="context1"></p>
+<p>我们在JS学习初期或者面试的时候常常会遇到考核变量提升的思考题。比如先来一个简单一点的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(a);   <span class="comment">// 这里会打印出什么？</span></div><div class="line"><span class="keyword">var</span> a = <span class="number">20</span>;</div></pre></td></tr></table></figure></p>
+<p>暂时先不管这个例子，我们先引入一个JavaScript中最基础，但同时也是最重要的一个概念<strong> 执行上下文（Execution Context）</strong>。</p>
+<p>每次当控制器转到可执行代码的时候，就会进入一个执行上下文。执行上下文可以理解为当前代码的执行环境，它会形成一个作用域。JavaScript中的运行环境大概包括三种情况。</p>
+<ul>
+<li>全局环境：JavaScript代码运行起来会首先进入该环境</li>
+<li>函数环境：当函数被调用执行时，会进入当前函数中执行代码</li>
+<li>eval</li>
+</ul>
+<p>因此在一个JavaScript程序中，必定会产生多个执行上下文，在我的上一篇文章中也有提到，JavaScript引擎会以堆栈的方式来处理它们，这个堆栈，我们称其为函数调用栈(call stack)。栈底永远都是全局上下文，而栈顶就是当前正在执行的上下文。</p>
+<p>当代码在执行过程中，遇到以上三种情况，都会生成一个执行上下文，放入栈中，而处于栈顶的上下文执行完毕之后，就会自动出栈。为了更加清晰的理解这个过程，根据下面的例子，结合图示给大家展示。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> color = <span class="string">'blue'</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeColor</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> anotherColor = <span class="string">'red'</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">swapColors</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> tempColor = anotherColor;</div><div class="line">        anotherColor = color;</div><div class="line">        color = tempColor;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    swapColors();</div><div class="line">&#125;</div><div class="line"></div><div class="line">changeColor();</div></pre></td></tr></table></figure></p>
+<p>我们用ECStack来表示处理执行上下文组的堆栈。我们很容易知道，第一步，首先是全局上下文入栈。</p>
+<ul>
+<li>第一步：全局上下文入栈:</li>
+</ul>
+<p><img src="/2017/03/29/context/context2.png" alt="context2"></p>
+<p>全局上下文入栈之后，其中的可执行代码开始执行，直到遇到了changeColor()，这一句激活函数changeColor创建它自己的执行上下文，因此第二步就是changeColor的执行上下文入栈。</p>
+<ul>
+<li>第二步：changeColor的执行上下文入栈:</li>
+</ul>
+<p><img src="/2017/03/29/context/context3.png" alt="context3"></p>
+<p>changeColor的上下文入栈之后，控制器开始执行其中的可执行代码，遇到swapColors()之后又激活了一个执行上下文。因此第三步是swapColors的执行上下文入栈。</p>
+<ul>
+<li>第三步：swapColors的执行上下文入栈:</li>
+</ul>
+<p><img src="/2017/03/29/context/context4.png" alt="context4"></p>
+<p>在swapColors的可执行代码中，再没有遇到其他能生成执行上下文的情况，因此这段代码顺利执行完毕，swapColors的上下文从栈中弹出。</p>
+<ul>
+<li>第四步：swapColors的执行上下文出栈:</li>
+</ul>
+<p><img src="/2017/03/29/context/context5.png" alt="context5"></p>
+<p>swapColors的执行上下文弹出之后，继续执行changeColor的可执行代码，也没有再遇到其他执行上下文，顺利执行完毕之后弹出。这样，ECStack中就只身下全局上下文了。</p>
+<ul>
+<li>第五步：changeColor的执行上下文出栈</li>
+</ul>
+<p><img src="/2017/03/29/context/context6.png" alt="context6"></p>
+<p>全局上下文在浏览器窗口关闭后出栈。</p>
 <blockquote>
-<p>1、先下载<a href="https://github.com/yangshun1029/aria2gui/releases" target="_blank" rel="external">Aria2GUI dmg</a>，解压并安装。</p>
+<p>注意：函数中，遇到return能直接终止可执行代码的执行，因此会直接将当前上下文弹出栈。</p>
+<ul>
+<li>上例演变过程:</li>
+</ul>
 </blockquote>
+<p><img src="/2017/03/29/context/context7.png" alt="context7"></p>
+<p>详细了解了这个过程之后，我们就可以对执行上下文总结一些结论了。</p>
 <ul>
-<li><font color="red">下载好后安装：每次下载东西的时候都需要打开这个Aria2GUI客户端</font>
-
-</li>
+<li>单线程</li>
+<li>同步执行，只有栈顶的上下文处于执行中，其他上下文需要等待</li>
+<li>全局上下文只有唯一的一个，它在浏览器关闭时出栈</li>
+<li>函数的执行上下文的个数没有限制</li>
+<li>每次某个函数被调用，就会有个新的执行上下文为其创建，即使是调用的自身函数，也是如此。</li>
 </ul>
-<blockquote>
-<p>2、<a href="https://github.com/acgotaku/BaiduExporter/releases" target="_blank" rel="external">网盘助手</a></p>
-</blockquote>
-<ul>
-<li><font color="red">插件目前只有chrome版本在一直维护，所以，只适用于chrome浏览器，按照以下方法，安装完了以后，在百度云的下载界面会多出来一个 “导出下载”的按钮，点击这个里面的”ARIA2 RPC”，下载任务会自动在Aria2GUI客户端中开始</font>
-
-</li>
-</ul>
-<p>目前百度云插件已停止打包，使用最新版本方法如下：</p>
-<p>下载<a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="external">百度云插件源代码</a> 并解压，如图</p>
-<p><img src="/2017/04/03/baiduyun/baidu1.png" alt="baidu1"></p>
-<p>直接将下载好的文件夹中的<font color="red"> chrome.crx </font>文件拖动到浏览器的 <font color="red">扩展程序</font>界面进行安装。</p>
-<p><font color="red">安装完毕后请参考</font>：</p>
-<ul>
-<li><a href="https://mstarzheng.github.io/2017/04/02/study-mac/" target="_blank" rel="external">mac折腾手记（二）— 将非官方扩展程序加入chrome的白名单</a> <font color="red">解决扩展程序失效停用的问题</font><br><br><br>以上步骤都顺利完成，会在你的网页版的百度云盘中多出一个<font color="red">导出下载</font>，如图所示：</li>
-</ul>
-<p><img src="/2017/04/03/baiduyun/baidu2.png" alt="baidu2"></p>
-<p>接下就开始尽情的使用你的装X神器吧！！！</p>
+<p>为了巩固一下执行上下文的理解，我们再来绘制一个例子的演变过程，这是一个简单的闭包例子。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> n=<span class="number">999</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        alert(n);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> f2;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> result=f1();</div><div class="line">result(); <span class="comment">// 999</span></div></pre></td></tr></table></figure></p>
+<p>因为f1中的函数f2在f1的可执行代码中，并没有被调用执行，因此执行f1时，f2不会创建新的上下文，而直到result执行时，才创建了一个新的。具体演变过程如下。</p>
+<p><img src="/2017/03/29/context/context8.png" alt="context8"></p>
+<p><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）mstarzheng@foxmail.com</em></strong></p>
 
           
         
@@ -428,7 +456,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/02/study-mac/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/28/this/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mstar">
@@ -450,8 +478,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/02/study-mac/" itemprop="url">
-                  mac折腾手记（二）
+                <a class="post-title-link" href="/2017/03/28/this/" itemprop="url">
+                  全方位解读this
                 </a>
               
             
@@ -467,8 +495,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-02T23:20:00+08:00">
-                2017-04-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-28T06:00:00+08:00">
+                2017-03-28
               </time>
             
 
@@ -490,8 +518,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mac笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">mac笔记</span>
+                  <a href="/categories/前端面试总结/" itemprop="url" rel="index">
+                    <span itemprop="name">前端面试总结</span>
                   </a>
                 </span>
 
@@ -527,24 +555,842 @@
       
         
           
-            <h2 id="将非官方扩展程序加入chrome的白名单"><a href="#将非官方扩展程序加入chrome的白名单" class="headerlink" title="将非官方扩展程序加入chrome的白名单"></a>将非官方扩展程序加入chrome的白名单</h2><hr>
+            <p><center>本文源出于—简书<a href="http://www.jianshu.com/p/d647aa6d1ae6" target="_blank" rel="external"><strong>波同学</strong></a></center></p>
+<p><hr><br>回顾一下执行上下文声明周期<br><img src="/2017/03/28/this/this1.png" alt="this1"></p>
+<p>在执行上下文的创建阶段，会分别生成变量对象，建立作用域链，确定this指向。其中变量对象与作用域链我们都已经仔细总结过了，而这里的关键，就是确定this指向。</p>
+<p>在这里，我们需要得出一个非常重要一定要牢记于心的结论，<strong> this的指向，是在函数被调用的时候确定的。也就是执行上下文被创建时确定的 </strong>。因此我们可以很容易就能理解到，一个函数中的this指向，可以是非常灵活的。比如下面的例子中，同一个函数由于调用方式的不同，this指向了不一样的对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">20</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</div><div class="line">&#125;</div><div class="line"></div><div class="line">fn(); <span class="comment">// 10</span></div><div class="line">fn.call(obj); <span class="comment">// 20</span></div></pre></td></tr></table></figure></p>
+<p>除此之外，<strong> 在函数执行过程中，this一旦被确定，就不可更改了 </strong>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">20</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span> = obj; <span class="comment">// 这句话试图修改this，运行后会报错</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</div><div class="line">&#125;</div><div class="line"></div><div class="line">fn();</div></pre></td></tr></table></figure></p>
+<hr>
+
+
+<h2 id="一、全局对象中的this"><a href="#一、全局对象中的this" class="headerlink" title="一、全局对象中的this"></a>一、全局对象中的this</h2><p>关于全局对象的this，我之前在总结变量对象的时候提到过，它是一个比较特殊的存在。全局环境中的this，指向它本身。因此，这也相对简单，没有那么多复杂的情况需要考虑。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过this绑定到全局对象</span></div><div class="line"><span class="keyword">this</span>.a2 = <span class="number">20</span>;</div><div class="line"></div><div class="line"><span class="comment">// 通过声明绑定到变量对象，但在全局环境中，变量对象就是它自身</span></div><div class="line"><span class="keyword">var</span> a1 = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="comment">// 仅仅只有赋值操作，标识符会隐式绑定到全局对象</span></div><div class="line">a3 = <span class="number">30</span>;</div><div class="line"></div><div class="line"><span class="comment">// 输出结果会全部符合预期</span></div><div class="line"><span class="built_in">console</span>.log(a1);</div><div class="line"><span class="built_in">console</span>.log(a2);</div><div class="line"><span class="built_in">console</span>.log(a3);</div></pre></td></tr></table></figure></p>
+<hr>
+
+<h2 id="二、函数中的this"><a href="#二、函数中的this" class="headerlink" title="二、函数中的this"></a>二、函数中的this</h2><p>在总结函数中this指向之前，我想我们有必要通过一些奇怪的例子，来感受一下函数中this的捉摸不定。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// demo01</span></div><div class="line"><span class="keyword">var</span> a = <span class="number">20</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</div><div class="line">&#125;</div><div class="line">fn();</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// demo02</span></div><div class="line"><span class="keyword">var</span> a = <span class="number">20</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</div><div class="line">    &#125;</div><div class="line">    foo();</div><div class="line">&#125;</div><div class="line">fn();</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// demo03</span></div><div class="line"><span class="keyword">var</span> a = <span class="number">20</span>;</div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">10</span>,</div><div class="line">    <span class="attr">c</span>: <span class="keyword">this</span>.a + <span class="number">20</span>,</div><div class="line">    <span class="attr">fn</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(obj.c);</div><div class="line"><span class="built_in">console</span>.log(obj.fn());</div></pre></td></tr></table></figure>
+<p>这几个例子需要读者老爷们花点时间稍微感受一下，如果你暂时没想明白怎么回事，也不用着急，我们一点一点来分析。</p>
+<p>分析之前，我们先直接了当抛出结论。</p>
+<p>在一个函数上下文中，this由调用者提供，由调用函数的方式来决定。<strong> 如果调用者函数，被某一个对象所拥有，那么该函数在调用时，内部的this指向该对象。如果函数独立调用，那么该函数内部的this，则指向undefined </strong>。但是在非严格模式中，当this指向undefined时，它会被自动指向全局对象。</p>
+<p>从结论中我们可以看出，想要准确确定this指向，找到函数的调用者以及区分他是否是独立调用就变得十分关键。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 为了能够准确判断，我们在函数内部使用严格模式，因为非严格模式会自动指向全局</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</div><div class="line"><span class="meta">    'use strict'</span>;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">fn();  <span class="comment">// fn是调用者，独立调用</span></div><div class="line"><span class="built_in">window</span>.fn();  <span class="comment">// fn是调用者，被window所拥有</span></div></pre></td></tr></table></figure>
+<p>在上面的简单例子中，fn()作为独立调用者，按照定义的理解，它内部的this指向就为undefined。而window.fn()则因为fn被window所拥有，内部的this就指向了window对象。</p>
+<p>那么掌握了这个规则，现在回过头去看看上面的三个例子，通过添加/去除严格模式，那么你就会发现，原来this已经变得不那么虚无缥缈，已经有迹可循了。</p>
+<p>但是我们需要特别注意的是demo03。在demo03中，对象obj中的c属性使用this.a + 20来计算，而他的调用者obj.c并非是一个函数。因此他不适用于上面的规则，我们要对这种方式单独下一个结论。</p>
+<p><strong> 当obj在全局声明时，无论obj.c在什么地方调用，这里的this都指向全局对象，而当obj在函数环境中声明时，这个this指向undefined，在非严格模式下，会自动转向全局对象 </strong>。可运行下面的例子查看区别。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div><div class="line"><span class="keyword">var</span> a = <span class="number">20</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line">    <span class="keyword">var</span> obj = &#123;</div><div class="line">        <span class="attr">a</span>: <span class="number">10</span>,</div><div class="line">        <span class="attr">c</span>: <span class="keyword">this</span>.a + <span class="number">20</span>,</div><div class="line">        <span class="attr">fn</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.a;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> obj.c;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(foo()); <span class="comment">// 运行会报错</span></div></pre></td></tr></table></figure>
+<ul>
+<li>实际开发中，并不推荐这样使用this；</li>
+<li>上面多次提到的严格模式，需要大家认真对待，因为在实际开发中，现在基本已经全部采用严格模式了，而最新的ES6，也是默认支持严格模式。</li>
+</ul>
+<p>再来看一些容易理解错误的例子，加深一下对调用者与是否独立运行的理解。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">20</span>;</div><div class="line"><span class="keyword">var</span> foo = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">10</span>,</div><div class="line">    <span class="attr">getA</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(foo.getA()); <span class="comment">// 10</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> test = foo.getA;</div><div class="line"><span class="built_in">console</span>.log(test());  <span class="comment">// 20</span></div></pre></td></tr></table></figure>
+<p>foo.getA()中，getA是调用者，他不是独立调用，被对象foo所拥有，因此它的this指向了foo。而test()作为调用者，尽管他与foo.getA的引用相同，但是它是独立调用的，因此this指向undefined，在非严格模式，自动转向全局window。</p>
+<p>稍微修改一下代码，大家自行理解。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">20</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getA</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.a;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> foo = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">10</span>,</div><div class="line">    <span class="attr">getA</span>: getA</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(foo.getA());  <span class="comment">// 10</span></div></pre></td></tr></table></figure>
+<p>灵机一动，再来一个。如下例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">active</span>(<span class="params">fn</span>) </span>&#123;</div><div class="line">    fn(); <span class="comment">// 真实调用者，为独立调用</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="number">20</span>;</div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">10</span>,</div><div class="line">    <span class="attr">getA</span>: foo</div><div class="line">&#125;</div><div class="line"></div><div class="line">active(obj.getA);</div></pre></td></tr></table></figure>
+<p><hr></p>
+<h2 id="三、使用call，apply显示指定this"><a href="#三、使用call，apply显示指定this" class="headerlink" title="三、使用call，apply显示指定this"></a>三、使用call，apply显示指定this</h2><p>JavaScript内部提供了一种机制，让我们可以自行手动设置this的指向。它们就是call与apply。所有的函数都具有着两个方法。它们除了参数略有不同，其功能完全一样。它们的第一个参数都为this将要指向的对象。</p>
+<p>如下例子所示。fn并非属于对象obj的方法，但是通过call，我们将fn内部的this绑定为obj，因此就可以使用this.a访问obj的a属性了。这就是call/apply的用法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">20</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">fn.call(obj);</div></pre></td></tr></table></figure>
+<p>而call与applay后面的参数，都是向将要执行的函数传递参数。其中call以一个一个的形式传递，apply以数组的形式传递。这是他们唯一的不同。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">num1, num2</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a + num1 + num2);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">20</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">fn.call(obj, <span class="number">100</span>, <span class="number">10</span>); <span class="comment">// 130</span></div><div class="line">fn.apply(obj, [<span class="number">20</span>, <span class="number">10</span>]); <span class="comment">// 50</span></div></pre></td></tr></table></figure>
+<p>因为call/apply的存在，这让JavaScript变得十分灵活。因此就让call/apply拥有了很多有用处的场景。简单总结几点，也欢迎大家补充。</p>
+<ul>
+<li>将类数组对象转换为数组</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">exam</span>(<span class="params">a, b, c, d, e</span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 先看看函数的自带属性 arguments 什么是样子的</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 使用call/apply将arguments转换为数组, 返回结果为数组，arguments自身不会改变</span></div><div class="line">    <span class="keyword">var</span> arg = [].slice.call(<span class="built_in">arguments</span>);</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(arg);</div><div class="line">&#125;</div><div class="line"></div><div class="line">exam(<span class="number">2</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">3</span>);</div><div class="line"></div><div class="line"><span class="comment">// result:</span></div><div class="line"><span class="comment">// &#123; '0': 2, '1': 8, '2': 9, '3': 10, '4': 3 &#125;</span></div><div class="line"><span class="comment">// [ 2, 8, 9, 10, 3 ]</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// 也常常使用该方法将DOM中的nodelist转换为数组</span></div><div class="line"><span class="comment">// [].slice.call( document.getElementsByTagName('li') );</span></div></pre></td></tr></table></figure>
+<ul>
+<li>根据自己的需要灵活修改this指向</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'joker'</span>,</div><div class="line">    <span class="attr">showName</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> bar = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'rose'</span></div><div class="line">&#125;</div><div class="line">foo.showName.call(bar);</div></pre></td></tr></table></figure>
+<ul>
+<li>实现继承</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义父级的构造函数</span></div><div class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span>(<span class="params">name, age</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age  = age;</div><div class="line">    <span class="keyword">this</span>.gender = [<span class="string">'man'</span>, <span class="string">'woman'</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 定义子类的构造函数</span></div><div class="line"><span class="keyword">var</span> Student = <span class="function"><span class="keyword">function</span>(<span class="params">name, age, high</span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// use call</span></div><div class="line">    Person.call(<span class="keyword">this</span>, name, age);</div><div class="line">    <span class="keyword">this</span>.high = high;</div><div class="line">&#125;</div><div class="line">Student.prototype.message = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'name:'</span>+<span class="keyword">this</span>.name+<span class="string">', age:'</span>+<span class="keyword">this</span>.age+<span class="string">', high:'</span>+<span class="keyword">this</span>.high+<span class="string">', gender:'</span>+<span class="keyword">this</span>.gender[<span class="number">0</span>]+<span class="string">';'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">new</span> Student(<span class="string">'xiaom'</span>, <span class="number">12</span>, <span class="string">'150cm'</span>).message();</div><div class="line"></div><div class="line"><span class="comment">// result</span></div><div class="line"><span class="comment">// ----------</span></div><div class="line"><span class="comment">// name:xiaom, age:12, high:150cm, gender:man;</span></div></pre></td></tr></table></figure>
+<p>简单给有面向对象基础的朋友解释一下。在Student的构造函数中，借助call方法，将父级的构造函数执行了一次，相当于将Person中的代码，在Sudent中复制了一份，其中的this指向为从Student中new出来的实例对象。call方法保证了this的指向正确，因此就相当于实现了基层。Student的构造函数等同于下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Student = <span class="function"><span class="keyword">function</span>(<span class="params">name, age, high</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age  = age;</div><div class="line">    <span class="keyword">this</span>.gender = [<span class="string">'man'</span>, <span class="string">'woman'</span>];</div><div class="line">    <span class="comment">// Person.call(this, name, age); 这一句话，相当于上面三句话，因此实现了继承</span></div><div class="line">    <span class="keyword">this</span>.high = high;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>在向其他执行上下文的传递中，确保this的指向保持不变</li>
+</ul>
+<p>如下面的例子中，我们期待的是getA被obj调用时，this指向obj，但是由于匿名函数的存在导致了this指向的丢失，在这个匿名函数中this指向了全局，因此我们需要想一些办法找回正确的this指向。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">20</span>,</div><div class="line">    <span class="attr">getA</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</div><div class="line">        &#125;, <span class="number">1000</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">obj.getA();</div></pre></td></tr></table></figure>
+<p>常规的解决办法很简单，就是使用一个变量，将this的引用保存起来。我们常常会用到这方法，但是我们也要借助上面讲到过的知识，来判断this是否在传递中被修改了，如果没有被修改，就没有必要这样使用了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">20</span>,</div><div class="line">    <span class="attr">getA</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(self.a)</div><div class="line">        &#125;, <span class="number">1000</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>另外就是借助闭包与apply方法，封装一个bind方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn, obj</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> fn.apply(obj, <span class="built_in">arguments</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">20</span>,</div><div class="line">    <span class="attr">getA</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        setTimeout(bind(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</div><div class="line">        &#125;, <span class="keyword">this</span>), <span class="number">1000</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">obj.getA();</div></pre></td></tr></table></figure>
+<p>当然，也可以使用ES5中已经自带的bind方法。它与我上面封装的bind方法是一样的效果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">20</span>,</div><div class="line">    <span class="attr">getA</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</div><div class="line">        &#125;.bind(<span class="keyword">this</span>), <span class="number">1000</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+
+<h2 id="四、构造函数与原型方法上的this"><a href="#四、构造函数与原型方法上的this" class="headerlink" title="四、构造函数与原型方法上的this"></a>四、构造函数与原型方法上的this</h2><p>在封装对象的时候，我们几乎都会用到this，但是，只有少数人搞明白了在这个过程中的this指向，就算我们理解了原型，也不一定理解了this。所以这一部分，我认为将会为这篇文章最重要最核心的部分。理解了这里，将会对你学习JS面向对象产生巨大的帮助。</p>
+<p>结合下面的例子，我在例子抛出几个问题大家思考一下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 这里的this指向了谁?</span></div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 这里的this又指向了谁？</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 上面的2个this，是同一个吗，他们是否指向了原型对象？</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person(<span class="string">'Nick'</span>, <span class="number">20</span>);</div><div class="line">p1.getName();</div></pre></td></tr></table></figure>
+<p>我们已经知道，this，是在函数调用过程中确定，因此，搞明白new的过程中到底发生了什么就变得十分重要。</p>
+<p>通过new操作符调用构造函数，会经历以下4个阶段。</p>
+<ul>
+<li>创建一个新的对象；</li>
+<li>将构造函数的this指向这个新对象；</li>
+<li>指向构造函数的代码，为这个对象添加属性，方法等；</li>
+<li>返回新对象。</li>
+</ul>
+<p>因此，当new操作符调用构造函数时，this其实指向的是这个新创建的对象，最后又将新的对象返回出来，被实例对象p1接收。因此，我们可以说，这个时候，构造函数的this，指向了新的实例对象，p1。</p>
+<p>而原型方法上的this就好理解多了，根据上边对函数中this的定义，p1.getName()中的getName为调用者，他被p1所拥有，因此getName中的this，也是指向了p1。</p>
+<hr>
+
+<p><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）mstarzheng@foxmail.com</em></strong></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/26/closure/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mstar">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mstar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mstar's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/26/closure/" itemprop="url">
+                  详细图解作用域链与闭包
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-26T11:20:00+08:00">
+                2017-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端面试总结/" itemprop="url" rel="index">
+                    <span itemprop="name">前端面试总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><center>本文源出于—简书<a href="http://www.jianshu.com/p/21a16d44f150" target="_blank" rel="external"><strong>波同学</strong></a></center><br><img src="/2017/03/26/closure/closure1.png" alt="closure1"></p>
+<p><hr></p>
+<h2 id="一、作用域与作用域链"><a href="#一、作用域与作用域链" class="headerlink" title="一、作用域与作用域链"></a>一、作用域与作用域链</h2><p>在详细讲解作用域链之前，我默认你已经大概明白了JavaScript中的下面这些重要概念。这些概念将会非常有帮助。</p>
+<ul>
+<li>基础数据类型与引用数据类型</li>
+<li>内存空间</li>
+<li>垃圾回收机制</li>
+<li>执行上下文</li>
+<li>变量对象与活动对象</li>
+</ul>
+<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><p>在JavaScript中，我们可以将作用域定义为一套规则,这套规则用来管理引擎如何在当前作用域以及嵌套的子作用域中根据标识符名称进行变量查找。</p>
+<blockquote>
+<p>这里的标识符，指的是变量名或者函数名</p>
+</blockquote>
+<ul>
+<li>JavaScript中只有全局作用域与函数作用域(因为eval我们平时开发中几乎不会用到它，这里不讨论)。</li>
+<li>作用域与执行上下文是完全不同的两个概念。我知道很多人会混淆他们，但是一定要仔细区分。</li>
+</ul>
+<blockquote>
+<p>JavaScript代码的整个执行过程，分为两个阶段，代码编译阶段与代码执行阶段。编译阶段由编译器完成，将代码翻译成可执行代码，这个阶段作用域规则会确定。执行阶段由引擎完成，主要任务是执行可执行代码，执行上下文在这个阶段创建。</p>
+</blockquote>
+<p><img src="/2017/03/26/closure/closure2.png" alt="closure2"></p>
+<h4 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h4><p>之前我们分析的执行上下文的生命周期，如下图。</p>
+<p><img src="/2017/03/26/closure/closure3.png" alt="closure3"></p>
+<p>我们发现，作用域链是在执行上下文的创建阶段生成的。这个就奇怪了。上面我们刚刚说作用域在编译阶段确定规则，可是为什么作用域链却在执行阶段确定呢？</p>
+<p>之所以有这个疑问，是因为大家对作用域和作用域链有一个误解。我们上面说了，作用域是一套规则，那么作用域链是什么呢？是这套规则的具体实现。所以这就是作用域与作用域链的关系，相信大家都应该明白了吧。</p>
+<p>我们知道函数在调用激活时，会开始创建对应的执行上下文，在执行上下文生成的过程中，变量对象，作用域链，以及this的值会分别被确定。之前们详细说明了变量对象，而这里，我们将详细说明作用域链。</p>
+<p><strong> 作用域链，是由当前环境与上层环境的一系列变量对象组成，它保证了当前执行环境对符合访问权限的变量和函数的有序访问。 </strong></p>
+<p>为了帮助大家理解作用域链，我我们先结合一个例子，以及相应的图示来说明。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">20</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> b = a + <span class="number">10</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">innerTest</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> c = <span class="number">10</span>;</div><div class="line">        <span class="keyword">return</span> b + c;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> innerTest();</div><div class="line">&#125;</div><div class="line"></div><div class="line">test();</div></pre></td></tr></table></figure>
+<p>在上面的例子中，全局，函数test，函数innerTest的执行上下文先后创建。我们设定他们的变量对象分别为VO(global)，VO(test), VO(innerTest)。而innerTest的作用域链，则同时包含了这三个变量对象，所以innerTest的执行上下文可如下表示。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">innerTestEC = &#123;</div><div class="line">    <span class="attr">VO</span>: &#123;...&#125;,  <span class="comment">// 变量对象</span></div><div class="line">    scopeChain: [VO(innerTest), VO(test), VO(global)], <span class="comment">// 作用域链</span></div><div class="line">    <span class="keyword">this</span>: &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>是的，你没有看错，我们可以直接用一个数组来表示作用域链，数组的第一项scopeChain[0]为作用域链的最前端，而数组的最后一项，为作用域链的最末端，所有的最末端都为全局变量对象。</p>
+<p>很多人会误解为当前作用域与上层作用域为包含关系，但其实并不是。以最前端为起点，最末端为终点的单方向通道我认为是更加贴切的形容。如图。</p>
+<p><img src="/2017/03/26/closure/closure4.png" alt="closure4"></p>
+<blockquote>
+<p>注意，因为变量对象在执行上下文进入执行阶段时，就变成了活动对象，这一点在上一篇文章中已经讲过，因此图中使用了AO来表示。Active Object</p>
+</blockquote>
+<p>是的，作用域链是由一系列变量对象组成，我们可以在这个单向通道中，查询变量对象中的标识符，这样就可以访问到上一层作用域中的变量了。</p>
+<hr>
+
+<h2 id="二、闭包"><a href="#二、闭包" class="headerlink" title="二、闭包"></a>二、闭包</h2><p>对于那些有一点 JavaScript 使用经验但从未真正理解闭包概念的人来说，理解闭包可以看作是某种意义上的重生，突破闭包的瓶颈可以使你功力大增。</p>
+<ul>
+<li>闭包与作用域链息息相关；</li>
+<li>闭包是在函数执行过程中被确认。</li>
+</ul>
+<p>先直截了当的抛出闭包的定义：<font color="red">当函数可以记住并访问所在的作用域(全局作用域除外)时，就产生了闭包，即使函数是在当前作用域之外执行。</font></p>
+<blockquote>
+<p>简单来说，假设函数A在函数B的内部进行定义了，并且当函数A在执行时，访问了函数B内部的变量对象，那么B就是一个闭包</p>
+</blockquote>
+<p>JavaScript的垃圾回收机制。JavaScript拥有自动的垃圾回收机制，关于垃圾回收机制，有一个重要的行为，那就是，当一个值，在内存中失去引用时，垃圾回收机制会根据特殊的算法找到它，并将其回收，释放内存。</p>
+<p>而我们知道，函数的执行上下文，在执行完毕之后，生命周期结束，那么该函数的执行上下文就会失去引用。其占用的内存空间很快就会被垃圾回收器释放。可是闭包的存在，会阻止这一过程。</p>
+<p>先来一个简单的例子。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fn = <span class="literal">null</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">innnerFoo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(a);</div><div class="line">    &#125;</div><div class="line">    fn = innnerFoo; <span class="comment">// 将 innnerFoo的引用，赋值给全局变量中的fn</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    fn(); <span class="comment">// 此处的保留的innerFoo的引用</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">foo();</div><div class="line">bar(); <span class="comment">// 2</span></div></pre></td></tr></table></figure></p>
+<p>在上面的例子中，foo()执行完毕之后，按照常理，其执行环境生命周期会结束，所占内存被垃圾收集器释放。但是通过fn = innerFoo，函数innerFoo的引用被保留了下来，复制给了全局变量fn。这个行为，导致了foo的变量对象，也被保留了下来。于是，函数fn在函数bar内部执行时，依然可以访问这个被保留下来的变量对象。所以此刻仍然能够访问到变量a的值。</p>
+<p>这样，我们就可以称foo为闭包。</p>
+<p>下图展示了闭包foo的作用域链。</p>
+<p><img src="/2017/03/26/closure/closure5.png" alt="closure5"></p>
+<p>我们可以在chrome浏览器的开发者工具中查看这段代码运行时产生的函数调用栈与作用域链的生成情况。如下图。</p>
+<p><img src="/2017/03/26/closure/closure6.png" alt="closure6"></p>
+<p>在上面的图中，红色箭头所指的正是闭包。其中Call Stack为当前的函数调用栈，Scope为当前正在被执行的函数的作用域链，Local为当前的局部变量。</p>
+<p><font color="red">所以，通过闭包，我们可以在其他的执行上下文中，访问到函数的内部变量。</font>比如在上面的例子中，我们在函数bar的执行环境中访问到了函数foo的a变量。个人认为，从应用层面，这是闭包最重要的特性。利用这个特性，我们可以实现很多有意思的东西。</p>
+<p>不过读者老爷们需要注意的是，虽然例子中的闭包被保存在了全局变量中，但是闭包的作用域链并不会发生任何改变。在闭包中，能访问到的变量，仍然是作用域链上能够查询到的变量。</p>
+<p>对上面的例子稍作修改，如果我们在函数bar中声明一个变量c，并在闭包fn中试图访问该变量，运行结果会抛出错误。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fn = <span class="literal">null</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">innnerFoo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(c); <span class="comment">// 在这里，试图访问函数bar中的c变量，会抛出错误</span></div><div class="line">        <span class="built_in">console</span>.log(a);</div><div class="line">    &#125;</div><div class="line">    fn = innnerFoo; <span class="comment">// 将 innnerFoo的引用，赋值给全局变量中的fn</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> c = <span class="number">100</span>;</div><div class="line">    fn(); <span class="comment">// 此处的保留的innerFoo的引用</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">foo();</div><div class="line">bar();</div></pre></td></tr></table></figure></p>
+<h4 id="闭包的应用场景"><a href="#闭包的应用场景" class="headerlink" title="闭包的应用场景"></a>闭包的应用场景</h4><p>接下来，我们来总结下，闭包的常用场景。</p>
+<p>延迟函数setTimeout<br>我们知道setTimeout的第一个参数是一个函数，第二个参数则是延迟的时间。在下面例子中，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'this is test.'</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> timer =  setTimeout(fn, <span class="number">1000</span>);</div><div class="line"><span class="built_in">console</span>.log(timer);</div></pre></td></tr></table></figure>
+<p>执行上面的代码，变量timer的值，会立即输出出来，表示setTimeout这个函数本身已经执行完毕了。但是一秒钟之后，fn才会被执行。这是为什么？</p>
+<p>按道理来说，既然fn被作为参数传入了setTimeout中，那么fn将会被保存在setTimeout变量对象中，setTimeout执行完毕之后，它的变量对象也就不存在了。可是事实上并不是这样。至少在这一秒钟的事件里，它仍然是存在的。这正是因为闭包。</p>
+<p>很显然，这是在函数的内部实现中，setTimeout通过特殊的方式，保留了fn的引用，让setTimeout的变量对象，并没有在其执行完毕后被垃圾收集器回收。因此setTimeout执行结束后一秒，我们任然能够执行fn函数。</p>
+<ul>
+<li><p><strong>柯里化</strong><br>在函数式编程中，利用闭包能够实现很多炫酷的功能，柯里化算是其中一种。关于柯里化，我会在以后详解函数式编程的时候仔细总结。</p>
+</li>
+<li><p><strong>模块</strong><br>在我看来，模块是闭包最强大的一个应用场景。如果你是初学者，对于模块的了解可以暂时不用放在心上，因为理解模块需要更多的基础知识。但是如果你已经有了很多JavaScript的使用经验，在彻底了解了闭包之后，不妨借助本文介绍的作用域链与闭包的思路，重新理一理关于模块的知识。这对于我们理解各种各样的设计模式具有莫大的帮助。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line">    <span class="keyword">var</span> b = <span class="number">20</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">num1, num2</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> num1 = !!num1 ? num1 : a;</div><div class="line">        <span class="keyword">var</span> num2 = !!num2 ? num2 : b;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> num1 + num2;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">window</span>.add = add;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">add(<span class="number">10</span>, <span class="number">20</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在上面的例子中，我使用函数自执行的方式，创建了一个模块。add是模块对外暴露的一个公共方法。而变量a，b被作为私有变量。在面向对象的开发中，我们常常需要考虑是将变量作为私有变量，还是放在构造函数中的this中，因此理解闭包，以及原型链是一个非常重要的事情。</p>
+<p><img src="/2017/03/26/closure/closure7.png" alt="closure7"></p>
+<p>为了验证自己有没有搞懂作用域链与闭包，这里留下一个经典的思考题，常常也会在面试中被问到。</p>
+<p>利用闭包，修改下面的代码，让循环输出的结果依次为1， 2， 3， 4， 5<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">1</span>; i&lt;=<span class="number">5</span>; i++) &#123;</div><div class="line">    setTimeout( <span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(i);</div><div class="line">    &#125;, i*<span class="number">1000</span> );</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+
+<p><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）mstarzheng@foxmail.com</em></strong></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/摆脱项目命名困难的尴尬局面/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mstar">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mstar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mstar's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/22/摆脱项目命名困难的尴尬局面/" itemprop="url">
+                  摆脱项目命名困难的尴尬局面
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T21:29:26+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><center>本文源出于—掘金<a href="https://juejin.im/post/58d0e5caa22b9d00643e8b51" target="_blank" rel="external"><strong>西安小哥</strong></a></center></p>
+<h2 id="1、文件夹命名"><a href="#1、文件夹命名" class="headerlink" title="1、文件夹命名"></a><strong>1、文件夹命名</strong></h2><ul>
+<li>1、最好用一个单词描述</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>常用项目命名</th>
+<th>oml、element、master、project、test、vue、iview</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>二级目录</strong></td>
+<td>build、static、config、src、example、base、commeon、issues、assert</td>
+</tr>
+<tr>
+<td><strong>三级目录</strong></td>
+<td>libs、models、plugins、skins、images、css、js</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>2、如果一个单词描述不了，名词加动词</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">color-pick、button-groups、date-picker、option-group、jquery-select、jquery-swiper</div></pre></td></tr></table></figure>
+</li>
+<li><p>3、中间用-或者_连接为了方便归类、一目了然</p>
+<blockquote>
+<p>node_models、async-demo、array-union、array-differ、babel-each</p>
+<hr>
+
+</blockquote>
+</li>
+</ul>
+<h2 id="2、文件命名"><a href="#2、文件命名" class="headerlink" title="2、文件命名"></a><strong>2、文件命名</strong></h2><ul>
+<li>1.最好用一个单词描述<br>一下变量名可以加css、js、html、例如index.html、index.js、index.css</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>常用组件命名</th>
+<th>index、message、menu、slider（滑块）、page、progress（进度条）、tooltip（提示）、tree、upload、time、button、checkbox、dialog、cascader（三级联动）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>常用文件命名</td>
+<td>index、shopping（购物）、 share（分享）、integral（积分）、advertisement（广告）、pay（支付）、community（社区）、game、docs、bussiness</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>2.如果一个单词描述不了，名词加动词</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">share-to-friends，share-to-community，weex-pay，alipay-pay，user-integral，game-page，docs-page等等反正就是自我想象。</div></pre></td></tr></table></figure>
+</li>
+<li><p>3.中间用-或者_连接为了方便归类、一目了然<br>在目前做的pc端和移动端，简单的对他们分个类：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">移动广告(mobile-advertisement)</div><div class="line">移动社交(mobile-social)</div><div class="line">移动电子商务(mobile-bussiness)</div><div class="line">手机游戏(mobile-game)</div><div class="line">手机电视(mobile-tv)</div><div class="line">移动电子阅读(mobile-reading)</div><div class="line">手机搜索(mobile-search)</div><div class="line">移动支付(mobile-pay)</div><div class="line">手机内容共享(mobile-share)</div></pre></td></tr></table></figure>
+<p>关于以上的项目都可以用名词+需要的动词命名，达到见词知意</p>
+<hr>
+
+<h2 id="3-html布局命名"><a href="#3-html布局命名" class="headerlink" title="3.html布局命名"></a><strong>3.html布局命名</strong></h2><p><a href="http://www.divcss5.com/jiqiao/j4.shtml" target="_blank" rel="external"><strong>可以参考DIV+CSS规范命名大全</strong></a> 但是我觉得写得并不好，很全面。因为因为往往比较纠结的是每一个大布局中小布局的命名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">外套 wrap:       &gt;&gt; #container</div><div class="line">头部 header:     &gt;&gt; #head, #header，#nav，#sub-nav，#menu， #sub-menu，#branding</div><div class="line">主要内容 main::   &gt;&gt; bussiness-title 、bussiness-logo、bussiness-search、bussiness-search-results</div><div class="line">左侧 main-left:  &gt;&gt; #side-bar, #side-bar-a, #side-bar-b</div><div class="line">右侧 main-right: &gt;&gt; #side-bar, #side-bar-a, #side-bar-b</div><div class="line">内容 content:    &gt;&gt; radio-click、radio-heightlight、radio-active、input-seach-off、input-search-on</div><div class="line">底部 footer:     &gt;&gt; #service, #regsiter,#partner（合作伙伴）,#joinus, #site-info</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>总结</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">一般头部有nav、nav-event、nav-style、nav-item、nav-link。</div><div class="line"></div><div class="line">内容：xx-title、xx-box、xx-warp、xx-item、xx-item-title、xx-item-link、xx-item-image</div><div class="line"></div><div class="line">底部：footer-time、footer-box、footer-item、footer-item-link、footer-address。总之xx-wrap，xx-box，xx-item、xx-link、xx-title、xx-total肯定会满足你80%的需求</div></pre></td></tr></table></figure>
+<hr>
+
+<h2 id="4、js变量命名"><a href="#4、js变量命名" class="headerlink" title="4、js变量命名"></a><strong>4、js变量命名</strong></h2><ul>
+<li><p>1.基础类型和引用数据类型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">* 基础类型</div><div class="line">* 字符串<span class="keyword">var</span> s_count=<span class="string">""</span>,</div><div class="line">* 布尔类型<span class="keyword">var</span> b_status=<span class="literal">false</span>,</div><div class="line">* 数字类型<span class="keyword">var</span> n_total=<span class="number">12</span>。</div><div class="line">* 引用数据类型</div><div class="line">* 数组<span class="keyword">var</span> ar_bar=[],</div><div class="line">* 对象<span class="keyword">var</span> o_bar=&#123;&#125;,</div><div class="line">* 函数<span class="keyword">var</span> f_submit=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;）</div></pre></td></tr></table></figure>
+</li>
+<li><p>2.不要用关键字命名<br>default、class、private</p>
+</li>
+<li><p>3.用可读的同义词代替保留词。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/ bad</div><div class="line"><span class="keyword">var</span> superman = &#123;</div><div class="line">  <span class="attr">class</span>: <span class="string">'alien'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> superman = &#123;</div><div class="line">  <span class="attr">klass</span>: <span class="string">'alien'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> superman = &#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'alien'</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>4.函数用驼峰形式（动词+名词）</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">login(),logout(),expandList(),getTotal(),keySearch(),submitForm(),cancel(),goMore(),searchAll(),searchCurrent().clearContent().uploadImage().searchResult()这些都是常用事件，可以清晰知道每一项的意义。</div></pre></td></tr></table></figure>
+<p><a href="https://github.com/airbnb/javascript/tree/es5-deprecated/es5" target="_blank" rel="external">ES5的语法规范</a></p>
+<ul>
+<li>5.当命名的构造函数和类使用PascalCase。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">user</span>(<span class="params">options</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = options.name;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> bad = <span class="keyword">new</span> user(&#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'nope'</span></div><div class="line">&#125;);</div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">User</span>(<span class="params">options</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = options.name;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> good = <span class="keyword">new</span> User(&#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'yup'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>6.不要使用尾随或前导下划线。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">this</span>.__firstName__ = <span class="string">'Panda'</span>;</div><div class="line"><span class="keyword">this</span>.firstName_ = <span class="string">'Panda'</span>;</div><div class="line"><span class="keyword">this</span>._firstName = <span class="string">'Panda'</span>;</div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">this</span>.firstName = <span class="string">'Panda'</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li>7.前缀jQuery对象变量与$。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> sidebar = $(<span class="string">'.sidebar'</span>);</div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> $sidebar = $(<span class="string">'.sidebar'</span>);</div><div class="line"><span class="comment">// bad</span></div><div class="line">$(<span class="string">'ul'</span>, <span class="string">'.sidebar'</span>).hide();</div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setSidebar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  $(<span class="string">'.sidebar'</span>).hide();</div><div class="line">  <span class="comment">// ...stuff...</span></div><div class="line">  $(<span class="string">'.sidebar'</span>).css(&#123;</div><div class="line">    <span class="string">'background-color'</span>: <span class="string">'pink'</span></div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setSidebar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> $sidebar = $(<span class="string">'.sidebar'</span>);</div><div class="line">  $sidebar.hide();</div><div class="line">  <span class="comment">// ...stuff...</span></div><div class="line">  $sidebar.css(&#123;</div><div class="line">    <span class="string">'background-color'</span>: <span class="string">'pink'</span></div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"><span class="comment">// bad</span></div><div class="line">$(<span class="string">'.sidebar'</span>).find(<span class="string">'ul'</span>).hide();</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">$(<span class="string">'.sidebar ul'</span>).hide();</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">$(<span class="string">'.sidebar &gt; ul'</span>).hide();</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">$sidebar.find(<span class="string">'ul'</span>).hide();</div></pre></td></tr></table></figure>
+<hr>
+
+<h2 id="5-css命名"><a href="#5-css命名" class="headerlink" title="5.css命名"></a><strong>5.css命名</strong></h2><table>
+<thead>
+<tr>
+<th>公共的</th>
+<th>common.css</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>其实和common差不多</td>
+<td>base.css</td>
+</tr>
+<tr>
+<td>动画</td>
+<td>animation.css</td>
+</tr>
+<tr>
+<td>皮肤</td>
+<td>skin.css</td>
+</tr>
+<tr>
+<td>文字</td>
+<td>font.css</td>
+</tr>
+<tr>
+<td>主题</td>
+<td>themes.css</td>
+</tr>
+<tr>
+<td>打印样式</td>
+<td>print.css</td>
+</tr>
+<tr>
+<td>颜色</td>
+<td>color.css</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<h2 id="6-图片命名"><a href="#6-图片命名" class="headerlink" title="6.图片命名"></a><strong>6.图片命名</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">第一部分是图片的逻辑归属分类</div><div class="line">第二部分是图片的表现内容</div><div class="line">第三部分是图片的内容的类型（有些图片还会有第四部分，表示图片表现的状态。）</div><div class="line">tabbar_home_icon, navigationbar_showtime_icon@2x.png，tabbar_categories_icon</div></pre></td></tr></table></figure>
+<hr>
+
+<p><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）mstarzheng@foxmail.com</em></strong></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/20/pointer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mstar">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mstar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mstar's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/20/pointer/" itemprop="url">
+                  指针解谜
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-20T09:48:33+08:00">
+                2017-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Objective-C学习整理/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C学习整理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><center>本文源出于—<a href="http://www.cnblogs.com/mjios/archive/2013/03/16/2963645.html" target="_blank" rel="external"><strong>小码哥</strong></a></center></p>
+<p><hr></p>
+<h2 id="一、什么是指针"><a href="#一、什么是指针" class="headerlink" title="一、什么是指针"></a>一、什么是指针</h2><p>1.我们已经知道，“直接引用”是直接通过变量名来读写变量<br>2.C语言还有一种“间接引用”的方式(以变量a为例)：<font color="red"><strong><em> 首先将变量a的地址存放在另一个变量中，比如存放在变量中，比如存放变量b中，然后通过变量b来间接引用变量，间接读写变量a的值 </em></strong> </font>。这就是“间接引用”。</p>
+<p><img src="/2017/03/20/pointer/pointer1.png" alt="pointer1"></p>
+<p>如果程序通过”间接引用”的方式来修改a的值，可以这样做：先根据 变量名b 获取 变量b 的地址ffc2，取出变量b中存储的内容ffc1，也就是变量a的地址，再根据变量a的地址ffc1找到a的存储空间，然后修改里面的数据。</p>
+<p>3.总结一句：用来存放<font color="red">变量地址</font>的变量，就称为”指针变量”。在上面的情况下，变量b就是个”指针变量”，我们可以说指针变量b指向变量a。</p>
+<p><hr></p>
+<h2 id="二、指针定义"><a href="#二、指针定义" class="headerlink" title="二、指针定义"></a>二、指针定义</h2><p>一般形式：<strong> 类名标识符   <font color="red">*</font> 指针变量名；</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *p;</div><div class="line"></div><div class="line"><span class="keyword">float</span> *q;</div></pre></td></tr></table></figure></p>
+<p>“*”是一个说明符，用来说明这个变量是个指针变量，是不能省略的，但它不属于变量名的一部分<br>前面的类型标识符表示指针变量所指向的变量的类型，而且只能指向这种类型的变量</p>
+<p><hr></p>
+<h2 id="三、指针的初始化"><a href="#三、指针的初始化" class="headerlink" title="三、指针的初始化"></a>三、指针的初始化</h2><h3 id="1-先定义后初始化"><a href="#1-先定义后初始化" class="headerlink" title="1.先定义后初始化"></a>1.先定义后初始化</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义int类型的变量a</span></div><div class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="comment">// 定义一个指针变量p</span></div><div class="line"><span class="keyword">int</span> *p;</div><div class="line"></div><div class="line"><span class="comment">// 将变量a的地址赋值给指针变量p，所以指针变量p指向变量a</span></div><div class="line">p = &amp;a;</div></pre></td></tr></table></figure>
+<p>注意第8行，赋值给p的是变量a的地址&amp;a</p>
+<h3 id="2-在定义的同时初始化"><a href="#2-在定义的同时初始化" class="headerlink" title="2.在定义的同时初始化"></a>2.在定义的同时初始化</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义int类型的变量a</span></div><div class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="comment">// 定义一个指针变量p</span></div><div class="line"><span class="comment">// 并将变量a的地址赋值给指针变量p，所以指针变量p指向变量a</span></div><div class="line"><span class="keyword">int</span> *p = &amp;a;</div></pre></td></tr></table></figure>
+<h3 id="3-初始化的注意"><a href="#3-初始化的注意" class="headerlink" title="3.初始化的注意"></a>3.<font color="red">初始化的注意</font></h3><p>指针变量是用来存放变量地址的，不要给它随意赋值一个常数。下面的写法是错误的<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *p;</div><div class="line">p = <span class="number">200</span>; <span class="comment">// 这是错误的</span></div></pre></td></tr></table></figure></p>
+<p><hr></p>
+<h2 id="四、指针运算符"><a href="#四、指针运算符" class="headerlink" title="四、指针运算符"></a>四、指针运算符</h2><h3 id="1-给指针指向的变量赋值"><a href="#1-给指针指向的变量赋值" class="headerlink" title="1.给指针指向的变量赋值"></a>1.给指针指向的变量赋值</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> a = <span class="number">10</span>;</div><div class="line"><span class="built_in">printf</span>(<span class="string">"修改前，a的值：%d\n"</span>, a);</div><div class="line"></div><div class="line"><span class="comment">// 指针变量p指向变量a</span></div><div class="line"><span class="keyword">char</span> *p = &amp;a;</div><div class="line"></div><div class="line"><span class="comment">// 通过指针变量p间接修改变量a的值</span></div><div class="line">*p = <span class="number">9</span>;</div><div class="line"></div><div class="line"><span class="built_in">printf</span>(<span class="string">"修改后，a的值：%d"</span>, a);</div></pre></td></tr></table></figure>
+<p> 当程序刚执行完第5行代码时，内存中大概的分布情况是这样的</p>
+<p><img src="/2017/03/20/pointer/pointer2.png" alt="pointer2"><br>a值是10，p值就是变量a的地址ffc3。</p>
+<p>注意下第5、第8行，都有个”<em>“，它们的含义是不一样的：<br>(1) 第5行的”</em>“只是用来说明p是个指针变量<br>(2) 第8行的”<em>“是一个指针运算符，这里的&lt;font color=”red”</em>p代表根据p值ffc3这个地址访问对应的存储空间，也就是变量a的存储空间，然后将右边的数值9写入到这个存储空间，相当于 a = 9;，于是内存中就变成这样了</p>
+<p><img src="/2017/03/20/pointer/pointer3.png" alt="pointer3"><br>输出结果为：</p>
+<p><img src="/2017/03/20/pointer/pointer4.png" alt="pointer4"><br>可以发现，我们通过变量p间接修改了变量a的值。</p>
+<h3 id="2-取出指针所指向变量的值"><a href="#2-取出指针所指向变量的值" class="headerlink" title="2.取出指针所指向变量的值"></a>2.取出指针所指向变量的值</h3><p>指针运算符除了可以赋值之外，还可以用于取值<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">char</span> a = <span class="number">10</span>;</div><div class="line"></div><div class="line"> <span class="keyword">char</span> *p;</div><div class="line"> p = &amp;a;</div><div class="line"></div><div class="line"><span class="keyword">char</span> value = *p;</div><div class="line"> <span class="built_in">printf</span>(<span class="string">"取出a的值：%d"</span>, value);</div></pre></td></tr></table></figure></p>
+<p>输出结果：<br><img src="/2017/03/20/pointer/pointer.png" alt="pointer"><br>第6行中的*p的意思是：根据p值(即变量a的地址)访问对应的存储空间，并取出存储的内容(即取出变量a的值)，赋值给value</p>
+<h3 id="3-使用注意"><a href="#3-使用注意" class="headerlink" title="3.使用注意"></a>3.使用注意</h3><p>在指针变量没有指向确定地址之前，不要对它所指的内容赋值。下面的写法是错误的<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *p;</div><div class="line">*p = <span class="number">10</span>; <span class="comment">//这是错误的</span></div></pre></td></tr></table></figure></p>
+<p>应该在指针变量指向一个确定的变量后再进行赋值。下面的写法才是正确的</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义2个int型变量</span></div><div class="line"><span class="keyword">int</span> a = <span class="number">6</span>, b;</div><div class="line"></div><div class="line"><span class="comment">// 定义一个指向变量b的指针变量p</span></div><div class="line"><span class="keyword">int</span> *p;</div><div class="line">p = &amp;b;</div><div class="line"></div><div class="line"><span class="comment">// 将a的值赋值给变量b</span></div><div class="line">*p = a;</div></pre></td></tr></table></figure>
+<hr>
+
+<h2 id="五、指针的用途举例"><a href="#五、指针的用途举例" class="headerlink" title="五、指针的用途举例"></a>五、指针的用途举例</h2><h3 id="1-例子1"><a href="#1-例子1" class="headerlink" title="1.例子1"></a>1.例子1</h3><p>前面我们通过指针变量p间接访问了变量a，在有些人看来，觉得指针变量好傻B，直接用变量名a访问变量a不就好了么，干嘛搞这么麻烦。别着急，接下来举个例子，让大家看看指针还能做什么事情。</p>
+<p>现在有个要求：写一个函数swap，接收2个整型参数，功能是互换两个实参的值。</p>
+<p>1&gt; 如果没学过指针，你可能会这样写</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">char</span> v1, <span class="keyword">char</span> v2)</span> </span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"更换前：v1=%d, v2=%d\n"</span>, v1, v2);</div><div class="line"></div><div class="line">   <span class="comment">// 定义一个中间变量</span></div><div class="line">   <span class="keyword">char</span> temp;</div><div class="line"></div><div class="line">   <span class="comment">// 交换v1和v2的值</span></div><div class="line">    temp = v1;</div><div class="line">    v1 = v2;</div><div class="line">    v2 = temp;</div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"更换后：v1=%d, v2=%d\n"</span>, v1, v2);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> a = <span class="number">10</span>, b = <span class="number">9</span>;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"更换前：a=%d, b=%d\n"</span>, a, b);</div><div class="line"></div><div class="line">    swap(a, b);</div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"更换后：a=%d, b=%d"</span>, a, b);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出结果：<br><img src="/2017/03/20/pointer/pointer5.png" alt="pointer5"><br>虽然v1和v2的值被交换了，但是变量a和b的值根本就没有换过来。因为基本数据类型作为函数实参时，只是纯粹地将值传递给形参，形参的改变并不影响实参。<br>我们可以简要分析一下这个过程：</p>
+<blockquote>
+<p>在第20行中，将变量a、b的值分别传递给了swap函数的两个形参v1、v2</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer6.png" alt="pointer6"></p>
+<blockquote>
+<p>在第8行中，将v1的值赋值给了temp</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer7.png" alt="pointer7"></p>
+<blockquote>
+<p>在第9行中，将v2的值赋值给了v1</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer8.png" alt="pointer8"></p>
+<blockquote>
+<p>在第10行中，将temp的值赋值给了v2</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer9.png" alt="pointer9"></p>
+<p>就这样，v1和v2的值被交换了，但是a和b的值一直都没有改变</p>
+<p>2&gt; 如果学了指针，就应该这样写<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">char</span> *v1, <span class="keyword">char</span> *v2)</span> </span>&#123;</div><div class="line">    <span class="comment">// 中间变量</span></div><div class="line">    <span class="keyword">char</span> temp;</div><div class="line"></div><div class="line">     <span class="comment">// 取出v1指向的变量的值</span></div><div class="line">     temp = *v1;</div><div class="line"></div><div class="line">     <span class="comment">// 取出v2指向的变量的值，然后赋值给v1指向的变量</span></div><div class="line">     *v1 = *v2;</div><div class="line"></div><div class="line">     <span class="comment">// 赋值给v2指向的变量</span></div><div class="line">     *v2 = temp;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"> &#123;</div><div class="line">    <span class="keyword">char</span> a = <span class="number">10</span>, b = <span class="number">9</span>;</div><div class="line">     <span class="built_in">printf</span>(<span class="string">"更换前：a=%d, b=%d\n"</span>, a, b);</div><div class="line"></div><div class="line">     swap(&amp;a, &amp;b);</div><div class="line"></div><div class="line">     <span class="built_in">printf</span>(<span class="string">"更换后：a=%d, b=%d"</span>, a, b);</div><div class="line">     <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>先看看输出结果：</p>
+<p><img src="/2017/03/20/pointer/pointer0.png" alt="pointer0"><br>变量a和b的值终于换过来了。</p>
+<font color="red">解释一下：(在16位编译器环境下，一个指针变量占用2个字节)</font>
 
 <blockquote>
-<p>在chrome中正常使用并非来自 Chrome 网上应用店的扩展,会出现下面的情况：</p>
+<p>先注意第20行，传递是变量的地址。因此swap函数的形参v1指向了变量a，v2指向了变量b</p>
 </blockquote>
-<p><img src="/2017/04/02/study-mac/mac2.png" alt="mac2"></p>
-<p>小编在网上也找到了一些 <a href="https://hencolle.com/2016/10/16/baidu_exporter/" target="_blank" rel="external">英文文档</a>来解决这类问题。</p>
+<p><img src="/2017/03/20/pointer/pointer10.png" alt="pointer10"></p>
 <blockquote>
-<font color="red">注意：该方法只适用于 通过 crx 文件安装的扩展（将crx文件拖入chrome扩展程序界面）</font>
-
+<p> 第6行代码是取出v1指向的变量的值，也就是变量a的值：10，然后赋值给变量temp</p>
 </blockquote>
-<p>而还有一些类似小编一样英文不好的同学，该怎么办呢？没事你们的福利来了，跟着我一步步来走吧。。。</p>
-<p>1、首先下载有个描述文件：<a href="https://gist.github.com/Explorare/be3dd598289252698cd37bca04abd0fe#file-com-google-chrome-mobileconfig" target="_blank" rel="external">Github地址</a><br>下载不下来的，再提供一个<a href="https://pan.baidu.com/s/1eRPT11g" target="_blank" rel="external">网盘地址</a> 密码：dvfx</p>
-<p>2、打开 chrome的 <font color="red">扩展程序 </font>界面，复制扩展的ID。<br><img src="/2017/04/02/study-mac/mac3.png" alt="mac3"></p>
-<p>3、用文本编辑器打开下载好的com.google.Chrome.mobileconfig找到如图所示位置：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">plist</span> <span class="attr">version</span>=<span class="string">"1.0"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadContent<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">array</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadContent<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">key</span>&gt;</span>com.google.Chrome<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">key</span>&gt;</span>Forced<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">array</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">                            <span class="tag">&lt;<span class="name">key</span>&gt;</span>mcx_preference_settings<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">                            <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">                                <span class="tag">&lt;<span class="name">key</span>&gt;</span>ExtensionInstallWhitelist<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">                                <span class="tag">&lt;<span class="name">array</span>&gt;</span></div><div class="line">                                    <span class="tag">&lt;<span class="name">string</span>&gt;</span>value01<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">                                    <span class="tag">&lt;<span class="name">string</span>&gt;</span>value02<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">                                    <span class="tag">&lt;<span class="name">string</span>&gt;</span>value03<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">                                <span class="tag">&lt;/<span class="name">array</span>&gt;</span></div><div class="line">                            <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;/<span class="name">array</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadEnabled<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">true</span>/&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadIdentifier<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>MCXToProfile.7e2bec75-299e-44ff-b405-628007abffff.alacarte.customsettings.bdac4880-d25f-4cdd-8472-05473f005e7e<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadType<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>com.apple.ManagedClient.preferences<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadUUID<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>bdac4880-d25f-4cdd-8472-05473f005e7e<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadVersion<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">integer</span>&gt;</span>1<span class="tag">&lt;/<span class="name">integer</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">array</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadDescription<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>Included custom settings:</div><div class="line">com.google.Chrome</div><div class="line"><span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadDisplayName<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>MCXToProfile: com.google.Chrome<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadIdentifier<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>com.google.Chrome<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadOrganization<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span><span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadRemovalDisallowed<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">true</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadScope<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>System<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadType<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>Configuration<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadUUID<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>7e2bec75-299e-44ff-b405-628007abffff<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>PayloadVersion<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">integer</span>&gt;</span>1<span class="tag">&lt;/<span class="name">integer</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">plist</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>这里的 19-21行 <string></string> 中分别对应单个扩展的ID，如果只需要一个的话，可以吧多余的两个删掉，将其中的一个标签中的值替换为第二步复制过来的 ID。编辑完后保存。如图：</p>
-<p><img src="/2017/04/02/study-mac/mac1.png" alt="mac1"></p>
-<p>4、双击打开第三步编辑好的描述文件，按照弹出的提示点击 继续-安装（输入电脑密码），安装结束后重启浏览器，就可以勾选这个扩展了，并且以后重启浏览器也不会有停用的提示了！</p>
+<p><img src="/2017/03/20/pointer/pointer11.png" alt="pointer11"></p>
+<blockquote>
+<p>第9行代码是取出v2指向的变量(变量b)的值，然后赋值给v1指向的变量(变量a)</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer12.png" alt="pointer12"></p>
+<blockquote>
+<p>第12行代码是将temp变量的值赋值给v2指向的变量(变量b)</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer13.png" alt="pointer13"><br>相信你已经感受到指针的强大了，如果没有指针，在一个函数的内部根本改变不了外部的实参。</p>
+<p>2.例子2</p>
+<p>接下来再举一个指针的实用例子。默认情况下，一个函数只能有一个返回值，有了指针，我们可以实现函数有”多返回值”。</p>
+<p>现在有个要求：写一个函数sumAndMinus，可以同时计算2个整型的和与差，函数执行完毕后，返回和与差(注意了，这里要返回2个值)<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 计算2个整型的和与差</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">sumAndMinus</span><span class="params">(<span class="keyword">int</span> v1, <span class="keyword">int</span> v2, <span class="keyword">int</span> *minus)</span> </span>&#123;</div><div class="line">    <span class="comment">// 计算差，并赋值给指针指向的变量</span></div><div class="line">    *minus = v1 - v2;</div><div class="line"></div><div class="line">    <span class="comment">// 计算和，并返回和</span></div><div class="line">    <span class="keyword">return</span> v1 + v2;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// 定义2个int型变量</span></div><div class="line">    <span class="keyword">int</span> a = <span class="number">6</span>, b = <span class="number">2</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 定义2个变量来分别接收和与差</span></div><div class="line">    <span class="keyword">int</span> sum, minus;</div><div class="line"></div><div class="line">    <span class="comment">// 调用函数</span></div><div class="line">    sum = sumAndMinus(a, b, &amp;minus);</div><div class="line"></div><div class="line">    <span class="comment">// 打印和</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d+%d=%d\n"</span>, a, b, sum);</div><div class="line"></div><div class="line">    <span class="comment">// 打印差</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d-%d=%d\n"</span>, a, b, minus);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>输出结果：<br><img src="/2017/03/20/pointer/pointer16.png" alt="pointer16"><br>和与差都由同一个函数计算并返回出来。和是函数的直接返回值，差是通过函数的第3个指针参数间接返回。因此有了指针，我们可以让函数有”无限个”返回值。</p>
+<hr>
+
+<h2 id="六、关于指针的疑问"><a href="#六、关于指针的疑问" class="headerlink" title="六、关于指针的疑问"></a>六、关于指针的疑问</h2><p>刚学完指针，都可能有一大堆的疑惑，这里我列出几个常见的疑惑吧。</p>
+<h3 id="1-一个指针变量占用多少个字节的内存空间？占用的空间是否会跟随所指向变量的类型而改变？"><a href="#1-一个指针变量占用多少个字节的内存空间？占用的空间是否会跟随所指向变量的类型而改变？" class="headerlink" title="1.一个指针变量占用多少个字节的内存空间？占用的空间是否会跟随所指向变量的类型而改变？"></a>1.一个指针变量占用多少个字节的内存空间？占用的空间是否会跟随所指向变量的类型而改变？</h3><p>在同一种编译器环境下，一个指针变量所占用的内存空间是固定的。比如，在16位编译器环境下，任何一个指针变量都只占用2个字节，并不会随所指向变量的类型而改变。</p>
+<p><img src="/2017/03/20/pointer/pointer14.png" alt="pointer14"></p>
+<h3 id="2-既然每个指针变量所占用的内存空间是一样的，而且存储的都是地址，为何指针变量还要分类型？而且只能指向一种类型的变量？比如指向int类型的指针、指向char类型的指针。"><a href="#2-既然每个指针变量所占用的内存空间是一样的，而且存储的都是地址，为何指针变量还要分类型？而且只能指向一种类型的变量？比如指向int类型的指针、指向char类型的指针。" class="headerlink" title="2.既然每个指针变量所占用的内存空间是一样的，而且存储的都是地址，为何指针变量还要分类型？而且只能指向一种类型的变量？比如指向int类型的指针、指向char类型的指针。"></a>2.既然每个指针变量所占用的内存空间是一样的，而且存储的都是地址，为何指针变量还要分类型？而且只能指向一种类型的变量？比如指向int类型的指针、指向char类型的指针。</h3><p>其实，我觉得这个问题跟”数组为什么要分类型”是一样的。</p>
+<blockquote>
+<ul>
+<li>看下面的代码，利用指针p读取变量c的值<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">2</span>;</div><div class="line"><span class="keyword">char</span> c = <span class="number">1</span>;</div><div class="line"></div><div class="line"> <span class="comment">// 定义一个指向char类型的指针</span></div><div class="line"> <span class="keyword">char</span> *p = &amp;c;</div><div class="line"></div><div class="line"> <span class="comment">// 取出</span></div><div class="line"> <span class="built_in">printf</span>(<span class="string">"%d"</span>, *p);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>这个输出结果应该难不倒大家：<strong> 1 </strong>，是可以成功读取的。</p>
+<ul>
+<li>如果我改一下第5行的代码，用一个本应该指向int类型变量的指针p，指向char类型的变量c</li>
+</ul>
+<blockquote>
+<p>int *p = &c;</p>
+</blockquote>
+<p>我们再来看一下输出：<strong> 513 </strong>，c的原值是1，现在取出来却是513，怎么回事呢？这个要根据内存来分析</p>
+<p>根据变量的定义顺序，这些变量在内存中大致如下图排布：</p>
+<p>其中，指针变量p和int类型变量i各占2个字节，char类型的c占一个字节，p指向c，因此p值就是c的地址</p>
+<p><img src="/2017/03/20/pointer/pointer15.png" alt="pointer15"><br>1&gt; 最初的时候，我们用char <em>p指向变量c。当利用</em>p来获取变量c的值时，由于指针p知道变量c是char类型的，所以会从ffc3这个地址开始读取1个字节的数据：0000 0001，转为10进制就是1</p>
+<p>2&gt; 后来，我们用int <em>p指向变量c。当利用</em>p获取变量c的值时，由于指针p认为变量c是int类型的，所以会从ffc3这个地址开始读取2个字节的数据：0000 0010 0000 0001，转为10进制就是513</p>
+<p>可见，给指针分类是多么重要的一件事，而且一种指针最好只指向一种类型的变量，那是最安全的。</p>
+<p><hr><br><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）mstarzheng@foxmail.com</em></strong></p>
 
           
         
@@ -583,7 +1429,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
