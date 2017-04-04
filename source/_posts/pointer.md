@@ -1,7 +1,7 @@
 ---
 title: 指针解谜
 date: 2017-03-20 09:48:33
-categories: C语言精粹
+categories: Objective-C学习整理
 tags:
     - 桂林电子科技大学
     - mstar
