@@ -1292,9 +1292,9 @@
           
             <p><center>本文源出于—<a href="http://www.cnblogs.com/mjios/archive/2013/03/16/2963645.html" target="_blank" rel="external"><strong>小码哥</strong></a></center></p>
 <p><hr></p>
-<h2 id="一、什么是指针"><a href="#一、什么是指针" class="headerlink" title="一、什么是指针"></a>一、什么是指针</h2><p>1.我们已经知道，“直接引用”是直接通过变量名来读写变量<br>2.C语言还有一种“间接引用”的方式(以变量a为例)：<font color="red"><strong><em> 首先将变量a的地址存放在另一个变量中，比如存放在变量中，比如存放变量b中，然后通过变量b来间接引用变量，间接读写变量a的值 </em></strong> </font>。这就是“间接引用”。</p>
+<h2 id="一、什么是指针"><a href="#一、什么是指针" class="headerlink" title="一、什么是指针"></a>一、什么是指针</h2><p>1.我们已经知道，“直接引用”是直接通过变量名来读写变量<br>2.C语言还有一种“间接引用”的方式(以变量a为例)：<font color="red"><strong><em> 首先将变量a的地址存放在另一个变量中，比如存放变量b中，然后通过变量b来间接引用变量，间接读写变量a的值 </em></strong> </font>。这就是“间接引用”。</p>
 <p><img src="/2017/03/20/pointer/pointer1.png" alt="pointer1"></p>
-<p>如果程序通过”间接引用”的方式来修改a的值，可以这样做：先根据 变量名b 获取 变量b 的地址ffc2，取出变量b中存储的内容ffc1，也就是变量a的地址，再根据变量a的地址ffc1找到a的存储空间，然后修改里面的数据。</p>
+<p>如果程序通过”间接引用”的方式来修改a的值，可以这样做：先根据变量名b 获取 变量b的地址ffc2，取出变量b中存储的内容ffc1，也就是变量a的地址，再根据变量a的地址ffc1找到a的存储空间，然后修改里面的数据。</p>
 <p>3.总结一句：用来存放<font color="red">变量地址</font>的变量，就称为”指针变量”。在上面的情况下，变量b就是个”指针变量”，我们可以说指针变量b指向变量a。</p>
 <p><hr></p>
 <h2 id="二、指针定义"><a href="#二、指针定义" class="headerlink" title="二、指针定义"></a>二、指针定义</h2><p>一般形式：<strong> 类名标识符   <font color="red">*</font> 指针变量名；</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *p;</div><div class="line"></div><div class="line"><span class="keyword">float</span> *q;</div></pre></td></tr></table></figure></p>
