@@ -126,8 +126,8 @@ int main(int argc, const char * argv[])
 @end
 ```
 * 看第1行，OC中使用关键字@interface来声明一个类，@interface后面紧跟着类名Iphone。
-* 类名Student后面的冒号":"表示继承，即第3行代码的意思是Iphone继承自NSObject。
-* 第7~10默认作用域是<font color="red">@protected</font>，即可以在IPhone类内部和子类中访问
+* 类名Student后面的冒号":"表示继承，即第1行代码的意思是Iphone继承自NSObject。
+* 第7~10行默认作用域是<font color="red">@protected</font>，即可以在IPhone类内部和子类中访问
 * 类的成员变量必须写在大括号{ }里面
 
 ### 2、如何编写类的实现 ###
