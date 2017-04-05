@@ -119,7 +119,7 @@
 <meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer16.png">
 <meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer14.png">
 <meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer15.png">
-<meta property="og:updated_time" content="2017-04-05T08:55:09.000Z">
+<meta property="og:updated_time" content="2017-04-05T09:08:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="指针解谜">
 <meta name="twitter:description" content="本文源出于—小码哥
@@ -402,7 +402,11 @@
 <h2 id="四、指针运算符"><a href="#四、指针运算符" class="headerlink" title="四、指针运算符"></a>四、指针运算符</h2><h3 id="1-给指针指向的变量赋值"><a href="#1-给指针指向的变量赋值" class="headerlink" title="1.给指针指向的变量赋值"></a>1.给指针指向的变量赋值</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> a = <span class="number">10</span>;</div><div class="line"><span class="built_in">printf</span>(<span class="string">"修改前，a的值：%d\n"</span>, a);</div><div class="line"></div><div class="line"><span class="comment">// 指针变量p指向变量a</span></div><div class="line"><span class="keyword">char</span> *p = &amp;a;</div><div class="line"></div><div class="line"><span class="comment">// 通过指针变量p间接修改变量a的值</span></div><div class="line">*p = <span class="number">9</span>;</div><div class="line"></div><div class="line"><span class="built_in">printf</span>(<span class="string">"修改后，a的值：%d"</span>, a);</div></pre></td></tr></table></figure>
 <p> 当程序刚执行完第5行代码时，内存中大概的分布情况是这样的</p>
 <p><img src="/2017/03/20/pointer/pointer2.png" alt="pointer2"><br>a值是10，p值就是变量a的地址ffc3。</p>
-<p>注意下第5、第8行，都有个”<font color="red"><em></em></font>“，它们的含义是不一样的：<br>(1) 第5行的”<font color="red"></font>“只是用来说明p是个指针变量<br>(2) 第8行的”<font color="red"><em></em></font>“是一个指针运算符，这里的&lt;font color=”red”p代表根据p值ffc3这个地址访问对应的存储空间，也就是变量a的存储空间，然后将右边的数值9写入到这个存储空间，相当于 a = 9;，于是内存中就变成这样了</p>
+<p>注意下第5、第8行，都有个“<font color="red">*</font>”，它们的含义是不一样的：</p>
+<ul>
+<li>第5行的“<font color="red">*</font>”只是用来说明p是个指针变量</li>
+<li>第8行的<font color="red">“星号”</font>是一个指针运算符，这里的<font color="red">* p代表根据p值ffc3这个地址访问对应的存储空间</font>，也就是变量a的存储空间，然后将右边的数值9写入到这个存储空间，相当于 a = 9;，于是内存中就变成这样了</li>
+</ul>
 <p><img src="/2017/03/20/pointer/pointer3.png" alt="pointer3"><br>输出结果为：</p>
 <p><img src="/2017/03/20/pointer/pointer4.png" alt="pointer4"><br>可以发现，我们通过变量p间接修改了变量a的值。</p>
 <h3 id="2-取出指针所指向变量的值"><a href="#2-取出指针所指向变量的值" class="headerlink" title="2.取出指针所指向变量的值"></a>2.取出指针所指向变量的值</h3><p>指针运算符除了可以赋值之外，还可以用于取值<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">char</span> a = <span class="number">10</span>;</div><div class="line"></div><div class="line"> <span class="keyword">char</span> *p;</div><div class="line"> p = &amp;a;</div><div class="line"></div><div class="line"><span class="keyword">char</span> value = *p;</div><div class="line"> <span class="built_in">printf</span>(<span class="string">"取出a的值：%d"</span>, value);</div></pre></td></tr></table></figure></p>
