@@ -429,8 +429,8 @@
 <figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Iphone</span> :<span class="title">NSObject</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//注意：默认情况下，OC对象中属性是不能直接访问的</span></div><div class="line">    <span class="keyword">@public</span></div><div class="line">    <span class="comment">//只要让类中的属性公开，以后就可以直接通过一个指向结构体的指针来操作对象中的属性</span></div><div class="line"></div><div class="line">    <span class="keyword">float</span> _model;</div><div class="line">    <span class="keyword">int</span> _cpu;</div><div class="line">    <span class="keyword">double</span> _size;</div><div class="line">    <span class="keyword">int</span> _color;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
 <ul>
 <li>看第1行，OC中使用关键字@interface来声明一个类，@interface后面紧跟着类名Iphone。</li>
-<li>类名Student后面的冒号”:”表示继承，即第3行代码的意思是Iphone继承自NSObject。</li>
-<li>第7~10默认作用域是<font color="red">@protected</font>，即可以在IPhone类内部和子类中访问</li>
+<li>类名Student后面的冒号”:”表示继承，即第1行代码的意思是Iphone继承自NSObject。</li>
+<li>第7~10行默认作用域是<font color="red">@protected</font>，即可以在IPhone类内部和子类中访问</li>
 <li>类的成员变量必须写在大括号{ }里面</li>
 </ul>
 <h3 id="2、如何编写类的实现"><a href="#2、如何编写类的实现" class="headerlink" title="2、如何编写类的实现"></a>2、如何编写类的实现</h3><p> 以<font color="red">@implementation</font>开头，以<font color="red">@end</font>结尾，然后在class对应的地方写上声明时声明的类的名称，必须和声明的类名一模一样</p>
