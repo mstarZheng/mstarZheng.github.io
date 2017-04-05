@@ -80,9 +80,9 @@ p = 200; // 这是错误的
 ![pointer2](pointer/pointer2.png)
 a值是10，p值就是变量a的地址ffc3。
 
-注意下第5、第8行，都有个"<font color="red">*</font>"，它们的含义是不一样的：
-(1) 第5行的"<font color="red">*</font>"只是用来说明p是个指针变量
-(2) 第8行的"<font color="red">*</font>"是一个指针运算符，这里的<font color="red"*p代表根据p值ffc3这个地址访问对应的存储空间</font>，也就是变量a的存储空间，然后将右边的数值9写入到这个存储空间，相当于 a = 9;，于是内存中就变成这样了
+注意下第5、第8行，都有个“<font color="red">*</font>”，它们的含义是不一样的：
+* 第5行的“<font color="red">*</font>”只是用来说明p是个指针变量
+* 第8行的<font color="red">“星号”</font>是一个指针运算符，这里的<font color="red">* p代表根据p值ffc3这个地址访问对应的存储空间</font>，也就是变量a的存储空间，然后将右边的数值9写入到这个存储空间，相当于 a = 9;，于是内存中就变成这样了
 
 ![pointer3](pointer/pointer3.png)
 输出结果为：
