@@ -29,7 +29,7 @@ tags:
 ![Love6](Love/Love6.jpg)
 ![Love7](Love/Love7.jpg)
 ![Love8](Love/Love8.jpg)
-![Love9](Love/Love9.jpg)
+
 ![Love10](Love/Love10.jpg)
 ![Love11](Love/Love11.jpg)
 ![Love12](Love/Love12.jpg)
