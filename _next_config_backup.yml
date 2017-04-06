@@ -77,8 +77,8 @@ menu_icons:
 
 # Schemes
 #scheme: Muse
-#scheme: Mist
-scheme: Pisces
+scheme: Mist
+#scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -180,7 +180,7 @@ toc:
 sidebar:
   # Sidebar Position, available value: left | right
   position: right
-  #position: right
+  #position: left
 
   # Sidebar Display, available value:
   #  - post    expand on posts automatically. Default.
@@ -224,7 +224,7 @@ excerpt_description: true
 # Automatically Excerpt. Not recommend.
 # Please use <!-- more --> in the post to control excerpt accurately.
 auto_excerpt:
-  enable: false
+  enable: ture
   length: 150
 
 # Post meta display settings
@@ -479,7 +479,7 @@ use_motion: true
 fancybox: true
 
 # Canvas-nest
-canvas_nest: false
+canvas_nest: ture
 
 #three_waves
 three_waves: false
