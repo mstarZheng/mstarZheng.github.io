@@ -1,0 +1,878 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="桂林电子科技大学,mstar," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本文源出于—小码哥
+
+一、什么是指针1.我们已经知道，“直接引用”是直接通过变量名来读写变量2.C语言还有一种“间接引用”的方式(以变量a为例)： 首先将变量a的地址存放在另一个变量中，比如存放变量b中，然后通过变量b来间接引用变量，间接读写变量a的值  。这就是“间接引用”。
+
+如果程序通过”间接引用”的方式来修改a的值，可以这样做：先根据变量名b 获取 变量b的地址ffc2，取出变量b中存储的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="指针解谜">
+<meta property="og:url" content="http://yoursite.com/2017/03/20/pointer/index.html">
+<meta property="og:site_name" content="mstar's Blog">
+<meta property="og:description" content="本文源出于—小码哥
+
+一、什么是指针1.我们已经知道，“直接引用”是直接通过变量名来读写变量2.C语言还有一种“间接引用”的方式(以变量a为例)： 首先将变量a的地址存放在另一个变量中，比如存放变量b中，然后通过变量b来间接引用变量，间接读写变量a的值  。这就是“间接引用”。
+
+如果程序通过”间接引用”的方式来修改a的值，可以这样做：先根据变量名b 获取 变量b的地址ffc2，取出变量b中存储的">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer1.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer2.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer3.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer4.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer5.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer6.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer7.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer8.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer9.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer0.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer10.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer11.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer12.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer13.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer16.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer14.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/pointer/pointer15.png">
+<meta property="og:updated_time" content="2017-04-05T09:13:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="指针解谜">
+<meta name="twitter:description" content="本文源出于—小码哥
+
+一、什么是指针1.我们已经知道，“直接引用”是直接通过变量名来读写变量2.C语言还有一种“间接引用”的方式(以变量a为例)： 首先将变量a的地址存放在另一个变量中，比如存放变量b中，然后通过变量b来间接引用变量，间接读写变量a的值  。这就是“间接引用”。
+
+如果程序通过”间接引用”的方式来修改a的值，可以这样做：先根据变量名b 获取 变量b的地址ffc2，取出变量b中存储的">
+<meta name="twitter:image" content="http://yoursite.com/2017/03/20/pointer/pointer1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/20/pointer/"/>
+
+
+
+
+
+  <title> 指针解谜 | mstar's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">mstar's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/20/pointer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mstar">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mstar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mstar's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                指针解谜
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-20T09:48:33+08:00">
+                2017-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Objective-C学习整理/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C学习整理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><center>本文源出于—<a href="http://www.cnblogs.com/mjios/archive/2013/03/16/2963645.html" target="_blank" rel="external"><strong>小码哥</strong></a></center></p>
+<p><hr></p>
+<h2 id="一、什么是指针"><a href="#一、什么是指针" class="headerlink" title="一、什么是指针"></a>一、什么是指针</h2><p>1.我们已经知道，“直接引用”是直接通过变量名来读写变量<br>2.C语言还有一种“间接引用”的方式(以变量a为例)：<font color="red"><strong><em> 首先将变量a的地址存放在另一个变量中，比如存放变量b中，然后通过变量b来间接引用变量，间接读写变量a的值 </em></strong> </font>。这就是“间接引用”。</p>
+<p><img src="/2017/03/20/pointer/pointer1.png" alt="pointer1"></p>
+<p>如果程序通过”间接引用”的方式来修改a的值，可以这样做：先根据变量名b 获取 变量b的地址ffc2，取出变量b中存储的内容ffc1，也就是变量a的地址，再根据变量a的地址ffc1找到a的存储空间，然后修改里面的数据。</p>
+<p>3.总结一句：用来存放<font color="red">变量地址</font>的变量，就称为”指针变量”。在上面的情况下，变量b就是个”指针变量”，我们可以说指针变量b指向变量a。</p>
+<p><hr></p>
+<h2 id="二、指针定义"><a href="#二、指针定义" class="headerlink" title="二、指针定义"></a>二、指针定义</h2><p>一般形式：<strong> 类名标识符   <font color="red">*</font> 指针变量名；</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *p;</div><div class="line"></div><div class="line"><span class="keyword">float</span> *q;</div></pre></td></tr></table></figure></p>
+<p>“<font color="red">*</font>“是一个说明符，用来说明这个变量是个指针变量，是不能省略的，但它不属于变量名的一部分<br>前面的类型标识符表示指针变量所指向的变量的类型，而且只能指向这种类型的变量</p>
+<p><hr></p>
+<h2 id="三、指针的初始化"><a href="#三、指针的初始化" class="headerlink" title="三、指针的初始化"></a>三、指针的初始化</h2><h3 id="1-先定义后初始化"><a href="#1-先定义后初始化" class="headerlink" title="1.先定义后初始化"></a>1.先定义后初始化</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义int类型的变量a</span></div><div class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="comment">// 定义一个指针变量p</span></div><div class="line"><span class="keyword">int</span> *p;</div><div class="line"></div><div class="line"><span class="comment">// 将变量a的地址赋值给指针变量p，所以指针变量p指向变量a</span></div><div class="line">p = &amp;a;</div></pre></td></tr></table></figure>
+<p>注意第8行，赋值给p的是变量a的地址&amp;a</p>
+<h3 id="2-在定义的同时初始化"><a href="#2-在定义的同时初始化" class="headerlink" title="2.在定义的同时初始化"></a>2.在定义的同时初始化</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义int类型的变量a</span></div><div class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="comment">// 定义一个指针变量p</span></div><div class="line"><span class="comment">// 并将变量a的地址赋值给指针变量p，所以指针变量p指向变量a</span></div><div class="line"><span class="keyword">int</span> *p = &amp;a;</div></pre></td></tr></table></figure>
+<h3 id="3-初始化的注意"><a href="#3-初始化的注意" class="headerlink" title="3.初始化的注意"></a>3.<font color="red">初始化的注意</font></h3><p>指针变量是用来存放变量地址的，不要给它随意赋值一个常数。下面的写法是错误的<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *p;</div><div class="line">p = <span class="number">200</span>; <span class="comment">// 这是错误的</span></div></pre></td></tr></table></figure></p>
+<p><hr></p>
+<h2 id="四、指针运算符"><a href="#四、指针运算符" class="headerlink" title="四、指针运算符"></a>四、指针运算符</h2><h3 id="1-给指针指向的变量赋值"><a href="#1-给指针指向的变量赋值" class="headerlink" title="1.给指针指向的变量赋值"></a>1.给指针指向的变量赋值</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> a = <span class="number">10</span>;</div><div class="line"><span class="built_in">printf</span>(<span class="string">"修改前，a的值：%d\n"</span>, a);</div><div class="line"></div><div class="line"><span class="comment">// 指针变量p指向变量a</span></div><div class="line"><span class="keyword">char</span> *p = &amp;a;</div><div class="line"></div><div class="line"><span class="comment">// 通过指针变量p间接修改变量a的值</span></div><div class="line">*p = <span class="number">9</span>;</div><div class="line"></div><div class="line"><span class="built_in">printf</span>(<span class="string">"修改后，a的值：%d"</span>, a);</div></pre></td></tr></table></figure>
+<p> 当程序刚执行完第5行代码时，内存中大概的分布情况是这样的</p>
+<p><img src="/2017/03/20/pointer/pointer2.png" alt="pointer2"><br>a值是10，p值就是变量a的地址ffc3。</p>
+<p>注意下第5、第8行，都有个“<font color="red">*</font>”，它们的含义是不一样的：</p>
+<ul>
+<li>第5行的“<font color="red">*</font>”只是用来说明p是个指针变量</li>
+<li>第8行的<font color="red">“星号”</font>是一个指针运算符，这里的<font color="red">* p代表根据p值ffc3这个地址访问对应的存储空间</font>，也就是变量a的存储空间，然后将右边的数值9写入到这个存储空间，相当于 a = 9;，于是内存中就变成这样了</li>
+</ul>
+<p><img src="/2017/03/20/pointer/pointer3.png" alt="pointer3"><br>输出结果为：</p>
+<p><img src="/2017/03/20/pointer/pointer4.png" alt="pointer4"><br>可以发现，我们通过变量p间接修改了变量a的值。</p>
+<h3 id="2-取出指针所指向变量的值"><a href="#2-取出指针所指向变量的值" class="headerlink" title="2.取出指针所指向变量的值"></a>2.取出指针所指向变量的值</h3><p>指针运算符除了可以赋值之外，还可以用于取值<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">char</span> a = <span class="number">10</span>;</div><div class="line"></div><div class="line"> <span class="keyword">char</span> *p;</div><div class="line"> p = &amp;a;</div><div class="line"></div><div class="line"><span class="keyword">char</span> value = *p;</div><div class="line"> <span class="built_in">printf</span>(<span class="string">"取出a的值：%d"</span>, value);</div></pre></td></tr></table></figure></p>
+<p>输出结果：<br><img src="/2017/03/20/pointer/pointer.png" alt="pointer"><br>第6行中的<font color="red">*p</font>的意思是：根据p值(即变量a的地址)访问对应的存储空间，并取出存储的内容(即取出变量a的值)，赋值给value</p>
+<h3 id="3-使用注意"><a href="#3-使用注意" class="headerlink" title="3.使用注意"></a>3.使用注意</h3><p>在指针变量没有指向确定地址之前，不要对它所指的内容赋值。下面的写法是错误的<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *p;</div><div class="line">*p = <span class="number">10</span>; <span class="comment">//这是错误的</span></div></pre></td></tr></table></figure></p>
+<p>应该在指针变量指向一个确定的变量后再进行赋值。下面的写法才是正确的</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义2个int型变量</span></div><div class="line"><span class="keyword">int</span> a = <span class="number">6</span>, b;</div><div class="line"></div><div class="line"><span class="comment">// 定义一个指向变量b的指针变量p</span></div><div class="line"><span class="keyword">int</span> *p;</div><div class="line">p = &amp;b;</div><div class="line"></div><div class="line"><span class="comment">// 将a的值赋值给变量b</span></div><div class="line">*p = a;</div></pre></td></tr></table></figure>
+<hr>
+
+<h2 id="五、指针的用途举例"><a href="#五、指针的用途举例" class="headerlink" title="五、指针的用途举例"></a>五、指针的用途举例</h2><h3 id="1-例子1"><a href="#1-例子1" class="headerlink" title="1.例子1"></a>1.例子1</h3><p>前面我们通过指针变量p间接访问了变量a，在有些人看来，觉得指针变量好傻B，直接用变量名a访问变量a不就好了么，干嘛搞这么麻烦。别着急，接下来举个例子，让大家看看指针还能做什么事情。</p>
+<p>现在有个要求：写一个函数swap，接收2个整型参数，功能是互换两个实参的值。</p>
+<p>1&gt; 如果没学过指针，你可能会这样写</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">char</span> v1, <span class="keyword">char</span> v2)</span> </span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"更换前：v1=%d, v2=%d\n"</span>, v1, v2);</div><div class="line"></div><div class="line">   <span class="comment">// 定义一个中间变量</span></div><div class="line">   <span class="keyword">char</span> temp;</div><div class="line"></div><div class="line">   <span class="comment">// 交换v1和v2的值</span></div><div class="line">    temp = v1;</div><div class="line">    v1 = v2;</div><div class="line">    v2 = temp;</div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"更换后：v1=%d, v2=%d\n"</span>, v1, v2);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> a = <span class="number">10</span>, b = <span class="number">9</span>;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"更换前：a=%d, b=%d\n"</span>, a, b);</div><div class="line"></div><div class="line">    swap(a, b);</div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"更换后：a=%d, b=%d"</span>, a, b);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出结果：<br><img src="/2017/03/20/pointer/pointer5.png" alt="pointer5"><br>虽然v1和v2的值被交换了，但是变量a和b的值根本就没有换过来。因为基本数据类型作为函数实参时，只是纯粹地将值传递给形参，形参的改变并不影响实参。<br>我们可以简要分析一下这个过程：</p>
+<blockquote>
+<p>在第20行中，将变量a、b的值分别传递给了swap函数的两个形参v1、v2</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer6.png" alt="pointer6"></p>
+<blockquote>
+<p>在第8行中，将v1的值赋值给了temp</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer7.png" alt="pointer7"></p>
+<blockquote>
+<p>在第9行中，将v2的值赋值给了v1</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer8.png" alt="pointer8"></p>
+<blockquote>
+<p>在第10行中，将temp的值赋值给了v2</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer9.png" alt="pointer9"></p>
+<p>就这样，v1和v2的值被交换了，但是a和b的值一直都没有改变</p>
+<p>2&gt; 如果学了指针，就应该这样写<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">char</span> *v1, <span class="keyword">char</span> *v2)</span> </span>&#123;</div><div class="line">    <span class="comment">// 中间变量</span></div><div class="line">    <span class="keyword">char</span> temp;</div><div class="line"></div><div class="line">     <span class="comment">// 取出v1指向的变量的值</span></div><div class="line">     temp = *v1;</div><div class="line"></div><div class="line">     <span class="comment">// 取出v2指向的变量的值，然后赋值给v1指向的变量</span></div><div class="line">     *v1 = *v2;</div><div class="line"></div><div class="line">     <span class="comment">// 赋值给v2指向的变量</span></div><div class="line">     *v2 = temp;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"> &#123;</div><div class="line">    <span class="keyword">char</span> a = <span class="number">10</span>, b = <span class="number">9</span>;</div><div class="line">     <span class="built_in">printf</span>(<span class="string">"更换前：a=%d, b=%d\n"</span>, a, b);</div><div class="line"></div><div class="line">     swap(&amp;a, &amp;b);</div><div class="line"></div><div class="line">     <span class="built_in">printf</span>(<span class="string">"更换后：a=%d, b=%d"</span>, a, b);</div><div class="line">     <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>先看看输出结果：</p>
+<p><img src="/2017/03/20/pointer/pointer0.png" alt="pointer0"><br>变量a和b的值终于换过来了。</p>
+<font color="red">解释一下：(在16位编译器环境下，一个指针变量占用2个字节)</font>
+
+<blockquote>
+<p>先注意第20行，传递是变量的地址。因此swap函数的形参v1指向了变量a，v2指向了变量b</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer10.png" alt="pointer10"></p>
+<blockquote>
+<p> 第6行代码是取出v1指向的变量的值，也就是变量a的值：10，然后赋值给变量temp</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer11.png" alt="pointer11"></p>
+<blockquote>
+<p>第9行代码是取出v2指向的变量(变量b)的值，然后赋值给v1指向的变量(变量a)</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer12.png" alt="pointer12"></p>
+<blockquote>
+<p>第12行代码是将temp变量的值赋值给v2指向的变量(变量b)</p>
+</blockquote>
+<p><img src="/2017/03/20/pointer/pointer13.png" alt="pointer13"><br>相信你已经感受到指针的强大了，如果没有指针，在一个函数的内部根本改变不了外部的实参。</p>
+<h3 id="2-例子2"><a href="#2-例子2" class="headerlink" title="2.例子2"></a>2.例子2</h3><p>接下来再举一个指针的实用例子。默认情况下，一个函数只能有一个返回值，有了指针，我们可以实现函数有”多返回值”。</p>
+<p>现在有个要求：写一个函数sumAndMinus，可以同时计算2个整型的和与差，函数执行完毕后，返回和与差(注意了，这里要返回2个值)<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 计算2个整型的和与差</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">sumAndMinus</span><span class="params">(<span class="keyword">int</span> v1, <span class="keyword">int</span> v2, <span class="keyword">int</span> *minus)</span> </span>&#123;</div><div class="line">    <span class="comment">// 计算差，并赋值给指针指向的变量</span></div><div class="line">    *minus = v1 - v2;</div><div class="line"></div><div class="line">    <span class="comment">// 计算和，并返回和</span></div><div class="line">    <span class="keyword">return</span> v1 + v2;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// 定义2个int型变量</span></div><div class="line">    <span class="keyword">int</span> a = <span class="number">6</span>, b = <span class="number">2</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 定义2个变量来分别接收和与差</span></div><div class="line">    <span class="keyword">int</span> sum, minus;</div><div class="line"></div><div class="line">    <span class="comment">// 调用函数</span></div><div class="line">    sum = sumAndMinus(a, b, &amp;minus);</div><div class="line"></div><div class="line">    <span class="comment">// 打印和</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d+%d=%d\n"</span>, a, b, sum);</div><div class="line"></div><div class="line">    <span class="comment">// 打印差</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d-%d=%d\n"</span>, a, b, minus);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>输出结果：<br><img src="/2017/03/20/pointer/pointer16.png" alt="pointer16"><br>和与差都由同一个函数计算并返回出来。和是函数的直接返回值，差是通过函数的第3个指针参数间接返回。因此有了指针，我们可以让函数有”无限个”返回值。</p>
+<hr>
+
+<h2 id="六、关于指针的疑问"><a href="#六、关于指针的疑问" class="headerlink" title="六、关于指针的疑问"></a>六、关于指针的疑问</h2><p>刚学完指针，都可能有一大堆的疑惑，这里我列出几个常见的疑惑吧。</p>
+<p><strong> 1.一个指针变量占用多少个字节的内存空间？占用的空间是否会跟随所指向变量的类型而改变？</strong></p>
+<p>在同一种编译器环境下，一个指针变量所占用的内存空间是固定的。比如，在16位编译器环境下，任何一个指针变量都只占用2个字节，并不会随所指向变量的类型而改变。</p>
+<p><img src="/2017/03/20/pointer/pointer14.png" alt="pointer14"><br><strong> 2.既然每个指针变量所占用的内存空间是一样的，而且存储的都是地址，为何指针变量还要分类型？而且只能指向一种类型的变量？比如指向int类型的指针、指向char类型的指针。 </strong></p>
+<p>其实，我觉得这个问题跟”数组为什么要分类型”是一样的。</p>
+<blockquote>
+<ul>
+<li>看下面的代码，利用指针p读取变量c的值<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">2</span>;</div><div class="line"><span class="keyword">char</span> c = <span class="number">1</span>;</div><div class="line"></div><div class="line"> <span class="comment">// 定义一个指向char类型的指针</span></div><div class="line"> <span class="keyword">char</span> *p = &amp;c;</div><div class="line"></div><div class="line"> <span class="comment">// 取出</span></div><div class="line"> <span class="built_in">printf</span>(<span class="string">"%d"</span>, *p);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>这个输出结果应该难不倒大家：<strong> 1 </strong>，是可以成功读取的。</p>
+<ul>
+<li>如果我改一下第5行的代码，用一个本应该指向int类型变量的指针p，指向char类型的变量c</li>
+</ul>
+<blockquote>
+<p>int *p = &c;</p>
+</blockquote>
+<p>我们再来看一下输出：<strong> 513 </strong>，c的原值是1，现在取出来却是513，怎么回事呢？这个要根据内存来分析</p>
+<p>根据变量的定义顺序，这些变量在内存中大致如下图排布：</p>
+<p>其中，指针变量p和int类型变量i各占2个字节，char类型的c占一个字节，p指向c，因此p值就是c的地址</p>
+<p><img src="/2017/03/20/pointer/pointer15.png" alt="pointer15"><br>1&gt; 最初的时候，我们用char <em>p指向变量c。当利用</em>p来获取变量c的值时，由于指针p知道变量c是char类型的，所以会从ffc3这个地址开始读取1个字节的数据：0000 0001，转为10进制就是1</p>
+<p>2&gt; 后来，我们用int <em>p指向变量c。当利用</em>p获取变量c的值时，由于指针p认为变量c是int类型的，所以会从ffc3这个地址开始读取2个字节的数据：0000 0010 0000 0001，转为10进制就是513</p>
+<p>可见，给指针分类是多么重要的一件事，而且一种指针最好只指向一种类型的变量，那是最安全的。</p>
+<p><hr><br><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）mstarzheng@foxmail.com</em></strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/桂林电子科技大学/" rel="tag"># 桂林电子科技大学</a>
+          
+            <a href="/tags/mstar/" rel="tag"># mstar</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/16/前端面试之--HTML/" rel="next" title="前端面试集结号---HTML">
+                <i class="fa fa-chevron-left"></i> 前端面试集结号---HTML
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/22/摆脱项目命名困难的尴尬局面/" rel="prev" title="摆脱项目命名困难的尴尬局面">
+                摆脱项目命名困难的尴尬局面 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/mstar.jpeg"
+               alt="mstar" />
+          <p class="site-author-name" itemprop="name">mstar</p>
+           
+              <p class="site-description motion-element" itemprop="description">Don't forget the beginner's mind~~~不忘初心</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mstarZheng" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/leftjs" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、什么是指针"><span class="nav-number">1.</span> <span class="nav-text">一、什么是指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、指针定义"><span class="nav-number">2.</span> <span class="nav-text">二、指针定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、指针的初始化"><span class="nav-number">3.</span> <span class="nav-text">三、指针的初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-先定义后初始化"><span class="nav-number">3.1.</span> <span class="nav-text">1.先定义后初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-在定义的同时初始化"><span class="nav-number">3.2.</span> <span class="nav-text">2.在定义的同时初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-初始化的注意"><span class="nav-number">3.3.</span> <span class="nav-text">3.初始化的注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、指针运算符"><span class="nav-number">4.</span> <span class="nav-text">四、指针运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-给指针指向的变量赋值"><span class="nav-number">4.1.</span> <span class="nav-text">1.给指针指向的变量赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-取出指针所指向变量的值"><span class="nav-number">4.2.</span> <span class="nav-text">2.取出指针所指向变量的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-使用注意"><span class="nav-number">4.3.</span> <span class="nav-text">3.使用注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、指针的用途举例"><span class="nav-number">5.</span> <span class="nav-text">五、指针的用途举例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-例子1"><span class="nav-number">5.1.</span> <span class="nav-text">1.例子1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-例子2"><span class="nav-number">5.2.</span> <span class="nav-text">2.例子2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、关于指针的疑问"><span class="nav-number">6.</span> <span class="nav-text">六、关于指针的疑问</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mstar Zheng</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  </br>
+  您是本站第<span id="busuanzi_value_site_uv"></span>位访客，感谢您的支持。
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
