@@ -7,9 +7,9 @@ tags:
     - mstar
 ---
 <hr>
-## 一、语法简介 ##
+## 语法简介 ##
 
-### 1.类 ###
+### 类 ###
 在OC中，一般用2个文件来描述一个类：
 
 * <font color="red">.h</font>：类的<font color="red">声明</font>文件，用于声明成员变量、方法。类的声明使用关键字<font color="red">@interface和@end。</font>
@@ -19,7 +19,7 @@ tags:
 * <font color="red">.m</font>：类的<font color="red">实现</font>文件，用于实现.h中声明的方法。类的实现使用关键字<font color="red">@implementation和@end</font>。
 
 
-### 2.方法 ###
+### 方法 ###
 
 1> 方法的声明和实现，都必须以 <font color="red">+ 或者 <font color="red">- 开头
 
@@ -29,7 +29,7 @@ tags:
 2> 在.h中声明的所有方法作用域都是public类型，不能更改
 
 
-### 3.成员变量 ###
+### 成员变量 ###
 
 成员变量的常用作用域有3种：
 
@@ -38,7 +38,7 @@ tags:
 * @<font color="red">private</font> 只能在类内部访问
 
 <hr>
-## 二、创建对象 ##
+## 创建对象 ##
 由于OC程序的入口点是main函数，所以在main.m文件中演示Student类的使用。
 先上完整代码
 
@@ -56,13 +56,13 @@ int main(int argc, const char * argv[])
      return 0;
 }
 ```
-### 1.包含Student.h ###
+### 包含Student.h ###
 
 因为要用到Student这个类，所以在第2行包含了它的头文件
 
 > #import "Student.h"
 
-### 2.创建对象 ###
+### 创建对象 ###
 
 1> 在Java中是使用关键字new来创建对象，比如new Student()，其实这句代码做了2件事：
 * 给对象分配存储空间
@@ -100,9 +100,9 @@ int main(int argc, const char * argv[])
 
 
 <hr>
-## 三、代码解析 ##
+## 代码解析 ##
 
-### 1、如何编写类的声明 ###
+### 如何编写类的声明 ###
 ![oc_class1](OC-class/oc_class1.png)
 * 以<font color="red">@interface </font>开头，以<font color="red">@end</font>结尾，然后再用<font color="red">class name</font>对应的地方写上事物名称，也就是类名即可
 <font color="red">注意</font>：类名的首字符必须大写
@@ -130,7 +130,7 @@ int main(int argc, const char * argv[])
 * 第7~10行默认作用域是<font color="red">@protected</font>，即可以在IPhone类内部和子类中访问
 * 类的成员变量必须写在大括号{ }里面
 
-### 2、如何编写类的实现 ###
+### 如何编写类的实现 ###
  以<font color="red">@implementation</font>开头，以<font color="red">@end</font>结尾，然后在class对应的地方写上声明时声明的类的名称，必须和声明的类名一模一样
 
 ![oc_class2](OC-class/oc_class2.png)
@@ -145,7 +145,7 @@ int main(int argc, const char * argv[])
 @end
 ```
 
-### 3、如何通过一个类来创建对象 ###
+### 如何通过一个类来创建对象 ###
 在oc中想要通过一个类来创建一个对象必须给类发送有个消息（好比c语言中调用方法一样）。而OC中是如何发送消息？
 
 * 在oc中只要想要发送消息就先写上 <font color="red">[类名称/对象名称 方法名称]</font>；
