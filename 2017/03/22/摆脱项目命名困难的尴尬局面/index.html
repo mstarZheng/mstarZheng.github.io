@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="桂林电子科技大学,mstar," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="本文源出于—掘金西安小哥 1、文件夹命名 1、最好用一个单词描述     常用项目命名 oml、element、master、project、test、vue、iview     二级目录 build、static、config、src、example、base、commeon、issues、assert   三级目录 libs、models、plugins、skins、images、css、js">
+<meta name="keywords" content="桂林电子科技大学,mstar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="摆脱项目命名困难的尴尬局面">
+<meta property="og:url" content="http://yoursite.com/2017/03/22/摆脱项目命名困难的尴尬局面/index.html">
+<meta property="og:site_name" content="mstar&#39;s Blog">
+<meta property="og:description" content="本文源出于—掘金西安小哥 1、文件夹命名 1、最好用一个单词描述     常用项目命名 oml、element、master、project、test、vue、iview     二级目录 build、static、config、src、example、base、commeon、issues、assert   三级目录 libs、models、plugins、skins、images、css、js">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-28T02:55:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="摆脱项目命名困难的尴尬局面">
+<meta name="twitter:description" content="本文源出于—掘金西安小哥 1、文件夹命名 1、最好用一个单词描述     常用项目命名 oml、element、master、project、test、vue、iview     二级目录 build、static、config、src、example、base、commeon、issues、assert   三级目录 libs、models、plugins、skins、images、css、js">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/22/摆脱项目命名困难的尴尬局面/"/>
+
+
+
+
+
+  <title>摆脱项目命名困难的尴尬局面 | mstar's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">mstar's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/life/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            life
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photo">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            photo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/摆脱项目命名困难的尴尬局面/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mstar">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mstar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mstar's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">摆脱项目命名困难的尴尬局面</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T21:29:26+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,029 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><center>本文源出于—掘金<a href="https://juejin.im/post/58d0e5caa22b9d00643e8b51" target="_blank" rel="external"><strong>西安小哥</strong></a></center></p>
+<h2 id="1、文件夹命名"><a href="#1、文件夹命名" class="headerlink" title="1、文件夹命名"></a><strong>1、文件夹命名</strong></h2><ul>
+<li>1、最好用一个单词描述</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>常用项目命名</th>
+<th>oml、element、master、project、test、vue、iview</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>二级目录</strong></td>
+<td>build、static、config、src、example、base、commeon、issues、assert</td>
+</tr>
+<tr>
+<td><strong>三级目录</strong></td>
+<td>libs、models、plugins、skins、images、css、js</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>2、如果一个单词描述不了，名词加动词</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">color-pick、button-groups、date-picker、option-group、jquery-select、jquery-swiper</div></pre></td></tr></table></figure>
+</li>
+<li><p>3、中间用-或者_连接为了方便归类、一目了然</p>
+<blockquote>
+<p>node_models、async-demo、array-union、array-differ、babel-each</p>
+<hr>
+
+</blockquote>
+</li>
+</ul>
+<h2 id="2、文件命名"><a href="#2、文件命名" class="headerlink" title="2、文件命名"></a><strong>2、文件命名</strong></h2><ul>
+<li>1.最好用一个单词描述<br>一下变量名可以加css、js、html、例如index.html、index.js、index.css</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>常用组件命名</th>
+<th>index、message、menu、slider（滑块）、page、progress（进度条）、tooltip（提示）、tree、upload、time、button、checkbox、dialog、cascader（三级联动）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>常用文件命名</td>
+<td>index、shopping（购物）、 share（分享）、integral（积分）、advertisement（广告）、pay（支付）、community（社区）、game、docs、bussiness</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>2.如果一个单词描述不了，名词加动词</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">share-to-friends，share-to-community，weex-pay，alipay-pay，user-integral，game-page，docs-page等等反正就是自我想象。</div></pre></td></tr></table></figure>
+</li>
+<li><p>3.中间用-或者_连接为了方便归类、一目了然<br>在目前做的pc端和移动端，简单的对他们分个类：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">移动广告(mobile-advertisement)</div><div class="line">移动社交(mobile-social)</div><div class="line">移动电子商务(mobile-bussiness)</div><div class="line">手机游戏(mobile-game)</div><div class="line">手机电视(mobile-tv)</div><div class="line">移动电子阅读(mobile-reading)</div><div class="line">手机搜索(mobile-search)</div><div class="line">移动支付(mobile-pay)</div><div class="line">手机内容共享(mobile-share)</div></pre></td></tr></table></figure>
+<p>关于以上的项目都可以用名词+需要的动词命名，达到见词知意</p>
+<hr>
+
+<h2 id="3-html布局命名"><a href="#3-html布局命名" class="headerlink" title="3.html布局命名"></a><strong>3.html布局命名</strong></h2><p><a href="http://www.divcss5.com/jiqiao/j4.shtml" target="_blank" rel="external"><strong>可以参考DIV+CSS规范命名大全</strong></a> 但是我觉得写得并不好，很全面。因为因为往往比较纠结的是每一个大布局中小布局的命名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">外套 wrap:       &gt;&gt; #container</div><div class="line">头部 header:     &gt;&gt; #head, #header，#nav，#sub-nav，#menu， #sub-menu，#branding</div><div class="line">主要内容 main::   &gt;&gt; bussiness-title 、bussiness-logo、bussiness-search、bussiness-search-results</div><div class="line">左侧 main-left:  &gt;&gt; #side-bar, #side-bar-a, #side-bar-b</div><div class="line">右侧 main-right: &gt;&gt; #side-bar, #side-bar-a, #side-bar-b</div><div class="line">内容 content:    &gt;&gt; radio-click、radio-heightlight、radio-active、input-seach-off、input-search-on</div><div class="line">底部 footer:     &gt;&gt; #service, #regsiter,#partner（合作伙伴）,#joinus, #site-info</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>总结</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">一般头部有nav、nav-event、nav-style、nav-item、nav-link。</div><div class="line"></div><div class="line">内容：xx-title、xx-box、xx-warp、xx-item、xx-item-title、xx-item-link、xx-item-image</div><div class="line"></div><div class="line">底部：footer-time、footer-box、footer-item、footer-item-link、footer-address。总之xx-wrap，xx-box，xx-item、xx-link、xx-title、xx-total肯定会满足你80%的需求</div></pre></td></tr></table></figure>
+<hr>
+
+<h2 id="4、js变量命名"><a href="#4、js变量命名" class="headerlink" title="4、js变量命名"></a><strong>4、js变量命名</strong></h2><ul>
+<li><p>1.基础类型和引用数据类型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">* 基础类型</div><div class="line">* 字符串<span class="keyword">var</span> s_count=<span class="string">""</span>,</div><div class="line">* 布尔类型<span class="keyword">var</span> b_status=<span class="literal">false</span>,</div><div class="line">* 数字类型<span class="keyword">var</span> n_total=<span class="number">12</span>。</div><div class="line">* 引用数据类型</div><div class="line">* 数组<span class="keyword">var</span> ar_bar=[],</div><div class="line">* 对象<span class="keyword">var</span> o_bar=&#123;&#125;,</div><div class="line">* 函数<span class="keyword">var</span> f_submit=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;）</div></pre></td></tr></table></figure>
+</li>
+<li><p>2.不要用关键字命名<br>default、class、private</p>
+</li>
+<li><p>3.用可读的同义词代替保留词。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/ bad</div><div class="line"><span class="keyword">var</span> superman = &#123;</div><div class="line">  class: 'alien'</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> superman = &#123;</div><div class="line">  klass: <span class="string">'alien'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> superman = &#123;</div><div class="line">  type: <span class="string">'alien'</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>4.函数用驼峰形式（动词+名词）</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">login(),logout(),expandList(),getTotal(),keySearch(),submitForm(),cancel(),goMore(),searchAll(),searchCurrent().clearContent().uploadImage().searchResult()这些都是常用事件，可以清晰知道每一项的意义。</div></pre></td></tr></table></figure>
+<p><a href="https://github.com/airbnb/javascript/tree/es5-deprecated/es5" target="_blank" rel="external">ES5的语法规范</a></p>
+<ul>
+<li>5.当命名的构造函数和类使用PascalCase。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">user</span>(<span class="params">options</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = options.name;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> bad = <span class="keyword">new</span> user(&#123;</div><div class="line">  name: <span class="string">'nope'</span></div><div class="line">&#125;);</div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">User</span>(<span class="params">options</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = options.name;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> good = <span class="keyword">new</span> User(&#123;</div><div class="line">  name: <span class="string">'yup'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>6.不要使用尾随或前导下划线。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">this</span>.__firstName__ = <span class="string">'Panda'</span>;</div><div class="line"><span class="keyword">this</span>.firstName_ = <span class="string">'Panda'</span>;</div><div class="line"><span class="keyword">this</span>._firstName = <span class="string">'Panda'</span>;</div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">this</span>.firstName = <span class="string">'Panda'</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li>7.前缀jQuery对象变量与$。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> sidebar = $(<span class="string">'.sidebar'</span>);</div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">var</span> $sidebar = $(<span class="string">'.sidebar'</span>);</div><div class="line"><span class="comment">// bad</span></div><div class="line">$(<span class="string">'ul'</span>, <span class="string">'.sidebar'</span>).hide();</div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setSidebar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  $(<span class="string">'.sidebar'</span>).hide();</div><div class="line">  <span class="comment">// ...stuff...</span></div><div class="line">  $(<span class="string">'.sidebar'</span>).css(&#123;</div><div class="line">    <span class="string">'background-color'</span>: <span class="string">'pink'</span></div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setSidebar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> $sidebar = $(<span class="string">'.sidebar'</span>);</div><div class="line">  $sidebar.hide();</div><div class="line">  <span class="comment">// ...stuff...</span></div><div class="line">  $sidebar.css(&#123;</div><div class="line">    <span class="string">'background-color'</span>: <span class="string">'pink'</span></div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"><span class="comment">// bad</span></div><div class="line">$(<span class="string">'.sidebar'</span>).find(<span class="string">'ul'</span>).hide();</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">$(<span class="string">'.sidebar ul'</span>).hide();</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">$(<span class="string">'.sidebar &gt; ul'</span>).hide();</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">$sidebar.find(<span class="string">'ul'</span>).hide();</div></pre></td></tr></table></figure>
+<hr>
+
+<h2 id="5-css命名"><a href="#5-css命名" class="headerlink" title="5.css命名"></a><strong>5.css命名</strong></h2><table>
+<thead>
+<tr>
+<th>公共的</th>
+<th>common.css</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>其实和common差不多</td>
+<td>base.css</td>
+</tr>
+<tr>
+<td>动画</td>
+<td>animation.css</td>
+</tr>
+<tr>
+<td>皮肤</td>
+<td>skin.css</td>
+</tr>
+<tr>
+<td>文字</td>
+<td>font.css</td>
+</tr>
+<tr>
+<td>主题</td>
+<td>themes.css</td>
+</tr>
+<tr>
+<td>打印样式</td>
+<td>print.css</td>
+</tr>
+<tr>
+<td>颜色</td>
+<td>color.css</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<h2 id="6-图片命名"><a href="#6-图片命名" class="headerlink" title="6.图片命名"></a><strong>6.图片命名</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">第一部分是图片的逻辑归属分类</div><div class="line">第二部分是图片的表现内容</div><div class="line">第三部分是图片的内容的类型（有些图片还会有第四部分，表示图片表现的状态。）</div><div class="line">tabbar_home_icon, navigationbar_showtime_icon@2x.png，tabbar_categories_icon</div></pre></td></tr></table></figure>
+<hr>
+
+<p><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）mstarzheng@foxmail.com</em></strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/桂林电子科技大学/" rel="tag"># 桂林电子科技大学</a>
+          
+            <a href="/tags/mstar/" rel="tag"># mstar</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/20/pointer/" rel="next" title="指针解谜">
+                <i class="fa fa-chevron-left"></i> 指针解谜
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/25/Love/" rel="prev" title="初雪の恋">
+                初雪の恋 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/mstar.jpeg"
+               alt="mstar" />
+          <p class="site-author-name" itemprop="name">mstar</p>
+           
+              <p class="site-description motion-element" itemprop="description">Don't forget the beginner's mind~~~不忘初心</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="Link" target="_blank" title="LinkLabel">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      LinkLabel
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mstarZheng" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/leftjs" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、文件夹命名"><span class="nav-number">1.</span> <span class="nav-text">1、文件夹命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、文件命名"><span class="nav-number">2.</span> <span class="nav-text">2、文件命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-html布局命名"><span class="nav-number">3.</span> <span class="nav-text">3.html布局命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、js变量命名"><span class="nav-number">4.</span> <span class="nav-text">4、js变量命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-css命名"><span class="nav-number">5.</span> <span class="nav-text">5.css命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-图片命名"><span class="nav-number">6.</span> <span class="nav-text">6.图片命名</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mstar Zheng</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
