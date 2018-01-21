@@ -184,6 +184,37 @@
 
 </head>
 
+
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    var trElement = document.getElementById('hexo-helper-live2d');
+    trElement.parentNode.removeChild(trElement);
+    return;
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/wanko.model.json", 0.5);});
+})();
+</script>
+
+
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -481,7 +512,9 @@
       
         
           
-          择一城终老，遇一人白首苦情痣你说，你的颈后有一颗苦情痣。你说，那是因为你不愿忘记前世的爱人。你说，我们不是初识，而是重新认出了彼此。你说，我就是你前世的挚爱，所以，今生今世我们命中注定要在一起。前世挚爱，今世重逢。莫失莫忘，不离不弃。一切都是命中注定的，一些都是最好的安排，一切都刚刚好。今生今世，能
+          择一城终老，遇一人白首苦情痣
+
+你说你的颈后有一颗苦情痣。你说那是因为你不愿忘记前世的爱人。你说我们不是初识，而是重新认出了彼此。你说我就是你前世的挚爱，所以，今生今世我们命中注定要在一起。前世挚爱，今世重逢。莫失莫忘，不离不弃。一切都是命中注定的，一切都是最好的安排，一切都刚刚好。今生今世，能与你
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1415,7 +1448,7 @@ web标准、web语义、浏览器内核、兼容性、html5…
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
