@@ -483,7 +483,7 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,580 字
+                  1,611 字
                 </span>
               
 
@@ -545,7 +545,7 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
 </ul>
 <p><hr></p>
 <h2 id="二、创建对象"><a href="#二、创建对象" class="headerlink" title="二、创建对象"></a>二、创建对象</h2><p>由于OC程序的入口点是main函数，所以在main.m文件中演示Student类的使用。<br>先上完整代码</p>
-<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"Student.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</div><div class="line">&#123;</div><div class="line">   <span class="keyword">@autoreleasepool</span> &#123;</div><div class="line">        Student *stu = [[Student alloc] init];</div><div class="line"></div><div class="line">         [stu release];</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"Student.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">        Student *stu = [[Student alloc] init];</span><br><span class="line"></span><br><span class="line">         [stu release];</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="1-包含Student-h"><a href="#1-包含Student-h" class="headerlink" title="1.包含Student.h"></a>1.包含Student.h</h3><p>因为要用到Student这个类，所以在第2行包含了它的头文件</p>
 <blockquote>
 <p>#import “Student.h”</p>
@@ -590,7 +590,7 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
 
 </li>
 </ul>
-<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Iphone</span> :<span class="title">NSObject</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//注意：默认情况下，OC对象中属性是不能直接访问的</span></div><div class="line">    <span class="keyword">@public</span></div><div class="line">    <span class="comment">//只要让类中的属性公开，以后就可以直接通过一个指向结构体的指针来操作对象中的属性</span></div><div class="line"></div><div class="line">    <span class="keyword">float</span> _model;</div><div class="line">    <span class="keyword">int</span> _cpu;</div><div class="line">    <span class="keyword">double</span> _size;</div><div class="line">    <span class="keyword">int</span> _color;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Iphone</span> :<span class="title">NSObject</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//注意：默认情况下，OC对象中属性是不能直接访问的</span></span><br><span class="line">    <span class="keyword">@public</span></span><br><span class="line">    <span class="comment">//只要让类中的属性公开，以后就可以直接通过一个指向结构体的指针来操作对象中的属性</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">float</span> _model;</span><br><span class="line">    <span class="keyword">int</span> _cpu;</span><br><span class="line">    <span class="keyword">double</span> _size;</span><br><span class="line">    <span class="keyword">int</span> _color;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>看第1行，OC中使用关键字@interface来声明一个类，@interface后面紧跟着类名Iphone。</li>
 <li>类名Student后面的冒号”:”表示继承，即第1行代码的意思是Iphone继承自NSObject。</li>
@@ -599,7 +599,7 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
 </ul>
 <h3 id="2、如何编写类的实现"><a href="#2、如何编写类的实现" class="headerlink" title="2、如何编写类的实现"></a>2、如何编写类的实现</h3><p> 以<font color="red">@implementation</font>开头，以<font color="red">@end</font>结尾，然后在class对应的地方写上声明时声明的类的名称，必须和声明的类名一模一样</p>
 <p><img src="/2017/04/04/OC-class/oc_class2.png" alt="oc_class2"></p>
-<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Iphone</span></span></div><div class="line"><span class="comment">//类的实现,类名必须跟声明时的类名一样</span></div><div class="line">- (<span class="keyword">int</span>)_cpu &#123;</div><div class="line">   <span class="comment">// 直接返回成员变量_cpu</span></div><div class="line">     <span class="keyword">return</span> _cpu;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Iphone</span></span></span><br><span class="line"><span class="comment">//类的实现,类名必须跟声明时的类名一样</span></span><br><span class="line">- (<span class="keyword">int</span>)_cpu &#123;</span><br><span class="line">   <span class="comment">// 直接返回成员变量_cpu</span></span><br><span class="line">     <span class="keyword">return</span> _cpu;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <h3 id="3、如何通过一个类来创建对象"><a href="#3、如何通过一个类来创建对象" class="headerlink" title="3、如何通过一个类来创建对象"></a>3、如何通过一个类来创建对象</h3><p>在oc中想要通过一个类来创建一个对象必须给类发送有个消息（好比c语言中调用方法一样）。而OC中是如何发送消息？</p>
 <ul>
 <li>在oc中只要想要发送消息就先写上 <font color="red">[类名称/对象名称 方法名称]</font>；</li>
@@ -611,7 +611,7 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
 <li>初始化IPhone类创建出来的对象中的属性</li>
 <li>返回IPhone类创建出来的对象对应的地址</li>
 </ul>
-<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Iphone *p =  [Iphone new];</div><div class="line">p-&gt;_color = <span class="number">0</span>;</div><div class="line">p-&gt;_cpu = <span class="number">64</span>;</div><div class="line"><span class="keyword">return</span> <span class="number">0</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Iphone *p =  [Iphone new];</span><br><span class="line">p-&gt;_color = <span class="number">0</span>;</span><br><span class="line">p-&gt;_cpu = <span class="number">64</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>通过一个IPhone类型的<font color="red">指针</font>接收了IPhone对象的<font color="red">地址</font></li>
 <li>如果使用给一个指针保存了某一个对象的地址，那么我们就称这个指针位之为某个类型的对应的对象</li>
@@ -741,7 +741,7 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -752,7 +752,7 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
