@@ -141,7 +141,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/11/11/algorithm/插入排序.gif">
 <meta property="og:image" content="http://yoursite.com/2018/11/11/algorithm/希尔排序.gif">
 <meta property="og:image" content="http://yoursite.com/2018/11/11/algorithm/折半查找.png">
-<meta property="og:updated_time" content="2018-11-11T13:48:13.459Z">
+<meta property="og:updated_time" content="2018-11-13T14:16:31.723Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="经典算法篇">
 <meta name="twitter:description" content="经典算法篇计数排序​    计数排序是一个非基于比较的排序算法，该算法于1954年由 Harold H. Seward 提出。它的优势在于在对一定范围内的整数排序时，快于任何比较排序算法。  排序思想 1.找出待排序数组最大值 2.定义一个索引最大值为待排序数组最大值的数组 3.遍历待排序数组, 将待排序数组遍历到的值作新数组索引 4.在新数组对应索引存储值原有基础上+1         代码实现">
@@ -492,7 +492,7 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,423 字
+                  2,475 字
                 </span>
               
 
@@ -626,6 +626,8 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
 <li><strong>代码实现</strong></li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findKey</span><span class="params">(<span class="keyword">int</span> values[], <span class="keyword">int</span> length, <span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 定义一个变量记录最小索引</span></span><br><span class="line">    <span class="keyword">int</span> min = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 定义一个变量记录最大索引</span></span><br><span class="line">    <span class="keyword">int</span> max = length - <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// 定义一个变量记录中间索引</span></span><br><span class="line">    <span class="keyword">int</span> mid = (min + max) * <span class="number">0.5</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (min &lt;= max) &#123;</span><br><span class="line">        <span class="comment">// 如果mid对应的值 大于 key, 那么max要变小</span></span><br><span class="line">        <span class="keyword">if</span> (values[mid] &gt; key) &#123;</span><br><span class="line">            max = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="comment">// 如果mid对应的值 小于 key, 那么min要变</span></span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (values[mid] &lt; key) &#123;</span><br><span class="line">            min = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 修改完min/max之后, 重新计算mid的值</span></span><br><span class="line">        mid = (min + max) * <span class="number">0.5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><hr><br><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）<a href="mailto:mstarzheng@foxmail.com" target="_blank" rel="noopener">mstarzheng@foxmail.com</a></em></strong></p>
+
       
     </div>
     
@@ -658,6 +660,10 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/13/链表/" rel="prev" title="内存管理与链表">
+                内存管理与链表 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -736,7 +742,7 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
