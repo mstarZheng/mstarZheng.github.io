@@ -2,14 +2,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 <script>
@@ -23,38 +32,10 @@
     })();
 </script>
 
-<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
-<style>
-    .pace .pace-progress {
-        background: #1E92FB; /*进度条颜色*/
-        height: 3px;
-    }
-    .pace .pace-progress-inner {
-         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
-    }
-    .pace .pace-activity {
-        border-top-color: #1E92FB;    /*上边框颜色*/
-        border-left-color: #1E92FB;    /*左边框颜色*/
-    }
-</style>
-
 
   
   
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
 
 
 
@@ -65,54 +46,8 @@
 
 
 
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -121,20 +56,41 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="mstar&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/page/4/index.html">
-<meta property="og:site_name" content="mstar&#39;s Blog">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mstar&#39;s Blog">
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
 
 
 
@@ -143,15 +99,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    version: '5.1.2',
-    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    version: '6.6.0',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -163,14 +117,33 @@
 </script>
 
 
-
-
-
-  <link rel="canonical" href="http://yoursite.com/page/4/"/>
+  
 
 
 
 
+  <meta property="og:type" content="website">
+<meta property="og:title" content="mstar&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+<meta property="og:site_name" content="mstar&#39;s Blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mstar&#39;s Blog">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/page/4/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>mstar's Blog</title>
   
@@ -182,40 +155,39 @@
 
 
 
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-
-<div id="hexo-helper-live2d">
-  <canvas id="live2dcanvas" width="150" height="300"></canvas>
-</div>
-<style>
-  #live2dcanvas{
-    position: fixed;
-    width: 150px;
-    height: 300px;
-    opacity:0.7;
-    right: 0px;
-    z-index: 999;
-    pointer-events: none;
-    bottom: -20px;
-  }
-</style>
-<script type="text/javascript" src="/live2d/device.min.js"></script>
-<script type="text/javascript">
-const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
-(function(){
-  if((typeof(device) != 'undefined') && (device.mobile())){
-    var trElement = document.getElementById('hexo-helper-live2d');
-    trElement.parentNode.removeChild(trElement);
-    return;
-  }else
-    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
-  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/wanko.model.json", 0.5);});
-})();
-</script>
-
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -225,29 +197,26 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
   <div class="container sidebar-position-right 
   page-home">
     <div class="headband"></div>
-    <a href="https://github.com/mstarZheng"><img style="position: absolute; top: 0; right: 0; border: 0;"
-        src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
-        alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <!-- GitHub-start -->
+    <a href="https://github.com/mstarZheng" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <!-- GitHub-end -->
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">mstar's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -255,86 +224,131 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-life">
-          <a href="/life/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
-            
-            life
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-photo">
-          <a href="/photo/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
-            
-            photo
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -349,9 +363,7 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -365,12 +377,20 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -383,20 +403,22 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/16/前端面试之-HTML/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/前端面试总结/前端面试之-HTML/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mstar">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mstar Zheng">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/mstar.jpeg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="mstar's Blog">
     </span>
 
@@ -407,11 +429,20 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/03/16/前端面试之-HTML/" itemprop="url">前端面试集结号---HTML</a></h1>
+                
+                <a href="/前端面试总结/前端面试之-HTML/" class="post-title-link" itemprop="http://yoursite.com/page/4/index.html">前端面试集结号---HTML</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -419,18 +450,35 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-16T14:27:02+08:00">
-                2017-03-16
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-16 14:27:02" itemprop="dateCreated datePublished" datetime="2017-03-16T14:27:02+08:00">2017-03-16</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-08-28 10:55:51" itemprop="dateModified" datetime="2017-08-28T10:55:51+08:00">2017-08-28</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -441,11 +489,7 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端面试总结/" itemprop="url" rel="index">
-                    <span itemprop="name">前端面试总结</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/前端面试总结/" itemprop="url" rel="index"><span itemprop="name">前端面试总结</span></a></span>
 
                 
                 
@@ -455,55 +499,35 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/前端面试总结/前端面试之-HTML/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/前端面试总结/前端面试之-HTML/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
           
-             <span id="/2017/03/16/前端面试之-HTML/" class="leancloud_visitors" data-flag-title="前端面试集结号---HTML">
+             <span id="/前端面试总结/前端面试之-HTML/" class="leancloud_visitors" data-flag-title="前端面试集结号---HTML">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">热度：</span>
                
                  <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
              </span>
           
 
           
 
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2,976 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  11 分钟
-                </span>
-              
-            </div>
           
 
           
@@ -523,29 +547,72 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
       
         
           
-          相关知识
-web标准、web语义、浏览器内核、兼容性、html5…
+            <h2 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h2><blockquote>
+<p>web标准、web语义、浏览器内核、兼容性、html5…</p>
+</blockquote>
+<p><hr></p>
+<h1 id="常见面试问题-amp-答案"><a href="#常见面试问题-amp-答案" class="headerlink" title=" 常见面试问题&amp;答案 "></a><strong> 常见面试问题&amp;答案 </strong></h1><p><hr><br><strong>1、Doctype作用？严格模式与混杂模式如何区分？它们有何意义?</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE&gt;声明位于HTML文档中的第一行，处于&lt;html&gt;标签之前，用于告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。</span><br><span class="line">标准模式的排版和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示，模拟老式浏览器的行为以防止站点无法工作。</span><br><span class="line">如果HTML文档包含形式完整的DOCTYPE，那么他一般以标准模式呈现。对于HTML4.01文档，包含严格DTD的DOCTYPE常常导致页面已标准模式呈现。DOCTYPE不存在或者格式不正确会导致文档已混杂模式呈现。</span><br></pre></td></tr></table></figure>
+<p><strong>2、请描述一个网页从开始请求道最终显示的完整过程</strong></p>
+<blockquote>
+<p>一个网页从请求到最终显示的完整过程一般可以分为如下7个步骤：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在浏览器中输入网址；</span><br><span class="line">发送至DNS服务器并获得域名对应的WEB服务器IP地址；</span><br><span class="line">与WEB服务器建立TCP连接；</span><br><span class="line">浏览器向WEB服务器的IP地址发送相应的HTTP请求；</span><br><span class="line">WEB服务器响应请求并返回指定URL的数据，或错误信息，如果设定重定向，则重定向到新的URL地址；</span><br><span class="line">浏览器下载数据后解析HTML源文件，解析的过程中实现对页面的排版，解析完成后在浏览器中显示基础页面；</span><br><span class="line">分析页面中的超链接并显示在当前页面，重复以上过程直至无超链接需要发送，完成全部数据显示。</span><br></pre></td></tr></table></figure>
+<p><strong>3、HTML5 为什么只需要写 &lt;!DOCTYPE HTML&gt;</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HTML5不基于SGML，因此不需要对DTD进行引用，但是需要DOCTYPE来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；</span><br><span class="line">HTML4<span class="number">.01</span>基于SGML，所以需要对DTD进行引用，才能让浏览器知道该文档所使用的文档类型。</span><br></pre></td></tr></table></figure></p>
+<p><strong>4、行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  ***行内元素***：</span><br><span class="line">a - 锚点，em - 强调，strong - 粗体强调，span - 定义文本内区块，i - 斜体,img - 图片,b - 粗体，label - 表格标签，select - 项目选择，textarea - 多行文本输入框，sub - 下标，</span><br><span class="line">sup - 上标，q - 短引用；</span><br><span class="line"></span><br><span class="line">  ***块元素***：</span><br><span class="line">div - 常用块级，dl - 定义列表，dt，dd，ul- 非排序列表，li，ol-排序表单，p-段落，h1，h2，h3，h4，h5-标题，table-表格，fieldset - form控制组，form - 表单，</span><br><span class="line"></span><br><span class="line">  ***空元素***：</span><br><span class="line">br-换行，hr-水平分割线；</span><br></pre></td></tr></table></figure></p>
+<p><strong>5、介绍一下你对浏览器内核的理解</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">浏览器最重要或者说核心的部分是“Rendering Engine”，可大概译为“渲染引擎”，不过我们一般习惯将之称为“浏览器内核”。负责对网页语法的解释（如标准通用标记语言下的一个应用HTML、JavaScript）并渲染（显示）网页。 所以，通常所谓的浏览器内核也就是浏览器所采用的渲染引擎，渲染引擎决定了浏览器如何显示网页的内容以及页面的格式信息。不同的浏览器内核对网页编写语法的解释也有不同，因此同一网页在不同的内核的浏览器里的渲染（显示）效果也可能不同，这也是网页编写者需要在不同内核的浏览器中测试网页显示效果的原因。</span><br></pre></td></tr></table></figure></p>
+<p><strong>6、常见的浏览器内核有哪些</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Trident内核：IE,MaxThon,TT,The World,<span class="number">360</span>,搜狗浏览器等。[又称MSHTML]</span><br><span class="line">Gecko内核：Netscape6及以上版本，FF,MozillaSuite/SeaMonkey等。</span><br><span class="line">Presto内核：Opera7及以上。      [Opera内核原为：Presto，现为：Blink;]</span><br><span class="line">Webkit内核：Safari,Chrome等。   [ Chrome的：Blink（WebKit的分支）]</span><br><span class="line">EdgeHTML内核：Microsoft Edge。  [此内核其实是从MSHTML fork而来，删掉了几乎所有的IE私有特性]</span><br></pre></td></tr></table></figure></p>
+<p><strong>7、html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 </strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">***新增了以下的几大类元素***</span><br><span class="line">内容元素，article、footer、header、nav、section。</span><br><span class="line">表单控件，calendar、date、time、email、url、search。</span><br><span class="line">控件元素，webworker, websockt, Geolocation。</span><br><span class="line"></span><br><span class="line">***移出的元素有下列这些****</span><br><span class="line">显现层元素：basefont，big，center，font, s，strike，tt，u。</span><br><span class="line">性能较差元素：frame，frameset，noframes。</span><br><span class="line">HTML5已形成了最终的标准，概括来讲，它主要是关于图像，位置，存储，多任务等功能的增加。</span><br><span class="line">新增的元素有绘画 canvas ，用于媒介回放的 video 和 audio 元素，本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失，而sessionStorage的数据在浏览器关闭后自动删除，此外，还新增了以下的几大类元素。</span><br><span class="line">内容元素，article、footer、header、nav、section。</span><br><span class="line">表单控件，calendar、date、time、email、url、search。</span><br><span class="line">控件元素，webworker, websockt, Geolocation。</span><br><span class="line"></span><br><span class="line">***移出的元素有下列这些***</span><br><span class="line">显现层元素：basefont，big，center，font, s，strike，tt，u。</span><br><span class="line">性能较差元素：frame，frameset，noframes。</span><br><span class="line"></span><br><span class="line">***新的技术***</span><br><span class="line">canvas,svg,webworker, websocket, Geolocation......</span><br></pre></td></tr></table></figure></p>
+<p><strong>8、简述一下你对HTML语义化的理解</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTML语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析；</span><br><span class="line">即使在没有样式CSS的情况下也能以一种文档格式显示，并且是容易阅读的；</span><br><span class="line">搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，有利于SEO；</span><br><span class="line">使阅读源代码的人更容易将网站分块，便于阅读、维护和理解。</span><br></pre></td></tr></table></figure></p>
+<p><strong>9、HTML5的离线存储怎么使用？能否解释一下工作原理</strong></p>
+<blockquote>
+<p>在用户没有连接英特网时，可以正常访问站点和应用；在用户连接英特网时，更新用户机器上的缓存文件。<br><strong><code>原理</code></strong>：HTML5的离线存储是基于一个新建的 <code>.appcache</code> 文件的缓存机制（并非存储技术），通过这个文件上的解析清单离线存储资源，这些资源就会像cookie一样被存储下来。之后当网络处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。<br>使用方法</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">在页面头部像下面一样加入一个 manifest 的属性；</span><br><span class="line">在 cache.manifest 文件里编写离线存储资源；</span><br><span class="line">   CACHE MANIFEST</span><br><span class="line">   #v0.11</span><br><span class="line">   CACHE：</span><br><span class="line">     js/app.js</span><br><span class="line">     css/style.css</span><br><span class="line">   NETWORK:</span><br><span class="line">     resource/logo.png</span><br><span class="line">   FALLBACK：</span><br><span class="line">     / <span class="regexp">/offline.html</span></span><br><span class="line"><span class="regexp">在离线状态时，操作 window.applicationCache 进行需求实现；</span></span><br></pre></td></tr></table></figure>
+<p><strong>10、浏览器是怎么对HTML5的离线储存资源进行管理和加载的</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在线情况下，浏览器发现html头部有manifest属性，它会请求manifest文件，如果是第一次访问app，那么浏览器就会根据manifest文件的内容下载相应的资源并且进行离线存储。如果已经访问过app并且资源已经离线存储了，那么浏览器就会使用离线的资源加载页面，然后浏览器会对比新的manifest文件与旧的manifest文件，如果文件没有发生改变，就不做任何操作，如果文件改变了，那么就会重新下载文件中的资源并进行离线存储。</span><br><span class="line">离线情况下，浏览器就直接使用离线存储的资源。</span><br></pre></td></tr></table></figure></p>
+<p><strong>11、请描述一下 cookies，sessionStorage 和 localStorage 的区别</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Web Storage有两种形式：LocalStorage（本地存储）和sessionStorage（会话存储）。这两种方式都允许开发者使用js设置的键值对进行操作，在在重新加载不同的页面的时候读出它们。这一点与cookie类似。</span><br><span class="line">&gt;&gt; 与cookie不同的是：Web Storage数据完全存储在客户端，不需要通过浏览器的请求将数据传给服务器，因此x相比cookie来说能够存储更多的数据，大概<span class="number">5</span>M左右。</span><br><span class="line">&gt;&gt; LocalStorage和sessionStorage功能上是一样的，但是存储持久时间不一样。</span><br><span class="line">LocalStorage：浏览器关闭了数据仍然可以保存下来，并可用于所有同源（相同的域名、协议和端口）窗口（或标签页）；</span><br><span class="line">sessionStorage：数据存储在窗口对象中，窗口关闭后对应的窗口对象消失，存储的数据也会丢失。</span><br><span class="line">注意：sessionStorage 都可以用localStorage 来代替，但需要记住的是，在窗口或者标签页关闭时，使用sessionStorage 存储的数据会丢失。</span><br><span class="line">&gt;&gt; 使用 local storage和session storage主要通过在js中操作这两个对象来实现，分别为<span class="built_in">window</span>.localStorage和<span class="built_in">window</span>.sessionStorage. 这两个对象均是Storage类的两个实例，自然也具有Storage类的属性和方法。</span><br></pre></td></tr></table></figure></p>
+<p><strong>12、iframe 有哪些缺点</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iframe会阻塞主页面的Onload事件；</span><br><span class="line">搜索引擎的检索程序无法解读这种页面，不利于SEO；</span><br><span class="line">iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。</span><br><span class="line">使用iframe之前需要考虑这两个缺点。如果需要使用iframe，最好通过JavaScript动态给iframe添加src属性值，这样可以绕开以上两个问题。</span><br></pre></td></tr></table></figure></p>
+<p><strong>13、Label的作用是什么？如何使用</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">label标签来定义表单控制间的关系，当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。</span><br><span class="line">&lt;label <span class="keyword">for</span>=<span class="string">"Name"</span>&gt;<span class="built_in">Number</span>:<span class="xml"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span></span><br><span class="line">&lt;input type=<span class="string">"text"</span> name=<span class="string">"Name"</span> id=<span class="string">"Name"</span> /&gt;</span><br><span class="line">&lt;label&gt;<span class="built_in">Date</span>:<span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"B"</span> /&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p><strong>14、HTML5的form如何关闭自动完成功能</strong></p>
+<blockquote>
+<p>给不想要提示的 form 或下面某个 input 设置为 <code>autocomplete = off</code>。</p>
+</blockquote>
+<p><strong>15、如何实现浏览器内多个标签页之间的通信？（阿里）</strong></p>
+<blockquote>
+<p>调用 localStorage、cookies 等本地存储方式</p>
+</blockquote>
+<p><strong>16、webSocket 如何兼容低浏览器？（阿里）</strong></p>
+<blockquote>
+<p>Adobe Flash Socket<br>ActiveX HTMLFile（IE）<br>基于 multipart 编码发送 XHR<br>基于长轮询的 XHR</p>
+</blockquote>
+<p><strong>17、页面可见性（Page Visibility） API可以有哪些用途</strong></p>
+<blockquote>
+<p>在页面被切换到其他后台进程的时候，自动暂停音乐或视频的播放。</p>
+</blockquote>
+<p><strong>18、如何在页面上实现一个圆形的可点击区域？</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">map + area 或者 svg</span><br><span class="line">border-radius</span><br><span class="line">纯js实现，需要求一个点在不在圆上的简单算法、获取鼠标坐标等等</span><br></pre></td></tr></table></figure></p>
+<p><strong>19、实现 不使用 border 画出 1px 高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=<span class="string">"height:1px;overflow:hidden;background:#ccc"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p><strong>20、网页验证码是干什么用的？是为了解决什么安全问题</strong></p>
+<blockquote>
+<p>可以防止：恶意破解密码、刷票、论坛灌水，有效防止某个黑客对某一个特定注册用户用特定程序暴力破解方式进行不断的登陆尝试，实际上用验证码是现在很多网站通行的方式，我们利用比较简易的方式实现了这个功能。这个问题可以由计算机生成并评判，但是必须只有人类才能解答。由于计算机无法解答CAPTCHA的问题，所以回答出问题的用户就可以被认为是人类。</p>
+</blockquote>
+<p><hr><br><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）<a href="mailto:mstarzheng@foxmail.com" target="_blank" rel="noopener">mstarzheng@foxmail.com</a></em></strong></p>
 
-
- 常见面试问题&amp;答案 1、Doctype作用？严格模式与混杂模式如何区分？它们有何意义?
-123&lt;!DOCTYPE&gt;声明位于HTML文档中的第一行，处于&lt;html&gt;标签之前，用于告知浏览器的解析器
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/16/前端面试之-HTML/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+       
+    
     
 
     
@@ -578,20 +645,22 @@ web标准、web语义、浏览器内核、兼容性、html5…
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/08/话说汉朝四百年的外戚干政史/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/文字的魅力/话说汉朝四百年的外戚干政史/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mstar">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mstar Zheng">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/mstar.jpeg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="mstar's Blog">
     </span>
 
@@ -602,11 +671,20 @@ web标准、web语义、浏览器内核、兼容性、html5…
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/03/08/话说汉朝四百年的外戚干政史/" itemprop="url">话说汉朝四百年的外戚干政史 </a></h1>
+                
+                <a href="/文字的魅力/话说汉朝四百年的外戚干政史/" class="post-title-link" itemprop="http://yoursite.com/page/4/index.html">话说汉朝四百年的外戚干政史 </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -614,18 +692,35 @@ web标准、web语义、浏览器内核、兼容性、html5…
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-08T13:32:08+08:00">
-                2017-03-08
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-08 13:32:08" itemprop="dateCreated datePublished" datetime="2017-03-08T13:32:08+08:00">2017-03-08</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-10-20 18:13:49" itemprop="dateModified" datetime="2017-10-20T18:13:49+08:00">2017-10-20</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -636,11 +731,7 @@ web标准、web语义、浏览器内核、兼容性、html5…
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/文字的魅力/" itemprop="url" rel="index">
-                    <span itemprop="name">文字的魅力</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/文字的魅力/" itemprop="url" rel="index"><span itemprop="name">文字的魅力</span></a></span>
 
                 
                 
@@ -650,55 +741,35 @@ web标准、web语义、浏览器内核、兼容性、html5…
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/文字的魅力/话说汉朝四百年的外戚干政史/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/文字的魅力/话说汉朝四百年的外戚干政史/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
           
-             <span id="/2017/03/08/话说汉朝四百年的外戚干政史/" class="leancloud_visitors" data-flag-title="话说汉朝四百年的外戚干政史 ">
+             <span id="/文字的魅力/话说汉朝四百年的外戚干政史/" class="leancloud_visitors" data-flag-title="话说汉朝四百年的外戚干政史 ">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">热度：</span>
                
                  <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
              </span>
           
 
           
 
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  3,811 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  13 分钟
-                </span>
-              
-            </div>
           
 
           
@@ -718,25 +789,83 @@ web标准、web语义、浏览器内核、兼容性、html5…
       
         
           
-          简介
-一段时间以来，韩国总统“闺蜜门”的新闻印刷爆微信朋友圈，爆闹得沸沸扬扬。其实朴瑾惠的秘书有大几百号人，这些都是帮她出谋划策的家臣们。那么为什么她还要问政于闺蜜，而“闺蜜干政”事件又怎么会触怒韩国民众呢？对于一位总统问政于闺蜜被人深扒为政治事件这一定有很深的背景，我们今天就姑且不去探讨。其实在朝
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/08/话说汉朝四百年的外戚干政史/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>一段时间以来，韩国总统“闺蜜门”的新闻印刷爆微信朋友圈，爆闹得沸沸扬扬。其实朴瑾惠的秘书有大几百号人，这些都是帮她出谋划策的家臣们。那么为什么她还要问政于闺蜜，而“闺蜜干政”事件又怎么会触怒韩国民众呢？对于一位总统问政于闺蜜被人深扒为政治事件这一定有很深的背景，我们今天就姑且不去探讨。其实在朝鲜古代历史和中国封建社会历朝历代家臣干政的事是经常发生的。那么我们今天去扒一扒有着四百多年历史的汉朝皇帝的那些家臣–<strong>外戚是干政的历史吧</strong>。</p>
+</blockquote>
+<h2 id="一、西汉外戚干政概说"><a href="#一、西汉外戚干政概说" class="headerlink" title="一、西汉外戚干政概说"></a>一、西汉外戚干政概说</h2><blockquote>
+<p>外戚是指皇帝的母亲和妻子家族，作为与皇室有关联的特殊政治力量，历代在中国政治舞台上扮演者特殊的角色。这种角色是由其特殊身份决定的：其与皇权最为接近，但有距离皇权最远。正是因为皇权的存在使得外戚在历代的政治斗争中往往成为皇权的牺牲品。历代王朝在外戚的任用中也是慎之又慎，以防止皇权旁落。防止外戚对于皇权的窥视成为历代王朝政治斗争的主要任务之一，历代王朝为防止外戚篡权基本上采取不让外戚干政的基本政策。但汉朝却是个例外。</p>
+</blockquote>
+<blockquote>
+<p>两汉王朝四百多年的历史中外戚作为特殊的政治力量一直活跃在政治舞台之上，并且一度篡权皇权，建立了外戚政权。这可以说在中国历史上是外戚专权的顶峰。纵观汉朝四百多年的历史，外戚作为特殊的政治力量一直处于汉王朝政权的中心位置，成为掌握实权的政治力量。而且大部分时候成为与皇权并驾齐驱的政治力量，这种政治格局一直持续到东汉末年。可以说外戚在汉朝四百年历史中扮演的角色是以后历代王朝中所不能比拟的，这成为汉朝统治的最大特色。</p>
+</blockquote>
+<blockquote>
+<p>西汉朝任用外戚作为权利中心决策者始于汉高祖刘邦，据吕思勉先生之说这是因为汉朝去古代不远，是前代时期的遗风。在汉代政治舞台上存在三股政治势力：皇帝、外戚、功臣。这三股势力中皇帝处于中心地位，皇帝为了维持自己的皇权必须要求有政治势力来支持自己的统治。对于功臣这在其获取江山并在保持江山的稳定中起着至关重要的作用，但功臣就亲属关系上必定属于外人，与皇权本身就存在着矛盾。并且功臣在汉朝政治舞台上本身存在着真实实力，这是对皇权的一种威胁。但外戚不同。外戚是皇帝的姻亲，与皇帝有着血缘的关系，正是这种特殊的关系使得汉朝的皇帝在人事权的任用上偏重于外戚。这种任用外戚似乎成了汉朝的惯例，正如《后汉书·皇后纪》记载：汉兴，舅氏之封侯，犹皇子之为王也。可见汉朝对于外戚的重视。</p>
+</blockquote>
+<blockquote>
+<p>西汉朝任用外戚主政也始于汉高祖刘邦之时，《史记·高祖本纪》记载：戚姬幸，常从上之关东，日夜啼泣，欲立其子代太子。吕后年长，常留守，希见上，益疏。汉高祖刘邦在外征伐之时，吕后因年长常常留守后方，主持政务。这似乎成了外戚参政的开端。吕后专权开启了外戚专权的先例。吕后掌握汉朝政权后，为了维持自己的统治任用吕氏家族的人掌握汉朝中央的军政大权。吕氏一族掌握汉室政权，开启了外戚专权的开端，但在汉初朝中的政策方针很多出于吕后之手，诛杀韩信、诛杀彭越，都出于吕后之手。吕后在汉初政权的巩固之中却是起了重要的作用。正是由于吕后才使得汉王朝继续着休养生息，有利于发展封建社会的经济。</p>
+</blockquote>
+<blockquote>
+<p>文帝之时，由于其是被功臣拥立继位，并且其母家薄氏势力又弱，因此在外戚重用方面主要是其皇后窦姓一族。我们要说文帝之所以能继承皇位在很大关系上也得益于其母家，因其母家势力弱小，因此在汉初经历了吕后之事后大臣鉴于历史教训，拥立了母家实力弱小的代王刘恒。可见此时功臣与外戚势力在政治斗争中的激烈程度，双方都希望能掌控实权。</p>
+</blockquote>
+<blockquote>
+<p>汉景帝时期自然重用其母家窦姓一族，在汉景帝一生中其母窦太后起着重要作用，窦姓一族构成了汉朝中央统治力量的核心，但此时外戚势力远远小于皇权，但在大臣的选用策略上是倾向于外戚的。</p>
+</blockquote>
+<blockquote>
+<p>汉武帝初期重用的是自己母家一族，其母亲异性弟弟田蚡一度成为丞相，掌控大权。这时形成了外戚与皇权争夺权力的斗争，在汉武帝时期为加强皇权设置了内朝，这就形成了与丞相为首的官僚集团相对持，使得权力最终落入了皇帝手中。在田蚡之后汉武帝甚至将外戚卫青封为大将军，霍去病封也为将军，这与当时汉武帝武功之治是分不开的，可以说卫氏一族在汉武帝时期达到鼎盛，这是汉武帝重用外戚的结果。</p>
+</blockquote>
+<blockquote>
+<p>汉昭帝、汉宣帝、汉元帝等也都在重臣的选择上无疑也倾向于外戚，外戚组成了汉朝统治集团的核心力量。正是这种外戚当权的政策使得在汉成帝时期可谓达到了登峰造极之势，正是从汉成帝时期开始，外戚逐步掌握了汉朝中央大权，最终酿王莽篡汉的惨祸。</p>
+</blockquote>
+<blockquote>
+<p>汉成帝继位继封外戚王凤为大司马领尚书事，使得外戚兼有内外朝之职事，权力可谓盛。《汉书·元后传》记载：元帝崩，太子立，是为孝成帝。尊皇后为皇太后，以凤为大司马大将军领尚书事，益封五千户。王氏之兴自凤始。又封太后同母弟崇为安成侯，食邑万户。凤庶弟谭等皆赐爵关内侯，食邑。然而这仅仅只是开头，正是汉成帝的作用，使得外戚势力如日中天，达到前汉前所未有的水平。</p>
+</blockquote>
+<blockquote>
+<p>汉成帝河平二年，外戚势力更是更是跃升一层，从此外戚势力更加强大，使得外戚成为权力的真正中心。《元后传》记载：成帝河平二年，上悉封舅谭为平阿侯，商成都侯，立红阳侯，根曲阳侯，逢时高平侯。五人同日封，故世谓之「五侯」。自此王氏子弟皆卿、大夫、侍中、诸曹，分据势官满朝廷。至此，外戚势力直逼皇权。汉成帝死后无嗣，定陶王刘欣继位，是为汉哀帝，汉哀帝是一位颇有作为君主，在其即位之初即刻罢归王氏一族，但其有人用自己祖母、母亲一族是为丁、傅家族。但此时外戚势力不能与王氏同日而语。哀帝有个致命的弱点就是宠幸男宠，甚至打算将汉室江山让与这位男宠董贤，在其继位不就也便死去，其死后无嗣，此时正是这个契机让王氏一族又重掌朝政大权，并最终使得汉王朝走向灭亡。</p>
+</blockquote>
+<blockquote>
+<p>汉哀帝死后，太皇太后王氏立刻将皇帝的玉玺收入自己的手中，并立刻让王氏子孙组成新的统治中心。《元后传》记载：　明年，哀帝崩，无子，太皇太后以莽为大司马，与共征立中山王奉哀帝后，是为平帝。帝年九岁，当年被疾，太后临朝，委政于莽。从此，开始了王莽的执政道路，正是王莽使得西汉朝最终覆灭。</p>
+</blockquote>
+<h2 id="二、东汉西汉外戚干政概说"><a href="#二、东汉西汉外戚干政概说" class="headerlink" title="二、东汉西汉外戚干政概说"></a>二、东汉西汉外戚干政概说</h2><blockquote>
+<p>东汉王朝初期鉴于前汉王莽的教训，在初期严禁外戚参与中央政权，汉明帝的皇后马皇后因其父是外戚之家不得利于凌云台。这正是对外戚的限制。《后汉书·皇后纪》记载：及帝崩，肃宗即位，尊后曰皇太后。诸贵人当徙居南宫，太后感析别之怀，各赐王赤绶，加安车驷马，白越三千端，杂帛二千匹，黄金十斤。自撰《显宗起居注》，削去兄防参医药事。帝请曰：”黄门舅旦夕供养且一年，既无褒异，又不录勤劳，无乃过乎！”太后曰：”吾不欲令后世闻先帝数亲后宫之家，故不著也。”可见，东汉初统治者对于外戚的防范还是很严的。</p>
+</blockquote>
+<blockquote>
+<p>东汉外戚干政开始于汉和帝时期。外戚又进入政治权利之中，这是与后汉此时特殊的政治形态相适应的。自和帝开始汉朝的继位之君大多年幼，这时作为皇帝的母亲–太后做到到历史舞台的前端。汉和帝死后，东汉和熹皇后即邓太后还形成临朝执政16年的局面。根据历史记载，邓太后与班固之妹班昭是闺蜜，在邓太后执政前后，多问政于这位闺蜜。邓太后执政颇有政声，应该与班昭的辅佐分不开。要说起来还真的成就一段闺蜜干政的历史佳话呢。太后执政必然依靠自己的母亲家族，最后就形成了以太后为首的外戚集团。这就形成了外戚集团与皇帝集团在权力上的激烈的斗争。在东汉统治者为了平衡政治力量，在外戚与皇帝的斗争中又出现了一个新的政治势力宦官集团。自和帝开始直到灵帝皇帝、宦官与外戚的斗争交织在一起，甚至形成一种互掐局面。东汉王朝外戚在实力上超过西汉，并且皇帝的废立也由外戚掌握。外戚势力之所以如此强大主要原因在于继位之君年龄弱小，不能亲理朝政，使得朝政大权落入其母后之手，作为妇女其只能依靠自己的母家维持其统治，这就为外戚势力的发展提供了温床。使得外戚的势力在相当长的时期内得到扩张。</p>
+</blockquote>
+<blockquote>
+<p>纵观东汉外戚专权的历史，其较西汉势力更是有过之而无不及。由于继位之君年龄的幼小，外戚才能作为特殊血缘关系集团登上政治舞台。在皇帝长成后外戚在政治舞台上已经经营多年，势力远远超过皇权，外朝大臣几乎全为外戚的党羽，皇权往往被架空。皇帝此时在巩固皇权的道路上只有依靠宦官这个集团，最终形成了宦官集团，不过终汉代宦官集团是从属皇帝的，其实力远远在皇权之下，自始至终只是皇权的附属物。</p>
+</blockquote>
+<h2 id="三、两汉外戚干政的历史影响"><a href="#三、两汉外戚干政的历史影响" class="headerlink" title="三、两汉外戚干政的历史影响"></a>三、两汉外戚干政的历史影响</h2><blockquote>
+<p>外戚贯穿于汉朝四百年历史，一直在汉朝政治舞台上扮演重要的角色，但前汉后汉的外戚在任用上却有着质的不同。</p>
+</blockquote>
+<blockquote>
+<p>西汉在外戚任用上是皇帝根据当时政治平衡而采取的政策，是任用自己血缘亲来加强皇权，外戚在此时只是加强皇权的工具，直到汉平帝时期为止。东汉则是继位之君大多年幼，皇帝母亲执政，只能依靠外戚，这不是皇帝选择的结果，在外戚势力强大之时皇帝的废立也掌握在外戚手中，使得外戚的势力与皇帝形成对抗，并最终皇帝在宦官集团的帮助下将外戚集团将外戚势力铲除。</p>
+</blockquote>
+<blockquote>
+<p>外戚集团作为汉朝历史上的特殊政治集团，在汉朝历史舞台上扮演着重要角色。汉朝重用外戚是此后任何王朝所不能比拟的，这与汉王朝建立之时距离秦代不远，宗法血缘思想依然浓厚。正是宗法血缘思想影响统治者才重用与自己有血缘关系的外戚，但正是外戚也使得前汉、后汉陷入了统治危机中，造成一次次内乱，消弱了自身统治力量。尤其是东汉还出现外戚集团和宦官集团互掐的政治局面。使得政治尤为黑暗，最终促成了汉末农民起义，但总的来说这些的出现是由于外戚集团的促使而成的。外戚集团在汉王朝的巩固上虽然起了重要作用，但最后也成为汉王朝的掘墓者。</p>
+</blockquote>
+<h2 id="四、两汉王朝外戚干政的历史教训"><a href="#四、两汉王朝外戚干政的历史教训" class="headerlink" title="四、两汉王朝外戚干政的历史教训"></a>四、两汉王朝外戚干政的历史教训</h2><blockquote>
+<p>封建君主专制制度是高度集权的，其负面影响有两个就是政治腐败和决策失误。而决策失误又往往和大权旁落相关。大权旁落时往往又是和外戚干政与宦官专权相连。在中国封建两千多的历史长河中，外戚和宦官交替干政不绝于史书。外戚和宦官这两股政治力量的兴衰都是皇权的副产品。外戚干政几乎贯穿于汉王朝四百多年，外戚集团成为政治舞台上不能忽视的力量。汉朝四百年重用外戚是以后历代王朝所不能比拟的，所造成的政治黑暗也是最惨重的。正是汉朝的惨痛教训才使得以后王朝以此为戒，注意控制外戚势力，这或许是外戚在汉朝四百年历史舞台里留给后世的深刻经验教训吧。</p>
+</blockquote>
+<p><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）<a href="mailto:mstarzheng@foxmail.com" target="_blank" rel="noopener">mstarzheng@foxmail.com</a></em></strong></p>
+ <!-- 添加背景音乐 -->
+<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=150 src="http://music.163.com/outchain/player?type=2&id=28947001&auto=1&height=66"></iframe> -->
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+       
+    
     
 
     
@@ -769,20 +898,22 @@ web标准、web语义、浏览器内核、兼容性、html5…
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/29/vue学习笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/学习笔记/vue学习笔记/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mstar">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mstar Zheng">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/mstar.jpeg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="mstar's Blog">
     </span>
 
@@ -793,11 +924,20 @@ web标准、web语义、浏览器内核、兼容性、html5…
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/11/29/vue学习笔记/" itemprop="url">vue学习笔记</a></h1>
+                
+                <a href="/学习笔记/vue学习笔记/" class="post-title-link" itemprop="http://yoursite.com/page/4/index.html">vue学习笔记</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -805,18 +945,35 @@ web标准、web语义、浏览器内核、兼容性、html5…
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-29T21:04:00+08:00">
-                2016-11-29
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-11-29 21:04:00" itemprop="dateCreated datePublished" datetime="2016-11-29T21:04:00+08:00">2016-11-29</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-08-28 11:01:24" itemprop="dateModified" datetime="2017-08-28T11:01:24+08:00">2017-08-28</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -827,11 +984,7 @@ web标准、web语义、浏览器内核、兼容性、html5…
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
 
                 
                 
@@ -841,55 +994,35 @@ web标准、web语义、浏览器内核、兼容性、html5…
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/学习笔记/vue学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/学习笔记/vue学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
           
-             <span id="/2016/11/29/vue学习笔记/" class="leancloud_visitors" data-flag-title="vue学习笔记">
+             <span id="/学习笔记/vue学习笔记/" class="leancloud_visitors" data-flag-title="vue学习笔记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">热度：</span>
                
                  <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
              </span>
           
 
           
 
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,000 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4 分钟
-                </span>
-              
-            </div>
           
 
           
@@ -909,24 +1042,67 @@ web标准、web语义、浏览器内核、兼容性、html5…
       
         
           
-          前言最近由于项目需要，重新研究起了vue，说到vue，在几个月前就间歇性或多或少有过接触，因为当时用惯了react，有点不习惯vue的模式放弃了，在vue2.0出来后，以及weex的推动，vue的关注度又有了很大的提高，加之项目比较迫切，本来是几个月就该完工的项目，因为种种原因，加上研究生学习繁忙，
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/11/29/vue学习笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近由于项目需要，重新研究起了vue，说到vue，在几个月前就间歇性或多或少有过接触，因为当时用惯了react，有点不习惯vue的模式放弃了，在vue2.0出来后，以及weex的推动，vue的关注度又有了很大的提高，加之项目比较迫切，本来是几个月就该完工的项目，因为种种原因，加上研究生学习繁忙，以后react版本的代码过于复杂，导致后期维护麻烦，遂准备使用vue和apollo进行项目的重写，这篇文章是vue的学习记录</p>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="上下文问题"><a href="#上下文问题" class="headerlink" title="上下文问题"></a>上下文问题</h2><p>注意，不要在实例属性或者回调函数中（如 <code>vm.$watch(&#39;a&#39;, newVal =&gt; this.myMethod())</code>）使用 <strong>箭头函数</strong>。因为箭头函数绑定父上下文，所以 this 不会像预想的一样是 Vue 实例，而是 <code>this.myMethod</code> 未被定义。</p>
+<h2 id="缩写"><a href="#缩写" class="headerlink" title="缩写"></a>缩写</h2><p><code>v-bind</code>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 完整语法 --&gt;</span><br><span class="line">&lt;a v-bind:href=<span class="string">"url"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">&lt;!-- 缩写 --&gt;</span><br><span class="line">&lt;a :href=<span class="string">"url"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p><code>v-on</code>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 完整语法 --&gt;</span><br><span class="line">&lt;a v-on:click=<span class="string">"doSomething"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">&lt;!-- 缩写 --&gt;</span><br><span class="line">&lt;a @click=<span class="string">"doSomething"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<h2 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h2><p>在模板中使用绑定表达式很方便，但是只能用于简单的操作，在模板中放入太多的逻辑会让模板变得难以维护，所以对于任何复杂逻辑，都应该使用 <strong>计算属性</strong></p>
+<h2 id="计算缓存vsMethods"><a href="#计算缓存vsMethods" class="headerlink" title="计算缓存vsMethods"></a>计算缓存vsMethods</h2><p>不经过计算属性，我们可以在 method 中定义一个相同的函数来替代它。然而 <strong>不同的是计算属性是基于它的依赖缓存。</strong> 计算属性只有在它的相关依赖发生改变时才会重新取值。</p>
+<h2 id="class与style绑定"><a href="#class与style绑定" class="headerlink" title="class与style绑定"></a>class与style绑定</h2><ol>
+<li><p>对象语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:<span class="class"><span class="keyword">class</span></span>=<span class="string">"&#123; active: isActive &#125;"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">data: &#123;</span><br><span class="line">  isActive: <span class="literal">true</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:<span class="class"><span class="keyword">class</span></span>=<span class="string">"[activeClass, errorClass]"</span>&gt;</span><br><span class="line">data: &#123;</span><br><span class="line">  activeClass: <span class="string">'active'</span>,</span><br><span class="line">  errorClass: <span class="string">'text-danger'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h2><ul>
+<li><code>v-if</code>是一个指令，需要将他添加到一个元素上，如果需要切换多个元素可以在多个元素的外面包裹一个 <code>&lt;template&gt;</code>元素，并在上面使用 <code>v-if</code>，<strong>最终的渲染结果中不包含它。</strong></li>
+<li><code>v-show</code>和 <code>v-if</code>的使用方式基本相同，差别在于:<ol>
+<li><code>v-if</code> 是真实的条件渲染，因为它会确保条件块在切换当中适当地销毁与重建条件块内的事件监听器和子组件。</li>
+<li><code>v-if</code> 也是 <strong>惰性</strong> 的：如果在初始渲染时条件为假，则什么也不做——在条件第一次变为真时才开始局部编译（编译会被缓存起来）。</li>
+<li>相比之下， <code>v-show</code> 简单得多——元素始终被编译并保留，只是简单地基于 <strong>CSS 切换</strong> (<code>display: none</code>)。</li>
+</ol>
+</li>
+<li><code>v-else</code>紧跟在 <code>v-if</code>或者 <code>v-show</code>后面才用意义</li>
+</ul>
+<h2 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h2><ol>
+<li><p>基本用法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"example-1"</span>&gt;</span><br><span class="line">  &lt;li v-<span class="keyword">for</span>=<span class="string">"item in items"</span>&gt;</span><br><span class="line">    &#123;&#123; item.message &#125;&#125;</span><br><span class="line">  &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line"><span class="keyword">var</span> example1 = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-1'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    items: [</span><br><span class="line">      &#123;<span class="attr">message</span>: <span class="string">'foo'</span> &#125;,</span><br><span class="line">      &#123;<span class="attr">message</span>: <span class="string">'Bar'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>of 替代 in 作为分隔符，因为它是最接近 JavaScript 迭代器的语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-<span class="keyword">for</span>=<span class="string">"item of items"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如同 <code>v-if</code> 模板，你也可以用带有 v-for 的 <template> 标签来渲染多个元素块</template></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;template v-<span class="keyword">for</span>=<span class="string">"item in items"</span>&gt;</span><br><span class="line">    &lt;li&gt;&#123;&#123; item.msg &#125;&#125;&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li class="divider"&gt;&lt;/</span>li&gt;</span><br><span class="line">  &lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>v-for</code> 可以通过一个独享的属性来迭代</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"repeat-object"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"demo"</span>&gt;</span><br><span class="line">  &lt;li v-<span class="keyword">for</span>=<span class="string">"value in object"</span>&gt;</span><br><span class="line">    &#123;&#123; value &#125;&#125;</span><br><span class="line">  &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#repeat-object'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    object: &#123;</span><br><span class="line">      FirstName: <span class="string">'John'</span>,</span><br><span class="line">      LastName: <span class="string">'Doe'</span>,</span><br><span class="line">      Age: <span class="number">30</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>可以提供第二个的参数为键名：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-<span class="keyword">for</span>=<span class="string">"(value, key) in object"</span>&gt;</span><br><span class="line">  &#123;&#123; key &#125;&#125; : &#123;&#123; value &#125;&#125;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>第三个参数为索引：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-<span class="keyword">for</span>=<span class="string">"(value, key, index) in object"</span>&gt;</span><br><span class="line">  &#123;&#123; index &#125;&#125;. &#123;&#123; key &#125;&#125; : &#123;&#123; value &#125;&#125;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure></p>
+<ol start="5">
+<li><code>// todo</code></li>
+</ol>
+<p><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）<a href="mailto:mstarzheng@foxmail.com" target="_blank" rel="noopener">mstarzheng@foxmail.com</a></em></strong></p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+       
+    
     
 
     
@@ -955,15 +1131,12 @@ web标准、web语义、浏览器内核、兼容性、html5…
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -986,103 +1159,133 @@ web标准、web语义、浏览器内核、兼容性、html5…
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/mstar.jpeg"
-               alt="mstar" />
-          <p class="site-author-name" itemprop="name">mstar</p>
-           
-              <p class="site-description motion-element" itemprop="description">Don't forget the beginner's mind~~~不忘初心</p>
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">mstar Zheng</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
           
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/mstarZheng" title="GitHub &rarr; https://github.com/mstarZheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:mstarzheng@gmail.com" title="E-Mail &rarr; mailto:mstarzheng@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/yourname" title="Weibo &rarr; https://weibo.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
         </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-            
-              <a href="/archives/">
-            
-                <span class="site-state-item-count">18</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="Link" target="_blank" title="LinkLabel">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                    
-                      LinkLabel
-                    
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/mstarZheng" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                    
-                      GitHub
-                    
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/leftjs" target="_blank" title="Weibo">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                    
-                      Weibo
-                    
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -1099,27 +1302,51 @@ web标准、web语义、浏览器内核、兼容性、html5…
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">mstar Zheng</span>
+
+  
 
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.6.0</div>
+
+
 
 
         
+<div class="busuanzi-count">
+ <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
 
 
 
@@ -1135,7 +1362,13 @@ web标准、web语义、浏览器内核、兼容性、html5…
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
         
+          <span id="scrollpercent"><span>0</span>%</span>
+        
       </div>
+    
+
+    
+	
     
 
     
@@ -1157,6 +1390,70 @@ web标准、web语义、浏览器内核、兼容性、html5…
 
 
 
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
   
 
 
@@ -1166,80 +1463,30 @@ web标准、web语义、浏览器内核、兼容性、html5…
 
 
 
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
   
   
-
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'K7agdkKqCUQYBxcW9Szk3Ogz-gzGzoHsz',
+        appKey: '559hVLIEp3l7PQ8MKPNDhrq0',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
 
 
 
@@ -1294,6 +1541,8 @@ web标准、web语义、浏览器内核、兼容性、html5…
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -1327,6 +1576,7 @@ web标准、web语义、浏览器内核、兼容性、html5…
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
@@ -1569,11 +1819,9 @@ web标准、web语义、浏览器内核、兼容性、html5…
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("h1OVRnBL0dCYyirilF5lz6co-gzGzoHsz", "x1DV3TxnpONe8UetPACIiE6e");</script>
   <script>
+    
     function showTime(Counter) {
-      var query = new AV.Query(Counter);
       var entries = [];
       var $visitors = $(".leancloud_visitors");
 
@@ -1581,9 +1829,8 @@ web标准、web语义、浏览器内核、兼容性、html5…
         entries.push( $(this).attr("id").trim() );
       });
 
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { "$in": entries } }) })
+        .done(function ({ results }) {
           var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
 
           if (results.length === 0) {
@@ -1593,8 +1840,8 @@ web标准、web语义、浏览器内核、兼容性、html5…
 
           for (var i = 0; i < results.length; i++) {
             var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
+            var url = item.url;
+            var time = item.time;
             var element = document.getElementById(url);
 
             $(element).find(COUNT_CONTAINER_REF).text(time);
@@ -1608,68 +1855,33 @@ web标准、web语义、浏览器内核、兼容性、html5…
             }
           }
         })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
+        .fail(function ({ responseJSON }) {
+          console.log("LeanCloud Counter Error: " + responseJSON.code + " " + responseJSON.error);
         });
     }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
+    
 
     $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "K7agdkKqCUQYBxcW9Szk3Ogz-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "K7agdkKqCUQYBxcW9Szk3Ogz-gzGzoHsz",
+                'X-LC-Key': "559hVLIEp3l7PQ8MKPNDhrq0",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          if ($('.post-title-link').length >= 1) {
+            showTime(Counter);
+          }
+          
+        })
     });
   </script>
 
@@ -1680,35 +1892,34 @@ web标准、web语义、浏览器内核、兼容性、html5…
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
 
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+  </script>
 
   
 
   
 
+  
 
-  <script type="text/javascript" src="/js/src/love.js"></script>
+  
 
-</body>
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 --> 
+  <script type="text/javascript" src="/js/src/love.js"></script>  
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
 </html>
