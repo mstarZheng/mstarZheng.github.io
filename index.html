@@ -40,6 +40,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -122,13 +129,16 @@
 
 
 
-  <meta property="og:type" content="website">
+  <meta name="description" content="唯有不辜负，方能归初心。">
+<meta property="og:type" content="website">
 <meta property="og:title" content="mstar&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="mstar&#39;s Blog">
+<meta property="og:description" content="唯有不辜负，方能归初心。">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mstar&#39;s Blog">
+<meta name="twitter:description" content="唯有不辜负，方能归初心。">
 
 
 
@@ -413,9 +423,9 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/编程学习笔记/链表/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mstar Zheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="mstar zheng">
+      <meta itemprop="description" content="唯有不辜负，方能归初心。">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -456,24 +466,6 @@
               
 
               <time title="创建时间：2018-11-13 21:58:20" itemprop="dateCreated datePublished" datetime="2018-11-13T21:58:20+08:00">2018-11-13</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-12-03 16:58:44" itemprop="dateModified" datetime="2018-12-03T16:58:44+08:00">2018-12-03</time>
-              
             
           </span>
 
@@ -521,13 +513,41 @@
                
                  <span class="post-meta-item-text">热度：</span>
                
-                 <span class="leancloud-visitors-count"></span>
+                <span class="leancloud-visitors-count"></span>
                  <span>℃</span>
              </span>
           
 
           
 
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">15k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">13 分钟</span>
+              
+            </div>
           
 
           
@@ -547,278 +567,20 @@
       
         
           
-            <h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><h3 id="1、进程空间"><a href="#1、进程空间" class="headerlink" title="1、进程空间"></a>1、进程空间</h3><ul>
-<li>程序，是经源码编译后的可执行文件，可执行文件可以多次被执行，比如我们可以多次打开 office。</li>
-<li>而进程，是程序加载到内存后开始执行，至执行结束，这样一段时间概念，多次打开的wps,每打开一次都是一个进程，当我们每关闭一个 office，则表示该进程结束。</li>
-<li>程序是静态概念，而进程动态/时间概念。</li>
-</ul>
-<h3 id="2、进程空间图示"><a href="#2、进程空间图示" class="headerlink" title="2、进程空间图示"></a>2、进程空间图示</h3><p>​    有了进程和程序的概念以后，我们再来看一下，程序被加载到内存以后内存空间布局是什么样的</p>
-<p><img src="/编程学习笔记/链表/进程空间图.png" alt="进程空间图"></p>
-<h3 id="3、栈内存-Stack"><a href="#3、栈内存-Stack" class="headerlink" title="3、栈内存(Stack)"></a>3、栈内存(Stack)</h3><ul>
-<li>栈中存放任意类型的变量，但必须是 auto 类型修饰的，即自动类型的局部变量， 随用随开，用完即消。</li>
-<li>内存的分配和销毁系统自动完成，不需要人工干预。</li>
-<li>栈内存分配从地址大的开始分配。</li>
-<li>栈的最大尺寸固定，超出则引起栈溢出 <ul>
-<li>局部变量过多，过大 或 递归层数太多等就会导致栈溢出</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ages[<span class="number">10240</span>*<span class="number">10240</span>]; <span class="comment">// 程序会崩溃, 栈溢出</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">include &lt;stdio.h&gt; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123; </span><br><span class="line"><span class="comment">// 存储在栈中, 内存地址从大到小 </span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>; </span><br><span class="line"><span class="keyword">int</span> b = <span class="number">20</span>; </span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"&amp;a = %p\n"</span>, &amp;a); <span class="comment">// &amp;a = 0060FEAC </span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"&amp;b = %p\n"</span>, &amp;b); <span class="comment">// &amp;b = 0060FEA8 </span></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4、堆内存-Heap"><a href="#4、堆内存-Heap" class="headerlink" title="4、堆内存(Heap)"></a>4、堆内存(Heap)</h3><ul>
-<li>堆内存可以存放任意类型的数据，但需要自己申请与释放</li>
-<li>堆大小，想像中的无穷大，但实际使用中，受限于实际内存的大小和内存是否连续性</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *p = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="number">10240</span> * <span class="number">1024</span>); <span class="comment">// 不一定会崩溃</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt; </span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123; </span><br><span class="line">    <span class="comment">// 存储在栈中, 内存地址从小到大 </span></span><br><span class="line">    <span class="keyword">int</span> *p1 = <span class="built_in">malloc</span>(<span class="number">4</span>); </span><br><span class="line">    *p1 = <span class="number">10</span>; </span><br><span class="line">    <span class="keyword">int</span> *p2 = <span class="built_in">malloc</span>(<span class="number">4</span>); </span><br><span class="line">    *p2 = <span class="number">20</span>; </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"p1 = %p\n"</span>, p1); <span class="comment">// p1 = 00762F48 </span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"p2 = %p\n"</span>, p2); <span class="comment">// p2 = 00762F58 </span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="5、malloc函数"><a href="#5、malloc函数" class="headerlink" title="5、malloc函数"></a>5、malloc函数</h3><table>
-<thead>
-<tr>
-<th>函数声明</th>
-<th>void * malloc(size_t _Size);</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>所在文件</td>
-<td>stdlib.h</td>
-</tr>
-<tr>
-<td>函数功能</td>
-<td>申请堆内存空间并返回,所申请的空间并未初始化。</td>
-</tr>
-<tr>
-<td>常见的初始化方法是</td>
-<td>memset 字节初始化。</td>
-</tr>
-<tr>
-<td>参数及返回解析</td>
-<td></td>
-</tr>
-<tr>
-<td>参数</td>
-<td>size_t  _size 表示要申请的字符数</td>
-</tr>
-<tr>
-<td>返回值</td>
-<td>void *  成功返回非空指针指向申请的空间 ，失败返回 NULL</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>注意点：<ul>
-<li>使用malloc函数必须导入一个头文件 stdlib.h；</li>
-<li>通过malloc申请的空间默认存储的是垃圾数据，也就是系统不会帮我们初始化；</li>
-<li>利用malloc函数分配空间，必须是连续的，也就是在对内存中分配内存空间必须是连续的；</li>
-<li>一般情况下。malloc和memset函数结合起来使用。   </li>
-</ul>
-</li>
-<li><strong>memset函数</strong></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>函数声明</th>
-<th style="text-align:left">memset(void *_Dst,int_Val,size_t _Size)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>所在文件</td>
-<td style="text-align:left">string.h</td>
-</tr>
-<tr>
-<td>函数功能</td>
-<td style="text-align:left">专门用于初始化一块内存空间</td>
-</tr>
-<tr>
-<td>第一个参数</td>
-<td style="text-align:left">需要初始化的内存地址</td>
-</tr>
-<tr>
-<td>第二个参数</td>
-<td style="text-align:left">需要初始化的值</td>
-</tr>
-<tr>
-<td>第个参数</td>
-<td style="text-align:left">需要初始化对少个字节</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * malloc</span></span><br><span class="line"><span class="comment">     * 第一个参数: 需要申请多少个字节空间</span></span><br><span class="line"><span class="comment">     * 返回值类型: void *</span></span><br><span class="line"><span class="comment">     */</span> </span><br><span class="line">    <span class="keyword">int</span> *p = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"p = %i\n"</span>, *p); <span class="comment">// 保存垃圾数据</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">memset</span>(p, <span class="number">0</span>, <span class="keyword">sizeof</span>(<span class="keyword">int</span>)); <span class="comment">// 对申请的内存空间进行初始化</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"p = %i\n"</span>, *p); <span class="comment">// 初始化为0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *p = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line"><span class="comment">//(int *)强制类型转换</span></span><br><span class="line"><span class="comment">//malloc函数返回的void *，而我们开辟的是4个字节，正好是int类型</span></span><br><span class="line"><span class="comment">//所以最好将void *转换为int *，因为只有指针类型int类型</span></span><br><span class="line"><span class="comment">//将来操作这块内存的时候，我们才知道应该操作多少个字节</span></span><br></pre></td></tr></table></figure>
-<h3 id="6、free函数"><a href="#6、free函数" class="headerlink" title="6、free函数"></a>6、free函数</h3><ul>
-<li>注意: 通过malloc申请的存储空间一定要释放, 所以malloc和free函数总是成对出现</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>函数声明</th>
-<th>void free(void *p);</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>所在文件</td>
-<td>stdlib.h</td>
-</tr>
-<tr>
-<td>函数功能</td>
-<td>释放申请的堆内存</td>
-</tr>
-<tr>
-<td>参数及返回解析</td>
-<td></td>
-</tr>
-<tr>
-<td>参数</td>
-<td>void*   p 指向手动申请的空间</td>
-</tr>
-<tr>
-<td>返回值</td>
-<td>void    无返回</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>free函数，当我们只传递了内存的地址，系统如何知道应该释放多少个字节的存储空间？（<strong>面试题</strong>）<ul>
-<li>在利用malloc分配的时候，系统就偷偷摸摸的保存了该指针对用的大小</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 1.申请4个字节存储空间</span></span><br><span class="line">    <span class="keyword">int</span> *p = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    <span class="comment">// 2.初始化4个字节存储空间为0</span></span><br><span class="line">    <span class="built_in">memset</span>(p, <span class="number">0</span>, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    <span class="comment">// 3.释放申请的存储空间</span></span><br><span class="line">    <span class="built_in">free</span>(p);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="7、calloc函数"><a href="#7、calloc函数" class="headerlink" title="7、calloc函数"></a>7、calloc函数</h3><ul>
-<li>calloc函数：就是对malloc函数的封装，一般用于开辟<strong>数组</strong>的存储空间。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>函数声明</th>
-<th>void *calloc(size_t nmemb, size_t size);</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>所在文件</td>
-<td>stdlib.h</td>
-</tr>
-<tr>
-<td>函数功能</td>
-<td>申请堆内存空间并返回，所申请的空间，自动清零</td>
-</tr>
-<tr>
-<td>参数及返回解析</td>
-<td></td>
-</tr>
-<tr>
-<td>参数</td>
-<td>size_t     nmemb 所需内存单元数量</td>
-</tr>
-<tr>
-<td>参数</td>
-<td>size_t size    内存单元字节数量</td>
-</tr>
-<tr>
-<td>返回值</td>
-<td>void * 成功返回非空指针指向申请的空间 ，失败返回 NULL</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    // 1.申请3块4个字节存储空间</span></span><br><span class="line"><span class="comment">    int *p = (int *)malloc(sizeof(int) * 3);</span></span><br><span class="line"><span class="comment">    // 2.使用申请好的3块存储空间</span></span><br><span class="line"><span class="comment">    p[0] = 1;</span></span><br><span class="line"><span class="comment">    p[1] = 3;</span></span><br><span class="line"><span class="comment">    p[2] = 5;</span></span><br><span class="line"><span class="comment">    printf("p[0] = %i\n", p[0]);</span></span><br><span class="line"><span class="comment">    printf("p[1] = %i\n", p[1]);</span></span><br><span class="line"><span class="comment">    printf("p[2] = %i\n", p[2]);</span></span><br><span class="line"><span class="comment">    // 3.释放空间</span></span><br><span class="line"><span class="comment">    free(p);</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.申请3块4个字节存储空间</span></span><br><span class="line">    <span class="keyword">int</span> *p = <span class="built_in">calloc</span>(<span class="number">3</span>, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    <span class="comment">// 2.使用申请好的3块存储空间</span></span><br><span class="line">    p[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    p[<span class="number">1</span>] = <span class="number">3</span>;</span><br><span class="line">    p[<span class="number">2</span>] = <span class="number">5</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"p[0] = %i\n"</span>, p[<span class="number">0</span>]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"p[1] = %i\n"</span>, p[<span class="number">1</span>]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"p[2] = %i\n"</span>, p[<span class="number">2</span>]);</span><br><span class="line">    <span class="comment">// 3.释放空间</span></span><br><span class="line">    <span class="built_in">free</span>(p);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="8、realloc函数"><a href="#8、realloc函数" class="headerlink" title="8、realloc函数"></a>8、realloc函数</h3><table>
-<thead>
-<tr>
-<th>函数声明</th>
-<th>void <em>realloc(void </em>ptr, size_t size);</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>所在文件</td>
-<td>stdlib.h</td>
-</tr>
-<tr>
-<td>函数功能</td>
-<td>扩容(缩小)原有内存的大小。通常用于扩容，缩小会会导致内存缩去的部分数据丢失。</td>
-</tr>
-<tr>
-<td>参数及返回解析</td>
-<td></td>
-</tr>
-<tr>
-<td>参数</td>
-<td>void * ptr 表示待扩容(缩小)的指针， ptr 为之前用 malloc 或者 calloc 分配的内存地址。</td>
-</tr>
-<tr>
-<td>参数</td>
-<td>size_t size 表示扩容(缩小)后内存的大小。</td>
-</tr>
-<tr>
-<td>返回值</td>
-<td>void* 成功返回非空指针指向申请的空间 ，失败返回 NULL。</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>注意点: <ul>
-<li>若参数ptr==NULL，则该函数等同于 malloc</li>
-<li>返回的指针，可能与 ptr 的值相同，也有可能不同。若相同，则说明在原空间后面申请，否则，则可能后续空间不足，重新申请的新的连续空间，原数据拷贝到新空间， 原有空间自动释放</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 1.申请4个字节存储空间</span></span><br><span class="line">    <span class="keyword">int</span> *p = <span class="literal">NULL</span>;</span><br><span class="line">    p = <span class="built_in">realloc</span>(p, <span class="keyword">sizeof</span>(<span class="keyword">int</span>)); <span class="comment">// 此时等同于malloc</span></span><br><span class="line">    <span class="comment">// 2.使用申请好的空间</span></span><br><span class="line">    *p = <span class="number">666</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"*p = %i\n"</span>,  *p);</span><br><span class="line">    <span class="comment">// 3.释放空间</span></span><br><span class="line">    <span class="built_in">free</span>(p);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 1.申请4个字节存储空间</span></span><br><span class="line">    <span class="keyword">int</span> *p = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"p = %p\n"</span>, p);</span><br><span class="line">    <span class="comment">// 如果能在传入存储空间地址后面扩容, 返回传入存储空间地址</span></span><br><span class="line">    <span class="comment">// 如果不能在传入存储空间地址后面扩容, 返回一个新的存储空间地址</span></span><br><span class="line">    p = <span class="built_in">realloc</span>(p, <span class="keyword">sizeof</span>(<span class="keyword">int</span>) * <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"p = %p\n"</span>, p);</span><br><span class="line">    <span class="comment">// 2.使用申请好的空间</span></span><br><span class="line">    *p = <span class="number">666</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"*p = %i\n"</span>,  *p);</span><br><span class="line">    <span class="comment">// 3.释放空间</span></span><br><span class="line">    <span class="built_in">free</span>(p);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><ul>
-<li><p>链表实现了，内存零碎数据的有效组织。比如，当我们用 malloc 来进行内存申请的时候，当内存足够，但是由于碎片太多，没有连续内存时，只能以申请失败而告终，而用链表这种数据结构来组织数据，就可以解决上类问题。</p>
-<p><img src="/编程学习笔记/链表/l链表.png" alt="l链表"></p>
-</li>
-</ul>
-<h3 id="1、静态链表"><a href="#1、静态链表" class="headerlink" title="1、静态链表"></a>1、静态链表</h3><p><img src="/编程学习笔记/链表/静态链表.png" alt="静态链表"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.定义链表节点</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;Node;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.创建链表节点</span></span><br><span class="line">    Node a;</span><br><span class="line">    Node b;</span><br><span class="line">    Node c;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.初始化节点数据</span></span><br><span class="line">    a.data = <span class="number">1</span>;</span><br><span class="line">    b.data = <span class="number">3</span>;</span><br><span class="line">    c.data = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4.链接节点</span></span><br><span class="line">    a.next = &amp;b;</span><br><span class="line">    b.next = &amp;c;</span><br><span class="line">    c.next = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 *如果指针没有值，那么就可以赋值为NULL，明确告诉系统该指针没有值</span></span><br><span class="line"><span class="comment">	 *如果一个指针没有值，也没有赋值为NULL，那么这个指针就是一个野指针</span></span><br><span class="line"><span class="comment">	 *注意点：一定不要操作没有值的指针和野指针</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">    <span class="comment">// 5.创建链表头</span></span><br><span class="line">    Node *head = &amp;a;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 6.使用链表</span></span><br><span class="line">    <span class="keyword">while</span>(head != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> currentData = head-&gt;data;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"currentData = %i\n"</span>, currentData);</span><br><span class="line">        head = head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2、动态链表"><a href="#2、动态链表" class="headerlink" title="2、动态链表"></a>2、动态链表</h3><ul>
-<li>静态链表的意义不是很大，主要原因，数据存储在栈上，栈的存储空间有限，不能动态分配。所以链表要实现存储的自由，要动态的申请堆里的空间。</li>
-<li>有一个点要说清楚，我们的实现的链表是带头节点。至于，为什么带头节点，需等大家对链表有个整体的的认知以后，再来体会，会更有意义。</li>
-</ul>
-<h4 id="2-1、空链表"><a href="#2-1、空链表" class="headerlink" title="2.1、空链表"></a>2.1、空链表</h4><ul>
-<li><p>头指针带了一个空链表节点, 空链表节点中的next指向NULL</p>
-<p><img src="/编程学习笔记/链表/空链表.png" alt="空链表"></p>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.定义链表节点</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;Node;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node *head = createList();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建空链表</span></span><br><span class="line"><span class="function">Node *<span class="title">createList</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 1.创建一个节点</span></span><br><span class="line">    <span class="comment">//注意点：malloc有可能分配失败</span></span><br><span class="line">    Node *node = (Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">-1</span>); <span class="comment">//直接退出程序</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 2.设置下一个节点为NULL</span></span><br><span class="line">    node-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">// 3.返回创建好的节点</span></span><br><span class="line">    <span class="keyword">return</span> node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/编程学习笔记/链表/空链表内存分配图.png" alt="空链表内存分配图"></p>
-<h4 id="2-2、非空链表"><a href="#2-2、非空链表" class="headerlink" title="2.2、非空链表"></a>2.2、非空链表</h4><ul>
-<li><p>头指针带了一个非空节点, 最后一个节点中的next指向NULL</p>
-<p><img src="/编程学习笔记/链表/非空链表.png" alt="非空链表"></p>
-</li>
-</ul>
-<h4 id="2-3、动态链表头插法"><a href="#2-3、动态链表头插法" class="headerlink" title="2.3、动态链表头插法"></a>2.3、动态链表头插法</h4><ul>
-<li>1.让新节点的下一个节点等于头结点的下一个节点</li>
-<li>2.让头节点的下一个节点等于新节点</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.定义链表节点</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;Node;</span><br><span class="line"><span class="function">Node *<span class="title">createList</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printNodeList</span><span class="params">(Node *node)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node *head = createList();</span><br><span class="line">    printNodeList(head);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief createList 创建链表</span></span><br><span class="line"><span class="comment"> * @return  创建好的链表</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">Node *<span class="title">createList</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 1.创建头节点</span></span><br><span class="line">    Node *head = (Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.接收用户输入数据</span></span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入节点数据\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%i"</span>, &amp;num);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.通过循环创建其它节点</span></span><br><span class="line">    <span class="keyword">while</span>(num != <span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="comment">// 3.1创建一个新的节点</span></span><br><span class="line">        Node *cur = (Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">        cur-&gt;data = num;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3.2让新节点的下一个节点指向头节点的下一个节点</span></span><br><span class="line">        cur-&gt;next = head-&gt;next;</span><br><span class="line">        <span class="comment">// 3.3让头节点的下一个节点指向新节点</span></span><br><span class="line">        head-&gt;next = cur;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3.4再次接收用户输入数据</span></span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%i"</span>, &amp;num);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.返回创建好的节点</span></span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief printNodeList 遍历链表</span></span><br><span class="line"><span class="comment"> * @param node 链表指针头</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printNodeList</span><span class="params">(Node *node)</span></span>&#123;</span><br><span class="line">    Node *head = node-&gt;next;</span><br><span class="line">    <span class="keyword">while</span>(head != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> currentData = head-&gt;data;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"currentData = %i\n"</span>, currentData);</span><br><span class="line">        head = head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-4、动态链表尾插法"><a href="#2-4、动态链表尾插法" class="headerlink" title="2.4、动态链表尾插法"></a>2.4、动态链表尾插法</h4><ul>
-<li>1.定义变量记录新节点的上一个节点；</li>
-<li>2.将新节点添加到上一个节点后面；</li>
-<li>3.让新节点成为下一个节点的上一个节点。</li>
-<li>规律：新的节点永远都是插入到了头节点的后面。</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、让新节点的下一个节点等于头节点的下一个节点</span></span><br><span class="line"><span class="comment">//2、让头节点的下一个节点等于新节点</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.定义链表节点</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;Node;</span><br><span class="line"><span class="function">Node *<span class="title">createList</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printNodeList</span><span class="params">(Node *node)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node *head = createList();</span><br><span class="line">    printNodeList(head);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief createList 创建链表</span></span><br><span class="line"><span class="comment"> * @return  创建好的链表</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">Node *<span class="title">createList</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 1.创建头节点</span></span><br><span class="line">    Node *head = (Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.接收用户输入数据</span></span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入节点数据\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%i"</span>, &amp;num);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.通过循环创建其它节点</span></span><br><span class="line">    <span class="comment">// 定义变量记录上一个节点</span></span><br><span class="line">    Node *pre = head;</span><br><span class="line">    <span class="keyword">while</span>(num != <span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="comment">// 3.1创建一个新的节点</span></span><br><span class="line">        Node *cur = (Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">        cur-&gt;data = num;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3.2让新节点链接到上一个节点后面</span></span><br><span class="line">        pre-&gt;next = cur;</span><br><span class="line">        <span class="comment">// 3.3当前节点下一个节点等于NULL</span></span><br><span class="line">        cur-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="comment">// 3.4让当前节点编程下一个节点的上一个节点</span></span><br><span class="line">        pre = cur;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3.5再次接收用户输入数据</span></span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%i"</span>, &amp;num);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.返回创建好的节点</span></span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief printNodeList 遍历链表</span></span><br><span class="line"><span class="comment"> * @param node 链表指针头</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printNodeList</span><span class="params">(Node *node)</span></span>&#123;</span><br><span class="line">    Node *head = node-&gt;next;</span><br><span class="line">    <span class="keyword">while</span>(head != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> currentData = head-&gt;data;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"currentData = %i\n"</span>, currentData);</span><br><span class="line">        head = head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-3、动态链优化"><a href="#2-3、动态链优化" class="headerlink" title="2.3、动态链优化"></a>2.3、动态链优化</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.定义链表节点</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;Node;</span><br><span class="line"><span class="function">Node *<span class="title">createList</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printNodeList</span><span class="params">(Node *node)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertNode1</span><span class="params">(Node *head, <span class="keyword">int</span> data)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertNode2</span><span class="params">(Node *head, <span class="keyword">int</span> data)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 1.创建一个空链表</span></span><br><span class="line">    Node *head = createList();</span><br><span class="line">    <span class="comment">// 2.往空链表中插入数据</span></span><br><span class="line">    insertNode1(head, <span class="number">1</span>);</span><br><span class="line">    insertNode1(head, <span class="number">3</span>);</span><br><span class="line">    insertNode1(head, <span class="number">5</span>);</span><br><span class="line">    printNodeList(head);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief createList 创建空链表</span></span><br><span class="line"><span class="comment"> * @return  创建好的空链表</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">Node *<span class="title">createList</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 1.创建头节点</span></span><br><span class="line">    Node *head = (Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">// 3.返回创建好的节点</span></span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief insertNode1 尾插法插入节点</span></span><br><span class="line"><span class="comment"> * @param head 需要插入的头指针</span></span><br><span class="line"><span class="comment"> * @param data 需要插入的数据</span></span><br><span class="line"><span class="comment"> * @return  插入之后的链表</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertNode1</span><span class="params">(Node *head, <span class="keyword">int</span> data)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 1.定义变量记录最后一个节点</span></span><br><span class="line">    Node *pre = head;</span><br><span class="line">    <span class="keyword">while</span>(pre != <span class="literal">NULL</span> &amp;&amp; pre-&gt;next != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        pre = pre-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 2.创建一个新的节点</span></span><br><span class="line">    Node *cur = (Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">    cur-&gt;data = data;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.让新节点链接到上一个节点后面</span></span><br><span class="line">    pre-&gt;next = cur;</span><br><span class="line">    <span class="comment">// 4.当前节点下一个节点等于NULL</span></span><br><span class="line">    cur-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">// 5.让当前节点编程下一个节点的上一个节点</span></span><br><span class="line">    pre = cur;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief insertNode1 头插法插入节点</span></span><br><span class="line"><span class="comment"> * @param head 需要插入的头指针</span></span><br><span class="line"><span class="comment"> * @param data 需要插入的数据</span></span><br><span class="line"><span class="comment"> * @return  插入之后的链表</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertNode2</span><span class="params">(Node *head, <span class="keyword">int</span> data)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 1.创建一个新的节点</span></span><br><span class="line">    Node *cur = (Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">    cur-&gt;data = data;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.让新节点的下一个节点指向头节点的下一个节点</span></span><br><span class="line">    cur-&gt;next = head-&gt;next;</span><br><span class="line">    <span class="comment">// 3.让头节点的下一个节点指向新节点</span></span><br><span class="line">    head-&gt;next = cur;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief printNodeList 遍历链表</span></span><br><span class="line"><span class="comment"> * @param node 链表指针头</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printNodeList</span><span class="params">(Node *node)</span></span>&#123;</span><br><span class="line">    Node *head = node-&gt;next;</span><br><span class="line">    <span class="keyword">while</span>(head != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> currentData = head-&gt;data;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"currentData = %i\n"</span>, currentData);</span><br><span class="line">        head = head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3、链表销毁"><a href="#3、链表销毁" class="headerlink" title="3、链表销毁"></a>3、链表销毁</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief destroyList 销毁链表</span></span><br><span class="line"><span class="comment"> * @param head 链表头指针</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">destroyList</span><span class="params">(Node *head)</span></span>&#123;</span><br><span class="line">    Node *cur = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(head != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        cur = head-&gt;next;</span><br><span class="line">        <span class="built_in">free</span>(head);</span><br><span class="line">        head = cur;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4、链表长度计算"><a href="#4、链表长度计算" class="headerlink" title="4、链表长度计算"></a>4、链表长度计算</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief listLength 计算链表长度</span></span><br><span class="line"><span class="comment"> * @param head 链表头指针</span></span><br><span class="line"><span class="comment"> * @return 链表长度</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">listLength</span><span class="params">(Node *head)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    head = head-&gt;next;</span><br><span class="line">    <span class="keyword">while</span>(head)&#123;</span><br><span class="line">       count++;</span><br><span class="line">       head = head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="5、链表查找"><a href="#5、链表查找" class="headerlink" title="5、链表查找"></a>5、链表查找</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief searchList 查找指定节点</span></span><br><span class="line"><span class="comment"> * @param head 链表头指针</span></span><br><span class="line"><span class="comment"> * @param key 需要查找的值</span></span><br><span class="line"><span class="comment"> * @return</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">Node *<span class="title">searchList</span><span class="params">(Node *head, <span class="keyword">int</span> key)</span></span>&#123;</span><br><span class="line">    <span class="comment">//注意点：头节点不需要查找</span></span><br><span class="line">    head = head-&gt;next;</span><br><span class="line">    <span class="keyword">while</span>(head)&#123;</span><br><span class="line">        <span class="comment">//判断当前节点保存的值是否是要查找的值</span></span><br><span class="line">        <span class="keyword">if</span>(head-&gt;data == key)&#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="6、链表删除"><a href="#6、链表删除" class="headerlink" title="6、链表删除"></a>6、链表删除</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">deleteNodeList</span><span class="params">(Node *head, Node *find)</span></span>&#123;</span><br><span class="line">    <span class="comment">//1 找到需要删除节点的上一个节点</span></span><br><span class="line">    <span class="keyword">while</span>(head-&gt;next != find)&#123;</span><br><span class="line">        head = head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 2 将删除节点的上一个节点的next改为删除节点的下一个节点</span></span><br><span class="line">    head-&gt;next = find-&gt;next;</span><br><span class="line">    <span class="comment">// 3 删除节点</span></span><br><span class="line">    <span class="built_in">free</span>(find);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="7、作业"><a href="#7、作业" class="headerlink" title="7、作业"></a>7、作业</h3><ul>
-<li>给链表排序</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief bubbleSort 对链表进行排序</span></span><br><span class="line"><span class="comment"> * @param head 链表头指针</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(Node *head)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 1.计算链表长度</span></span><br><span class="line">    <span class="keyword">int</span> len = listLength(head);</span><br><span class="line">    <span class="comment">// 2.定义变量记录前后节点</span></span><br><span class="line">    Node *cur = <span class="literal">NULL</span>;</span><br><span class="line">   <span class="comment">// 3.相邻元素进行比较, 进行冒泡排序</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++)&#123;</span><br><span class="line">        cur = head-&gt;next;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len - <span class="number">1</span> - i; j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%i, %i\n"</span>, cur-&gt;data, cur-&gt;next-&gt;data);</span><br><span class="line">            <span class="keyword">if</span>((cur-&gt;data) &gt; (cur-&gt;next-&gt;data))&#123;</span><br><span class="line">                <span class="keyword">int</span> temp = cur-&gt;data;</span><br><span class="line">                cur-&gt;data = cur-&gt;next-&gt;data;</span><br><span class="line">                cur-&gt;next-&gt;data = temp;</span><br><span class="line">            &#125;</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief sortList 对链表进行排序</span></span><br><span class="line"><span class="comment"> * @param head 链表头指针</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sortList</span><span class="params">(Node *head)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 0.计算链表长度</span></span><br><span class="line">    <span class="keyword">int</span> len = listLength(head);</span><br><span class="line">    <span class="comment">// 1.定义变量保存前后两个节点</span></span><br><span class="line">    Node *sh, *pre, *cur;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i ++)&#123;</span><br><span class="line">        sh = head; <span class="comment">// 头节点</span></span><br><span class="line">        pre = sh-&gt;next; <span class="comment">// 第一个节点</span></span><br><span class="line">        cur = pre-&gt;next; <span class="comment">// 第二个节点</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len - <span class="number">1</span> - i; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pre-&gt;data &gt; cur-&gt;data)&#123;</span><br><span class="line">                <span class="comment">// 交换节点位置</span></span><br><span class="line">                sh-&gt;next = cur;</span><br><span class="line">                pre-&gt;next = cur-&gt;next;</span><br><span class="line">                cur-&gt;next = pre;</span><br><span class="line">                <span class="comment">// 恢复节点名称</span></span><br><span class="line">                Node *temp = pre;</span><br><span class="line">                pre = cur;</span><br><span class="line">                cur = temp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 让所有节点往后移动</span></span><br><span class="line">            sh = sh-&gt;next;</span><br><span class="line">            pre = pre-&gt;next;</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>链表反转</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief reverseList 反转链表</span></span><br><span class="line"><span class="comment"> * @param head 链表头指针</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverseList</span><span class="params">(Node *head)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 1.将链表一分为二</span></span><br><span class="line">    Node *pre, *cur;</span><br><span class="line">    pre = head-&gt;next;</span><br><span class="line">    head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">// 2.重新插入节点</span></span><br><span class="line">    <span class="keyword">while</span>(pre)&#123;</span><br><span class="line">        cur = pre-&gt;next;</span><br><span class="line">        pre-&gt;next = head-&gt;next;</span><br><span class="line">        head-&gt;next = pre;</span><br><span class="line"></span><br><span class="line">        pre = cur;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><hr><br><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）<a href="mailto:mstarzheng@foxmail.com" target="_blank" rel="noopener">mstarzheng@foxmail.com</a></em></strong></p>
-
+          内存管理1、进程空间
+程序，是经源码编译后的可执行文件，可执行文件可以多次被执行，比如我们可以多次打开 office。
+而进程，是程序加载到内存后开始执行，至执行结束，这样一段时间概念，多次打开的wps,每打开一次都是一个进程，当我们每关闭一个 office，则表示该进程结束。
+程序是静态概念，而进
+          ...
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/编程学习笔记/链表/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -876,9 +638,9 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/编程学习笔记/algorithm/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mstar Zheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="mstar zheng">
+      <meta itemprop="description" content="唯有不辜负，方能归初心。">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -919,24 +681,6 @@
               
 
               <time title="创建时间：2018-11-11 21:29:15" itemprop="dateCreated datePublished" datetime="2018-11-11T21:29:15+08:00">2018-11-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-11-13 22:16:31" itemprop="dateModified" datetime="2018-11-13T22:16:31+08:00">2018-11-13</time>
-              
             
           </span>
 
@@ -984,13 +728,41 @@
                
                  <span class="post-meta-item-text">热度：</span>
                
-                 <span class="leancloud-visitors-count"></span>
+                <span class="leancloud-visitors-count"></span>
                  <span>℃</span>
              </span>
           
 
           
 
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">6.3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">6 分钟</span>
+              
+            </div>
           
 
           
@@ -1010,106 +782,22 @@
       
         
           
-            <h2 id="经典算法篇"><a href="#经典算法篇" class="headerlink" title="经典算法篇"></a>经典算法篇</h2><h3 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h3><p>​    计数排序是一个非基于比较的排序算法，该算法于1954年由 Harold H. Seward 提出。它的优势在于在对一定范围内的整数排序时，快于任何比较排序算法。</p>
-<ul>
-<li><strong>排序思想</strong><ul>
-<li>1.找出待排序数组最大值</li>
-<li>2.定义一个索引最大值为待排序数组最大值的数组</li>
-<li>3.遍历待排序数组, 将待排序数组遍历到的值作新数组索引</li>
-<li>4.在新数组对应索引存储值原有基础上+1    </li>
-</ul>
-</li>
-</ul>
-<p><img src="/编程学习笔记/algorithm/计数排序.png" alt="计数排序"></p>
-<p><strong>代码实现</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//待排序的数组</span></span><br><span class="line">    <span class="keyword">int</span> nums[<span class="number">5</span>] = &#123;<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">3</span>&#125;;</span><br><span class="line">    <span class="comment">//用于保存排序数组</span></span><br><span class="line">    <span class="keyword">int</span> newNums[<span class="number">4</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="comment">//计算数组的长度</span></span><br><span class="line">    <span class="keyword">int</span> len = <span class="keyword">sizeof</span>(nums) / <span class="keyword">sizeof</span>(nums[<span class="number">0</span>]);</span><br><span class="line">    <span class="comment">//遍历数组</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; len; i++)&#123;</span><br><span class="line">        <span class="comment">//取出待排序数组当前值</span></span><br><span class="line">        <span class="keyword">int</span> index = nums[i];</span><br><span class="line">        <span class="comment">// 将待排序数组当前值作为排序数组索引</span></span><br><span class="line">        <span class="comment">// 将用于排序数组对应索引原有值+1</span></span><br><span class="line">        newNums[index] += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//计算排序数组的长度</span></span><br><span class="line">    <span class="keyword">int</span> len2 = <span class="keyword">sizeof</span>(newNums) / <span class="keyword">sizeof</span>(newNums[<span class="number">0</span>]);</span><br><span class="line">    <span class="comment">//输出排序数组索引，就是排序之后结果</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; len2;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j&lt;newNums[i];j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%i\n"</span>,i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>​    选择排序(Selection sort)是一种简单直观的排序算法。它的工作原理如下。首先在未排序序列中找到最小元素,存放到排序序列的起始位置,然后,再从剩余未排序元素中继续寻找最小元素,然后放到排序序列末尾。以此类推,直到所有元素均排序完毕。</p>
-<p><img src="/编程学习笔记/algorithm/选择排序.gif" alt="选择排序"></p>
-<ul>
-<li><p><strong>排序思想</strong></p>
-<ul>
-<li>假设按照升序排序</li>
-<li>1.用第0个元素和后面所有元素依次比较</li>
-<li>2.判断第0个元素是否大于当前被比较元素, 一旦小于就交换位置</li>
-<li>3.第0个元素和后续所有元素比较完成后, 第0个元素就是最小值</li>
-<li>4.排除第0个元素, 用第1个元素重复1~3操作, 比较完成后第1个元素就是倒数第二小的值</li>
-<li>以此类推, 直到当前元素没有可比较的元素, 排序完成</li>
-</ul>
-</li>
-<li><p><strong>代码实现</strong></p>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectSort</span><span class="params">(<span class="keyword">int</span> numbers[],<span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 外循环为什么要-1?</span></span><br><span class="line">    <span class="comment">// 最后一位不用比较, 也没有下一位和它比较, 否则会出现错误访问</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; length;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i;j &lt; length - <span class="number">1</span>;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(numbers[i] &gt; numbers[j+<span class="number">1</span>])&#123;</span><br><span class="line">                <span class="comment">//  2.一旦发现小于就交换位置</span></span><br><span class="line">                swapEle(numbers, i, j + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 交换两个元素的值, i/j需要交换的索引</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swapEle</span><span class="params">(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="built_in">array</span>[i];</span><br><span class="line">    <span class="built_in">array</span>[i] = <span class="built_in">array</span>[j];</span><br><span class="line">    <span class="built_in">array</span>[j] = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>​    冒泡排序(Bubble Sort)是一种简单的排序算法。它重复 地走访过要排序的数列,一次比较两个元素,如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换,也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。</p>
-<p><img src="/编程学习笔记/algorithm/冒泡排序.gif" alt="冒泡排序"></p>
-<ul>
-<li><p><strong>排序思想</strong></p>
-<ul>
-<li>假设按照升序排序</li>
-<li>1.从第0个元素开始, 每次都用相邻两个元素进行比较</li>
-<li>2.一旦发现后面一个元素小于前面一个元素就交换位置</li>
-<li>3.经过一轮比较之后最后一个元素就是最大值</li>
-<li>4.排除最后一个元素, 以此类推, 每次比较完成之后最大值都会出现再被比较所有元素的最后</li>
-<li>直到当前元素没有可比较的元素, 排序完成</li>
-</ul>
-</li>
-<li><p><strong>代码实现</strong></p>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 冒泡排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span> numbers[], <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">        <span class="comment">// -1防止`角标越界`: 访问到了不属于自己的索引</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; length - i - <span class="number">1</span>; j++) &#123;</span><br><span class="line">           <span class="comment">//  1.用当前元素和相邻元素比较</span></span><br><span class="line">            <span class="keyword">if</span> (numbers[j] &gt; numbers[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="comment">//  2.一旦发现小于就交换位置</span></span><br><span class="line">                swapEle(numbers, j, j + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 交换两个元素的值, i/j需要交换的索引</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swapEle</span><span class="params">(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="built_in">array</span>[i];</span><br><span class="line">    <span class="built_in">array</span>[i] = <span class="built_in">array</span>[j];</span><br><span class="line">    <span class="built_in">array</span>[j] = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>​    插入排序（Insertion-Sort）的算法描述是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。</p>
-<p><img src="/编程学习笔记/algorithm/插入排序.gif" alt="插入排序"></p>
-<ul>
-<li><p><strong>排序思路:</strong></p>
-<ul>
-<li>假设按照升序排序</li>
-<li>1.从索引为1的元素开始向前比较, 一旦前面一个元素大于自己就让前面的元素先后移动</li>
-<li>2.直到没有可比较元素或者前面的元素小于自己的时候, 就将自己插入到当前空出来的位置</li>
-</ul>
-</li>
-<li><p><strong>代码实现：</strong></p>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法一：</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//待排序的数组</span></span><br><span class="line">    <span class="keyword">int</span> nums[<span class="number">4</span>] = &#123;<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">3</span>&#125;;</span><br><span class="line">    <span class="comment">//0、计算待排序数组的长度</span></span><br><span class="line">    <span class="keyword">int</span> len = <span class="keyword">sizeof</span>(nums) /<span class="keyword">sizeof</span>(nums[<span class="number">0</span>]);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//1、从第一元素开始依次取出所有用于比较的元素</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>,i &lt; len;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//2、取出用于比较的元素</span></span><br><span class="line">        <span class="keyword">int</span> temp = nums[i];</span><br><span class="line">        <span class="comment">//3、保存前面一个元素的索引</span></span><br><span class="line">        <span class="keyword">int</span> j = i;</span><br><span class="line">        <span class="keyword">while</span>(j &gt; <span class="number">0</span>)&#123; </span><br><span class="line">            <span class="comment">//4、判断元素是否小于前面一个元素</span></span><br><span class="line">            <span class="keyword">if</span>(temp &lt; nums[j- <span class="number">1</span>])&#123; 	<span class="comment">//小于</span></span><br><span class="line">                 <span class="comment">//5、让前面一个元素往后移动一位</span></span><br><span class="line">                nums[j] = nums[j<span class="number">-1</span>];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123; 	<span class="comment">//大于</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//6、将元素插入到空出来的位置</span></span><br><span class="line">        nums[i] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法二：</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 待排序数组</span></span><br><span class="line">    <span class="keyword">int</span> nums[<span class="number">5</span>] = &#123;<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>&#125;;</span><br><span class="line">    <span class="comment">// 0.计算待排序数组长度</span></span><br><span class="line">    <span class="keyword">int</span> len = <span class="keyword">sizeof</span>(nums) / <span class="keyword">sizeof</span>(nums[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//  1.从第一个元素开始依次取出所有用于比较元素</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 2.遍历取出前面元素进行比较</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &gt; <span class="number">0</span>; j--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 3.如果前面一个元素大于当前元素,就交换位置</span></span><br><span class="line">            <span class="keyword">if</span>(nums[j<span class="number">-1</span>] &gt; nums[j])&#123;</span><br><span class="line">                <span class="keyword">int</span> temp = nums[j];</span><br><span class="line">                nums[j] = nums[j - <span class="number">1</span>];</span><br><span class="line">                nums[j - <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><p>​    1959年Shell发明，第一个突破O(n2)的排序算法，是简单插入排序的改进版。它与插入排序的不同之处在于，它会优先比较距离较远的元素。希尔排序又叫缩小增量排序。</p>
-<p><img src="/编程学习笔记/algorithm/希尔排序.gif" alt="希尔排序"></p>
-<ul>
-<li><p><strong>排序思路</strong></p>
-<ul>
-<li>1.希尔排序可以理解为插入排序的升级版, 先将待排序数组按照指定步长划分为几个小数组</li>
-<li>2.利用插入排序对小数组进行排序, 然后将几个排序的小数组重新合并为原始数组</li>
-<li>3.重复上述操作, 直到步长为1时,再利用插入排序排序即可</li>
-</ul>
-</li>
-<li><p><strong>代码实现</strong></p>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 待排序数组</span></span><br><span class="line">    <span class="keyword">int</span> nums[<span class="number">5</span>] = &#123;<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>&#125;;</span><br><span class="line">    <span class="comment">// 0.计算待排序数组长度</span></span><br><span class="line">    <span class="keyword">int</span> len = <span class="keyword">sizeof</span>(nums) / <span class="keyword">sizeof</span>(nums[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.计算步长</span></span><br><span class="line">    <span class="keyword">int</span> gap = len / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        <span class="comment">//  1.从第一个元素开始依次取出所有用于比较元素</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = gap; i &lt; len; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 2.遍历取出前面元素进行比较</span></span><br><span class="line">            <span class="keyword">int</span> j = i;</span><br><span class="line">            <span class="keyword">while</span>((j - gap) &gt;= <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%i &gt; %i\n"</span>, nums[j - gap], nums[j]);</span><br><span class="line">                <span class="comment">// 3.如果前面一个元素大于当前元素,就交换位置</span></span><br><span class="line">                <span class="keyword">if</span>(nums[j - gap] &gt; nums[j])&#123;</span><br><span class="line">                    <span class="keyword">int</span> temp = nums[j];</span><br><span class="line">                    nums[j] = nums[j - gap];</span><br><span class="line">                    nums[j - gap] = temp;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 每个小数组排序完成, 重新计算步长</span></span><br><span class="line">        gap = gap / <span class="number">2</span>;</span><br><span class="line">    &#125;<span class="keyword">while</span>(gap &gt;= <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="折半查找"><a href="#折半查找" class="headerlink" title="折半查找"></a>折半查找</h3><ul>
-<li><p><strong>基本思路</strong></p>
-<ul>
-<li>在有序表中,取中间元素作为比较对象,若给定值与中间元素的要查找的数相等,则查找成功;若给定值小于中间元素的要查找的数,则在中间元素的左半区继续查找;</li>
-<li>若给定值大于中间元素的要查找的数,则在中间元素的右半区继续查找。不断重复上述查找过 程,直到查找成功,或所查找的区域无数据元素,查找失败</li>
-</ul>
-</li>
-<li><p><strong>实现步骤</strong></p>
-<ul>
-<li>①在有序表中,取中间元素作为比较对象,若给定值与中间元素的要查找的数相等,则查找成功;</li>
-<li>②若给定值小于中间元素的要查找的数,则在中间元素的左半区继续查找;</li>
-<li>③若给定值大于中间元素的要查找的数,则在中间元素的右半区继续查找。</li>
-<li>④不断重复上述查找过 程,直到查找成功,或所查找的区域无数据元素,查找失败。</li>
-</ul>
-</li>
-</ul>
-<p><img src="/编程学习笔记/algorithm/折半查找.png" alt="折半查找"></p>
-<ul>
-<li><strong>代码实现</strong></li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findKey</span><span class="params">(<span class="keyword">int</span> values[], <span class="keyword">int</span> length, <span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 定义一个变量记录最小索引</span></span><br><span class="line">    <span class="keyword">int</span> min = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 定义一个变量记录最大索引</span></span><br><span class="line">    <span class="keyword">int</span> max = length - <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// 定义一个变量记录中间索引</span></span><br><span class="line">    <span class="keyword">int</span> mid = (min + max) * <span class="number">0.5</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (min &lt;= max) &#123;</span><br><span class="line">        <span class="comment">// 如果mid对应的值 大于 key, 那么max要变小</span></span><br><span class="line">        <span class="keyword">if</span> (values[mid] &gt; key) &#123;</span><br><span class="line">            max = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="comment">// 如果mid对应的值 小于 key, 那么min要变</span></span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (values[mid] &lt; key) &#123;</span><br><span class="line">            min = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 修改完min/max之后, 重新计算mid的值</span></span><br><span class="line">        mid = (min + max) * <span class="number">0.5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><hr><br><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）<a href="mailto:mstarzheng@foxmail.com" target="_blank" rel="noopener">mstarzheng@foxmail.com</a></em></strong></p>
+          经典算法篇计数排序​    计数排序是一个非基于比较的排序算法，该算法于1954年由 Harold H. Seward 提出。它的优势在于在对一定范围内的整数排序时，快于任何比较排序算法。
 
+排序思想
+1.找出待排序数组最大值
+2.定义一个索引最大值为待排序数组最大值的数组
+3.遍历待排序数组, 将
+          ...
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/编程学习笔记/algorithm/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1167,9 +855,9 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/文字的魅力/佛曰/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mstar Zheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="mstar zheng">
+      <meta itemprop="description" content="唯有不辜负，方能归初心。">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1210,24 +898,6 @@
               
 
               <time title="创建时间：2017-10-20 17:54:23" itemprop="dateCreated datePublished" datetime="2017-10-20T17:54:23+08:00">2017-10-20</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2017-10-21 19:11:33" itemprop="dateModified" datetime="2017-10-21T19:11:33+08:00">2017-10-21</time>
-              
             
           </span>
 
@@ -1275,13 +945,41 @@
                
                  <span class="post-meta-item-text">热度：</span>
                
-                 <span class="leancloud-visitors-count"></span>
+                <span class="leancloud-visitors-count"></span>
                  <span>℃</span>
              </span>
           
 
           
 
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">797</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
           
 
           
@@ -1368,9 +1066,9 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Love/七夕/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mstar Zheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="mstar zheng">
+      <meta itemprop="description" content="唯有不辜负，方能归初心。">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1411,24 +1109,6 @@
               
 
               <time title="创建时间：2017-08-28 05:20:00" itemprop="dateCreated datePublished" datetime="2017-08-28T05:20:00+08:00">2017-08-28</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2017-08-29 11:03:59" itemprop="dateModified" datetime="2017-08-29T11:03:59+08:00">2017-08-29</time>
-              
             
           </span>
 
@@ -1476,13 +1156,41 @@
                
                  <span class="post-meta-item-text">热度：</span>
                
-                 <span class="leancloud-visitors-count"></span>
+                <span class="leancloud-visitors-count"></span>
                  <span>℃</span>
              </span>
           
 
           
 
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">157</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
           
 
           
@@ -1502,16 +1210,22 @@
       
         
           
-            <blockquote class="blockquote-center">我们的故事–初雪之恋</blockquote>
+          我们的故事–初雪之恋
 
-<blockquote class="blockquote-center"><br>那天<br>初雪悄悄<br>降临人间<br><br>小小的雪花<br>好像无数<br>蹁跹飞舞的<br>白色蝴蝶<br><br>你牵着我的手<br>在雪中慢慢走<br><br>你说<br>这样一直走<br>不知不觉就白了头<br><br>那夜<br>大雪纷飞<br>打湿了我的眼<br><br>小小的手<br>被牢牢地包在掌心<br>所有的不安<br>顷刻间<br>化成白雪<br><br>曾经最怕<br>下雪的冬夜<br>可是<br>从那以后<br>我才知道<br><br>原来<br>再冷的雪<br>在爱人的怀里也能化茧成蝶<br></blockquote>
-
-<p><img src="http://ove2t71nc.bkt.clouddn.com/Love8.jpg" alt="1"></p>
-<blockquote class="blockquote-center">择一城终老，遇一人白首</blockquote>
+那天初雪悄悄降临人间小小的雪花好像无数蹁跹飞舞的白色蝴蝶你牵着我的手在雪中慢慢走你说这样一直走不知不觉就白了头那夜大雪纷飞打湿了我的眼小小的手被牢牢地包在掌心所有的不安顷刻间化成白雪曾经最怕下雪的冬夜可是从那以后我才知道原来再冷的雪在爱人的怀里也能化茧成蝶
 
 
-
+择一城终老，遇
+          ...
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/Love/七夕/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1569,9 +1283,9 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Objective-C学习整理/OC-class/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mstar Zheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="mstar zheng">
+      <meta itemprop="description" content="唯有不辜负，方能归初心。">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1612,24 +1326,6 @@
               
 
               <time title="创建时间：2017-04-04 09:52:21" itemprop="dateCreated datePublished" datetime="2017-04-04T09:52:21+08:00">2017-04-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2017-08-28 11:00:00" itemprop="dateModified" datetime="2017-08-28T11:00:00+08:00">2017-08-28</time>
-              
             
           </span>
 
@@ -1677,13 +1373,41 @@
                
                  <span class="post-meta-item-text">热度：</span>
                
-                 <span class="leancloud-visitors-count"></span>
+                <span class="leancloud-visitors-count"></span>
                  <span>℃</span>
              </span>
           
 
           
 
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">3 分钟</span>
+              
+            </div>
           
 
           
@@ -1703,106 +1427,24 @@
       
         
           
-            <p><hr></p>
-<h2 id="一、语法简介"><a href="#一、语法简介" class="headerlink" title="一、语法简介"></a>一、语法简介</h2><h3 id="1-类"><a href="#1-类" class="headerlink" title="1.类"></a>1.类</h3><p>在OC中，一般用2个文件来描述一个类：</p>
-<ul>
-<li><font color="red">.h</font>：类的<font color="red">声明</font>文件，用于声明成员变量、方法。类的声明使用关键字<font color="red">@interface和@end。</font>
-
-</li>
-</ul>
-<p>注意：.h中的方法只是做一个声明，并不对方法进行实现。也就是说，只是说明一下方法名、方法的返回值类型、方法接收的参数类型而已，并不会编写方法内部的代码。</p>
-<ul>
-<li><font color="red">.m</font>：类的<font color="red">实现</font>文件，用于实现.h中声明的方法。类的实现使用关键字<font color="red">@implementation和@end</font>。</li>
-</ul>
-<h3 id="2-方法"><a href="#2-方法" class="headerlink" title="2.方法"></a>2.方法</h3><p>1&gt; 方法的声明和实现，都必须以 <font color="red">+ 或者 <font color="red">- 开头</font></font></p>
-<ul>
-<li><font color="red"> <strong> + </strong></font>表示<font color="red">类</font>方法(<font color="red">静态</font>方法)</li>
-<li><font color="red"><strong> - </strong></font>表示<font color="red">对象</font>方法(<font color="red">动态</font>方法)</li>
-</ul>
-<p>2&gt; 在.h中声明的所有方法作用域都是public类型，不能更改</p>
-<h3 id="3-成员变量"><a href="#3-成员变量" class="headerlink" title="3.成员变量"></a>3.成员变量</h3><p>成员变量的常用作用域有3种：</p>
-<ul>
-<li>@<font color="red">public</font> 全局都可以访问</li>
-<li>@<font color="red">protected</font> 只能在类内部和子类中访问</li>
-<li>@<font color="red">private</font> 只能在类内部访问</li>
-</ul>
-<p><hr></p>
-<h2 id="二、创建对象"><a href="#二、创建对象" class="headerlink" title="二、创建对象"></a>二、创建对象</h2><p>由于OC程序的入口点是main函数，所以在main.m文件中演示Student类的使用。<br>先上完整代码</p>
-<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"Student.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">        Student *stu = [[Student alloc] init];</span><br><span class="line"></span><br><span class="line">         [stu release];</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="1-包含Student-h"><a href="#1-包含Student-h" class="headerlink" title="1.包含Student.h"></a>1.包含Student.h</h3><p>因为要用到Student这个类，所以在第2行包含了它的头文件</p>
-<blockquote>
-<p>#import “Student.h”</p>
-</blockquote>
-<h3 id="2-创建对象"><a href="#2-创建对象" class="headerlink" title="2.创建对象"></a>2.创建对象</h3><p>1&gt; 在Java中是使用关键字new来创建对象，比如new Student()，其实这句代码做了2件事：</p>
-<ul>
-<li>给对象分配存储空间</li>
-<li>调用Student的构造方法进行初始化</li>
-</ul>
-<p>2&gt; 在OC中创建对象也需要按顺序做上面所述的2件事</p>
-<p>1)调用Student类的静态方法alloc分配存储空间</p>
-<blockquote>
-<p>Student *stu = [Student <font color="blue">alloc<font>];</font></font></p>
-</blockquote>
-<ul>
-<li>OC是方法调用是用中括号[ ]，方法调用者写在括号左侧，方法名写在括号右侧，中间留点空格。因此上面是调用了Student类的静态方法alloc。</li>
-<li>上面调用的alloc方法会返回分配好内存的Student对象，在等号左边用了一个指向Student类型的<font color="blue">指针变量</font>stu来接收这个对象，注意stu左边的<font color="red"><em></em></font>号。所有OC对象都是用指针变量来接收的，如果你不了解指针，你记住下面这点就行了：利用类名定义一个变量时，类名后面一定要带个<font color="red"></font>号。</li>
-<li>alloc方法是这样声明的：</li>
-</ul>
-<blockquote>
-<p>+(<font color="blue">id<font>)alloc;</font></font></p>
-</blockquote>
-<p>可以看到，它的返回值类型是id，这个id代表任何指针类型，你可以暂时理解为：id可以代表<font color="red">任何OC对象</font>，类似于NSObject *。</p>
-<p>2)调用Student对象的构造方法init进行初始化</p>
-<p>前面调用alloc方法返回的Student对象stu是不能正常使用的，因为仅仅是分配了内存，并没有进行初始化，接下来调用对象的init方法进行初始化</p>
-<blockquote>
-<p>stu = [stu <font color="blue">init<font>];</font></font></p>
-</blockquote>
-<p>看清楚了，由于init是动态方法，所以这里使用stu变量来调用，并不是使用类名来调用。init会返回已经初始化完毕的对象，再次赋值给了stu变量。这时候的Student对象stu才能正常使用。</p>
-<p>3)其实，我们最常见的做法是将alloc和init连起来使用：</p>
-<blockquote>
-<p>Student *stu = [[Student <font color="blue">alloc] init<font>];</font></font></p>
-</blockquote>
-<p>相信有面向对象开发经验的你一眼就能看懂了，在main.m完整代码的第7行。</p>
-<p><hr></p>
-<h2 id="三、代码解析"><a href="#三、代码解析" class="headerlink" title="三、代码解析"></a>三、代码解析</h2><h3 id="1、如何编写类的声明"><a href="#1、如何编写类的声明" class="headerlink" title="1、如何编写类的声明"></a>1、如何编写类的声明</h3><p><img src="/Objective-C学习整理/OC-class/oc_class1.png" alt="oc_class1"></p>
-<ul>
-<li><p>以<font color="red">@interface </font>开头，以<font color="red">@end</font>结尾，然后再用<font color="red">class name</font>对应的地方写上事物名称，也就是类名即可<br><font color="red">注意</font>：类名的首字符必须大写<br>声明一个类的目的就是为了告诉系统，我们这个类中有哪些属性和行为</p>
-</li>
-<li><p>OC类声明中属性只能写在<font color="red">@interface</font> 和<font color="red">@end</font>之间的<font color="red">{}</font>中,</p>
-<font color="red">注意</font>：编写oc类属性的时候，建议将所有属性的名称前面加上<font color="red"><strong> _ </strong></font>
-
-</li>
-</ul>
-<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Iphone</span> :<span class="title">NSObject</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//注意：默认情况下，OC对象中属性是不能直接访问的</span></span><br><span class="line">    <span class="keyword">@public</span></span><br><span class="line">    <span class="comment">//只要让类中的属性公开，以后就可以直接通过一个指向结构体的指针来操作对象中的属性</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">float</span> _model;</span><br><span class="line">    <span class="keyword">int</span> _cpu;</span><br><span class="line">    <span class="keyword">double</span> _size;</span><br><span class="line">    <span class="keyword">int</span> _color;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>看第1行，OC中使用关键字@interface来声明一个类，@interface后面紧跟着类名Iphone。</li>
-<li>类名Student后面的冒号”:”表示继承，即第1行代码的意思是Iphone继承自NSObject。</li>
-<li>第7~10行默认作用域是<font color="red">@protected</font>，即可以在IPhone类内部和子类中访问</li>
-<li>类的成员变量必须写在大括号{ }里面</li>
-</ul>
-<h3 id="2、如何编写类的实现"><a href="#2、如何编写类的实现" class="headerlink" title="2、如何编写类的实现"></a>2、如何编写类的实现</h3><p> 以<font color="red">@implementation</font>开头，以<font color="red">@end</font>结尾，然后在class对应的地方写上声明时声明的类的名称，必须和声明的类名一模一样</p>
-<p><img src="/Objective-C学习整理/OC-class/oc_class2.png" alt="oc_class2"></p>
-<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Iphone</span></span></span><br><span class="line"><span class="comment">//类的实现,类名必须跟声明时的类名一样</span></span><br><span class="line">- (<span class="keyword">int</span>)_cpu &#123;</span><br><span class="line">   <span class="comment">// 直接返回成员变量_cpu</span></span><br><span class="line">     <span class="keyword">return</span> _cpu;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<h3 id="3、如何通过一个类来创建对象"><a href="#3、如何通过一个类来创建对象" class="headerlink" title="3、如何通过一个类来创建对象"></a>3、如何通过一个类来创建对象</h3><p>在oc中想要通过一个类来创建一个对象必须给类发送有个消息（好比c语言中调用方法一样）。而OC中是如何发送消息？</p>
-<ul>
-<li>在oc中只要想要发送消息就先写上 <font color="red">[类名称/对象名称 方法名称]</font>；</li>
-<li>发送什么消息（调用什么方法）可以创建一个对象 <font color="red">new</font></li>
-</ul>
-<p>只要通过有个类调用类的<font color="red">new</font>方法，也就是给类发送一个叫做<font color="red">new</font>的消息后，系统内部就会做3件事情：</p>
-<ul>
-<li>为IPhone类创建出来的对象分配存储空间</li>
-<li>初始化IPhone类创建出来的对象中的属性</li>
-<li>返回IPhone类创建出来的对象对应的地址</li>
-</ul>
-<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Iphone *p =  [Iphone new];</span><br><span class="line">p-&gt;_color = <span class="number">0</span>;</span><br><span class="line">p-&gt;_cpu = <span class="number">64</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>通过一个IPhone类型的<font color="red">指针</font>接收了IPhone对象的<font color="red">地址</font></li>
-<li>如果使用给一个指针保存了某一个对象的地址，那么我们就称这个指针位之为某个类型的对应的对象</li>
-<li>利用IPhone类型的指针保存了IPhone对象的地址，那么我们就称IPhone类型的指针p之为IPhone的对象</li>
-</ul>
-<font color="red"><strong> OC中的类其实本质就是一个结构体，所以p这个指针其实指向了一个结构体 </strong></font>
-
           
+一、语法简介1.类在OC中，一般用2个文件来描述一个类：
+
+.h：类的声明文件，用于声明成员变量、方法。类的声明使用关键字@interface和@end。
+
+
+
+注意：.h中的方法只是做一个声明，并不对方法进行实现。也就是说，只是说明一下方法名、方法的返回值类型、方法接收的参数类型而已，并不会编写
+          ...
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/Objective-C学习整理/OC-class/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1878,8 +1520,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">mstar Zheng</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="mstar zheng">
+            
+              <p class="site-author-name" itemprop="name">mstar zheng</p>
+              <p class="site-description motion-element" itemprop="description">唯有不辜负，方能归初心。</p>
           </div>
 
           
@@ -2021,10 +1665,24 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">mstar Zheng</span>
+  <span class="author" itemprop="copyrightHolder">mstar zheng</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">70k</span>
+  
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">1:03</span>
   
 </div>
 
@@ -2199,7 +1857,7 @@
         avatar:'mm',
         meta:guest,
         pageSize:'10' || 10,
-        visitor: false
+        visitor: true
     });
   </script>
 
@@ -2534,75 +2192,6 @@
   
 
   
-  <script>
-    
-    function showTime(Counter) {
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { "$in": entries } }) })
-        .done(function ({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function ({ responseJSON }) {
-          console.log("LeanCloud Counter Error: " + responseJSON.code + " " + responseJSON.error);
-        });
-    }
-    
-
-    $(function() {
-      $.get('https://app-router.leancloud.cn/2/route?appId=' + "K7agdkKqCUQYBxcW9Szk3Ogz-gzGzoHsz")
-        .done(function ({ api_server }) {
-          var Counter = function (method, url, data) {
-            return $.ajax({
-              method: method,
-              url: `https://${api_server}/1.1${url}`,
-              headers: {
-                'X-LC-Id': "K7agdkKqCUQYBxcW9Szk3Ogz-gzGzoHsz",
-                'X-LC-Key': "559hVLIEp3l7PQ8MKPNDhrq0",
-                'Content-Type': 'application/json',
-              },
-              data: data,
-            });
-          };
-          
-          if ($('.post-title-link').length >= 1) {
-            showTime(Counter);
-          }
-          
-        })
-    });
-  </script>
-
-
-
-  
 
   
 
@@ -2636,5 +2225,5 @@
 
   <!-- 页面点击小红心 --> 
   <script type="text/javascript" src="/js/src/love.js"></script>  
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
 </html>
