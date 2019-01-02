@@ -659,7 +659,7 @@
 <li><strong>代码实现</strong></li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findKey</span><span class="params">(<span class="keyword">int</span> values[], <span class="keyword">int</span> length, <span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 定义一个变量记录最小索引</span></span><br><span class="line">    <span class="keyword">int</span> min = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 定义一个变量记录最大索引</span></span><br><span class="line">    <span class="keyword">int</span> max = length - <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// 定义一个变量记录中间索引</span></span><br><span class="line">    <span class="keyword">int</span> mid = (min + max) * <span class="number">0.5</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (min &lt;= max) &#123;</span><br><span class="line">        <span class="comment">// 如果mid对应的值 大于 key, 那么max要变小</span></span><br><span class="line">        <span class="keyword">if</span> (values[mid] &gt; key) &#123;</span><br><span class="line">            max = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="comment">// 如果mid对应的值 小于 key, 那么min要变</span></span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (values[mid] &lt; key) &#123;</span><br><span class="line">            min = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 修改完min/max之后, 重新计算mid的值</span></span><br><span class="line">        mid = (min + max) * <span class="number">0.5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><hr><br><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）<a href="mailto:mstarzheng@foxmail.com" target="_blank" rel="noopener">mstarzheng@foxmail.com</a></em></strong></p>
+<p><hr><br><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）<span class="exturl" data-url="bWFpbHRvOm1zdGFyemhlbmdAZm94bWFpbC5jb20=" title="mailto:mstarzheng@foxmail.com">mstarzheng@foxmail.com<i class="fa fa-external-link"></i></span></em></strong></p>
 
       
     </div>
@@ -851,7 +851,7 @@
                   
                     
                   
-                  <a href="https://github.com/mstarZheng" title="GitHub &rarr; https://github.com/mstarZheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21zdGFyWmhlbmc=" title="GitHub &rarr; https://github.com/mstarZheng"><i class="fa fa-fw fa-github"></i>GitHub</span>
                 </span>
               
                 <span class="links-of-author-item">
@@ -862,7 +862,7 @@
                   
                     
                   
-                  <a href="mailto:mstarzheng@gmail.com" title="E-Mail &rarr; mailto:mstarzheng@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  <span class="exturl" data-url="bWFpbHRvOm1zdGFyemhlbmdAZ21haWwuY29t" title="E-Mail &rarr; mailto:mstarzheng@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
                 </span>
               
                 <span class="links-of-author-item">
@@ -873,7 +873,7 @@
                   
                     
                   
-                  <a href="https://weibo.com/yourname" title="Weibo &rarr; https://weibo.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="Weibo &rarr; https://weibo.com/yourname"><i class="fa fa-fw fa-weibo"></i>Weibo</span>
                 </span>
               
             </div>
@@ -952,7 +952,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v3.8.0</div>
 
 
 
@@ -960,7 +960,7 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.6.0</div>
+  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Mist</span> v6.6.0</div>
 
 
 
@@ -1485,6 +1485,8 @@
   
 
   
+  <script type="text/javascript" src="/js/src/exturl.js?v=6.6.0"></script>
+
 
   
 

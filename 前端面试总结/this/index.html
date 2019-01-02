@@ -558,7 +558,7 @@
       
 
       
-        <p><center>本文源出于—简书<a href="http://www.jianshu.com/p/d647aa6d1ae6" target="_blank" rel="noopener"><strong>波同学</strong></a></center></p>
+        <p><center>本文源出于—简书<span class="exturl" data-url="aHR0cDovL3d3dy5qaWFuc2h1LmNvbS9wL2Q2NDdhYTZkMWFlNg==" title="http://www.jianshu.com/p/d647aa6d1ae6"><strong>波同学</strong><i class="fa fa-external-link"></i></span></center></p>
 <p><hr><br>回顾一下执行上下文声明周期<br><img src="/前端面试总结/this/this1.png" alt="this1"></p>
 <p>在执行上下文的创建阶段，会分别生成变量对象，建立作用域链，确定this指向。其中变量对象与作用域链我们都已经仔细总结过了，而这里的关键，就是确定this指向。</p>
 <p>在这里，我们需要得出一个非常重要一定要牢记于心的结论，<strong> this的指向，是在函数被调用的时候确定的。也就是执行上下文被创建时确定的 </strong>。因此我们可以很容易就能理解到，一个函数中的this指向，可以是非常灵活的。比如下面的例子中，同一个函数由于调用方式的不同，this指向了不一样的对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">20</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn(); <span class="comment">// 10</span></span><br><span class="line">fn.call(obj); <span class="comment">// 20</span></span><br></pre></td></tr></table></figure></p>
@@ -643,7 +643,7 @@
 <p>而原型方法上的this就好理解多了，根据上边对函数中this的定义，p1.getName()中的getName为调用者，他被p1所拥有，因此getName中的this，也是指向了p1。</p>
 <hr>
 
-<p><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）<a href="mailto:mstarzheng@foxmail.com" target="_blank" rel="noopener">mstarzheng@foxmail.com</a></em></strong></p>
+<p><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）<span class="exturl" data-url="bWFpbHRvOm1zdGFyemhlbmdAZm94bWFpbC5jb20=" title="mailto:mstarzheng@foxmail.com">mstarzheng@foxmail.com<i class="fa fa-external-link"></i></span></em></strong></p>
 
       
     </div>
@@ -843,7 +843,7 @@
                   
                     
                   
-                  <a href="https://github.com/mstarZheng" title="GitHub &rarr; https://github.com/mstarZheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21zdGFyWmhlbmc=" title="GitHub &rarr; https://github.com/mstarZheng"><i class="fa fa-fw fa-github"></i>GitHub</span>
                 </span>
               
                 <span class="links-of-author-item">
@@ -854,7 +854,7 @@
                   
                     
                   
-                  <a href="mailto:mstarzheng@gmail.com" title="E-Mail &rarr; mailto:mstarzheng@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  <span class="exturl" data-url="bWFpbHRvOm1zdGFyemhlbmdAZ21haWwuY29t" title="E-Mail &rarr; mailto:mstarzheng@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
                 </span>
               
                 <span class="links-of-author-item">
@@ -865,7 +865,7 @@
                   
                     
                   
-                  <a href="https://weibo.com/yourname" title="Weibo &rarr; https://weibo.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="Weibo &rarr; https://weibo.com/yourname"><i class="fa fa-fw fa-weibo"></i>Weibo</span>
                 </span>
               
             </div>
@@ -944,7 +944,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v3.8.0</div>
 
 
 
@@ -952,7 +952,7 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.6.0</div>
+  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Mist</span> v6.6.0</div>
 
 
 
@@ -1477,6 +1477,8 @@
   
 
   
+  <script type="text/javascript" src="/js/src/exturl.js?v=6.6.0"></script>
+
 
   
 
