@@ -559,7 +559,7 @@
       
 
       
-        <p><center>本文源出于—<span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9tamlvcy9hcmNoaXZlLzIwMTMvMDMvMjQvMjk3NzkxMC5odG1s" title="http://www.cnblogs.com/mjios/archive/2013/03/24/2977910.html"><strong>小码哥</strong><i class="fa fa-external-link"></i></span></center></p>
+        <p><center>本文源出于—<a href="http://www.cnblogs.com/mjios/archive/2013/03/24/2977910.html" target="_blank" rel="noopener"><strong>小码哥</strong></a></center></p>
 <p><hr></p>
 <h2 id="一、什么是结构体"><a href="#一、什么是结构体" class="headerlink" title="一、什么是结构体"></a>一、什么是结构体</h2><ul>
 <li>当一个整体由多个数据构成时，我们可以用数组来表示这个整体，但是数组有个特点：内部的每一个元素都必须是相同类型的数据。</li>
@@ -626,7 +626,7 @@
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">     <span class="comment">// 定义一个结构体类型</span></span><br><span class="line">     <span class="class"><span class="keyword">struct</span> <span class="title">Student</span> &#123;</span></span><br><span class="line">         <span class="keyword">char</span> *name;</span><br><span class="line">         <span class="keyword">int</span> age;</span><br><span class="line">     &#125;;</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 定义一个结构体变量</span></span><br><span class="line">     <span class="class"><span class="keyword">struct</span> <span class="title">Student</span> <span class="title">stu</span> = &#123;</span><span class="string">"MJ"</span>, <span class="number">27</span>&#125;;</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 定义一个指向结构体的指针变量</span></span><br><span class="line">     <span class="class"><span class="keyword">struct</span> <span class="title">Student</span> *<span class="title">p</span>;</span></span><br><span class="line"></span><br><span class="line">     <span class="comment">// 指向结构体变量stu</span></span><br><span class="line">     p = &amp;stu;</span><br><span class="line"></span><br><span class="line">     <span class="comment">/*</span></span><br><span class="line"><span class="comment">      这时候可以用3种方式访问结构体的成员</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">// 方式1：结构体变量名.成员名</span></span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"name=%s, age = %d \n"</span>, stu.name, stu.age);</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 方式2：(*指针变量名).成员名</span></span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"name=%s, age = %d \n"</span>, (*p).name, (*p).age);</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 方式3：指针变量名-&gt;成员名</span></span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"name=%s, age = %d \n"</span>, p-&gt;name, p-&gt;age);</span><br><span class="line"></span><br><span class="line">     <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <p>输出结果： <img src="/Objective-C学习整理/struct/struct2.png" alt="struct2"></p>
-<p><hr><br><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）<span class="exturl" data-url="bWFpbHRvOm1zdGFyemhlbmdAZm94bWFpbC5jb20=" title="mailto:mstarzheng@foxmail.com">mstarzheng@foxmail.com<i class="fa fa-external-link"></i></span></em></strong></p>
+<p><hr><br><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）<a href="mailto:mstarzheng@foxmail.com" target="_blank" rel="noopener">mstarzheng@foxmail.com</a></em></strong></p>
 
       
     </div>
@@ -826,7 +826,7 @@
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21zdGFyWmhlbmc=" title="GitHub &rarr; https://github.com/mstarZheng"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                  <a href="https://github.com/mstarZheng" title="GitHub &rarr; https://github.com/mstarZheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -837,7 +837,7 @@
                   
                     
                   
-                  <span class="exturl" data-url="bWFpbHRvOm1zdGFyemhlbmdAZ21haWwuY29t" title="E-Mail &rarr; mailto:mstarzheng@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                  <a href="mailto:mstarzheng@gmail.com" title="E-Mail &rarr; mailto:mstarzheng@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -848,7 +848,7 @@
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="Weibo &rarr; https://weibo.com/yourname"><i class="fa fa-fw fa-weibo"></i>Weibo</span>
+                  <a href="https://weibo.com/yourname" title="Weibo &rarr; https://weibo.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
                 </span>
               
             </div>
@@ -927,7 +927,7 @@
 </div>
 
 
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v3.8.0</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
 
 
@@ -935,7 +935,7 @@
 
 
 
-  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Mist</span> v6.6.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.6.0</div>
 
 
 
@@ -1460,8 +1460,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/exturl.js?v=6.6.0"></script>
-
 
   
 
