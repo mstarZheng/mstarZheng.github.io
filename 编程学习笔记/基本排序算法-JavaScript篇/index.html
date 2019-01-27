@@ -122,12 +122,12 @@
 
 
 
-  <meta name="description" content="1、插入排序  算法描述：  从第一个元素开始，该元素可以认为已经被排序  取出下一个元素，在已经排序的元素序列中从后向前扫描  如果该元素（已排序）大于新元素，将该元素移到下一位置  重复步骤 3，直到找到已排序的元素小于或者等于新元素的位置  将新元素插入到该位置后  重复步骤 2~5    现有一组数组 arr = [5, 6, 3, 1, 8, 7, 2, 4] [5] 6 3 1 8 7">
+  <meta name="description" content="1、插入排序  算法描述：  从第一个元素开始，该元素可以认为已经被排序  取出下一个元素，在已经排序的元素序列中从后向前扫描  如果该元素（已排序）大于新元素，将该元素移到下一位置  重复步骤 3，直到找到已排序的元素小于或者等于新元素的位置  将新元素插入到该位置后  重复步骤 2~5    现有一组数组 arr = [5, 6, 3, 1, 8, 7, 2, 4] 1234567891011">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基本排序算法--JavaScript篇">
 <meta property="og:url" content="http://yoursite.com/编程学习笔记/基本排序算法-JavaScript篇/index.html">
 <meta property="og:site_name" content="mstar&#39;s Blog">
-<meta property="og:description" content="1、插入排序  算法描述：  从第一个元素开始，该元素可以认为已经被排序  取出下一个元素，在已经排序的元素序列中从后向前扫描  如果该元素（已排序）大于新元素，将该元素移到下一位置  重复步骤 3，直到找到已排序的元素小于或者等于新元素的位置  将新元素插入到该位置后  重复步骤 2~5    现有一组数组 arr = [5, 6, 3, 1, 8, 7, 2, 4] [5] 6 3 1 8 7">
+<meta property="og:description" content="1、插入排序  算法描述：  从第一个元素开始，该元素可以认为已经被排序  取出下一个元素，在已经排序的元素序列中从后向前扫描  如果该元素（已排序）大于新元素，将该元素移到下一位置  重复步骤 3，直到找到已排序的元素小于或者等于新元素的位置  将新元素插入到该位置后  重复步骤 2~5    现有一组数组 arr = [5, 6, 3, 1, 8, 7, 2, 4] 1234567891011">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/编程学习笔记/基本排序算法-JavaScript篇/插入排序.gif">
 <meta property="og:image" content="http://yoursite.com/编程学习笔记/基本排序算法-JavaScript篇/选择排序.gif">
@@ -137,7 +137,7 @@
 <meta property="og:updated_time" content="2019-01-27T07:51:09.200Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基本排序算法--JavaScript篇">
-<meta name="twitter:description" content="1、插入排序  算法描述：  从第一个元素开始，该元素可以认为已经被排序  取出下一个元素，在已经排序的元素序列中从后向前扫描  如果该元素（已排序）大于新元素，将该元素移到下一位置  重复步骤 3，直到找到已排序的元素小于或者等于新元素的位置  将新元素插入到该位置后  重复步骤 2~5    现有一组数组 arr = [5, 6, 3, 1, 8, 7, 2, 4] [5] 6 3 1 8 7">
+<meta name="twitter:description" content="1、插入排序  算法描述：  从第一个元素开始，该元素可以认为已经被排序  取出下一个元素，在已经排序的元素序列中从后向前扫描  如果该元素（已排序）大于新元素，将该元素移到下一位置  重复步骤 3，直到找到已排序的元素小于或者等于新元素的位置  将新元素插入到该位置后  重复步骤 2~5    现有一组数组 arr = [5, 6, 3, 1, 8, 7, 2, 4] 1234567891011">
 <meta name="twitter:image" content="http://yoursite.com/编程学习笔记/基本排序算法-JavaScript篇/插入排序.gif">
 
 
@@ -532,7 +532,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.7k</span>
+                <span title="本文字数">5.1k</span>
               
 
               
@@ -546,7 +546,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">4 分钟</span>
+                <span title="阅读时长">5 分钟</span>
               
             </div>
           
@@ -579,41 +579,11 @@
 </li>
 </ul>
 <p>现有一组数组 arr = [5, 6, 3, 1, 8, 7, 2, 4]</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token number">6</span> <span class="token number">3</span> <span class="token number">1</span> <span class="token number">8</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span>  <span class="token comment" spellcheck="true">//第一个元素被认为已经被排序</span>
-
-<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span>  <span class="token number">3</span> <span class="token number">1</span> <span class="token number">8</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span> <span class="token comment" spellcheck="true">//6与5比较，放在5的右边</span>
-
-<span class="token punctuation">[</span><span class="token number">3</span>，<span class="token number">5</span>，<span class="token number">6</span><span class="token punctuation">]</span>  <span class="token number">1</span> <span class="token number">8</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span> <span class="token comment" spellcheck="true">//3与6和5比较，都小，则放入数组头部</span>
-
-<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span>   <span class="token number">8</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span> <span class="token comment" spellcheck="true">//1与3,5,6比较，则放入头部</span>
-
-<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span>，<span class="token number">5</span>，<span class="token number">6</span>，<span class="token number">8</span><span class="token punctuation">]</span>   <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span>
-
-<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span>，<span class="token number">5</span>，<span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span>，<span class="token number">8</span><span class="token punctuation">]</span>  <span class="token number">2</span> <span class="token number">4</span>
-
-<span class="token punctuation">[</span><span class="token number">1</span>，<span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span>，<span class="token number">5</span>，<span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span>，<span class="token number">8</span><span class="token punctuation">]</span> <span class="token number">4</span>
-
-<span class="token punctuation">[</span><span class="token number">1</span>，<span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span>，<span class="token number">4</span>，<span class="token number">5</span>，<span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span>，<span class="token number">8</span><span class="token punctuation">]</span> 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">5</span>] <span class="number">6</span> <span class="number">3</span> <span class="number">1</span> <span class="number">8</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span>  <span class="comment">//第一个元素被认为已经被排序</span></span><br><span class="line"></span><br><span class="line">[<span class="number">5</span>,<span class="number">6</span>]  <span class="number">3</span> <span class="number">1</span> <span class="number">8</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span> <span class="comment">//6与5比较，放在5的右边</span></span><br><span class="line"></span><br><span class="line">[<span class="number">3</span>，<span class="number">5</span>，<span class="number">6</span>]  <span class="number">1</span> <span class="number">8</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span> <span class="comment">//3与6和5比较，都小，则放入数组头部</span></span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>]   <span class="number">8</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span> <span class="comment">//1与3,5,6比较，则放入头部</span></span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>,<span class="number">3</span>，<span class="number">5</span>，<span class="number">6</span>，<span class="number">8</span>]   <span class="number">7</span> <span class="number">2</span> <span class="number">4</span></span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>,<span class="number">3</span>，<span class="number">5</span>，<span class="number">6</span>,<span class="number">7</span>，<span class="number">8</span>]  <span class="number">2</span> <span class="number">4</span></span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>，<span class="number">2</span>,<span class="number">3</span>，<span class="number">5</span>，<span class="number">6</span>,<span class="number">7</span>，<span class="number">8</span>] <span class="number">4</span></span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>，<span class="number">2</span>,<span class="number">3</span>，<span class="number">4</span>，<span class="number">5</span>，<span class="number">6</span>,<span class="number">7</span>，<span class="number">8</span>]</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>编程思路：</p>
 <p>双层循环，外循环控制未排序的元素，内循环控制已排序的元素，将未排序元素设为标杆，与已排序的元素进行比较，小于则交换位置，大于则位置不动。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">insertSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">var</span> tmp<span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        tmp  <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> j<span class="token operator">=</span>i<span class="token punctuation">;</span>j<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">></span>tmp<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>j<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-                arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>tmp<span class="token punctuation">;</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> arr
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertSort</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> tmp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">        tmp  = arr[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j=i;j&gt;=<span class="number">0</span>;j--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j<span class="number">-1</span>]&gt;tmp)&#123;</span><br><span class="line">                arr[j]=arr[j<span class="number">-1</span>];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                arr[j]=tmp;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>时间复杂度O(n^2)、</p>
 </li>
 </ul>
@@ -623,42 +593,11 @@
 <p>直接从待排序数组中选择一个最小（或最大）数字，放入新数组中。</p>
 </li>
 </ul>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">[1] 5 6 3  8 7 2 4 
-[1,2] 5 6 3  8 7  4 
-[1,2,3] 5 6  8 7 2 4 
-[1,2,3,4] 5 6 8 7
-[1,2,3,4,5] 6  8 7 
-[1,2,3,4,5,6] 8 7  
-[1,2,3,4,5,6,7] 8  
-[1,2,3,4,5,6,7,8] 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>] <span class="number">5</span> <span class="number">6</span> <span class="number">3</span>  <span class="number">8</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span> </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>] <span class="number">5</span> <span class="number">6</span> <span class="number">3</span>  <span class="number">8</span> <span class="number">7</span>  <span class="number">4</span> </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] <span class="number">5</span> <span class="number">6</span>  <span class="number">8</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span> </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>] <span class="number">5</span> <span class="number">6</span> <span class="number">8</span> <span class="number">7</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>] <span class="number">6</span>  <span class="number">8</span> <span class="number">7</span> </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>] <span class="number">8</span> <span class="number">7</span>  </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>] <span class="number">8</span>  </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>编程思路：</p>
 <p>先假设第一个元素为最小的，然后通过循环找出最小元素，然后同第一个元素交换，接着假设第二个元素，重复上述操作即可。</p>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">function selectSort(array) {
-  var length = array.length,
-      i,
-      j,
-      minIndex,
-      minValue,
-      temp;
-  for (i = 0; i < length - 1; i++) {
-    minIndex = i;
-    minValue = array[minIndex];
-    for (j = i + 1; j < length; j++) {//通过循环选出最小的
-      if (array[j] < minValue) {
-        minIndex = j;
-        minValue = array[minIndex];
-      }
-    }
-    // 交换位置
-    temp = array[i];
-    array[i] = minValue;
-    array[minIndex] = temp;
-  }
-  return array
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectSort</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> length = array.length,</span><br><span class="line">      i,</span><br><span class="line">      j,</span><br><span class="line">      minIndex,</span><br><span class="line">      minValue,</span><br><span class="line">      temp;</span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    minIndex = i;</span><br><span class="line">    minValue = array[minIndex];</span><br><span class="line">    <span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt; length; j++) &#123;<span class="comment">//通过循环选出最小的</span></span><br><span class="line">      <span class="keyword">if</span> (array[j] &lt; minValue) &#123;</span><br><span class="line">        minIndex = j;</span><br><span class="line">        minValue = array[minIndex];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 交换位置</span></span><br><span class="line">    temp = array[i];</span><br><span class="line">    array[i] = minValue;</span><br><span class="line">    array[minIndex] = temp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> array</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>时间复杂度O(n^2)</p>
 </li>
 </ul>
@@ -670,44 +609,10 @@
 <li>进行两两归并使记录关键字有序，得到 n/2 个长度为 2 的有序子表 </li>
 <li>重复第 2 步直到所有记录归并成一个长度为 n 的有序表为止。</li>
 </ol>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token number">5</span> <span class="token number">6</span> <span class="token number">3</span> <span class="token number">1</span> <span class="token number">8</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span>
-
-<span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span> <span class="token number">8</span><span class="token punctuation">,</span><span class="token number">7</span>
-
-<span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span> <span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span>
-
-<span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span>
-
-<span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span>
-
-<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> <span class="number">6</span> <span class="number">3</span> <span class="number">1</span> <span class="number">8</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span>,<span class="number">6</span> <span class="number">8</span>,<span class="number">7</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span>,<span class="number">6</span> <span class="number">7</span>,<span class="number">8</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span></span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>编程思路：将数组一直等分，然后合并</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">merge</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">var</span> tmp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">while</span> <span class="token punctuation">(</span>left<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> right<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>left<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> right<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-      tmp<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>left<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">else</span>
-      tmp<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>right<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token keyword">return</span> tmp<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">function</span> <span class="token function">mergeSort</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> 
-    <span class="token keyword">return</span> a<span class="token punctuation">;</span>
-
-  <span class="token keyword">var</span> mid <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>length <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span>
-    <span class="token punctuation">,</span> left <span class="token operator">=</span> a<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> mid<span class="token punctuation">)</span>
-    <span class="token punctuation">,</span> right <span class="token operator">=</span> a<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span>mid<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">return</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token function">mergeSort</span><span class="token punctuation">(</span>left<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">mergeSort</span><span class="token punctuation">(</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span>(<span class="params">left, right</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> tmp = [];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (left.length &amp;&amp; right.length) &#123;</span><br><span class="line">    <span class="keyword">if</span> (left[<span class="number">0</span>] &lt; right[<span class="number">0</span>])</span><br><span class="line">      tmp.push(left.shift());</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      tmp.push(right.shift());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> tmp.concat(left, right);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeSort</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (a.length === <span class="number">1</span>) </span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> mid = <span class="built_in">Math</span>.floor(a.length / <span class="number">2</span>)</span><br><span class="line">    , left = a.slice(<span class="number">0</span>, mid)</span><br><span class="line">    , right = a.slice(mid);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> merge(mergeSort(left), mergeSort(right));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>时间复杂度O(nlogn)</p>
 </li>
 </ul>
@@ -715,84 +620,14 @@
 <ul>
 <li><p>算法描述：</p>
 <p>在数据集之中，选择一个元素作为”基准”（pivot）。<br>所有小于”基准”的元素，都移到”基准”的左边；所有大于”基准”的元素，都移到”基准”的右边。这个操作称为分区 (partition)操作，分区操作结束后，基准元素所处的位置就是最终排序后它的位置。<br>对”基准”左边和右边的两个子集，不断重复第一步和第二步，直到所有子集只剩下一个元素为止。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token number">5</span> <span class="token number">6</span> <span class="token number">3</span> <span class="token number">1</span> <span class="token number">8</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span>
-
-pivot
-<span class="token operator">|</span>
-<span class="token number">5</span> <span class="token number">6</span> <span class="token number">3</span> <span class="token number">1</span> <span class="token number">9</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span>
-<span class="token operator">|</span>
-storeIndex
-
-<span class="token number">5</span> <span class="token number">6</span> <span class="token number">3</span> <span class="token number">1</span> <span class="token number">9</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span><span class="token comment" spellcheck="true">//将5同6比较，大于则不更换</span>
-<span class="token operator">|</span>
-storeIndex
-
-<span class="token number">3</span> <span class="token number">6</span> <span class="token number">5</span> <span class="token number">1</span> <span class="token number">9</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span><span class="token comment" spellcheck="true">//将5同3比较，小于则更换</span>
-  <span class="token operator">|</span>
-  storeIndex
-
-<span class="token number">3</span> <span class="token number">6</span> <span class="token number">1</span> <span class="token number">5</span> <span class="token number">9</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span><span class="token comment" spellcheck="true">//将5同1比较，小于则不更换</span>
-    <span class="token operator">|</span>
-   storeIndex
-<span class="token operator">...</span>
-
-<span class="token number">3</span> <span class="token number">6</span> <span class="token number">1</span> <span class="token number">4</span> <span class="token number">9</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">5</span><span class="token comment" spellcheck="true">//将5同4比较，小于则更换</span>
-      <span class="token operator">|</span>
-      storeIndex
-
-<span class="token number">3</span> <span class="token number">6</span> <span class="token number">1</span> <span class="token number">4</span> <span class="token number">5</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">9</span><span class="token comment" spellcheck="true">//将标准元素放到正确位置</span>
-      <span class="token operator">|</span>
-storeIndex pivot
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> <span class="number">6</span> <span class="number">3</span> <span class="number">1</span> <span class="number">8</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span></span><br><span class="line"></span><br><span class="line">pivot</span><br><span class="line">|</span><br><span class="line"><span class="number">5</span> <span class="number">6</span> <span class="number">3</span> <span class="number">1</span> <span class="number">9</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span></span><br><span class="line">|</span><br><span class="line">storeIndex</span><br><span class="line"></span><br><span class="line"><span class="number">5</span> <span class="number">6</span> <span class="number">3</span> <span class="number">1</span> <span class="number">9</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span><span class="comment">//将5同6比较，大于则不更换</span></span><br><span class="line">|</span><br><span class="line">storeIndex</span><br><span class="line"></span><br><span class="line"><span class="number">3</span> <span class="number">6</span> <span class="number">5</span> <span class="number">1</span> <span class="number">9</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span><span class="comment">//将5同3比较，小于则更换</span></span><br><span class="line">  |</span><br><span class="line">  storeIndex</span><br><span class="line"></span><br><span class="line"><span class="number">3</span> <span class="number">6</span> <span class="number">1</span> <span class="number">5</span> <span class="number">9</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span><span class="comment">//将5同1比较，小于则不更换</span></span><br><span class="line">    |</span><br><span class="line">   storeIndex</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="number">3</span> <span class="number">6</span> <span class="number">1</span> <span class="number">4</span> <span class="number">9</span> <span class="number">7</span> <span class="number">2</span> <span class="number">5</span><span class="comment">//将5同4比较，小于则更换</span></span><br><span class="line">      |</span><br><span class="line">      storeIndex</span><br><span class="line"></span><br><span class="line"><span class="number">3</span> <span class="number">6</span> <span class="number">1</span> <span class="number">4</span> <span class="number">5</span> <span class="number">7</span> <span class="number">2</span> <span class="number">9</span><span class="comment">//将标准元素放到正确位置</span></span><br><span class="line">      |</span><br><span class="line">storeIndex pivot</span><br></pre></td></tr></table></figure>
 <p>上述讲解了分区的过程，然后就是对每个子区进行同样做法</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">quickSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length<span class="token operator">&lt;=</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
-    <span class="token keyword">var</span> partitionIndex<span class="token operator">=</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> tmp<span class="token operator">=</span>arr<span class="token punctuation">[</span>partitionIndex<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> left<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> right<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;</span>tmp<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            left<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-            right<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token function">quickSort</span><span class="token punctuation">(</span>left<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token punctuation">[</span>tmp<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token function">quickSort</span><span class="token punctuation">(</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr.length&lt;=<span class="number">1</span>) <span class="keyword">return</span> arr;</span><br><span class="line">    <span class="keyword">var</span> partitionIndex=<span class="built_in">Math</span>.floor(arr.length/<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">var</span> tmp=arr[partitionIndex];</span><br><span class="line">    <span class="keyword">var</span> left=[];</span><br><span class="line">    <span class="keyword">var</span> right=[];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[i]&lt;tmp)&#123;</span><br><span class="line">            left.push(arr[i])</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            right.push(arr[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> quickSort(left).concat([tmp],quickSort(right))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>上述版本会造成<strong>堆栈</strong>溢出，所以建议使用下面版本</p>
 <p>原地分区版：主要区别在于先进行分区处理，将数组分为左小右大</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">quickSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">function</span> <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>right<span class="token punctuation">,</span>left<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">var</span> tmp <span class="token operator">=</span> arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token operator">=</span>tmp<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">function</span> <span class="token function">partition</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>left<span class="token punctuation">,</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//分区操作，</span>
-        <span class="token keyword">var</span> pivotValue<span class="token operator">=</span>arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token comment" spellcheck="true">//最右面设为标准</span>
-        <span class="token keyword">var</span> storeIndex<span class="token operator">=</span>left<span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span>left<span class="token punctuation">;</span>i<span class="token operator">&lt;</span>right<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;=</span>pivotValue<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>storeIndex<span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                storeIndex<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>right<span class="token punctuation">,</span>storeIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> storeIndex<span class="token comment" spellcheck="true">//返回标杆元素的索引值</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">function</span> <span class="token function">sort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>left<span class="token punctuation">,</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>left<span class="token operator">></span>right<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
-        <span class="token keyword">var</span> storeIndex<span class="token operator">=</span><span class="token function">partition</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>left<span class="token punctuation">,</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">sort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>left<span class="token punctuation">,</span>storeIndex<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">sort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>storeIndex<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token function">sort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>arr<span class="token punctuation">.</span>length<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">swap</span>(<span class="params">arr,right,left</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> tmp = arr[right];</span><br><span class="line">        arr[right]=arr[left];</span><br><span class="line">        arr[left]=tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">partition</span>(<span class="params">arr,left,right</span>)</span>&#123;<span class="comment">//分区操作，</span></span><br><span class="line">        <span class="keyword">var</span> pivotValue=arr[right]<span class="comment">//最右面设为标准</span></span><br><span class="line">        <span class="keyword">var</span> storeIndex=left;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=left;i&lt;right;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i]&lt;=pivotValue)&#123;</span><br><span class="line">                swap(arr,storeIndex,i);</span><br><span class="line">                storeIndex++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr,right,storeIndex);</span><br><span class="line">        <span class="keyword">return</span> storeIndex<span class="comment">//返回标杆元素的索引值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sort</span>(<span class="params">arr,left,right</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(left&gt;right) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">var</span> storeIndex=partition(arr,left,right);</span><br><span class="line">        sort(arr,left,storeIndex<span class="number">-1</span>);</span><br><span class="line">        sort(arr,storeIndex+<span class="number">1</span>,right);</span><br><span class="line">    &#125;</span><br><span class="line">    sort(arr,<span class="number">0</span>,arr.length<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>时间复杂度O(nlogn)</p>
 <h4 id="5、冒泡排序"><a href="#5、冒泡排序" class="headerlink" title="5、冒泡排序"></a>5、冒泡排序</h4><p><img src="/编程学习笔记/基本排序算法-JavaScript篇/冒泡排序.gif" alt="冒泡排序"></p>
 <ul>
@@ -803,42 +638,13 @@ storeIndex pivot
 <li>针对所有的元素重复以上的步骤，除了最后一个。 </li>
 <li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
 </ol>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">5 6 3 1 8 7 2 4
-
-[5 6] 3 1 8 7 2 4 //比较5和6
-
-5 [6 3] 1 8 7 2 4
-
-5 3 [6 1] 8 7 2 4
-
-5 3 1 [6 8] 7 2 4
-
-5 3 1 6 [8 7] 2 4
-
-5 3 1 6 7 [8 2] 4
-
-5 3 1 6 7 2 [8 4]
-
-5 3 1 6 7 2 4 8  // 这样最后一个元素已经在正确位置，所以下一次开始时候就不需要再比较最后一个
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> <span class="number">6</span> <span class="number">3</span> <span class="number">1</span> <span class="number">8</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span></span><br><span class="line"></span><br><span class="line">[<span class="number">5</span> <span class="number">6</span>] <span class="number">3</span> <span class="number">1</span> <span class="number">8</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span> <span class="comment">//比较5和6</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span> [<span class="number">6</span> <span class="number">3</span>] <span class="number">1</span> <span class="number">8</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span> <span class="number">3</span> [<span class="number">6</span> <span class="number">1</span>] <span class="number">8</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span> <span class="number">3</span> <span class="number">1</span> [<span class="number">6</span> <span class="number">8</span>] <span class="number">7</span> <span class="number">2</span> <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span> <span class="number">3</span> <span class="number">1</span> <span class="number">6</span> [<span class="number">8</span> <span class="number">7</span>] <span class="number">2</span> <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span> <span class="number">3</span> <span class="number">1</span> <span class="number">6</span> <span class="number">7</span> [<span class="number">8</span> <span class="number">2</span>] <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span> <span class="number">3</span> <span class="number">1</span> <span class="number">6</span> <span class="number">7</span> <span class="number">2</span> [<span class="number">8</span> <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="number">5</span> <span class="number">3</span> <span class="number">1</span> <span class="number">6</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span> <span class="number">8</span>  <span class="comment">// 这样最后一个元素已经在正确位置，所以下一次开始时候就不需要再比较最后一个</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>编程思路：</p>
 <ul>
 <li>外循环控制需要比较的元素，比如第一次排序后，最后一个元素就不需要比较了，内循环则负责两两元素比较，将元素放到正确位置上</li>
 </ul>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">function bubbleSort(arr){
-    var len=arr.length;
-    for(var i=len-1;i>0;i--){
-        for(var j=0;j<i;j++){ if(arr[j]="">arr[j+1]){
-                var tmp = arr[j];
-                arr[j]=arr[j+1];
-                arr[j+1]=tmp
-            }
-        }
-    }
-    return arr;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></i;j++){></code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> len=arr.length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=len<span class="number">-1</span>;i&gt;<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;i;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</span><br><span class="line">                <span class="keyword">var</span> tmp = arr[j];</span><br><span class="line">                arr[j]=arr[j+<span class="number">1</span>];</span><br><span class="line">                arr[j+<span class="number">1</span>]=tmp</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>时间复杂度O(n^2)</p>
@@ -1120,7 +926,7 @@ storeIndex pivot
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">68k</span>
+    <span title="站点总字数">75k</span>
   
 
   
@@ -1131,7 +937,7 @@ storeIndex pivot
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">1:02</span>
+    <span title="站点阅读时长">1:08</span>
   
 </div>
 

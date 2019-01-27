@@ -546,7 +546,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.5k</span>
+                <span title="本文字数">4.6k</span>
               
 
               
@@ -587,47 +587,15 @@
 <p>如果程序通过”间接引用”的方式来修改a的值，可以这样做：先根据变量名b 获取 变量b的地址ffc2，取出变量b中存储的内容ffc1，也就是变量a的地址，再根据变量a的地址ffc1找到a的存储空间，然后修改里面的数据。</p>
 <p>3.总结一句：用来存放<font color="red">变量地址</font>的变量，就称为”指针变量”。在上面的情况下，变量b就是个”指针变量”，我们可以说指针变量b指向变量a。</p>
 <p><hr></p>
-<h2 id="二、指针定义"><a href="#二、指针定义" class="headerlink" title="二、指针定义"></a>二、指针定义</h2><p>一般形式：<strong> 类名标识符   <font color="red">*</font> 指针变量名；</strong></p>
-<pre class="line-numbers language-C"><code class="language-C">int *p;
-
-float *q;
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="二、指针定义"><a href="#二、指针定义" class="headerlink" title="二、指针定义"></a>二、指针定义</h2><p>一般形式：<strong> 类名标识符   <font color="red">*</font> 指针变量名；</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *p;</span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> *q;</span><br></pre></td></tr></table></figure></p>
 <p>“<font color="red">*</font>“是一个说明符，用来说明这个变量是个指针变量，是不能省略的，但它不属于变量名的一部分<br>前面的类型标识符表示指针变量所指向的变量的类型，而且只能指向这种类型的变量</p>
 <p><hr></p>
-<h2 id="三、指针的初始化"><a href="#三、指针的初始化" class="headerlink" title="三、指针的初始化"></a>三、指针的初始化</h2><h3 id="1-先定义后初始化"><a href="#1-先定义后初始化" class="headerlink" title="1.先定义后初始化"></a>1.先定义后初始化</h3><pre class="line-numbers language-C"><code class="language-C">// 定义int类型的变量a
-int a = 10;
-
-// 定义一个指针变量p
-int *p;
-
-// 将变量a的地址赋值给指针变量p，所以指针变量p指向变量a
-p = &a;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="三、指针的初始化"><a href="#三、指针的初始化" class="headerlink" title="三、指针的初始化"></a>三、指针的初始化</h2><h3 id="1-先定义后初始化"><a href="#1-先定义后初始化" class="headerlink" title="1.先定义后初始化"></a>1.先定义后初始化</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义int类型的变量a</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个指针变量p</span></span><br><span class="line"><span class="keyword">int</span> *p;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将变量a的地址赋值给指针变量p，所以指针变量p指向变量a</span></span><br><span class="line">p = &amp;a;</span><br></pre></td></tr></table></figure>
 <p>注意第8行，赋值给p的是变量a的地址&amp;a</p>
-<h3 id="2-在定义的同时初始化"><a href="#2-在定义的同时初始化" class="headerlink" title="2.在定义的同时初始化"></a>2.在定义的同时初始化</h3><pre class="line-numbers language-C"><code class="language-C">// 定义int类型的变量a
-int a = 10;
-
-// 定义一个指针变量p
-// 并将变量a的地址赋值给指针变量p，所以指针变量p指向变量a
-int *p = &a;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-初始化的注意"><a href="#3-初始化的注意" class="headerlink" title="3.初始化的注意"></a>3.<font color="red">初始化的注意</font></h3><p>指针变量是用来存放变量地址的，不要给它随意赋值一个常数。下面的写法是错误的</p>
-<pre class="line-numbers language-C"><code class="language-C">int *p;
-p = 200; // 这是错误的
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="2-在定义的同时初始化"><a href="#2-在定义的同时初始化" class="headerlink" title="2.在定义的同时初始化"></a>2.在定义的同时初始化</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义int类型的变量a</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个指针变量p</span></span><br><span class="line"><span class="comment">// 并将变量a的地址赋值给指针变量p，所以指针变量p指向变量a</span></span><br><span class="line"><span class="keyword">int</span> *p = &amp;a;</span><br></pre></td></tr></table></figure>
+<h3 id="3-初始化的注意"><a href="#3-初始化的注意" class="headerlink" title="3.初始化的注意"></a>3.<font color="red">初始化的注意</font></h3><p>指针变量是用来存放变量地址的，不要给它随意赋值一个常数。下面的写法是错误的<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *p;</span><br><span class="line">p = <span class="number">200</span>; <span class="comment">// 这是错误的</span></span><br></pre></td></tr></table></figure></p>
 <p><hr></p>
-<h2 id="四、指针运算符"><a href="#四、指针运算符" class="headerlink" title="四、指针运算符"></a>四、指针运算符</h2><h3 id="1-给指针指向的变量赋值"><a href="#1-给指针指向的变量赋值" class="headerlink" title="1.给指针指向的变量赋值"></a>1.给指针指向的变量赋值</h3><pre class="line-numbers language-C"><code class="language-C"> char a = 10;
- printf("修改前，a的值：%d\n", a);
-
- // 指针变量p指向变量a
- char *p = &a;
-
- // 通过指针变量p间接修改变量a的值
- *p = 9;
-
- printf("修改后，a的值：%d", a);
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="四、指针运算符"><a href="#四、指针运算符" class="headerlink" title="四、指针运算符"></a>四、指针运算符</h2><h3 id="1-给指针指向的变量赋值"><a href="#1-给指针指向的变量赋值" class="headerlink" title="1.给指针指向的变量赋值"></a>1.给指针指向的变量赋值</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"修改前，a的值：%d\n"</span>, a);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指针变量p指向变量a</span></span><br><span class="line"><span class="keyword">char</span> *p = &amp;a;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过指针变量p间接修改变量a的值</span></span><br><span class="line">*p = <span class="number">9</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"修改后，a的值：%d"</span>, a);</span><br></pre></td></tr></table></figure>
 <p> 当程序刚执行完第5行代码时，内存中大概的分布情况是这样的</p>
 <p><img src="/Objective-C学习整理/pointer/pointer2.png" alt="pointer2"><br>a值是10，p值就是变量a的地址ffc3。</p>
 <p>注意下第5、第8行，都有个“<font color="red">*</font>”，它们的含义是不一样的：</p>
@@ -637,61 +605,17 @@ p = 200; // 这是错误的
 </ul>
 <p><img src="/Objective-C学习整理/pointer/pointer3.png" alt="pointer3"><br>输出结果为：</p>
 <p><img src="/Objective-C学习整理/pointer/pointer4.png" alt="pointer4"><br>可以发现，我们通过变量p间接修改了变量a的值。</p>
-<h3 id="2-取出指针所指向变量的值"><a href="#2-取出指针所指向变量的值" class="headerlink" title="2.取出指针所指向变量的值"></a>2.取出指针所指向变量的值</h3><p>指针运算符除了可以赋值之外，还可以用于取值</p>
-<pre class="line-numbers language-C"><code class="language-C"> char a = 10;
-
- char *p;
- p = &a;
-
-char value = *p;
- printf("取出a的值：%d", value);
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-取出指针所指向变量的值"><a href="#2-取出指针所指向变量的值" class="headerlink" title="2.取出指针所指向变量的值"></a>2.取出指针所指向变量的值</h3><p>指针运算符除了可以赋值之外，还可以用于取值<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">char</span> a = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">char</span> *p;</span><br><span class="line"> p = &amp;a;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> value = *p;</span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">"取出a的值：%d"</span>, value);</span><br></pre></td></tr></table></figure></p>
 <p>输出结果：<br><img src="/Objective-C学习整理/pointer/pointer.png" alt="pointer"><br>第6行中的<font color="red">*p</font>的意思是：根据p值(即变量a的地址)访问对应的存储空间，并取出存储的内容(即取出变量a的值)，赋值给value</p>
-<h3 id="3-使用注意"><a href="#3-使用注意" class="headerlink" title="3.使用注意"></a>3.使用注意</h3><p>在指针变量没有指向确定地址之前，不要对它所指的内容赋值。下面的写法是错误的</p>
-<pre class="line-numbers language-C"><code class="language-C">int *p;
-*p = 10; //这是错误的
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="3-使用注意"><a href="#3-使用注意" class="headerlink" title="3.使用注意"></a>3.使用注意</h3><p>在指针变量没有指向确定地址之前，不要对它所指的内容赋值。下面的写法是错误的<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *p;</span><br><span class="line">*p = <span class="number">10</span>; <span class="comment">//这是错误的</span></span><br></pre></td></tr></table></figure></p>
 <p>应该在指针变量指向一个确定的变量后再进行赋值。下面的写法才是正确的</p>
-<pre class="line-numbers language-C"><code class="language-C">// 定义2个int型变量
-int a = 6, b;
-
-// 定义一个指向变量b的指针变量p
-int *p;
-p = &b;
-
-// 将a的值赋值给变量b
-*p = a;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义2个int型变量</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">6</span>, b;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个指向变量b的指针变量p</span></span><br><span class="line"><span class="keyword">int</span> *p;</span><br><span class="line">p = &amp;b;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将a的值赋值给变量b</span></span><br><span class="line">*p = a;</span><br></pre></td></tr></table></figure>
 <hr>
 
 <h2 id="五、指针的用途举例"><a href="#五、指针的用途举例" class="headerlink" title="五、指针的用途举例"></a>五、指针的用途举例</h2><h3 id="1-例子1"><a href="#1-例子1" class="headerlink" title="1.例子1"></a>1.例子1</h3><p>前面我们通过指针变量p间接访问了变量a，在有些人看来，觉得指针变量好傻B，直接用变量名a访问变量a不就好了么，干嘛搞这么麻烦。别着急，接下来举个例子，让大家看看指针还能做什么事情。</p>
 <p>现在有个要求：写一个函数swap，接收2个整型参数，功能是互换两个实参的值。</p>
 <p>1&gt; 如果没学过指针，你可能会这样写</p>
-<pre class="line-numbers language-C"><code class="language-C"> void swap(char v1, char v2) {
-     printf("更换前：v1=%d, v2=%d\n", v1, v2);
-
-    // 定义一个中间变量
-    char temp;
-
-    // 交换v1和v2的值
-     temp = v1;
-     v1 = v2;
-     v2 = temp;
-
-     printf("更换后：v1=%d, v2=%d\n", v1, v2);
- }
-
- int main()
- {
-     char a = 10, b = 9;
-     printf("更换前：a=%d, b=%d\n", a, b);
-
-     swap(a, b);
-
-     printf("更换后：a=%d, b=%d", a, b);
-     return 0;
- }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">char</span> v1, <span class="keyword">char</span> v2)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"更换前：v1=%d, v2=%d\n"</span>, v1, v2);</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 定义一个中间变量</span></span><br><span class="line">   <span class="keyword">char</span> temp;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 交换v1和v2的值</span></span><br><span class="line">    temp = v1;</span><br><span class="line">    v1 = v2;</span><br><span class="line">    v2 = temp;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"更换后：v1=%d, v2=%d\n"</span>, v1, v2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a = <span class="number">10</span>, b = <span class="number">9</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"更换前：a=%d, b=%d\n"</span>, a, b);</span><br><span class="line"></span><br><span class="line">    swap(a, b);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"更换后：a=%d, b=%d"</span>, a, b);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>输出结果：<br><img src="/Objective-C学习整理/pointer/pointer5.png" alt="pointer5"><br>虽然v1和v2的值被交换了，但是变量a和b的值根本就没有换过来。因为基本数据类型作为函数实参时，只是纯粹地将值传递给形参，形参的改变并不影响实参。<br>我们可以简要分析一下这个过程：</p>
 <blockquote>
 <p>在第20行中，将变量a、b的值分别传递给了swap函数的两个形参v1、v2</p>
@@ -710,32 +634,7 @@ p = &b;
 </blockquote>
 <p><img src="/Objective-C学习整理/pointer/pointer9.png" alt="pointer9"></p>
 <p>就这样，v1和v2的值被交换了，但是a和b的值一直都没有改变</p>
-<p>2&gt; 如果学了指针，就应该这样写</p>
-<pre class="line-numbers language-C"><code class="language-C">void swap(char *v1, char *v2) {
-    // 中间变量
-    char temp;
-
-     // 取出v1指向的变量的值
-     temp = *v1;
-
-     // 取出v2指向的变量的值，然后赋值给v1指向的变量
-     *v1 = *v2;
-
-     // 赋值给v2指向的变量
-     *v2 = temp;
- }
-
- int main()
- {
-    char a = 10, b = 9;
-     printf("更换前：a=%d, b=%d\n", a, b);
-
-     swap(&a, &b);
-
-     printf("更换后：a=%d, b=%d", a, b);
-     return 0;
- }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>2&gt; 如果学了指针，就应该这样写<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">char</span> *v1, <span class="keyword">char</span> *v2)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 中间变量</span></span><br><span class="line">    <span class="keyword">char</span> temp;</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 取出v1指向的变量的值</span></span><br><span class="line">     temp = *v1;</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 取出v2指向的变量的值，然后赋值给v1指向的变量</span></span><br><span class="line">     *v1 = *v2;</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 赋值给v2指向的变量</span></span><br><span class="line">     *v2 = temp;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a = <span class="number">10</span>, b = <span class="number">9</span>;</span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"更换前：a=%d, b=%d\n"</span>, a, b);</span><br><span class="line"></span><br><span class="line">     swap(&amp;a, &amp;b);</span><br><span class="line"></span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"更换后：a=%d, b=%d"</span>, a, b);</span><br><span class="line">     <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
 <p>先看看输出结果：</p>
 <p><img src="/Objective-C学习整理/pointer/pointer0.png" alt="pointer0"><br>变量a和b的值终于换过来了。</p>
 <font color="red">解释一下：(在16位编译器环境下，一个指针变量占用2个字节)</font>
@@ -757,35 +656,7 @@ p = &b;
 </blockquote>
 <p><img src="/Objective-C学习整理/pointer/pointer13.png" alt="pointer13"><br>相信你已经感受到指针的强大了，如果没有指针，在一个函数的内部根本改变不了外部的实参。</p>
 <h3 id="2-例子2"><a href="#2-例子2" class="headerlink" title="2.例子2"></a>2.例子2</h3><p>接下来再举一个指针的实用例子。默认情况下，一个函数只能有一个返回值，有了指针，我们可以实现函数有”多返回值”。</p>
-<p>现在有个要求：写一个函数sumAndMinus，可以同时计算2个整型的和与差，函数执行完毕后，返回和与差(注意了，这里要返回2个值)</p>
-<pre class="line-numbers language-C"><code class="language-C">// 计算2个整型的和与差
-int sumAndMinus(int v1, int v2, int *minus) {
-    // 计算差，并赋值给指针指向的变量
-    *minus = v1 - v2;
-
-    // 计算和，并返回和
-    return v1 + v2;
-}
-
-int main()
-{
-    // 定义2个int型变量
-    int a = 6, b = 2;
-
-    // 定义2个变量来分别接收和与差
-    int sum, minus;
-
-    // 调用函数
-    sum = sumAndMinus(a, b, &minus);
-
-    // 打印和
-    printf("%d+%d=%d\n", a, b, sum);
-
-    // 打印差
-    printf("%d-%d=%d\n", a, b, minus);
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>现在有个要求：写一个函数sumAndMinus，可以同时计算2个整型的和与差，函数执行完毕后，返回和与差(注意了，这里要返回2个值)<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 计算2个整型的和与差</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sumAndMinus</span><span class="params">(<span class="keyword">int</span> v1, <span class="keyword">int</span> v2, <span class="keyword">int</span> *minus)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 计算差，并赋值给指针指向的变量</span></span><br><span class="line">    *minus = v1 - v2;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算和，并返回和</span></span><br><span class="line">    <span class="keyword">return</span> v1 + v2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 定义2个int型变量</span></span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">6</span>, b = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义2个变量来分别接收和与差</span></span><br><span class="line">    <span class="keyword">int</span> sum, minus;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用函数</span></span><br><span class="line">    sum = sumAndMinus(a, b, &amp;minus);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打印和</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d+%d=%d\n"</span>, a, b, sum);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打印差</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d-%d=%d\n"</span>, a, b, minus);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>输出结果：<br><img src="/Objective-C学习整理/pointer/pointer16.png" alt="pointer16"><br>和与差都由同一个函数计算并返回出来。和是函数的直接返回值，差是通过函数的第3个指针参数间接返回。因此有了指针，我们可以让函数有”无限个”返回值。</p>
 <hr>
 
@@ -796,11 +667,10 @@ int main()
 <p>其实，我觉得这个问题跟”数组为什么要分类型”是一样的。</p>
 <blockquote>
 <ul>
-<li>看下面的代码，利用指针p读取变量c的值<br><code>`</code>C<br>int i = 2;<br>char c = 1;</li>
+<li>看下面的代码，利用指针p读取变量c的值<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">char</span> c = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 定义一个指向char类型的指针</span></span><br><span class="line"> <span class="keyword">char</span> *p = &amp;c;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 取出</span></span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">"%d"</span>, *p);</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </blockquote>
-<p> // 定义一个指向char类型的指针<br> char *p = &c;</p>
-<p> // 取出<br> printf(“%d”, *p);<br><code>`</code></p>
 <p>这个输出结果应该难不倒大家：<strong> 1 </strong>，是可以成功读取的。</p>
 <ul>
 <li>如果我改一下第5行的代码，用一个本应该指向int类型变量的指针p，指向char类型的变量c</li>
@@ -1105,7 +975,7 @@ int main()
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">68k</span>
+    <span title="站点总字数">75k</span>
   
 
   
@@ -1116,7 +986,7 @@ int main()
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">1:02</span>
+    <span title="站点阅读时长">1:08</span>
   
 </div>
 
