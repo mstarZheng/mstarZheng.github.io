@@ -131,7 +131,7 @@
 <meta property="og:description" content="本文源出于—简书波同学 回顾一下执行上下文声明周期 在执行上下文的创建阶段，会分别生成变量对象，建立作用域链，确定this指向。其中变量对象与作用域链我们都已经仔细总结过了，而这里的关键，就是确定this指向。 在这里，我们需要得出一个非常重要一定要牢记于心的结论， this的指向，是在函数被调用的时候确定的。也就是执行上下文被创建时确定的 。因此我们可以很容易就能理解到，一个函数中的this指向">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/前端面试总结/this/this1.png">
-<meta property="og:updated_time" content="2017-08-28T03:01:05.000Z">
+<meta property="og:updated_time" content="2019-01-27T07:53:17.428Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="全方位解读this">
 <meta name="twitter:description" content="本文源出于—简书波同学 回顾一下执行上下文声明周期 在执行上下文的创建阶段，会分别生成变量对象，建立作用域链，确定this指向。其中变量对象与作用域链我们都已经仔细总结过了，而这里的关键，就是确定this指向。 在这里，我们需要得出一个非常重要一定要牢记于心的结论， this的指向，是在函数被调用的时候确定的。也就是执行上下文被创建时确定的 。因此我们可以很容易就能理解到，一个函数中的this指向">
@@ -567,7 +567,7 @@
 <p><hr><br>回顾一下执行上下文声明周期<br><img src="/前端面试总结/this/this1.png" alt="this1"></p>
 <p>在执行上下文的创建阶段，会分别生成变量对象，建立作用域链，确定this指向。其中变量对象与作用域链我们都已经仔细总结过了，而这里的关键，就是确定this指向。</p>
 <p>在这里，我们需要得出一个非常重要一定要牢记于心的结论，<strong> this的指向，是在函数被调用的时候确定的。也就是执行上下文被创建时确定的 </strong>。因此我们可以很容易就能理解到，一个函数中的this指向，可以是非常灵活的。比如下面的例子中，同一个函数由于调用方式的不同，this指向了不一样的对象。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">var a = 10;
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">var a = 10;
 var obj = {
     a: 20
 }
@@ -580,7 +580,7 @@ fn(); // 10
 fn.call(obj); // 20
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>除此之外，<strong> 在函数执行过程中，this一旦被确定，就不可更改了 </strong>。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">var a = 10;
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">var a = 10;
 var obj = {
     a: 20
 }
@@ -596,7 +596,7 @@ fn();
 
 
 <h2 id="一、全局对象中的this"><a href="#一、全局对象中的this" class="headerlink" title="一、全局对象中的this"></a>一、全局对象中的this</h2><p>关于全局对象的this，我之前在总结变量对象的时候提到过，它是一个比较特殊的存在。全局环境中的this，指向它本身。因此，这也相对简单，没有那么多复杂的情况需要考虑。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">// 通过this绑定到全局对象
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">// 通过this绑定到全局对象
 this.a2 = 20;
 
 // 通过声明绑定到变量对象，但在全局环境中，变量对象就是它自身
@@ -613,14 +613,14 @@ console.log(a3);
 <hr>
 
 <h2 id="二、函数中的this"><a href="#二、函数中的this" class="headerlink" title="二、函数中的this"></a>二、函数中的this</h2><p>在总结函数中this指向之前，我想我们有必要通过一些奇怪的例子，来感受一下函数中this的捉摸不定。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">// demo01
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">// demo01
 var a = 20;
 function fn() {
     console.log(this.a);
 }
 fn();
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">// demo02
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">// demo02
 var a = 20;
 function fn() {
     function foo() {
@@ -630,7 +630,7 @@ function fn() {
 }
 fn();
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">// demo03
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">// demo03
 var a = 20;
 var obj = {
     a: 10,
@@ -647,7 +647,7 @@ console.log(obj.fn());
 <p>分析之前，我们先直接了当抛出结论。</p>
 <p>在一个函数上下文中，this由调用者提供，由调用函数的方式来决定。<strong> 如果调用者函数，被某一个对象所拥有，那么该函数在调用时，内部的this指向该对象。如果函数独立调用，那么该函数内部的this，则指向undefined </strong>。但是在非严格模式中，当this指向undefined时，它会被自动指向全局对象。</p>
 <p>从结论中我们可以看出，想要准确确定this指向，找到函数的调用者以及区分他是否是独立调用就变得十分关键。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">// 为了能够准确判断，我们在函数内部使用严格模式，因为非严格模式会自动指向全局
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">// 为了能够准确判断，我们在函数内部使用严格模式，因为非严格模式会自动指向全局
 function fn() {
     'use strict';
     console.log(this);
@@ -660,7 +660,7 @@ window.fn();  // fn是调用者，被window所拥有
 <p>那么掌握了这个规则，现在回过头去看看上面的三个例子，通过添加/去除严格模式，那么你就会发现，原来this已经变得不那么虚无缥缈，已经有迹可循了。</p>
 <p>但是我们需要特别注意的是demo03。在demo03中，对象obj中的c属性使用this.a + 20来计算，而他的调用者obj.c并非是一个函数。因此他不适用于上面的规则，我们要对这种方式单独下一个结论。</p>
 <p><strong> 当obj在全局声明时，无论obj.c在什么地方调用，这里的this都指向全局对象，而当obj在函数环境中声明时，这个this指向undefined，在非严格模式下，会自动转向全局对象 </strong>。可运行下面的例子查看区别。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">'use strict';
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">'use strict';
 var a = 20;
 function foo () {
     var a = 1;
@@ -681,7 +681,7 @@ console.log(foo()); // 运行会报错
 <li>上面多次提到的严格模式，需要大家认真对待，因为在实际开发中，现在基本已经全部采用严格模式了，而最新的ES6，也是默认支持严格模式。</li>
 </ul>
 <p>再来看一些容易理解错误的例子，加深一下对调用者与是否独立运行的理解。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">var a = 20;
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">var a = 20;
 var foo = {
     a: 10,
     getA: function () {
@@ -695,7 +695,7 @@ console.log(test());  // 20
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>foo.getA()中，getA是调用者，他不是独立调用，被对象foo所拥有，因此它的this指向了foo。而test()作为调用者，尽管他与foo.getA的引用相同，但是它是独立调用的，因此this指向undefined，在非严格模式，自动转向全局window。</p>
 <p>稍微修改一下代码，大家自行理解。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">var a = 20;
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">var a = 20;
 function getA() {
     return this.a;
 }
@@ -706,7 +706,7 @@ var foo = {
 console.log(foo.getA());  // 10
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>灵机一动，再来一个。如下例子。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">function foo() {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">function foo() {
     console.log(this.a)
 }
 
@@ -725,7 +725,7 @@ active(obj.getA);
 <p><hr></p>
 <h2 id="三、使用call，apply显示指定this"><a href="#三、使用call，apply显示指定this" class="headerlink" title="三、使用call，apply显示指定this"></a>三、使用call，apply显示指定this</h2><p>JavaScript内部提供了一种机制，让我们可以自行手动设置this的指向。它们就是call与apply。所有的函数都具有着两个方法。它们除了参数略有不同，其功能完全一样。它们的第一个参数都为this将要指向的对象。</p>
 <p>如下例子所示。fn并非属于对象obj的方法，但是通过call，我们将fn内部的this绑定为obj，因此就可以使用this.a访问obj的a属性了。这就是call/apply的用法。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">function fn() {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">function fn() {
     console.log(this.a);
 }
 var obj = {
@@ -735,7 +735,7 @@ var obj = {
 fn.call(obj);
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>而call与applay后面的参数，都是向将要执行的函数传递参数。其中call以一个一个的形式传递，apply以数组的形式传递。这是他们唯一的不同。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">function fn(num1, num2) {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">function fn(num1, num2) {
     console.log(this.a + num1 + num2);
 }
 var obj = {
@@ -749,7 +749,7 @@ fn.apply(obj, [20, 10]); // 50
 <ul>
 <li>将类数组对象转换为数组</li>
 </ul>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">function exam(a, b, c, d, e) {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">function exam(a, b, c, d, e) {
 
     // 先看看函数的自带属性 arguments 什么是样子的
     console.log(arguments);
@@ -772,7 +772,7 @@ exam(2, 8, 9, 10, 3);
 <ul>
 <li>根据自己的需要灵活修改this指向</li>
 </ul>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">var foo = {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">var foo = {
     name: 'joker',
     showName: function() {
       console.log(this.name);
@@ -786,7 +786,7 @@ foo.showName.call(bar);
 <ul>
 <li>实现继承</li>
 </ul>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">// 定义父级的构造函数
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">// 定义父级的构造函数
 var Person = function(name, age) {
     this.name = name;
     this.age  = age;
@@ -811,7 +811,7 @@ new Student('xiaom', 12, '150cm').message();
 // name:xiaom, age:12, high:150cm, gender:man;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>简单给有面向对象基础的朋友解释一下。在Student的构造函数中，借助call方法，将父级的构造函数执行了一次，相当于将Person中的代码，在Sudent中复制了一份，其中的this指向为从Student中new出来的实例对象。call方法保证了this的指向正确，因此就相当于实现了基层。Student的构造函数等同于下。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">var Student = function(name, age, high) {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">var Student = function(name, age, high) {
     this.name = name;
     this.age  = age;
     this.gender = ['man', 'woman'];
@@ -823,7 +823,7 @@ new Student('xiaom', 12, '150cm').message();
 <li>在向其他执行上下文的传递中，确保this的指向保持不变</li>
 </ul>
 <p>如下面的例子中，我们期待的是getA被obj调用时，this指向obj，但是由于匿名函数的存在导致了this指向的丢失，在这个匿名函数中this指向了全局，因此我们需要想一些办法找回正确的this指向。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">var obj = {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">var obj = {
     a: 20,
     getA: function() {
         setTimeout(function() {
@@ -835,7 +835,7 @@ new Student('xiaom', 12, '150cm').message();
 obj.getA();
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>常规的解决办法很简单，就是使用一个变量，将this的引用保存起来。我们常常会用到这方法，但是我们也要借助上面讲到过的知识，来判断this是否在传递中被修改了，如果没有被修改，就没有必要这样使用了。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">var obj = {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">var obj = {
     a: 20,
     getA: function() {
         var self = this;
@@ -846,7 +846,7 @@ obj.getA();
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>另外就是借助闭包与apply方法，封装一个bind方法。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">function bind(fn, obj) {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">function bind(fn, obj) {
     return function() {
         return fn.apply(obj, arguments);
     }
@@ -864,7 +864,7 @@ var obj = {
 obj.getA();
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>当然，也可以使用ES5中已经自带的bind方法。它与我上面封装的bind方法是一样的效果。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">var obj = {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">var obj = {
     a: 20,
     getA: function() {
         setTimeout(function() {
@@ -877,7 +877,7 @@ obj.getA();
 
 <h2 id="四、构造函数与原型方法上的this"><a href="#四、构造函数与原型方法上的this" class="headerlink" title="四、构造函数与原型方法上的this"></a>四、构造函数与原型方法上的this</h2><p>在封装对象的时候，我们几乎都会用到this，但是，只有少数人搞明白了在这个过程中的this指向，就算我们理解了原型，也不一定理解了this。所以这一部分，我认为将会为这篇文章最重要最核心的部分。理解了这里，将会对你学习JS面向对象产生巨大的帮助。</p>
 <p>结合下面的例子，我在例子抛出几个问题大家思考一下。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">function Person(name, age) {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">function Person(name, age) {
 
     // 这里的this指向了谁?
     this.name = name;
