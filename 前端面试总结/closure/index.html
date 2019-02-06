@@ -505,27 +505,27 @@
 <p>我们知道函数在调用激活时，会开始创建对应的执行上下文，在执行上下文生成的过程中，变量对象，作用域链，以及this的值会分别被确定。之前们详细说明了变量对象，而这里，我们将详细说明作用域链。</p>
 <p><strong> 作用域链，是由当前环境与上层环境的一系列变量对象组成，它保证了当前执行环境对符合访问权限的变量和函数的有序访问。 </strong></p>
 <p>为了帮助大家理解作用域链，我我们先结合一个例子，以及相应的图示来说明。</p>
-<pre class=" language-javaScript"><code class="language-javaScript">var a = 20;
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
 
-function test() {
-    var b = a + 10;
+<span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> b <span class="token operator">=</span> a <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">;</span>
 
-    function innerTest() {
-        var c = 10;
-        return b + c;
-    }
+    <span class="token keyword">function</span> <span class="token function">innerTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> b <span class="token operator">+</span> c<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    return innerTest();
-}
+    <span class="token keyword">return</span> <span class="token function">innerTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-test();
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>在上面的例子中，全局，函数test，函数innerTest的执行上下文先后创建。我们设定他们的变量对象分别为VO(global)，VO(test), VO(innerTest)。而innerTest的作用域链，则同时包含了这三个变量对象，所以innerTest的执行上下文可如下表示。</p>
-<pre class=" language-javaScript"><code class="language-javaScript">innerTestEC = {
-    VO: {...},  // 变量对象
-    scopeChain: [VO(innerTest), VO(test), VO(global)], // 作用域链
-    this: {}
-}
+<pre class=" language-javascript"><code class="language-javascript">innerTestEC <span class="token operator">=</span> <span class="token punctuation">{</span>
+    VO<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// 变量对象</span>
+    scopeChain<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token function">VO</span><span class="token punctuation">(</span>innerTest<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">VO</span><span class="token punctuation">(</span>test<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">VO</span><span class="token punctuation">(</span>global<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 作用域链</span>
+    <span class="token keyword">this</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>是的，你没有看错，我们可以直接用一个数组来表示作用域链，数组的第一项scopeChain[0]为作用域链的最前端，而数组的最后一项，为作用域链的最末端，所有的最末端都为全局变量对象。</p>
 <p>很多人会误解为当前作用域与上层作用域为包含关系，但其实并不是。以最前端为起点，最末端为终点的单方向通道我认为是更加贴切的形容。如图。</p>
@@ -548,21 +548,21 @@ test();
 <p>JavaScript的垃圾回收机制。JavaScript拥有自动的垃圾回收机制，关于垃圾回收机制，有一个重要的行为，那就是，当一个值，在内存中失去引用时，垃圾回收机制会根据特殊的算法找到它，并将其回收，释放内存。</p>
 <p>而我们知道，函数的执行上下文，在执行完毕之后，生命周期结束，那么该函数的执行上下文就会失去引用。其占用的内存空间很快就会被垃圾回收器释放。可是闭包的存在，会阻止这一过程。</p>
 <p>先来一个简单的例子。</p>
-<pre class=" language-javaScript"><code class="language-javaScript">var fn = null;
-function foo() {
-    var a = 2;
-    function innnerFoo() {
-        console.log(a);
-    }
-    fn = innnerFoo; // 将 innnerFoo的引用，赋值给全局变量中的fn
-}
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> fn <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">innnerFoo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    fn <span class="token operator">=</span> innnerFoo<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 将 innnerFoo的引用，赋值给全局变量中的fn</span>
+<span class="token punctuation">}</span>
 
-function bar() {
-    fn(); // 此处的保留的innerFoo的引用
-}
+<span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 此处的保留的innerFoo的引用</span>
+<span class="token punctuation">}</span>
 
-foo();
-bar(); // 2
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 2</span>
 </code></pre>
 <p>在上面的例子中，foo()执行完毕之后，按照常理，其执行环境生命周期会结束，所占内存被垃圾收集器释放。但是通过fn = innerFoo，函数innerFoo的引用被保留了下来，复制给了全局变量fn。这个行为，导致了foo的变量对象，也被保留了下来。于是，函数fn在函数bar内部执行时，依然可以访问这个被保留下来的变量对象。所以此刻仍然能够访问到变量a的值。</p>
 <p>这样，我们就可以称foo为闭包。</p>
@@ -574,31 +574,31 @@ bar(); // 2
 <p><font color="red">所以，通过闭包，我们可以在其他的执行上下文中，访问到函数的内部变量。</font>比如在上面的例子中，我们在函数bar的执行环境中访问到了函数foo的a变量。个人认为，从应用层面，这是闭包最重要的特性。利用这个特性，我们可以实现很多有意思的东西。</p>
 <p>不过读者老爷们需要注意的是，虽然例子中的闭包被保存在了全局变量中，但是闭包的作用域链并不会发生任何改变。在闭包中，能访问到的变量，仍然是作用域链上能够查询到的变量。</p>
 <p>对上面的例子稍作修改，如果我们在函数bar中声明一个变量c，并在闭包fn中试图访问该变量，运行结果会抛出错误。</p>
-<pre class=" language-javaScript"><code class="language-javaScript">var fn = null;
-function foo() {
-    var a = 2;
-    function innnerFoo() {
-        console.log(c); // 在这里，试图访问函数bar中的c变量，会抛出错误
-        console.log(a);
-    }
-    fn = innnerFoo; // 将 innnerFoo的引用，赋值给全局变量中的fn
-}
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> fn <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">innnerFoo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 在这里，试图访问函数bar中的c变量，会抛出错误</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    fn <span class="token operator">=</span> innnerFoo<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 将 innnerFoo的引用，赋值给全局变量中的fn</span>
+<span class="token punctuation">}</span>
 
-function bar() {
-    var c = 100;
-    fn(); // 此处的保留的innerFoo的引用
-}
+<span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 此处的保留的innerFoo的引用</span>
+<span class="token punctuation">}</span>
 
-foo();
-bar();
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="闭包的应用场景"><a href="#闭包的应用场景" class="headerlink" title="闭包的应用场景"></a>闭包的应用场景</h4><p>接下来，我们来总结下，闭包的常用场景。</p>
 <p>延迟函数setTimeout<br>我们知道setTimeout的第一个参数是一个函数，第二个参数则是延迟的时间。在下面例子中，</p>
-<pre class=" language-javaScript"><code class="language-javaScript">function fn() {
-    console.log('this is test.')
-}
-var timer =  setTimeout(fn, 1000);
-console.log(timer);
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'this is test.'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> timer <span class="token operator">=</span>  <span class="token function">setTimeout</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>执行上面的代码，变量timer的值，会立即输出出来，表示setTimeout这个函数本身已经执行完毕了。但是一秒钟之后，fn才会被执行。这是为什么？</p>
 <p>按道理来说，既然fn被作为参数传入了setTimeout中，那么fn将会被保存在setTimeout变量对象中，setTimeout执行完毕之后，它的变量对象也就不存在了。可是事实上并不是这样。至少在这一秒钟的事件里，它仍然是存在的。这正是因为闭包。</p>
@@ -606,7 +606,7 @@ console.log(timer);
 <ul>
 <li><p><strong>柯里化</strong><br>在函数式编程中，利用闭包能够实现很多炫酷的功能，柯里化算是其中一种。关于柯里化，我会在以后详解函数式编程的时候仔细总结。</p>
 </li>
-<li><p><strong>模块</strong><br>在我看来，模块是闭包最强大的一个应用场景。如果你是初学者，对于模块的了解可以暂时不用放在心上，因为理解模块需要更多的基础知识。但是如果你已经有了很多JavaScript的使用经验，在彻底了解了闭包之后，不妨借助本文介绍的作用域链与闭包的思路，重新理一理关于模块的知识。这对于我们理解各种各样的设计模式具有莫大的帮助。<br><code>`</code>javaScript<br>(function () {<br>  var a = 10;<br>  var b = 20;</p>
+<li><p><strong>模块</strong><br>在我看来，模块是闭包最强大的一个应用场景。如果你是初学者，对于模块的了解可以暂时不用放在心上，因为理解模块需要更多的基础知识。但是如果你已经有了很多JavaScript的使用经验，在彻底了解了闭包之后，不妨借助本文介绍的作用域链与闭包的思路，重新理一理关于模块的知识。这对于我们理解各种各样的设计模式具有莫大的帮助。<br><code>`</code>javascript<br>(function () {<br>  var a = 10;<br>  var b = 20;</p>
 <p>  function add(num1, num2) {</p>
 <pre><code>  var num1 = !!num1 ? num1 : a;
   var num2 = !!num2 ? num2 : b;
@@ -624,7 +624,7 @@ console.log(timer);
 为了验证自己有没有搞懂作用域链与闭包，这里留下一个经典的思考题，常常也会在面试中被问到。
 
 利用闭包，修改下面的代码，让循环输出的结果依次为1， 2， 3， 4， 5
-```javaScript
+```javascript
 for (var i=1; i&lt;=5; i++) {
     setTimeout( function timer() {
         console.log(i);

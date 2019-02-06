@@ -523,41 +523,41 @@
 <p>直接从待排序数组中选择一个最小（或最大）数字，放入新数组中。</p>
 </li>
 </ul>
-<pre class=" language-javaScript"><code class="language-javaScript">[1] 5 6 3  8 7 2 4 
-[1,2] 5 6 3  8 7  4 
-[1,2,3] 5 6  8 7 2 4 
-[1,2,3,4] 5 6 8 7
-[1,2,3,4,5] 6  8 7 
-[1,2,3,4,5,6] 8 7  
-[1,2,3,4,5,6,7] 8  
-[1,2,3,4,5,6,7,8] 
+<pre class=" language-javascript"><code class="language-javascript">    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">5</span> <span class="token number">6</span> <span class="token number">3</span>  <span class="token number">8</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span> 
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token number">5</span> <span class="token number">6</span> <span class="token number">3</span>  <span class="token number">8</span> <span class="token number">7</span>  <span class="token number">4</span> 
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token number">5</span> <span class="token number">6</span>  <span class="token number">8</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span> 
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token number">5</span> <span class="token number">6</span> <span class="token number">8</span> <span class="token number">7</span>
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token number">6</span>  <span class="token number">8</span> <span class="token number">7</span> 
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token number">8</span> <span class="token number">7</span>  
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">]</span> <span class="token number">8</span>  
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">]</span> 
 </code></pre>
 <ul>
 <li><p>编程思路：</p>
 <p>先假设第一个元素为最小的，然后通过循环找出最小元素，然后同第一个元素交换，接着假设第二个元素，重复上述操作即可。</p>
-<pre class=" language-javaScript"><code class="language-javaScript">function selectSort(array) {
-  var length = array.length,
-      i,
-      j,
-      minIndex,
-      minValue,
-      temp;
-  for (i = 0; i < length - 1; i++) {
-    minIndex = i;
-    minValue = array[minIndex];
-    for (j = i + 1; j < length; j++) {//通过循环选出最小的
-      if (array[j] < minValue) {
-        minIndex = j;
-        minValue = array[minIndex];
-      }
-    }
-    // 交换位置
-    temp = array[i];
-    array[i] = minValue;
-    array[minIndex] = temp;
-  }
-  return array
-}
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">selectSort</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> length <span class="token operator">=</span> array<span class="token punctuation">.</span>length<span class="token punctuation">,</span>
+      i<span class="token punctuation">,</span>
+      j<span class="token punctuation">,</span>
+      minIndex<span class="token punctuation">,</span>
+      minValue<span class="token punctuation">,</span>
+      temp<span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    minIndex <span class="token operator">=</span> i<span class="token punctuation">;</span>
+    minValue <span class="token operator">=</span> array<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//通过循环选出最小的</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>array<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> minValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        minIndex <span class="token operator">=</span> j<span class="token punctuation">;</span>
+        minValue <span class="token operator">=</span> array<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 交换位置</span>
+    temp <span class="token operator">=</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    array<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> minValue<span class="token punctuation">;</span>
+    array<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> array
+<span class="token punctuation">}</span>
 </code></pre>
 <p>时间复杂度O(n^2)</p>
 </li>
@@ -703,42 +703,43 @@ storeIndex pivot
 <li>针对所有的元素重复以上的步骤，除了最后一个。 </li>
 <li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
 </ol>
-<pre class=" language-javaScript"><code class="language-javaScript">5 6 3 1 8 7 2 4
+<pre class=" language-javascript"><code class="language-javascript"><span class="token number">5</span> <span class="token number">6</span> <span class="token number">3</span> <span class="token number">1</span> <span class="token number">8</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span>
 
-[5 6] 3 1 8 7 2 4 //比较5和6
+<span class="token punctuation">[</span><span class="token number">5</span> <span class="token number">6</span><span class="token punctuation">]</span> <span class="token number">3</span> <span class="token number">1</span> <span class="token number">8</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span> <span class="token comment" spellcheck="true">//比较5和6</span>
 
-5 [6 3] 1 8 7 2 4
+<span class="token number">5</span> <span class="token punctuation">[</span><span class="token number">6</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token number">1</span> <span class="token number">8</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span>
 
-5 3 [6 1] 8 7 2 4
+<span class="token number">5</span> <span class="token number">3</span> <span class="token punctuation">[</span><span class="token number">6</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">8</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span>
 
-5 3 1 [6 8] 7 2 4
+<span class="token number">5</span> <span class="token number">3</span> <span class="token number">1</span> <span class="token punctuation">[</span><span class="token number">6</span> <span class="token number">8</span><span class="token punctuation">]</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span>
 
-5 3 1 6 [8 7] 2 4
+<span class="token number">5</span> <span class="token number">3</span> <span class="token number">1</span> <span class="token number">6</span> <span class="token punctuation">[</span><span class="token number">8</span> <span class="token number">7</span><span class="token punctuation">]</span> <span class="token number">2</span> <span class="token number">4</span>
 
-5 3 1 6 7 [8 2] 4
+<span class="token number">5</span> <span class="token number">3</span> <span class="token number">1</span> <span class="token number">6</span> <span class="token number">7</span> <span class="token punctuation">[</span><span class="token number">8</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token number">4</span>
 
-5 3 1 6 7 2 [8 4]
+<span class="token number">5</span> <span class="token number">3</span> <span class="token number">1</span> <span class="token number">6</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token punctuation">[</span><span class="token number">8</span> <span class="token number">4</span><span class="token punctuation">]</span>
 
-5 3 1 6 7 2 4 8  // 这样最后一个元素已经在正确位置，所以下一次开始时候就不需要再比较最后一个
+<span class="token number">5</span> <span class="token number">3</span> <span class="token number">1</span> <span class="token number">6</span> <span class="token number">7</span> <span class="token number">2</span> <span class="token number">4</span> <span class="token number">8</span>  <span class="token comment" spellcheck="true">// 这样最后一个元素已经在正确位置，所以下一次开始时候就不需要再比较最后一个</span>
 </code></pre>
 </li>
 <li><p>编程思路：</p>
 <ul>
 <li>外循环控制需要比较的元素，比如第一次排序后，最后一个元素就不需要比较了，内循环则负责两两元素比较，将元素放到正确位置上</li>
 </ul>
-<pre class=" language-javaScript"><code class="language-javaScript">function bubbleSort(arr){
-    var len=arr.length;
-    for(var i=len-1;i>0;i--){
-        for(var j=0;j<i;j++){ if(arr[j]="">arr[j+1]){
-                var tmp = arr[j];
-                arr[j]=arr[j+1];
-                arr[j+1]=tmp
-            }
-        }
-    }
-    return arr;
-}
-</i;j++){></code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">bubbleSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">var</span> len<span class="token operator">=</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span>len<span class="token number">-1</span><span class="token punctuation">;</span>i<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>i<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">></span>arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">var</span> tmp <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>tmp
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 </li>
 </ul>
 <p>时间复杂度O(n^2)</p>
