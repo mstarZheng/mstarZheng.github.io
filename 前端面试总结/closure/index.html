@@ -202,15 +202,19 @@
     </ul>
 
     <div class="social-link">
+    <a href="https://github.com/mstarZheng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+
+    <a href="mailto:mstarzheng@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=976596024" class="tooltipped" data-tooltip="QQ联系我: 976596024" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
@@ -279,6 +283,19 @@
 </header>
 
 
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -298,10 +315,101 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -341,6 +449,20 @@
                     2017-03-26
                 </div>
 
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        2.8k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        9 分
+                    </div>
+                    
                 
 				
 				
@@ -383,7 +505,7 @@
 <p>我们知道函数在调用激活时，会开始创建对应的执行上下文，在执行上下文生成的过程中，变量对象，作用域链，以及this的值会分别被确定。之前们详细说明了变量对象，而这里，我们将详细说明作用域链。</p>
 <p><strong> 作用域链，是由当前环境与上层环境的一系列变量对象组成，它保证了当前执行环境对符合访问权限的变量和函数的有序访问。 </strong></p>
 <p>为了帮助大家理解作用域链，我我们先结合一个例子，以及相应的图示来说明。</p>
-<pre class=" language-JavaScript"><code class="language-JavaScript">var a = 20;
+<pre class=" language-javaScript"><code class="language-javaScript">var a = 20;
 
 function test() {
     var b = a + 10;
@@ -399,7 +521,7 @@ function test() {
 test();
 </code></pre>
 <p>在上面的例子中，全局，函数test，函数innerTest的执行上下文先后创建。我们设定他们的变量对象分别为VO(global)，VO(test), VO(innerTest)。而innerTest的作用域链，则同时包含了这三个变量对象，所以innerTest的执行上下文可如下表示。</p>
-<pre class=" language-JavaScript"><code class="language-JavaScript">innerTestEC = {
+<pre class=" language-javaScript"><code class="language-javaScript">innerTestEC = {
     VO: {...},  // 变量对象
     scopeChain: [VO(innerTest), VO(test), VO(global)], // 作用域链
     this: {}
@@ -426,7 +548,7 @@ test();
 <p>JavaScript的垃圾回收机制。JavaScript拥有自动的垃圾回收机制，关于垃圾回收机制，有一个重要的行为，那就是，当一个值，在内存中失去引用时，垃圾回收机制会根据特殊的算法找到它，并将其回收，释放内存。</p>
 <p>而我们知道，函数的执行上下文，在执行完毕之后，生命周期结束，那么该函数的执行上下文就会失去引用。其占用的内存空间很快就会被垃圾回收器释放。可是闭包的存在，会阻止这一过程。</p>
 <p>先来一个简单的例子。</p>
-<pre class=" language-JavaScript"><code class="language-JavaScript">var fn = null;
+<pre class=" language-javaScript"><code class="language-javaScript">var fn = null;
 function foo() {
     var a = 2;
     function innnerFoo() {
@@ -452,7 +574,7 @@ bar(); // 2
 <p><font color="red">所以，通过闭包，我们可以在其他的执行上下文中，访问到函数的内部变量。</font>比如在上面的例子中，我们在函数bar的执行环境中访问到了函数foo的a变量。个人认为，从应用层面，这是闭包最重要的特性。利用这个特性，我们可以实现很多有意思的东西。</p>
 <p>不过读者老爷们需要注意的是，虽然例子中的闭包被保存在了全局变量中，但是闭包的作用域链并不会发生任何改变。在闭包中，能访问到的变量，仍然是作用域链上能够查询到的变量。</p>
 <p>对上面的例子稍作修改，如果我们在函数bar中声明一个变量c，并在闭包fn中试图访问该变量，运行结果会抛出错误。</p>
-<pre class=" language-JavaScript"><code class="language-JavaScript">var fn = null;
+<pre class=" language-javaScript"><code class="language-javaScript">var fn = null;
 function foo() {
     var a = 2;
     function innnerFoo() {
@@ -472,7 +594,7 @@ bar();
 </code></pre>
 <h4 id="闭包的应用场景"><a href="#闭包的应用场景" class="headerlink" title="闭包的应用场景"></a>闭包的应用场景</h4><p>接下来，我们来总结下，闭包的常用场景。</p>
 <p>延迟函数setTimeout<br>我们知道setTimeout的第一个参数是一个函数，第二个参数则是延迟的时间。在下面例子中，</p>
-<pre class=" language-JavaScript"><code class="language-JavaScript">function fn() {
+<pre class=" language-javaScript"><code class="language-javaScript">function fn() {
     console.log('this is test.')
 }
 var timer =  setTimeout(fn, 1000);
@@ -484,7 +606,7 @@ console.log(timer);
 <ul>
 <li><p><strong>柯里化</strong><br>在函数式编程中，利用闭包能够实现很多炫酷的功能，柯里化算是其中一种。关于柯里化，我会在以后详解函数式编程的时候仔细总结。</p>
 </li>
-<li><p><strong>模块</strong><br>在我看来，模块是闭包最强大的一个应用场景。如果你是初学者，对于模块的了解可以暂时不用放在心上，因为理解模块需要更多的基础知识。但是如果你已经有了很多JavaScript的使用经验，在彻底了解了闭包之后，不妨借助本文介绍的作用域链与闭包的思路，重新理一理关于模块的知识。这对于我们理解各种各样的设计模式具有莫大的帮助。<br><code>`</code>JavaScript<br>(function () {<br>  var a = 10;<br>  var b = 20;</p>
+<li><p><strong>模块</strong><br>在我看来，模块是闭包最强大的一个应用场景。如果你是初学者，对于模块的了解可以暂时不用放在心上，因为理解模块需要更多的基础知识。但是如果你已经有了很多JavaScript的使用经验，在彻底了解了闭包之后，不妨借助本文介绍的作用域链与闭包的思路，重新理一理关于模块的知识。这对于我们理解各种各样的设计模式具有莫大的帮助。<br><code>`</code>javaScript<br>(function () {<br>  var a = 10;<br>  var b = 20;</p>
 <p>  function add(num1, num2) {</p>
 <pre><code>  var num1 = !!num1 ? num1 : a;
   var num2 = !!num2 ? num2 : b;
@@ -502,7 +624,7 @@ console.log(timer);
 为了验证自己有没有搞懂作用域链与闭包，这里留下一个经典的思考题，常常也会在面试中被问到。
 
 利用闭包，修改下面的代码，让循环输出的结果依次为1， 2， 3， 4， 5
-```JavaScript
+```javaScript
 for (var i=1; i&lt;=5; i++) {
     setTimeout( function timer() {
         console.log(i);
@@ -766,6 +888,88 @@ for (var i=1; i&lt;=5; i++) {
 </div>
 
 
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: mstar's Blog<br />'
+            + '作者: mstar zheng<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
     
 
 </main>
@@ -778,6 +982,9 @@ for (var i=1; i&lt;=5; i++) {
             <a href="https://hexo.io/" target="_blank">Hexo</a> 的
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
 
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">32k</span>
             
 
             
@@ -798,15 +1005,19 @@ for (var i=1; i&lt;=5; i++) {
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/mstarZheng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+
+    <a href="mailto:mstarzheng@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=976596024" class="tooltipped" data-tooltip="QQ联系我: 976596024" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 

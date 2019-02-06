@@ -194,15 +194,19 @@
     </ul>
 
     <div class="social-link">
+    <a href="https://github.com/mstarZheng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+
+    <a href="mailto:mstarzheng@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=976596024" class="tooltipped" data-tooltip="QQ联系我: 976596024" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
@@ -271,6 +275,19 @@
 </header>
 
 
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -290,10 +307,101 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -329,6 +437,20 @@
                     2016-11-29
                 </div>
 
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        886
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        3 分
+                    </div>
+                    
                 
 				
 				
@@ -384,7 +506,7 @@ errorClass<span class="token punctuation">:</span> <span class="token string">'t
 <li><code>v-else</code>紧跟在 <code>v-if</code>或者 <code>v-show</code>后面才用意义</li>
 </ul>
 <h2 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h2><ol>
-<li>基本用法<pre class=" language-JavaScript"><code class="language-JavaScript"><ul id="example-1">
+<li>基本用法<pre class=" language-javaScript"><code class="language-javaScript"><ul id="example-1">
 <li v-for="item in items">
  {{ item.message }}
 </li>
@@ -400,10 +522,10 @@ data: {
 })
 </code></pre>
 </li>
-<li>of 替代 in 作为分隔符，因为它是最接近 JavaScript 迭代器的语法<pre class=" language-JavaScript"><code class="language-JavaScript"><div v-for="item of items"></div>
+<li>of 替代 in 作为分隔符，因为它是最接近 JavaScript 迭代器的语法<pre class=" language-javaScript"><code class="language-javaScript"><div v-for="item of items"></div>
 </code></pre>
 </li>
-<li>如同 <code>v-if</code> 模板，你也可以用带有 v-for 的 <template> 标签来渲染多个元素块<pre class=" language-JavaScript"><code class="language-JavaScript"><ul>
+<li>如同 <code>v-if</code> 模板，你也可以用带有 v-for 的 <template> 标签来渲染多个元素块<pre class=" language-javaScript"><code class="language-javaScript"><ul>
 <template v-for="item in items">
  <li>{{ item.msg }}</li>
  <li class="divider"></li>
@@ -411,7 +533,7 @@ data: {
 </ul>
 </code></pre>
 </template></li>
-<li><code>v-for</code> 可以通过一个独享的属性来迭代<pre class=" language-JavaScript"><code class="language-JavaScript"><ul id="repeat-object" class="demo">
+<li><code>v-for</code> 可以通过一个独享的属性来迭代<pre class=" language-javaScript"><code class="language-javaScript"><ul id="repeat-object" class="demo">
 <li v-for="value in object">
  {{ value }}
 </li>
@@ -427,11 +549,11 @@ data: {
 }
 })
 </code></pre>
-可以提供第二个的参数为键名：<pre class=" language-JavaScript"><code class="language-JavaScript"><div v-for="(value, key) in object">
+可以提供第二个的参数为键名：<pre class=" language-javaScript"><code class="language-javaScript"><div v-for="(value, key) in object">
 {{ key }} : {{ value }}
 </div>
 </code></pre>
-第三个参数为索引：<pre class=" language-JavaScript"><code class="language-JavaScript"><div v-for="(value, key, index) in object">
+第三个参数为索引：<pre class=" language-javaScript"><code class="language-javaScript"><div v-for="(value, key, index) in object">
 {{ index }}. {{ key }} : {{ value }}
 </div>
 </code></pre>
@@ -699,6 +821,88 @@ data: {
 </div>
 
 
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: mstar's Blog<br />'
+            + '作者: mstar zheng<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
     
 
 </main>
@@ -711,6 +915,9 @@ data: {
             <a href="https://hexo.io/" target="_blank">Hexo</a> 的
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
 
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">32k</span>
             
 
             
@@ -731,15 +938,19 @@ data: {
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/mstarZheng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+
+    <a href="mailto:mstarzheng@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=976596024" class="tooltipped" data-tooltip="QQ联系我: 976596024" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 

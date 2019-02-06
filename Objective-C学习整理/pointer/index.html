@@ -196,15 +196,19 @@
     </ul>
 
     <div class="social-link">
+    <a href="https://github.com/mstarZheng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+
+    <a href="mailto:mstarzheng@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=976596024" class="tooltipped" data-tooltip="QQ联系我: 976596024" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
@@ -273,6 +277,19 @@
 </header>
 
 
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -292,10 +309,101 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -336,6 +444,20 @@
                 </div>
 
                 
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        2.7k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        10 分
+                    </div>
+                    
+                
 				
 				
                     <div id="busuanzi_container_page_pv" class="info-break-policy">
@@ -356,45 +478,45 @@
 <p>3.总结一句：用来存放<font color="red">变量地址</font>的变量，就称为”指针变量”。在上面的情况下，变量b就是个”指针变量”，我们可以说指针变量b指向变量a。</p>
 <p><hr></p>
 <h2 id="二、指针定义"><a href="#二、指针定义" class="headerlink" title="二、指针定义"></a>二、指针定义</h2><p>一般形式：<strong> 类名标识符   <font color="red">*</font> 指针变量名；</strong></p>
-<pre class=" language-C"><code class="language-C">int *p;
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
 
-float *q;
+<span class="token keyword">float</span> <span class="token operator">*</span>q<span class="token punctuation">;</span>
 
 </code></pre>
 <p>“<font color="red">*</font>“是一个说明符，用来说明这个变量是个指针变量，是不能省略的，但它不属于变量名的一部分<br>前面的类型标识符表示指针变量所指向的变量的类型，而且只能指向这种类型的变量</p>
 <p><hr></p>
-<h2 id="三、指针的初始化"><a href="#三、指针的初始化" class="headerlink" title="三、指针的初始化"></a>三、指针的初始化</h2><h3 id="1-先定义后初始化"><a href="#1-先定义后初始化" class="headerlink" title="1.先定义后初始化"></a>1.先定义后初始化</h3><pre class=" language-C"><code class="language-C">// 定义int类型的变量a
-int a = 10;
+<h2 id="三、指针的初始化"><a href="#三、指针的初始化" class="headerlink" title="三、指针的初始化"></a>三、指针的初始化</h2><h3 id="1-先定义后初始化"><a href="#1-先定义后初始化" class="headerlink" title="1.先定义后初始化"></a>1.先定义后初始化</h3><pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 定义int类型的变量a</span>
+<span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 
-// 定义一个指针变量p
-int *p;
+<span class="token comment" spellcheck="true">// 定义一个指针变量p</span>
+<span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
 
-// 将变量a的地址赋值给指针变量p，所以指针变量p指向变量a
-p = &a;
+<span class="token comment" spellcheck="true">// 将变量a的地址赋值给指针变量p，所以指针变量p指向变量a</span>
+p <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">;</span>
 </code></pre>
 <p>注意第8行，赋值给p的是变量a的地址&amp;a</p>
-<h3 id="2-在定义的同时初始化"><a href="#2-在定义的同时初始化" class="headerlink" title="2.在定义的同时初始化"></a>2.在定义的同时初始化</h3><pre class=" language-C"><code class="language-C">// 定义int类型的变量a
-int a = 10;
+<h3 id="2-在定义的同时初始化"><a href="#2-在定义的同时初始化" class="headerlink" title="2.在定义的同时初始化"></a>2.在定义的同时初始化</h3><pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 定义int类型的变量a</span>
+<span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 
-// 定义一个指针变量p
-// 并将变量a的地址赋值给指针变量p，所以指针变量p指向变量a
-int *p = &a;
+<span class="token comment" spellcheck="true">// 定义一个指针变量p</span>
+<span class="token comment" spellcheck="true">// 并将变量a的地址赋值给指针变量p，所以指针变量p指向变量a</span>
+<span class="token keyword">int</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">;</span>
 </code></pre>
 <h3 id="3-初始化的注意"><a href="#3-初始化的注意" class="headerlink" title="3.初始化的注意"></a>3.<font color="red">初始化的注意</font></h3><p>指针变量是用来存放变量地址的，不要给它随意赋值一个常数。下面的写法是错误的</p>
-<pre class=" language-C"><code class="language-C">int *p;
-p = 200; // 这是错误的
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
+p <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 这是错误的</span>
 </code></pre>
 <p><hr></p>
-<h2 id="四、指针运算符"><a href="#四、指针运算符" class="headerlink" title="四、指针运算符"></a>四、指针运算符</h2><h3 id="1-给指针指向的变量赋值"><a href="#1-给指针指向的变量赋值" class="headerlink" title="1.给指针指向的变量赋值"></a>1.给指针指向的变量赋值</h3><pre class=" language-C"><code class="language-C"> char a = 10;
- printf("修改前，a的值：%d\n", a);
+<h2 id="四、指针运算符"><a href="#四、指针运算符" class="headerlink" title="四、指针运算符"></a>四、指针运算符</h2><h3 id="1-给指针指向的变量赋值"><a href="#1-给指针指向的变量赋值" class="headerlink" title="1.给指针指向的变量赋值"></a>1.给指针指向的变量赋值</h3><pre class=" language-c"><code class="language-c"> <span class="token keyword">char</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"修改前，a的值：%d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
- // 指针变量p指向变量a
- char *p = &a;
+ <span class="token comment" spellcheck="true">// 指针变量p指向变量a</span>
+ <span class="token keyword">char</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">;</span>
 
- // 通过指针变量p间接修改变量a的值
- *p = 9;
+ <span class="token comment" spellcheck="true">// 通过指针变量p间接修改变量a的值</span>
+ <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>
 
- printf("修改后，a的值：%d", a);
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"修改后，a的值：%d"</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p> 当程序刚执行完第5行代码时，内存中大概的分布情况是这样的</p>
 <p><img src="/Objective-C学习整理/pointer/pointer2.png" alt="pointer2"><br>a值是10，p值就是变量a的地址ffc3。</p>
@@ -406,59 +528,59 @@ p = 200; // 这是错误的
 <p><img src="/Objective-C学习整理/pointer/pointer3.png" alt="pointer3"><br>输出结果为：</p>
 <p><img src="/Objective-C学习整理/pointer/pointer4.png" alt="pointer4"><br>可以发现，我们通过变量p间接修改了变量a的值。</p>
 <h3 id="2-取出指针所指向变量的值"><a href="#2-取出指针所指向变量的值" class="headerlink" title="2.取出指针所指向变量的值"></a>2.取出指针所指向变量的值</h3><p>指针运算符除了可以赋值之外，还可以用于取值</p>
-<pre class=" language-C"><code class="language-C"> char a = 10;
+<pre class=" language-c"><code class="language-c"> <span class="token keyword">char</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 
- char *p;
- p = &a;
+ <span class="token keyword">char</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
+ p <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">;</span>
 
-char value = *p;
- printf("取出a的值：%d", value);
+<span class="token keyword">char</span> value <span class="token operator">=</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"取出a的值：%d"</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>输出结果：<br><img src="/Objective-C学习整理/pointer/pointer.png" alt="pointer"><br>第6行中的<font color="red">*p</font>的意思是：根据p值(即变量a的地址)访问对应的存储空间，并取出存储的内容(即取出变量a的值)，赋值给value</p>
 <h3 id="3-使用注意"><a href="#3-使用注意" class="headerlink" title="3.使用注意"></a>3.使用注意</h3><p>在指针变量没有指向确定地址之前，不要对它所指的内容赋值。下面的写法是错误的</p>
-<pre class=" language-C"><code class="language-C">int *p;
-*p = 10; //这是错误的
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
+<span class="token operator">*</span>p <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//这是错误的</span>
 </code></pre>
 <p>应该在指针变量指向一个确定的变量后再进行赋值。下面的写法才是正确的</p>
-<pre class=" language-C"><code class="language-C">// 定义2个int型变量
-int a = 6, b;
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 定义2个int型变量</span>
+<span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">,</span> b<span class="token punctuation">;</span>
 
-// 定义一个指向变量b的指针变量p
-int *p;
-p = &b;
+<span class="token comment" spellcheck="true">// 定义一个指向变量b的指针变量p</span>
+<span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
+p <span class="token operator">=</span> <span class="token operator">&amp;</span>b<span class="token punctuation">;</span>
 
-// 将a的值赋值给变量b
-*p = a;
+<span class="token comment" spellcheck="true">// 将a的值赋值给变量b</span>
+<span class="token operator">*</span>p <span class="token operator">=</span> a<span class="token punctuation">;</span>
 </code></pre>
 <hr>
 
 <h2 id="五、指针的用途举例"><a href="#五、指针的用途举例" class="headerlink" title="五、指针的用途举例"></a>五、指针的用途举例</h2><h3 id="1-例子1"><a href="#1-例子1" class="headerlink" title="1.例子1"></a>1.例子1</h3><p>前面我们通过指针变量p间接访问了变量a，在有些人看来，觉得指针变量好傻B，直接用变量名a访问变量a不就好了么，干嘛搞这么麻烦。别着急，接下来举个例子，让大家看看指针还能做什么事情。</p>
 <p>现在有个要求：写一个函数swap，接收2个整型参数，功能是互换两个实参的值。</p>
 <p>1&gt; 如果没学过指针，你可能会这样写</p>
-<pre class=" language-C"><code class="language-C"> void swap(char v1, char v2) {
-     printf("更换前：v1=%d, v2=%d\n", v1, v2);
+<pre class=" language-c"><code class="language-c"> <span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span><span class="token keyword">char</span> v1<span class="token punctuation">,</span> <span class="token keyword">char</span> v2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"更换前：v1=%d, v2=%d\n"</span><span class="token punctuation">,</span> v1<span class="token punctuation">,</span> v2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    // 定义一个中间变量
-    char temp;
+    <span class="token comment" spellcheck="true">// 定义一个中间变量</span>
+    <span class="token keyword">char</span> temp<span class="token punctuation">;</span>
 
-    // 交换v1和v2的值
-     temp = v1;
-     v1 = v2;
-     v2 = temp;
+    <span class="token comment" spellcheck="true">// 交换v1和v2的值</span>
+     temp <span class="token operator">=</span> v1<span class="token punctuation">;</span>
+     v1 <span class="token operator">=</span> v2<span class="token punctuation">;</span>
+     v2 <span class="token operator">=</span> temp<span class="token punctuation">;</span>
 
-     printf("更换后：v1=%d, v2=%d\n", v1, v2);
- }
+     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"更换后：v1=%d, v2=%d\n"</span><span class="token punctuation">,</span> v1<span class="token punctuation">,</span> v2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
 
- int main()
- {
-     char a = 10, b = 9;
-     printf("更换前：a=%d, b=%d\n", a, b);
+ <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+     <span class="token keyword">char</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>
+     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"更换前：a=%d, b=%d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-     swap(a, b);
+     <span class="token function">swap</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-     printf("更换后：a=%d, b=%d", a, b);
-     return 0;
- }
+     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"更换后：a=%d, b=%d"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
 </code></pre>
 <p>输出结果：<br><img src="/Objective-C学习整理/pointer/pointer5.png" alt="pointer5"><br>虽然v1和v2的值被交换了，但是变量a和b的值根本就没有换过来。因为基本数据类型作为函数实参时，只是纯粹地将值传递给形参，形参的改变并不影响实参。<br>我们可以简要分析一下这个过程：</p>
 <blockquote>
@@ -479,30 +601,30 @@ p = &b;
 <p><img src="/Objective-C学习整理/pointer/pointer9.png" alt="pointer9"></p>
 <p>就这样，v1和v2的值被交换了，但是a和b的值一直都没有改变</p>
 <p>2&gt; 如果学了指针，就应该这样写</p>
-<pre class=" language-C"><code class="language-C">void swap(char *v1, char *v2) {
-    // 中间变量
-    char temp;
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>v1<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>v2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 中间变量</span>
+    <span class="token keyword">char</span> temp<span class="token punctuation">;</span>
 
-     // 取出v1指向的变量的值
-     temp = *v1;
+     <span class="token comment" spellcheck="true">// 取出v1指向的变量的值</span>
+     temp <span class="token operator">=</span> <span class="token operator">*</span>v1<span class="token punctuation">;</span>
 
-     // 取出v2指向的变量的值，然后赋值给v1指向的变量
-     *v1 = *v2;
+     <span class="token comment" spellcheck="true">// 取出v2指向的变量的值，然后赋值给v1指向的变量</span>
+     <span class="token operator">*</span>v1 <span class="token operator">=</span> <span class="token operator">*</span>v2<span class="token punctuation">;</span>
 
-     // 赋值给v2指向的变量
-     *v2 = temp;
- }
+     <span class="token comment" spellcheck="true">// 赋值给v2指向的变量</span>
+     <span class="token operator">*</span>v2 <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
 
- int main()
- {
-    char a = 10, b = 9;
-     printf("更换前：a=%d, b=%d\n", a, b);
+ <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+    <span class="token keyword">char</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>
+     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"更换前：a=%d, b=%d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-     swap(&a, &b);
+     <span class="token function">swap</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-     printf("更换后：a=%d, b=%d", a, b);
-     return 0;
- }
+     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"更换后：a=%d, b=%d"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
 </code></pre>
 <p>先看看输出结果：</p>
 <p><img src="/Objective-C学习整理/pointer/pointer0.png" alt="pointer0"><br>变量a和b的值终于换过来了。</p>
@@ -526,33 +648,33 @@ p = &b;
 <p><img src="/Objective-C学习整理/pointer/pointer13.png" alt="pointer13"><br>相信你已经感受到指针的强大了，如果没有指针，在一个函数的内部根本改变不了外部的实参。</p>
 <h3 id="2-例子2"><a href="#2-例子2" class="headerlink" title="2.例子2"></a>2.例子2</h3><p>接下来再举一个指针的实用例子。默认情况下，一个函数只能有一个返回值，有了指针，我们可以实现函数有”多返回值”。</p>
 <p>现在有个要求：写一个函数sumAndMinus，可以同时计算2个整型的和与差，函数执行完毕后，返回和与差(注意了，这里要返回2个值)</p>
-<pre class=" language-C"><code class="language-C">// 计算2个整型的和与差
-int sumAndMinus(int v1, int v2, int *minus) {
-    // 计算差，并赋值给指针指向的变量
-    *minus = v1 - v2;
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 计算2个整型的和与差</span>
+<span class="token keyword">int</span> <span class="token function">sumAndMinus</span><span class="token punctuation">(</span><span class="token keyword">int</span> v1<span class="token punctuation">,</span> <span class="token keyword">int</span> v2<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>minus<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 计算差，并赋值给指针指向的变量</span>
+    <span class="token operator">*</span>minus <span class="token operator">=</span> v1 <span class="token operator">-</span> v2<span class="token punctuation">;</span>
 
-    // 计算和，并返回和
-    return v1 + v2;
-}
+    <span class="token comment" spellcheck="true">// 计算和，并返回和</span>
+    <span class="token keyword">return</span> v1 <span class="token operator">+</span> v2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-int main()
-{
-    // 定义2个int型变量
-    int a = 6, b = 2;
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 定义2个int型变量</span>
+    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
 
-    // 定义2个变量来分别接收和与差
-    int sum, minus;
+    <span class="token comment" spellcheck="true">// 定义2个变量来分别接收和与差</span>
+    <span class="token keyword">int</span> sum<span class="token punctuation">,</span> minus<span class="token punctuation">;</span>
 
-    // 调用函数
-    sum = sumAndMinus(a, b, &minus);
+    <span class="token comment" spellcheck="true">// 调用函数</span>
+    sum <span class="token operator">=</span> <span class="token function">sumAndMinus</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token operator">&amp;</span>minus<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    // 打印和
-    printf("%d+%d=%d\n", a, b, sum);
+    <span class="token comment" spellcheck="true">// 打印和</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d+%d=%d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    // 打印差
-    printf("%d-%d=%d\n", a, b, minus);
-    return 0;
-}
+    <span class="token comment" spellcheck="true">// 打印差</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d-%d=%d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> minus<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>输出结果：<br><img src="/Objective-C学习整理/pointer/pointer16.png" alt="pointer16"><br>和与差都由同一个函数计算并返回出来。和是函数的直接返回值，差是通过函数的第3个指针参数间接返回。因此有了指针，我们可以让函数有”无限个”返回值。</p>
 <hr>
@@ -564,7 +686,7 @@ int main()
 <p>其实，我觉得这个问题跟”数组为什么要分类型”是一样的。</p>
 <blockquote>
 <ul>
-<li>看下面的代码，利用指针p读取变量c的值<br><code>`</code>C<br>int i = 2;<br>char c = 1;</li>
+<li>看下面的代码，利用指针p读取变量c的值<br><code>`</code>c<br>int i = 2;<br>char c = 1;</li>
 </ul>
 </blockquote>
 <p> // 定义一个指向char类型的指针<br> char *p = &c;</p>
@@ -865,6 +987,88 @@ web标准、web语义、浏览器内核、兼容性、html5…
 </div>
 
 
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: mstar's Blog<br />'
+            + '作者: mstar zheng<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
     
 
 </main>
@@ -877,6 +1081,9 @@ web标准、web语义、浏览器内核、兼容性、html5…
             <a href="https://hexo.io/" target="_blank">Hexo</a> 的
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
 
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">32k</span>
             
 
             
@@ -897,15 +1104,19 @@ web标准、web语义、浏览器内核、兼容性、html5…
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/mstarZheng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+
+    <a href="mailto:mstarzheng@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=976596024" class="tooltipped" data-tooltip="QQ联系我: 976596024" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
