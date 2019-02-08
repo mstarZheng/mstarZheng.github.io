@@ -500,7 +500,7 @@
 </ul>
 <p><hr></p>
 <h2 id="二、创建对象"><a href="#二、创建对象" class="headerlink" title="二、创建对象"></a>二、创建对象</h2><p>由于OC程序的入口点是main函数，所以在main.m文件中演示Student类的使用。<br>先上完整代码</p>
-<pre class=" language-obj-c"><code class="language-obj-c">#import <foundation foundation.h="">
+<pre class=" language-objective-c"><code class="language-objective-c">#import <foundation foundation.h="">
 #import "Student.h"
 
 int main(int argc, const char * argv[])
@@ -557,7 +557,7 @@ int main(int argc, const char * argv[])
 
 </li>
 </ul>
-<pre class=" language-obj-c"><code class="language-obj-c">@interface Iphone :NSObject
+<pre class=" language-objective-c"><code class="language-objective-c">@interface Iphone :NSObject
 {
     //注意：默认情况下，OC对象中属性是不能直接访问的
     @public
@@ -578,7 +578,7 @@ int main(int argc, const char * argv[])
 </ul>
 <h3 id="2、如何编写类的实现"><a href="#2、如何编写类的实现" class="headerlink" title="2、如何编写类的实现"></a>2、如何编写类的实现</h3><p> 以<font color="red">@implementation</font>开头，以<font color="red">@end</font>结尾，然后在class对应的地方写上声明时声明的类的名称，必须和声明的类名一模一样</p>
 <p><img src="/Objective-C学习整理/OC-class/oc_class2.png" alt="oc_class2"></p>
-<pre class=" language-obj-c"><code class="language-obj-c">@implementation Iphone
+<pre class=" language-objective-c"><code class="language-objective-c">@implementation Iphone
 //类的实现,类名必须跟声明时的类名一样
 - (int)_cpu {
    // 直接返回成员变量_cpu
@@ -597,7 +597,7 @@ int main(int argc, const char * argv[])
 <li>初始化IPhone类创建出来的对象中的属性</li>
 <li>返回IPhone类创建出来的对象对应的地址</li>
 </ul>
-<pre class=" language-obj-c"><code class="language-obj-c">    Iphone *p =  [Iphone new];
+<pre class=" language-objective-c"><code class="language-objective-c">    Iphone *p =  [Iphone new];
     p->_color = 0;
     p->_cpu = 64;
     return 0;
@@ -960,7 +960,7 @@ int main(int argc, const char * argv[])
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">32k</span>
+                <span class="white-color">31.9k</span>
             
 
             

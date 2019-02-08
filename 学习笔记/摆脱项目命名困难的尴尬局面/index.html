@@ -573,7 +573,7 @@ build、static、config、src、">
 </code></pre><hr>
 
 <h2 id="4、js变量命名"><a href="#4、js变量命名" class="headerlink" title="4、js变量命名"></a><strong>4、js变量命名</strong></h2><ul>
-<li>1.基础类型和引用数据类型<br><code>`</code>javascript</li>
+<li>1.基础类型和引用数据类型<br><code>`</code> javascript</li>
 <li>基础类型</li>
 <li>字符串var s_count=””,</li>
 <li>布尔类型var b_status=false,</li>
@@ -585,7 +585,7 @@ build、static、config、src、">
 </li>
 <li><p>2.不要用关键字命名<br>default、class、private</p>
 </li>
-<li><p>3.用可读的同义词代替保留词。<br><code>`</code>javaScript<br>// bad<br>var superman = {<br>class: ‘alien’<br>};</p>
+<li><p>3.用可读的同义词代替保留词。<br><code>`</code>javascript<br>// bad<br>var superman = {<br>class: ‘alien’<br>};</p>
 </li>
 </ul>
 <p>// bad<br>var superman = {<br>  klass: ‘alien’<br>};</p>
@@ -599,7 +599,7 @@ build、static、config、src、">
 
 * 5.当命名的构造函数和类使用PascalCase。
 
-```javaScript
+``` javascript
 // bad
 function user(options) {
   this.name = options.name;
@@ -617,50 +617,50 @@ var good = new User({
 </code></pre><ul>
 <li>6.不要使用尾随或前导下划线。</li>
 </ul>
-<pre class=" language-javaScript"><code class="language-javaScript">// bad
-this.__firstName__ = 'Panda';
-this.firstName_ = 'Panda';
-this._firstName = 'Panda';
-// good
-this.firstName = 'Panda';
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// bad</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>__firstName__ <span class="token operator">=</span> <span class="token string">'Panda'</span><span class="token punctuation">;</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>firstName_ <span class="token operator">=</span> <span class="token string">'Panda'</span><span class="token punctuation">;</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>_firstName <span class="token operator">=</span> <span class="token string">'Panda'</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// good</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">=</span> <span class="token string">'Panda'</span><span class="token punctuation">;</span>
 </code></pre>
 <ul>
 <li>7.前缀jQuery对象变量与$。</li>
 </ul>
-<pre class=" language-javaScript"><code class="language-javaScript">// bad
-var sidebar = $('.sidebar');
-// good
-var $sidebar = $('.sidebar');
-// bad
-$('ul', '.sidebar').hide();
-// bad
-function setSidebar() {
-  $('.sidebar').hide();
-  // ...stuff...
-  $('.sidebar').css({
-    'background-color': 'pink'
-  });
-}
-// good
-function setSidebar() {
-  var $sidebar = $('.sidebar');
-  $sidebar.hide();
-  // ...stuff...
-  $sidebar.css({
-    'background-color': 'pink'
-  });
-}
-// bad
-$('.sidebar').find('ul').hide();
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// bad</span>
+<span class="token keyword">var</span> sidebar <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.sidebar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// good</span>
+<span class="token keyword">var</span> $sidebar <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.sidebar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// bad</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'ul'</span><span class="token punctuation">,</span> <span class="token string">'.sidebar'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// bad</span>
+<span class="token keyword">function</span> <span class="token function">setSidebar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.sidebar'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// ...stuff...</span>
+  <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.sidebar'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token string">'background-color'</span><span class="token punctuation">:</span> <span class="token string">'pink'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// good</span>
+<span class="token keyword">function</span> <span class="token function">setSidebar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> $sidebar <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.sidebar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  $sidebar<span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// ...stuff...</span>
+  $sidebar<span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token string">'background-color'</span><span class="token punctuation">:</span> <span class="token string">'pink'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// bad</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.sidebar'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token string">'ul'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-// good
-$('.sidebar ul').hide();
+<span class="token comment" spellcheck="true">// good</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.sidebar ul'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-// good
-$('.sidebar > ul').hide();
+<span class="token comment" spellcheck="true">// good</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.sidebar > ul'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-// good
-$sidebar.find('ul').hide();
+<span class="token comment" spellcheck="true">// good</span>
+$sidebar<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token string">'ul'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <hr>
 
@@ -1061,7 +1061,7 @@ tabbar_home_icon, navigationbar_showtime_icon@2x.png，tabbar_categories_icon
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">32k</span>
+                <span class="white-color">31.9k</span>
             
 
             

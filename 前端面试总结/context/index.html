@@ -8,11 +8,13 @@
     <meta name="keywords" content="执行上下文详细图解, mstar&#39;s Blog">
     <meta name="description" content="本文源出于—简书波同学
 
+
+
 我们在JS学习初期或者面试的时候常常会遇到考核变量提升的思考题。比如先来一个简单一点的。
 console.log(a);   // 这里会打印出什么？
 var a = 20;
 
-暂时先不管这个例子，我们先引入一个J">
+暂时先不管这个例子，我们先引入一">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -475,10 +477,12 @@ var a = 20;
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><center>本文源出于—简书<a href="http://www.jianshu.com/p/a6d37c77e8db" target="_blank" rel="noopener"><strong>波同学</strong></a></center></p>
-<p><hr><br><img src="/前端面试总结/context/context1.png" alt="context1"></p>
+<hr>
+
+<p><img src="/前端面试总结/context/context1.png" alt=""></p>
 <p>我们在JS学习初期或者面试的时候常常会遇到考核变量提升的思考题。比如先来一个简单一点的。</p>
-<pre class=" language-JavaScript"><code class="language-JavaScript">console.log(a);   // 这里会打印出什么？
-var a = 20;
+<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 这里会打印出什么？</span>
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
 </code></pre>
 <p>暂时先不管这个例子，我们先引入一个JavaScript中最基础，但同时也是最重要的一个概念<strong> 执行上下文（Execution Context）</strong>。</p>
 <p>每次当控制器转到可执行代码的时候，就会进入一个执行上下文。执行上下文可以理解为当前代码的执行环境，它会形成一个作用域。JavaScript中的运行环境大概包括三种情况。</p>
@@ -489,47 +493,47 @@ var a = 20;
 </ul>
 <p>因此在一个JavaScript程序中，必定会产生多个执行上下文，在我的上一篇文章中也有提到，JavaScript引擎会以堆栈的方式来处理它们，这个堆栈，我们称其为函数调用栈(call stack)。栈底永远都是全局上下文，而栈顶就是当前正在执行的上下文。</p>
 <p>当代码在执行过程中，遇到以上三种情况，都会生成一个执行上下文，放入栈中，而处于栈顶的上下文执行完毕之后，就会自动出栈。为了更加清晰的理解这个过程，根据下面的例子，结合图示给大家展示。</p>
-<pre class=" language-javaScript"><code class="language-javaScript">var color = 'blue';
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> color <span class="token operator">=</span> <span class="token string">'blue'</span><span class="token punctuation">;</span>
 
-function changeColor() {
-    var anotherColor = 'red';
+<span class="token keyword">function</span> <span class="token function">changeColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> anotherColor <span class="token operator">=</span> <span class="token string">'red'</span><span class="token punctuation">;</span>
 
-    function swapColors() {
-        var tempColor = anotherColor;
-        anotherColor = color;
-        color = tempColor;
-    }
+    <span class="token keyword">function</span> <span class="token function">swapColors</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> tempColor <span class="token operator">=</span> anotherColor<span class="token punctuation">;</span>
+        anotherColor <span class="token operator">=</span> color<span class="token punctuation">;</span>
+        color <span class="token operator">=</span> tempColor<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    swapColors();
-}
+    <span class="token function">swapColors</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-changeColor();
+<span class="token function">changeColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>我们用ECStack来表示处理执行上下文组的堆栈。我们很容易知道，第一步，首先是全局上下文入栈。</p>
 <ul>
 <li>第一步：全局上下文入栈:</li>
 </ul>
-<p><img src="/前端面试总结/context/context2.png" alt="context2"></p>
+<p><img src="/前端面试总结/context/context2.png" alt=""></p>
 <p>全局上下文入栈之后，其中的可执行代码开始执行，直到遇到了changeColor()，这一句激活函数changeColor创建它自己的执行上下文，因此第二步就是changeColor的执行上下文入栈。</p>
 <ul>
 <li>第二步：changeColor的执行上下文入栈:</li>
 </ul>
-<p><img src="/前端面试总结/context/context3.png" alt="context3"></p>
+<p><img src="/前端面试总结/context/context3.png" alt=""></p>
 <p>changeColor的上下文入栈之后，控制器开始执行其中的可执行代码，遇到swapColors()之后又激活了一个执行上下文。因此第三步是swapColors的执行上下文入栈。</p>
 <ul>
 <li>第三步：swapColors的执行上下文入栈:</li>
 </ul>
-<p><img src="/前端面试总结/context/context4.png" alt="context4"></p>
+<p><img src="/前端面试总结/context/context4.png" alt=""></p>
 <p>在swapColors的可执行代码中，再没有遇到其他能生成执行上下文的情况，因此这段代码顺利执行完毕，swapColors的上下文从栈中弹出。</p>
 <ul>
 <li>第四步：swapColors的执行上下文出栈:</li>
 </ul>
-<p><img src="/前端面试总结/context/context5.png" alt="context5"></p>
+<p><img src="/前端面试总结/context/context5.png" alt=""></p>
 <p>swapColors的执行上下文弹出之后，继续执行changeColor的可执行代码，也没有再遇到其他执行上下文，顺利执行完毕之后弹出。这样，ECStack中就只身下全局上下文了。</p>
 <ul>
 <li>第五步：changeColor的执行上下文出栈</li>
 </ul>
-<p><img src="/前端面试总结/context/context6.png" alt="context6"></p>
+<p><img src="/前端面试总结/context/context6.png" alt=""></p>
 <p>全局上下文在浏览器窗口关闭后出栈。</p>
 <blockquote>
 <p>注意：函数中，遇到return能直接终止可执行代码的执行，因此会直接将当前上下文弹出栈。</p>
@@ -537,7 +541,7 @@ changeColor();
 <li>上例演变过程:</li>
 </ul>
 </blockquote>
-<p><img src="/前端面试总结/context/context7.png" alt="context7"></p>
+<p><img src="/前端面试总结/context/context7.png" alt=""></p>
 <p>详细了解了这个过程之后，我们就可以对执行上下文总结一些结论了。</p>
 <ul>
 <li>单线程</li>
@@ -547,18 +551,18 @@ changeColor();
 <li>每次某个函数被调用，就会有个新的执行上下文为其创建，即使是调用的自身函数，也是如此。</li>
 </ul>
 <p>为了巩固一下执行上下文的理解，我们再来绘制一个例子的演变过程，这是一个简单的闭包例子。</p>
-<pre class=" language-javaScript"><code class="language-javaScript">function f1(){
-    var n=999;
-    function f2(){
-        alert(n);
-    }
-    return f2;
-}
-var result=f1();
-result(); // 999
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">var</span> n<span class="token operator">=</span><span class="token number">999</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">f2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> f2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> result<span class="token operator">=</span><span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">result</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 999</span>
 </code></pre>
 <p>因为f1中的函数f2在f1的可执行代码中，并没有被调用执行，因此执行f1时，f2不会创建新的上下文，而直到result执行时，才创建了一个新的。具体演变过程如下。</p>
-<p><img src="/前端面试总结/context/context8.png" alt="context8"></p>
+<p><img src="/前端面试总结/context/context8.png" alt=""></p>
 <p><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）<a href="mailto:mstarzheng@foxmail.com" target="_blank" rel="noopener">mstarzheng@foxmail.com</a></em></strong></p>
 
             </div>
@@ -922,7 +926,7 @@ result(); // 999
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">32k</span>
+                <span class="white-color">31.9k</span>
             
 
             
