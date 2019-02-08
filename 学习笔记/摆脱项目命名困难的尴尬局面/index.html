@@ -460,7 +460,7 @@ build、static、config、src、">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.1k
+                        1k
                     </div>
                     
 
@@ -508,8 +508,9 @@ build、static、config、src、">
 </table>
 <ul>
 <li><p>2、如果一个单词描述不了，名词加动词</p>
-<pre><code>color-pick、button-groups、date-picker、option-group、jquery-select、jquery-swiper
-</code></pre></li>
+<pre class=" language-html"><code class="language-html">color-pick、button-groups、date-picker、option-group、jquery-select、jquery-swiper
+</code></pre>
+</li>
 <li><p>3、中间用-或者_连接为了方便归类、一目了然</p>
 <blockquote>
 <p>node_models、async-demo、array-union、array-differ、babel-each</p>
@@ -537,12 +538,13 @@ build、static、config、src、">
 </table>
 <ul>
 <li><p>2.如果一个单词描述不了，名词加动词</p>
-<pre><code>share-to-friends，share-to-community，weex-pay，alipay-pay，user-integral，game-page，docs-page等等反正就是自我想象。
-</code></pre></li>
+<pre class=" language-html"><code class="language-html">share-to-friends，share-to-community，weex-pay，alipay-pay，user-integral，game-page，docs-page等等反正就是自我想象。
+</code></pre>
+</li>
 <li><p>3.中间用-或者_连接为了方便归类、一目了然<br>在目前做的pc端和移动端，简单的对他们分个类：</p>
 </li>
 </ul>
-<pre><code>移动广告(mobile-advertisement)
+<pre class=" language-html"><code class="language-html">移动广告(mobile-advertisement)
 移动社交(mobile-social)
 移动电子商务(mobile-bussiness)
 手机游戏(mobile-game)
@@ -551,70 +553,88 @@ build、static、config、src、">
 手机搜索(mobile-search)
 移动支付(mobile-pay)
 手机内容共享(mobile-share)
-</code></pre><p>关于以上的项目都可以用名词+需要的动词命名，达到见词知意</p>
+</code></pre>
+<p>关于以上的项目都可以用名词+需要的动词命名，达到见词知意</p>
 <hr>
 
 <h2 id="3-html布局命名"><a href="#3-html布局命名" class="headerlink" title="3.html布局命名"></a><strong>3.html布局命名</strong></h2><p><a href="http://www.divcss5.com/jiqiao/j4.shtml" target="_blank" rel="noopener"><strong>可以参考DIV+CSS规范命名大全</strong></a> 但是我觉得写得并不好，很全面。因为因为往往比较纠结的是每一个大布局中小布局的命名。</p>
-<pre><code>外套 wrap:       &gt;&gt; #container
-头部 header:     &gt;&gt; #head, #header，#nav，#sub-nav，#menu， #sub-menu，#branding
-主要内容 main::   &gt;&gt; bussiness-title 、bussiness-logo、bussiness-search、bussiness-search-results
-左侧 main-left:  &gt;&gt; #side-bar, #side-bar-a, #side-bar-b
-右侧 main-right: &gt;&gt; #side-bar, #side-bar-a, #side-bar-b
-内容 content:    &gt;&gt; radio-click、radio-heightlight、radio-active、input-seach-off、input-search-on
-底部 footer:     &gt;&gt; #service, #regsiter,#partner（合作伙伴）,#joinus, #site-info
-</code></pre><blockquote>
+<pre class=" language-html"><code class="language-html">外套 wrap:       >> #container
+头部 header:     >> #head, #header，#nav，#sub-nav，#menu， #sub-menu，#branding
+主要内容 main::   >> bussiness-title 、bussiness-logo、bussiness-search、bussiness-search-results
+左侧 main-left:  >> #side-bar, #side-bar-a, #side-bar-b
+右侧 main-right: >> #side-bar, #side-bar-a, #side-bar-b
+内容 content:    >> radio-click、radio-heightlight、radio-active、input-seach-off、input-search-on
+底部 footer:     >> #service, #regsiter,#partner（合作伙伴）,#joinus, #site-info
+</code></pre>
+<blockquote>
 <p>总结</p>
 </blockquote>
-<pre><code>一般头部有nav、nav-event、nav-style、nav-item、nav-link。
+<pre class=" language-html"><code class="language-html">一般头部有nav、nav-event、nav-style、nav-item、nav-link。
 
 内容：xx-title、xx-box、xx-warp、xx-item、xx-item-title、xx-item-link、xx-item-image
 
 底部：footer-time、footer-box、footer-item、footer-item-link、footer-address。总之xx-wrap，xx-box，xx-item、xx-link、xx-title、xx-total肯定会满足你80%的需求
-</code></pre><hr>
+</code></pre>
+<hr>
 
 <h2 id="4、js变量命名"><a href="#4、js变量命名" class="headerlink" title="4、js变量命名"></a><strong>4、js变量命名</strong></h2><ul>
-<li>1.基础类型和引用数据类型<br><code>`</code> javascript</li>
-<li>基础类型</li>
-<li>字符串var s_count=””,</li>
-<li>布尔类型var b_status=false,</li>
-<li>数字类型var n_total=12。</li>
-<li>引用数据类型</li>
-<li>数组var ar_bar=[],</li>
-<li>对象var o_bar={},</li>
-<li><p>函数var f_submit=function(){}）<br><code>`</code></p>
-</li>
+<li>1.基础类型和引用数据类型</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"> 基础类型
+ 字符串<span class="token keyword">var</span> s_count<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">,</span>
+ 布尔类型<span class="token keyword">var</span> b_status<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">,</span>
+ 数字类型<span class="token keyword">var</span> n_total<span class="token operator">=</span><span class="token number">12</span>。
+ 引用数据类型
+ 数组<span class="token keyword">var</span> ar_bar<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+ 对象<span class="token keyword">var</span> o_bar<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+ 函数<span class="token keyword">var</span> f_submit<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>）
+</code></pre>
+<ul>
 <li><p>2.不要用关键字命名<br>default、class、private</p>
 </li>
-<li><p>3.用可读的同义词代替保留词。<br><code>`</code>javascript<br>// bad<br>var superman = {<br>class: ‘alien’<br>};</p>
+<li><p>3.用可读的同义词代替保留词。</p>
 </li>
 </ul>
-<p>// bad<br>var superman = {<br>  klass: ‘alien’<br>};</p>
-<p>// good<br>var superman = {<br>  type: ‘alien’<br>};</p>
-<pre><code>
-* 4.函数用驼峰形式（动词+名词）
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// bad</span>
+<span class="token keyword">var</span> superman <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">class</span><span class="token punctuation">:</span> <span class="token string">'alien'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-</code></pre><p> login(),logout(),expandList(),getTotal(),keySearch(),submitForm(),cancel(),goMore(),searchAll(),searchCurrent().clearContent().uploadImage().searchResult()这些都是常用事件，可以清晰知道每一项的意义。</p>
-<pre><code>
-[ES5的语法规范] [2]
+<span class="token comment" spellcheck="true">// bad</span>
+<span class="token keyword">var</span> superman <span class="token operator">=</span> <span class="token punctuation">{</span>
+  klass<span class="token punctuation">:</span> <span class="token string">'alien'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-* 5.当命名的构造函数和类使用PascalCase。
-
-``` javascript
-// bad
-function user(options) {
-  this.name = options.name;
-}
-var bad = new user({
-  name: &#39;nope&#39;
-});
-// good
-function User(options) {
-  this.name = options.name;
-}
-var good = new User({
-  name: &#39;yup&#39;
-})
-</code></pre><ul>
+<span class="token comment" spellcheck="true">// good</span>
+<span class="token keyword">var</span> superman <span class="token operator">=</span> <span class="token punctuation">{</span>
+  type<span class="token punctuation">:</span> <span class="token string">'alien'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>4.函数用驼峰形式（动词+名词）</li>
+</ul>
+<pre class=" language-html"><code class="language-html"> login(),logout(),expandList(),getTotal(),keySearch(),submitForm(),cancel(),goMore(),searchAll(),searchCurrent().clearContent().uploadImage().searchResult()这些都是常用事件，可以清晰知道每一项的意义。
+</code></pre>
+<p><a href="https://github.com/airbnb/javascript/tree/es5-deprecated/es5" target="_blank" rel="noopener">ES5的语法规范</a></p>
+<ul>
+<li>5.当命名的构造函数和类使用PascalCase。</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// bad</span>
+<span class="token keyword">function</span> <span class="token function">user</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> options<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> bad <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">user</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'nope'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// good</span>
+<span class="token keyword">function</span> <span class="token function">User</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> options<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> good <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'yup'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<ul>
 <li>6.不要使用尾随或前导下划线。</li>
 </ul>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// bad</span>
@@ -704,11 +724,12 @@ $sidebar<span class="token punctuation">.</span><span class="token function">fin
 </table>
 <hr>
 
-<h2 id="6-图片命名"><a href="#6-图片命名" class="headerlink" title="6.图片命名"></a><strong>6.图片命名</strong></h2><pre><code>第一部分是图片的逻辑归属分类
+<h2 id="6-图片命名"><a href="#6-图片命名" class="headerlink" title="6.图片命名"></a><strong>6.图片命名</strong></h2><pre class=" language-html"><code class="language-html">第一部分是图片的逻辑归属分类
 第二部分是图片的表现内容
 第三部分是图片的内容的类型（有些图片还会有第四部分，表示图片表现的状态。）
 tabbar_home_icon, navigationbar_showtime_icon@2x.png，tabbar_categories_icon
-</code></pre><hr>
+</code></pre>
+<hr>
 
 <p><strong><em>本文仅作为个人的随身读书笔记收集，没有用于任何商业盈利范畴。如若有侵犯源作者的著作权，请联系本人（立马撤文）<a href="mailto:mstarzheng@foxmail.com" target="_blank" rel="noopener">mstarzheng@foxmail.com</a></em></strong></p>
 
@@ -1061,7 +1082,7 @@ tabbar_home_icon, navigationbar_showtime_icon@2x.png，tabbar_categories_icon
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">31.9k</span>
+                <span class="white-color">32k</span>
             
 
             
