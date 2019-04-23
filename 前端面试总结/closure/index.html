@@ -480,7 +480,7 @@
             <div id="articleContent">
                 <center>本文源出于—简书<a href="http://www.jianshu.com/p/21a16d44f150" target="_blank" rel="noopener"><strong>波同学</strong></a></center>
 
-<p><img src="/前端面试总结/closure/closure1.png" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2cjrdksknj30yg0h7q4d.jpg" alt=""></p>
 <p><hr></p>
 <h2 id="一、作用域与作用域链"><a href="#一、作用域与作用域链" class="headerlink" title="一、作用域与作用域链"></a>一、作用域与作用域链</h2><p>在详细讲解作用域链之前，我默认你已经大概明白了JavaScript中的下面这些重要概念。这些概念将会非常有帮助。</p>
 <ul>
@@ -501,9 +501,9 @@
 <blockquote>
 <p>JavaScript代码的整个执行过程，分为两个阶段，代码编译阶段与代码执行阶段。编译阶段由编译器完成，将代码翻译成可执行代码，这个阶段作用域规则会确定。执行阶段由引擎完成，主要任务是执行可执行代码，执行上下文在这个阶段创建。</p>
 </blockquote>
-<p><img src="/前端面试总结/closure/closure2.png" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2cjrmtl3nj30yg0czmy5.jpg" alt=""></p>
 <h4 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h4><p>之前我们分析的执行上下文的生命周期，如下图。</p>
-<p><img src="/前端面试总结/closure/closure3.png" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2cjruniujj30rs082gln.jpg" alt=""></p>
 <p>我们发现，作用域链是在执行上下文的创建阶段生成的。这个就奇怪了。上面我们刚刚说作用域在编译阶段确定规则，可是为什么作用域链却在执行阶段确定呢？</p>
 <p>之所以有这个疑问，是因为大家对作用域和作用域链有一个误解。我们上面说了，作用域是一套规则，那么作用域链是什么呢？是这套规则的具体实现。所以这就是作用域与作用域链的关系，相信大家都应该明白了吧。</p>
 <p>我们知道函数在调用激活时，会开始创建对应的执行上下文，在执行上下文生成的过程中，变量对象，作用域链，以及this的值会分别被确定。之前们详细说明了变量对象，而这里，我们将详细说明作用域链。</p>
@@ -533,7 +533,7 @@
 </code></pre>
 <p>是的，你没有看错，我们可以直接用一个数组来表示作用域链，数组的第一项scopeChain[0]为作用域链的最前端，而数组的最后一项，为作用域链的最末端，所有的最末端都为全局变量对象。</p>
 <p>很多人会误解为当前作用域与上层作用域为包含关系，但其实并不是。以最前端为起点，最末端为终点的单方向通道我认为是更加贴切的形容。如图。</p>
-<p><img src="/前端面试总结/closure/closure4.png" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2cjs2l1o4j30yg0frjsh.jpg" alt=""></p>
 <blockquote>
 <p>注意，因为变量对象在执行上下文进入执行阶段时，就变成了活动对象，这一点在上一篇文章中已经讲过，因此图中使用了AO来表示。Active Object</p>
 </blockquote>
@@ -571,9 +571,9 @@
 <p>在上面的例子中，foo()执行完毕之后，按照常理，其执行环境生命周期会结束，所占内存被垃圾收集器释放。但是通过fn = innerFoo，函数innerFoo的引用被保留了下来，复制给了全局变量fn。这个行为，导致了foo的变量对象，也被保留了下来。于是，函数fn在函数bar内部执行时，依然可以访问这个被保留下来的变量对象。所以此刻仍然能够访问到变量a的值。</p>
 <p>这样，我们就可以称foo为闭包。</p>
 <p>下图展示了闭包foo的作用域链。</p>
-<p><img src="/前端面试总结/closure/closure5.png" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2cjsg4yavj30yg0h7q4d.jpg" alt=""></p>
 <p>我们可以在chrome浏览器的开发者工具中查看这段代码运行时产生的函数调用栈与作用域链的生成情况。如下图。</p>
-<p><img src="/前端面试总结/closure/closure6.png" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2cjsml7juj30yg0h643k.jpg" alt=""></p>
 <p>在上面的图中，红色箭头所指的正是闭包。其中Call Stack为当前的函数调用栈，Scope为当前正在被执行的函数的作用域链，Local为当前的局部变量。</p>
 <p><font color="red">所以，通过闭包，我们可以在其他的执行上下文中，访问到函数的内部变量。</font>比如在上面的例子中，我们在函数bar的执行环境中访问到了函数foo的a变量。个人认为，从应用层面，这是闭包最重要的特性。利用这个特性，我们可以实现很多有意思的东西。</p>
 <p>不过读者老爷们需要注意的是，虽然例子中的闭包被保存在了全局变量中，但是闭包的作用域链并不会发生任何改变。在闭包中，能访问到的变量，仍然是作用域链上能够查询到的变量。</p>
@@ -630,7 +630,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token function">add</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>在上面的例子中，我使用函数自执行的方式，创建了一个模块。add是模块对外暴露的一个公共方法。而变量a，b被作为私有变量。在面向对象的开发中，我们常常需要考虑是将变量作为私有变量，还是放在构造函数中的this中，因此理解闭包，以及原型链是一个非常重要的事情。</p>
-<p><img src="/前端面试总结/closure/closure7.png" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2cjt3s6ykj30yg0hddjr.jpg" alt=""></p>
 <p>为了验证自己有没有搞懂作用域链与闭包，这里留下一个经典的思考题，常常也会在面试中被问到。</p>
 <p>利用闭包，修改下面的代码，让循环输出的结果依次为1， 2， 3， 4， 5</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span><span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>

@@ -481,14 +481,14 @@
 <blockquote>
 <p>在chrome中正常使用并非来自 Chrome 网上应用店的扩展,会出现下面的情况：</p>
 </blockquote>
-<p><img src="/mac笔记/study-mac/mac2.png" alt="mac2"></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ckna8t24j31560a60uu.jpg" alt=""></p>
 <p>小编在网上也找到了一些 <a href="https://hencolle.com/2016/10/16/baidu_exporter/" target="_blank" rel="noopener">英文文档</a>来解决这类问题。</p>
 <blockquote>
 <font color="red">注意：该方法只适用于 通过 crx 文件安装的扩展（将crx文件拖入chrome扩展程序界面）</font>
 </blockquote>
 <p>而还有一些类似小编一样英文不好的同学，该怎么办呢？没事你们的福利来了，跟着我一步步来走吧。。。</p>
 <p>1、首先下载有个描述文件：<a href="https://gist.github.com/Explorare/be3dd598289252698cd37bca04abd0fe#file-com-google-chrome-mobileconfig" target="_blank" rel="noopener">Github地址</a><br>下载不下来的，再提供一个<a href="https://pan.baidu.com/s/1eRPT11g" target="_blank" rel="noopener">网盘地址</a> 密码：dvfx</p>
-<p>2、打开 chrome的 <font color="red">扩展程序 </font>界面，复制扩展的ID。<br><img src="/mac笔记/study-mac/mac3.png" alt="mac3"></p>
+<p>2、打开 chrome的 <font color="red">扩展程序 </font>界面，复制扩展的ID。<br><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2cknqi78hj317a0aemzc.jpg" alt=""></p>
 <p>3、用文本编辑器打开下载好的com.google.Chrome.mobileconfig找到如图所示位置：</p>
 <pre class=" language-HTML"><code class="language-HTML"><?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -553,7 +553,7 @@ com.google.Chrome
 </plist>
 </code></pre>
 <p>这里的 19-21行 <string></string> 中分别对应单个扩展的ID，如果只需要一个的话，可以吧多余的两个删掉，将其中的一个标签中的值替换为第二步复制过来的 ID。编辑完后保存。如图：</p>
-<p><img src="/mac笔记/study-mac/mac1.png" alt="mac1"></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ckmq6j0yj314y0qk7mv.jpg" alt=""></p>
 <p>4、双击打开第三步编辑好的描述文件，按照弹出的提示点击 继续-安装（输入电脑密码），安装结束后重启浏览器，就可以勾选这个扩展了，并且以后重启浏览器也不会有停用的提示了！</p>
 
             </div>

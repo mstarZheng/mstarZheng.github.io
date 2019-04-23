@@ -468,7 +468,7 @@
 <li>程序是静态概念，而进程动态/时间概念。</li>
 </ul>
 <h3 id="2、进程空间图示"><a href="#2、进程空间图示" class="headerlink" title="2、进程空间图示"></a>2、进程空间图示</h3><p>​    有了进程和程序的概念以后，我们再来看一下，程序被加载到内存以后内存空间布局是什么样的</p>
-<p><img src="/编程学习笔记/linked/进程空间图.png" alt="进程空间图"></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2cjvttmmtj30la0jdjsf.jpg" alt="进程空间图"></p>
 <h3 id="3、栈内存-Stack"><a href="#3、栈内存-Stack" class="headerlink" title="3、栈内存(Stack)"></a>3、栈内存(Stack)</h3><ul>
 <li>栈中存放任意类型的变量，但必须是 auto 类型修饰的，即自动类型的局部变量， 随用随开，用完即消。</li>
 <li>内存的分配和销毁系统自动完成，不需要人工干预。</li>
@@ -817,10 +817,10 @@
 <hr>
 <h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><ul>
 <li><p>链表实现了，内存零碎数据的有效组织。比如，当我们用 malloc 来进行内存申请的时候，当内存足够，但是由于碎片太多，没有连续内存时，只能以申请失败而告终，而用链表这种数据结构来组织数据，就可以解决上类问题。</p>
-<p><img src="/编程学习笔记/linked/l链表.png" alt="l链表"></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2cjwhyhdyj30rs0c9n5s.jpg" alt="l链表"></p>
 </li>
 </ul>
-<h3 id="1、静态链表"><a href="#1、静态链表" class="headerlink" title="1、静态链表"></a>1、静态链表</h3><p><img src="/编程学习笔记/linked/静态链表.png" alt="静态链表"></p>
+<h3 id="1、静态链表"><a href="#1、静态链表" class="headerlink" title="1、静态链表"></a>1、静态链表</h3><p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2cjwr4zn1j30rs08bq3s.jpg" alt="静态链表"></p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
@@ -870,7 +870,7 @@
 </ul>
 <h4 id="2-1、空链表"><a href="#2-1、空链表" class="headerlink" title="2.1、空链表"></a>2.1、空链表</h4><ul>
 <li><p>头指针带了一个空链表节点, 空链表节点中的next指向NULL</p>
-<p><img src="/编程学习笔记/linked/空链表.png" alt="空链表"></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2cjx8qs7fj30d9092glk.jpg" alt="空链表"></p>
 </li>
 </ul>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
@@ -900,10 +900,10 @@ Node <span class="token operator">*</span><span class="token function">createLis
     <span class="token keyword">return</span> node<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p><img src="/编程学习笔记/linked/空链表内存分配图.png" alt="空链表内存分配图"></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2cjxk861lj316k0lo19y.jpg" alt="空链表内存分配图"></p>
 <h4 id="2-2、非空链表"><a href="#2-2、非空链表" class="headerlink" title="2.2、非空链表"></a>2.2、非空链表</h4><ul>
 <li><p>头指针带了一个非空节点, 最后一个节点中的next指向NULL</p>
-<p><img src="/编程学习笔记/linked/非空链表.png" alt="非空链表"></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2cjxtkk08j30rs084q3z.jpg" alt="非空链表"></p>
 </li>
 </ul>
 <h4 id="2-3、动态链表头插法"><a href="#2-3、动态链表头插法" class="headerlink" title="2.3、动态链表头插法"></a>2.3、动态链表头插法</h4><ul>

@@ -473,7 +473,7 @@
                 <p><center>本文源出于—<a href="http://www.cnblogs.com/mjios/archive/2013/03/16/2963645.html" target="_blank" rel="noopener"><strong>小码哥</strong></a></center></p>
 <p><hr></p>
 <h2 id="一、什么是指针"><a href="#一、什么是指针" class="headerlink" title="一、什么是指针"></a>一、什么是指针</h2><p>1.我们已经知道，“直接引用”是直接通过变量名来读写变量<br>2.C语言还有一种“间接引用”的方式(以变量a为例)：<font color="red"><strong>_ 首先将变量a的地址存放在另一个变量中，比如存放变量b中，然后通过变量b来间接引用变量，间接读写变量a的值 _</strong> </font>。这就是“间接引用”。</p>
-<p><img src="/Objective-C学习整理/pointer/pointer1.png" alt="pointer1"></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ck6v711uj309002a74c.jpg" alt=""></p>
 <p>如果程序通过”间接引用”的方式来修改a的值，可以这样做：先根据变量名b 获取 变量b的地址ffc2，取出变量b中存储的内容ffc1，也就是变量a的地址，再根据变量a的地址ffc1找到a的存储空间，然后修改里面的数据。</p>
 <p>3.总结一句：用来存放<font color="red">变量地址</font>的变量，就称为”指针变量”。在上面的情况下，变量b就是个”指针变量”，我们可以说指针变量b指向变量a。</p>
 <p><hr></p>
@@ -519,14 +519,14 @@ p <span class="token operator">=</span> <span class="token number">200</span><sp
  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"修改后，a的值：%d"</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p> 当程序刚执行完第5行代码时，内存中大概的分布情况是这样的</p>
-<p><img src="/Objective-C学习整理/pointer/pointer2.png" alt="pointer2"><br>a值是10，p值就是变量a的地址ffc3。</p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ck75ulngj3099039wel.jpg" alt=""><br>a值是10，p值就是变量a的地址ffc3。</p>
 <p>注意下第5、第8行，都有个“<font color="red">*</font>”，它们的含义是不一样的：</p>
 <ul>
 <li>第5行的“<font color="red">*</font>”只是用来说明p是个指针变量</li>
 <li>第8行的<font color="red">“星号”</font>是一个指针运算符，这里的<font color="red">* p代表根据p值ffc3这个地址访问对应的存储空间</font>，也就是变量a的存储空间，然后将右边的数值9写入到这个存储空间，相当于 a = 9;，于是内存中就变成这样了</li>
 </ul>
-<p><img src="/Objective-C学习整理/pointer/pointer3.png" alt="pointer3"><br>输出结果为：</p>
-<p><img src="/Objective-C学习整理/pointer/pointer4.png" alt="pointer4"><br>可以发现，我们通过变量p间接修改了变量a的值。</p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ck7ewd9bj308z02zjrh.jpg" alt=""><br>输出结果为：</p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ck7mrc1uj305501k747.jpg" alt=""><br>可以发现，我们通过变量p间接修改了变量a的值。</p>
 <h3 id="2-取出指针所指向变量的值"><a href="#2-取出指针所指向变量的值" class="headerlink" title="2.取出指针所指向变量的值"></a>2.取出指针所指向变量的值</h3><p>指针运算符除了可以赋值之外，还可以用于取值</p>
 <pre class=" language-c"><code class="language-c"> <span class="token keyword">char</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 
@@ -536,7 +536,7 @@ p <span class="token operator">=</span> <span class="token number">200</span><sp
 <span class="token keyword">char</span> value <span class="token operator">=</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"取出a的值：%d"</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>输出结果：<br><img src="/Objective-C学习整理/pointer/pointer.png" alt="pointer"><br>第6行中的<font color="red">*p</font>的意思是：根据p值(即变量a的地址)访问对应的存储空间，并取出存储的内容(即取出变量a的值)，赋值给value</p>
+<p>输出结果：<br><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ck7vxznsj304100zt8k.jpg" alt=""><br>第6行中的<font color="red">*p</font>的意思是：根据p值(即变量a的地址)访问对应的存储空间，并取出存储的内容(即取出变量a的值)，赋值给value</p>
 <h3 id="3-使用注意"><a href="#3-使用注意" class="headerlink" title="3.使用注意"></a>3.使用注意</h3><p>在指针变量没有指向确定地址之前，不要对它所指的内容赋值。下面的写法是错误的</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
 <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//这是错误的</span>
@@ -582,23 +582,23 @@ p <span class="token operator">=</span> <span class="token operator">&amp;</span
      <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
  <span class="token punctuation">}</span>
 </code></pre>
-<p>输出结果：<br><img src="/Objective-C学习整理/pointer/pointer5.png" alt="pointer5"><br>虽然v1和v2的值被交换了，但是变量a和b的值根本就没有换过来。因为基本数据类型作为函数实参时，只是纯粹地将值传递给形参，形参的改变并不影响实参。<br>我们可以简要分析一下这个过程：</p>
+<p>输出结果：<br><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ck87a0p5j306502q0sv.jpg" alt=""><br>虽然v1和v2的值被交换了，但是变量a和b的值根本就没有换过来。因为基本数据类型作为函数实参时，只是纯粹地将值传递给形参，形参的改变并不影响实参。<br>我们可以简要分析一下这个过程：</p>
 <blockquote>
 <p>在第20行中，将变量a、b的值分别传递给了swap函数的两个形参v1、v2</p>
 </blockquote>
-<p><img src="/Objective-C学习整理/pointer/pointer6.png" alt="pointer6"></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ck8fsp45j309903pwep.jpg" alt=""></p>
 <blockquote>
 <p>在第8行中，将v1的值赋值给了temp</p>
 </blockquote>
-<p><img src="/Objective-C学习整理/pointer/pointer7.png" alt="pointer7"></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ck8yn16rj309j04vdg5.jpg" alt=""></p>
 <blockquote>
 <p>在第9行中，将v2的值赋值给了v1</p>
 </blockquote>
-<p><img src="/Objective-C学习整理/pointer/pointer8.png" alt="pointer8"></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ck97tdx8j309h04lmxg.jpg" alt=""></p>
 <blockquote>
 <p>在第10行中，将temp的值赋值给了v2</p>
 </blockquote>
-<p><img src="/Objective-C学习整理/pointer/pointer9.png" alt="pointer9"></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ckae1y9xj309f04omxg.jpg" alt=""></p>
 <p>就这样，v1和v2的值被交换了，但是a和b的值一直都没有改变</p>
 <p>2&gt; 如果学了指针，就应该这样写</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>v1<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>v2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -627,25 +627,25 @@ p <span class="token operator">=</span> <span class="token operator">&amp;</span
  <span class="token punctuation">}</span>
 </code></pre>
 <p>先看看输出结果：</p>
-<p><img src="/Objective-C学习整理/pointer/pointer0.png" alt="pointer0"><br>变量a和b的值终于换过来了。</p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ckaobv3bj305701fdfq.jpg" alt=""><br>变量a和b的值终于换过来了。</p>
 <font color="red">解释一下：(在16位编译器环境下，一个指针变量占用2个字节)</font>
 
 <blockquote>
 <p>先注意第20行，传递是变量的地址。因此swap函数的形参v1指向了变量a，v2指向了变量b</p>
 </blockquote>
-<p><img src="/Objective-C学习整理/pointer/pointer10.png" alt="pointer10"></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ckawh7plj309d054aae.jpg" alt=""></p>
 <blockquote>
 <p> 第6行代码是取出v1指向的变量的值，也就是变量a的值：10，然后赋值给变量temp</p>
 </blockquote>
-<p><img src="/Objective-C学习整理/pointer/pointer11.png" alt="pointer11"></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ckb39qluj309i05pq3b.jpg" alt=""></p>
 <blockquote>
 <p>第9行代码是取出v2指向的变量(变量b)的值，然后赋值给v1指向的变量(变量a)</p>
 </blockquote>
-<p><img src="/Objective-C学习整理/pointer/pointer12.png" alt="pointer12"></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ckbac3plj309705wq37.jpg" alt=""></p>
 <blockquote>
 <p>第12行代码是将temp变量的值赋值给v2指向的变量(变量b)</p>
 </blockquote>
-<p><img src="/Objective-C学习整理/pointer/pointer13.png" alt="pointer13"><br>相信你已经感受到指针的强大了，如果没有指针，在一个函数的内部根本改变不了外部的实参。</p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ckec7tfgj309b05st90.jpg" alt=""><br>相信你已经感受到指针的强大了，如果没有指针，在一个函数的内部根本改变不了外部的实参。</p>
 <h3 id="2-例子2"><a href="#2-例子2" class="headerlink" title="2.例子2"></a>2.例子2</h3><p>接下来再举一个指针的实用例子。默认情况下，一个函数只能有一个返回值，有了指针，我们可以实现函数有”多返回值”。</p>
 <p>现在有个要求：写一个函数sumAndMinus，可以同时计算2个整型的和与差，函数执行完毕后，返回和与差(注意了，这里要返回2个值)</p>
 <pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 计算2个整型的和与差</span>
@@ -676,13 +676,13 @@ p <span class="token operator">=</span> <span class="token operator">&amp;</span
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>输出结果：<br><img src="/Objective-C学习整理/pointer/pointer16.png" alt="pointer16"><br>和与差都由同一个函数计算并返回出来。和是函数的直接返回值，差是通过函数的第3个指针参数间接返回。因此有了指针，我们可以让函数有”无限个”返回值。</p>
+<p>输出结果：<br><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ckeqmw7xj302101h3yb.jpg" alt=""><br>和与差都由同一个函数计算并返回出来。和是函数的直接返回值，差是通过函数的第3个指针参数间接返回。因此有了指针，我们可以让函数有”无限个”返回值。</p>
 <hr>
 
 <h2 id="六、关于指针的疑问"><a href="#六、关于指针的疑问" class="headerlink" title="六、关于指针的疑问"></a>六、关于指针的疑问</h2><p>刚学完指针，都可能有一大堆的疑惑，这里我列出几个常见的疑惑吧。</p>
 <p><strong> 1.一个指针变量占用多少个字节的内存空间？占用的空间是否会跟随所指向变量的类型而改变？</strong></p>
 <p>在同一种编译器环境下，一个指针变量所占用的内存空间是固定的。比如，在16位编译器环境下，任何一个指针变量都只占用2个字节，并不会随所指向变量的类型而改变。</p>
-<p><img src="/Objective-C学习整理/pointer/pointer14.png" alt="pointer14"><br><strong> 2.既然每个指针变量所占用的内存空间是一样的，而且存储的都是地址，为何指针变量还要分类型？而且只能指向一种类型的变量？比如指向int类型的指针、指向char类型的指针。 </strong></p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ckf0qz17j30ew02cdg4.jpg" alt=""><br><strong> 2.既然每个指针变量所占用的内存空间是一样的，而且存储的都是地址，为何指针变量还要分类型？而且只能指向一种类型的变量？比如指向int类型的指针、指向char类型的指针。 </strong></p>
 <p>其实，我觉得这个问题跟”数组为什么要分类型”是一样的。</p>
 <blockquote>
 <ul>
@@ -708,7 +708,7 @@ p <span class="token operator">=</span> <span class="token operator">&amp;</span
 <p>我们再来看一下输出：<strong> 513 </strong>，c的原值是1，现在取出来却是513，怎么回事呢？这个要根据内存来分析</p>
 <p>根据变量的定义顺序，这些变量在内存中大致如下图排布：</p>
 <p>其中，指针变量p和int类型变量i各占2个字节，char类型的c占一个字节，p指向c，因此p值就是c的地址</p>
-<p><img src="/Objective-C学习整理/pointer/pointer15.png" alt="pointer15"><br>1&gt; 最初的时候，我们用char <em>p指向变量c。当利用</em>p来获取变量c的值时，由于指针p知道变量c是char类型的，所以会从ffc3这个地址开始读取1个字节的数据：0000 0001，转为10进制就是1</p>
+<p><img src="https://ws1.sinaimg.cn/large/007BZ0QOly1g2ckf9hghuj309w04k0t0.jpg" alt=""><br>1&gt; 最初的时候，我们用char <em>p指向变量c。当利用</em>p来获取变量c的值时，由于指针p知道变量c是char类型的，所以会从ffc3这个地址开始读取1个字节的数据：0000 0001，转为10进制就是1</p>
 <p>2&gt; 后来，我们用int <em>p指向变量c。当利用</em>p获取变量c的值时，由于指针p认为变量c是int类型的，所以会从ffc3这个地址开始读取2个字节的数据：0000 0010 0000 0001，转为10进制就是513</p>
 <p>可见，给指针分类是多么重要的一件事，而且一种指针最好只指向一种类型的变量，那是最安全的。</p>
 <hr>
